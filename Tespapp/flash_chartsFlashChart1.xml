@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?> <!--FlashChart Header @2-EFBEC7D5-->
+
+<!--FlashChart Template @2-A448AAD3-->
+<root>
+	<schema name="Autumn">
+		<mask/>
+		<colors/>
+	</schema>
+	<separator decimal="," decimal_chart="," group=""/>
+	<background border="yes"/>
+	<chartarea border="yes">
+		<grid line_style="medium" visible="yes"/>
+		<vertical_axis visible="yes"/>
+		<horizontal_axis visible="yes" rotation="degrees" autoRotate="yes"/>
+		<chart line_thick="2" enabled="yes" type="areas" series="columns">
+			<inscriptions visible="yes"/>
+			<animation type="none"/>
+			<markers size="8" type="0"/>
+			<hints border="yes" enabled="yes"/>
+		</chart>
+		<legend sqr_size="12" sqr_borders="yes" border_thick="0" position="left-center" layout="vertical" visible="yes"/>
+		<title position="top" align="center" border="no" alpha="100" visible="yes" text="Chart Title"/>
+	</chartarea>
+	<objects>
+	</objects>
+	<data>
+		<columns>
+			<column field="col1" name="col1"/>
+			<column field="col2" name="col2"/>
+			<column field="col3" name="col3"/>
+			<column field="col4" name="col4"/>
+		</columns>
+		<rows>
+			<!-- BEGIN Row --><row col1="{col1}" col2="{col2}" col3="{col3}" col4="{col4}" name="{mfi_doc_entered_at}"/><!-- END Row --></rows>
+	</data>
+</root>
+
+<!--End FlashChart Template-->
+

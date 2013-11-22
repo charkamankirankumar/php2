@@ -1,0 +1,69 @@
+/*YahooAutocomplete Style @1-5DA69AD7*/
+.PagePanelmfi_doc_uploadSearchs_file_uploadedYahooAutocomplete1 .yui-ac-container {
+    left: 0;
+}
+.PagePanelmfi_doc_uploadSearchs_file_uploadedYahooAutocomplete1 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.PagePanelmfi_doc_uploadSearchs_file_uploaded_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-CC9D097B*/
+.PagePanelmfi_doc_uploadSearchs_gp_codeYahooAutocomplete2 .yui-ac-container {
+    left: 0;
+}
+.PagePanelmfi_doc_uploadSearchs_gp_codeYahooAutocomplete2 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.PagePanelmfi_doc_uploadSearchs_gp_code_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-A37D3342*/
+.PagePanelmfi_doc_uploadSearchs_batch_codeYahooAutocomplete3 .yui-ac-container {
+    left: 0;
+}
+.PagePanelmfi_doc_uploadSearchs_batch_codeYahooAutocomplete3 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.PagePanelmfi_doc_uploadSearchs_batch_code_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+

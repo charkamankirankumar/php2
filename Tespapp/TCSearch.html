@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::WELCOME CALLS</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/Basic/Style_doctype.css" />
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//ENTER_GP_NOButton_DoSearch_OnClick @4-2D98559C
+function ENTER_GP_NOButton_DoSearch_OnClick()
+{
+    var result = true;
+//End ENTER_GP_NOButton_DoSearch_OnClick
+
+//Custom Code @5-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    var laid=xmlhttp.responseText;
+	document.getElementById("setform").style.display="inline";                      
+    document.getElementById("setform").src="tc_check_new.php?la_id="+laid+"&gp_id="+(document.getElementById("ENTER_GP_NOgp_id").value);
+
+    }
+  }
+  
+xmlhttp.open("GET","tc_select_lano.php?gp_id="+document.getElementById("ENTER_GP_NOgp_id").value,true);
+xmlhttp.send();
+       
+//Close ENTER_GP_NOButton_DoSearch_OnClick @4-BC33A33A
+    return result;
+}
+//End Close ENTER_GP_NOButton_DoSearch_OnClick
+
+//bind_events @1-FA6E93B0
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    addEventHandler("ENTER_GP_NOButton_DoSearch", "click", ENTER_GP_NOButton_DoSearch_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 1250px; PADDING-RIGHT: 5px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; align: center; border-size: 2px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td>
+            <!-- BEGIN Record ENTER_GP_NO -->
+            <form id="ENTER_GP_NO" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>SEARCH GP NO</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+                      </tr>
+ 
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2">{Error}</td> 
+                      </tr>
+ <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="ENTER_GP_NOgp_id">Enter GP No.</label></td> 
+                        <td><input id="ENTER_GP_NOgp_id" name="{gp_id_Name}" value="{gp_id}"></td> 
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="2" align="right">
+                          <!-- BEGIN Button Button_DoSearch --><input id="ENTER_GP_NOButton_DoSearch" class="Button" name="{Button_Name}" alt="Search" value="Search" type="button"><!-- END Button Button_DoSearch --></td> 
+                      </tr>
+ 
+                    </table>
+ </td> 
+                </tr>
+ 
+              </table>
+ 
+            </form>
+ <!-- END Record ENTER_GP_NO --></td> 
+        </tr>
+ 
+        <tr>
+          <td>
+            <table width="100%">
+              <tr>
+                <td nowrap><iframe style="DISPLAY: none" id="setform" height="800" frameborder="0" width="100%" name="setform" marginwidth="0" scrolling="yes" align="center"></iframe></td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+</body>
+</html>

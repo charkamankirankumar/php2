@@ -1,0 +1,377 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script>
+                !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen">
+<link rel="stylesheet" href="style.css">
+<script language="JavaScript" type="text/javascript">
+
+//End Include Common JSFunctions
+
+//PagePanelmfi_docsmfi_doc_region_OnChange @204-5010C198
+function PagePanelmfi_docsmfi_doc_region_OnChange()
+{
+    var result = true;
+//End PagePanelmfi_docsmfi_doc_region_OnChange
+
+//Custom Code @205-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+ 
+//Close PagePanelmfi_docsmfi_doc_region_OnChange @204-BC33A33A
+    return result;
+}
+//End Close PagePanelmfi_docsmfi_doc_region_OnChange
+
+//PagePanelmfi_docs_OnLoad @128-E1B1B587
+function PagePanelmfi_docs_OnLoad(form)
+{
+    var result = true;
+//End PagePanelmfi_docs_OnLoad
+
+//Custom Code @150-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+   /* var myCookie = getCookie("docregion");
+    if (myCookie == null)
+         document.getElementById("mfi_docsImageLink1").click();*/
+                var icode=document.getElementById("PagePanelmfi_docsmfi_doc_path").value+"/"+document.getElementById("PagePanelmfi_docsmfi_doc_filename").value
+                document.getElementById("PagePanelmfi_docsmfi_doc_img").src=icode;
+        updateToTagging();
+                document.getElementById("PagePanelmfi_docsListBox3").focus();
+        //window.setInterval("updateToTagging()", 120000);
+   
+//Close PagePanelmfi_docs_OnLoad @128-BC33A33A
+    return result;
+}
+//End Close PagePanelmfi_docs_OnLoad
+
+//PagePanelmfi_docsButton_Update_OnClick @129-E8057A9A
+function PagePanelmfi_docsButton_Update_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End PagePanelmfi_docsButton_Update_OnClick
+
+//bind_events @1-C2EAA3ED
+function bind_events() {
+    try { incFooter_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    try { incHeader_bind_events(); } catch(e) {}
+    addEventHandler("PagePanelmfi_docsmfi_doc_region", "change", PagePanelmfi_docsmfi_doc_region_OnChange);
+    addEventHandler("PagePanelmfi_docs", "load", PagePanelmfi_docs_OnLoad);
+    addEventHandler("PagePanelmfi_docsButton_Update", "click", PagePanelmfi_docsButton_Update_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script>
+function updateToTagging(){
+        new Ajax.Request( "services/docTaggingUpdatetype.php", {
+          method:  'get',
+          parameters:  { 'mfi_doc_id': document.getElementById("PagePanelmfi_docsmfi_doc_id").value},
+          onSuccess:  function(response){
+                //alert(trim(response.responseText));
+          },
+          onFailure:  function(){
+            alert('Error in updating server for mfi_doc_id:'+document.getElementById("PagePanelmfi_docsmfi_doc_id").value);
+          }
+        });
+}
+function deleteImage()
+{
+document.getElementById("PagePanelmfi_docsmfi_doc_type").value="INVALID IMAGE";
+document.getElementById("PagePanelmfi_docsmfi_doc_status").value="DeletedByUser";
+document.getElementById("PagePanelmfi_docsButton_Update").disabled=false;
+document.getElementById("PagePanelmfi_docsButton_Update").click();
+}
+function trim(text) {
+    return text.replace(/^\s+|\s+$/g, "");
+}
+function ltrim(text) {
+    return text.replace(/^\s+/g, "");
+}
+function rtrim(text) {
+    return text.replace(/\s+$/g, "");
+}
+function setformType(obj)
+{
+document.getElementById("PagePanelmfi_docsmfi_doc_type").value=obj.value;
+}
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+} 
+
+function changeRegion()
+{
+window.open("ChangeRegion.php","_blank","toolbar=no, location=yes, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=200, height=200");
+var rgnname=prompt("Enter Region Name For Dataentry","");
+                 if (rgnname!=null && rgnname!="")
+                 {
+                           switch(rgnname)
+                           {
+                                case "COIMBATORE":
+                                rgncode="RO-TN04-COIMB";
+                                break;
+                                case "HAVERI":
+                                rgncode="RO-KA03-HAVRI";
+                                break;
+                                case "TANJAVUR":
+                                rgncode="RO-TN04-TNJVR";
+                                break;
+                                case "GADAG":
+                                rgncode="RO-KA03-GADAG";
+                                break;
+                                case "NAGAPATTINAM":
+                                rgncode="RO-TN04-NGPTM";
+                                break;
+                                case "DAVANGERE":
+                                rgncode="RO-KA03-DVGRE";
+                                break;
+                                default:
+                                _OnLoad();
+                                break;
+
+                           }
+                        var date = new Date();
+                date.setTime(date.getTime()+(180*60*1000));
+                document.cookie = "docregion="+rgncode+"; expires="+date.toGMTString()+"; path=/";
+                        window.location.reload();
+         }
+}
+$(document).ready(function() {
+                                
+                            $("input#Butt").fancybox({
+                                'width'                         : 400,
+                                'height'                        : 150,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe',
+                                                                'onCleanup' : function() {
+                                                                         window.location.reload(true);}
+                        });
+});
+function chkSurvey()
+{
+var str="Doc_Tagging_Report_Summary.php?mfi_doc_region="+document.getElementById("PagePanelmfi_docsListBox1").value+
+"&batch_code="+document.getElementById("PagePanelmfi_docsbatch_no").value;
+window.open(str,"_blank","toolbar=no, location=yes, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=500, height=400");
+}
+</script>
+<style>
+.normal-text{ 
+  font-family:Tahoma; 
+  font-size:9pt; 
+  background-color:#eeeeee; 
+  border-color:#333333; 
+  border-style:solid; 
+  border-width:1px; 
+  color:#333333; 
+}
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" align="center" valign="top">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-RIGHT: 5px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; align: center; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td align="center">
+            <!-- BEGIN Panel PagePanel -->{incMenu}<br>
+            <br>
+            <!-- BEGIN Record mfi_docs -->
+            <form id="PagePanelmfi_docs" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="th" colspan="2"><strong>{res:mfi_doc_tagging}</strong></td>
+                      </tr>
+ 
+                      <tr>
+                        <td nowrap align="left"><font size="3"><b>Batch No.</b><font color="blue" size="4">{batch_code}</font></font></td> 
+                        <td nowrap align="left"><font size="3"><b>Pending Images:</b> <strong><font color="red" size="4">{Label1}</font></strong></font><font color="red"></font></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0" width="1272">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="3"><font size="2">{Error}</font></td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th" width="200">&nbsp;<img id="PagePanelmfi_docsImage2" onclick="deleteImage();" alt="" src="Styles/SilverBlue/Images/en/ButtonDelete.gif"></td> 
+                        <td width="972">&nbsp;&nbsp;</td> 
+                        <td width="100" align="right"><img id="PagePanelmfi_docsImage1" onclick="location.reload();" alt="" src="Styles/SilverBlue/Images/en/ButtonCancel.gif"></td>
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th" width="200">&nbsp;</td> 
+                        <td width="972">&nbsp;</td> 
+                        <td width="100" align="right"><input type="hidden" id="PagePanelmfi_docsmfi_doc_region" value="{mfi_doc_region}" name="{mfi_doc_region_Name}"></td>
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th" width="200"><label for="PagePanelmfi_docsmfi_doc_code">{res:mfi_doc_number_type}</label></td> 
+                        <td width="972">&nbsp; 
+                          <select id="PagePanelmfi_docsListBox3" onchange="setformType(this);" name="{ListBox3_Name}">
+                            <option selected value="">{res:CCS_SelectValue}</option>
+                            {ListBox3_Options}
+                          </select>
+ <br>
+                          {no_records} <input type="hidden" id="PagePanelmfi_docsmfi_doc_path" value="{mfi_doc_path}" name="{mfi_doc_path_Name}"><input type="hidden" id="PagePanelmfi_docsmfi_doc_filename" value="{mfi_doc_filename}" name="{mfi_doc_filename_Name}"></td> 
+                        <td width="100" align="right">
+                          <!-- BEGIN Button Button_Update --><input type="image" style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px" id="PagePanelmfi_docsButton_Update" value="{res:CCS_Update}" alt="{res:CCS_Update}" src="Styles/SilverBlue/Images/{res:CCS_LanguageID}/ButtonUpdate.gif" name="{Button_Name}"><!-- END Button Button_Update --><input type="hidden" id="PagePanelmfi_docsmfi_doc_territory_code" value="{mfi_doc_territory_code}" name="{mfi_doc_territory_code_Name}"><input type="hidden" id="PagePanelmfi_docsmfi_doc_status" value="{mfi_doc_status}" name="{mfi_doc_status_Name}"><input type="hidden" id="PagePanelmfi_docsmfi_doc_code" value="{mfi_doc_code}" name="{mfi_doc_code_Name}"><input type="hidden" id="PagePanelmfi_docsmfi_doc_tagged_by" value="{mfi_doc_tagged_by}" name="{mfi_doc_tagged_by_Name}"><input type="hidden" id="PagePanelmfi_docsmfi_doc_id" value="{mfi_doc_id}" name="{mfi_doc_id_Name}"><input type="hidden" id="PagePanelmfi_docsmfi_doc_type" value="{mfi_doc_type}" name="{mfi_doc_type_Name}"><input type="hidden" id="PagePanelmfi_docsmfi_doc_tagged_at" value="{mfi_doc_tagged_at}" name="{mfi_doc_tagged_at_Name}"></td>
+                      </tr>
+ 
+                      <tr>
+                        <td><img id="PagePanelmfi_docsmfi_doc_img" border="0" alt="" src="{mfi_doc_img}" width="450" height="600"></td> 
+                        <td valign="top">
+                          <table style="FONT-SIZE: 10pt" border="1" cellspacing="0" cellpadding="0" width="50%">
+                            <tr>
+                              <td><strong>BATCH NO.</strong></td> 
+                              <td><input id="PagePanelmfi_docsbatch_no" value="{batch_no}" readonly name="{batch_no_Name}"></td>
+                            </tr>
+ 
+                            <tr>
+                              <td>TOTAL IMAGES</td> 
+                              <td>&nbsp;{tot_images}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td colspan="2">
+                                <p align="center"><u>Tagged Forms Count</u></p>
+                              </td>
+                            </tr>
+ 
+                            <tr>
+                              <td>CP</td> 
+                              <td>&nbsp;{ncp}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td>GP</td> 
+                              <td>&nbsp;{ngp}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td>GLE</td> 
+                              <td>&nbsp;{ngle}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td>LA1</td> 
+                              <td>&nbsp;{nla1}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td>LA2</td> 
+                              <td>&nbsp;{nla2}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td>HV1</td> 
+                              <td>&nbsp;{nhv1}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td>HV2</td> 
+                              <td>&nbsp;{nhv2}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td nowrap>INVALID IMAGES</td> 
+                              <td>&nbsp;{nii}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td nowrap align="right">Total&nbsp;</td> 
+                              <td>&nbsp;{tot_img}</td>
+                            </tr>
+ 
+                            <tr>
+                              <td colspan="2" nowrap align="right">
+                                <p align="center">Region Wise Summary&nbsp;&nbsp;</p>
+                              </td>
+                            </tr>
+ 
+                            <tr>
+                              <td nowrap align="right">Select Region&nbsp;</td> 
+                              <td>
+                                <select id="PagePanelmfi_docsListBox1" name="{ListBox1_Name}">
+                                  <option selected value="">{res:CCS_SelectValue}</option>
+                                  {ListBox1_Options}
+                                </select>
+ </td>
+                            </tr>
+ 
+                            <tr>
+                              <td nowrap align="right">&nbsp;</td> 
+                              <td>
+                                <!-- BEGIN Button Button2 --><input type="button" id="PagePanelmfi_docsButton2" class="Button" onclick="chkSurvey();" value="Region Wise Summary" alt="Button2" name="{Button_Name}"><!-- END Button Button2 --></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+ 
+                <tr>
+                  <td>
+                    <!-- BEGIN Button Button1 --><input type="submit" id="PagePanelmfi_docsButton1" class="Button" value="Button1" alt="Button1" name="{Button_Name}"><!-- END Button Button1 --></td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record mfi_docs --><br>
+            <!-- END Panel PagePanel --></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

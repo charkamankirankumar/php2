@@ -1,0 +1,470 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_Components_doctype.css">
+<link rel="stylesheet" type="text/css" href="mybuttons.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+function runcb(obj)
+{
+    var num=(obj.id).substring(30);
+    var fname=document.getElementById("fname_"+num).innerHTML;
+    var stus=document.getElementById("stus_"+num).innerHTML;
+    var reptcnt=document.getElementById("rept_"+num).innerHTML;
+    var user=document.getElementById("mfi_fileupload1mfi_uploaded_by").value;
+	if(stus=="COMPLETED")
+	{
+		alert("cb run was already completed for this file");
+	}
+	else
+	{
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                document.getElementById("cbres_"+num).innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","runcb.php?fname="+fname+"&user="+user+"&recnt="+reptcnt,true);
+        xmlhttp.send();
+	}
+}
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-A226B772
+
+var cb_response_uploadSearch_DatePicker_s_mfi_uploaded_on = new Object(); 
+cb_response_uploadSearch_DatePicker_s_mfi_uploaded_on.format           = "yyyy-mm-dd";
+cb_response_uploadSearch_DatePicker_s_mfi_uploaded_on.style            = "Styles/SilverBlue/Style.css";
+cb_response_uploadSearch_DatePicker_s_mfi_uploaded_on.relativePathPart = "";
+cb_response_uploadSearch_DatePicker_s_mfi_uploaded_on.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//mfi_fileupload1_OnLoad @41-F88CE389
+function mfi_fileupload1_OnLoad(form)
+{
+    var result = true;
+//End mfi_fileupload1_OnLoad
+
+//Custom Code @59-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+//alert("fup1");
+//Close mfi_fileupload1_OnLoad @41-BC33A33A
+    return result;
+}
+//End Close mfi_fileupload1_OnLoad
+
+//DEL      // -------------------------
+//DEL      alert('hi');
+//DEL      var num=this.id;
+//DEL   alert(num);
+//DEL      var fname=document.getElementById().value;
+//DEL      // -------------------------
+
+//cb_response_uploadSearchButton_DoSearch_OnClick @72-5773D9ED
+function cb_response_uploadSearchButton_DoSearch_OnClick()
+{
+    var result = true;
+//End cb_response_uploadSearchButton_DoSearch_OnClick
+
+//Custom Code @104-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close cb_response_uploadSearchButton_DoSearch_OnClick @72-BC33A33A
+    return result;
+}
+//End Close cb_response_uploadSearchButton_DoSearch_OnClick
+
+//alert("search");
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @58-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//alert("_onload");
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//bind_events @1-70F85DEE
+function bind_events() {
+    if (functionExists("incHeader_bind_events")) incHeader_bind_events();
+    if (functionExists("incFooter_bind_events")) incFooter_bind_events();
+   
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script type="text/javascript">
+      function fileSelected() {
+        var file = document.getElementById('fileToUpload').files;
+       // alert(file.length+" is length");
+        var list = document.getElementById('fileName');
+                //empty list for now...
+                list.innerHTML="";
+                //for every file...
+                for (var x = 0; x <file.length; x++)
+                list.innerHTML += x+1+ '.' +file[x].name+"</br>";
+             }
+
+      function uploadFile() {
+                                
+                var inpl=document.getElementById('fileToUpload').files;
+        //alert(inpl.length);
+        //      
+            for(var x=0;x<inpl.length;x++)
+        {
+                var filename=document.getElementById('fileToUpload').files[x].name;
+                
+                document.getElementById("mfi_fileupload1file_name").value=filename;
+        var fd = new FormData();
+        fd.append("uploaded_by_name",document.getElementById("mfi_fileupload1mfi_uploaded_by").value);
+        var inp=document.getElementById('fileToUpload').files[x];
+        fd.append("fileToUpload"+x,inp);
+                sendajax(fd);
+              }
+        }
+                function sendajax(fd){
+                var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", uploadProgress, false);
+        xhr.addEventListener("load", uploadComplete, false);
+        xhr.addEventListener("error", uploadFailed, false);
+        xhr.addEventListener("abort", uploadCanceled, false);
+        xhr.open("POST", "satxmlupload.php");
+        xhr.send(fd);
+      }
+
+      function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+          document.getElementById('progressNumber').innerHTML ="UPLOAD in Progess Please Wait";
+          }
+        else {
+          document.getElementById('progressNumber').innerHTML = 'unable to compute';
+        }
+      }
+
+      function uploadComplete(evt) {
+        /* This event is raised when the server send back a response */
+                document.getElementById('progressNumber').innerHTML ="Uploaded Successfully";
+        document.getElementById("no_file").innerHTML+=evt.target.responseText;
+                document.getElementById("mfi_fileupload1Button_Insert").click();
+
+      }
+
+      function uploadFailed(evt) {
+        alert("There was an error attempting to upload the file.");
+      }
+
+      function uploadCanceled(evt) {
+        alert("The upload has been canceled by the user or the browser dropped the connection.");
+      }
+    </script>
+<style>
+.upload-button {
+    display:block; /* or inline-block */
+    width: 105px;text-align:center;    
+    background:#1c415e; border-bottom:1px solid #ddd;color:#fff;
+}
+.upload-button:hover {background:#cc0000;}
+.qq-upload-button:focus {outline:1px dotted black;}
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-RIGHT: 5px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-RIGHT: 5px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; align: center; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td>
+            <table border="0" width="100%" align="left">
+              <tr>
+                <td align="center">{incMenu}</td>
+              </tr>
+ 
+              <tr>
+                <td>
+                  <!-- BEGIN Record mfi_fileupload1 -->
+                  <form id="mfi_fileupload1" method="post" name="{HTMLFormName}" action="{Action}">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top">
+                          <table class="HeaderSilverBlue" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td class="HeaderLeftSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                              <td class="thSilverBlue"><strong>{res:CCS_RecordFormPrefix} {res:mfi_fileupload} {res:CCS_RecordFormSuffix}</strong></td> 
+                              <td class="HeaderRightSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                            </tr>
+                          </table>
+ 
+                          <table class="RecordSilverBlue" cellspacing="0" cellpadding="0">
+                            <!-- BEGIN Error -->
+                            <tr class="ErrorSilverBlue">
+                              <td colspan="2"><font size="2">{Error}</font></td>
+                            </tr>
+                            <!-- END Error -->
+                            <tr class="ControlsSilverBlue">
+                              <td class="thSilverBlue"><label for="fileToUpload">Select &nbsp;Files to Upload</label></td> 
+                              <td>
+                                <table border="0">
+                                  <tr>
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        <input type="file" id="fileToUpload" onchange="fileSelected()" accept="text/xml" name="fileToUpload" multiple>
+                                      </div>
+                                    </td> 
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        <input type="button" class="learn-more" onclick="uploadFile()" value="Upload Files">
+                                      </div>
+ 
+                                      <div id="progressNumber">
+                                      </div>
+                                    </td>
+                                  </tr>
+ 
+                                  <tr>
+                                    <td>
+                                      <div id="fileName">
+                                      </div>
+                                    </td> 
+                                    <td>
+                                      <ol id="no_file">
+                                      </ol>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+ 
+                            <tr class="ControlsSilverBlue">
+                              <td class="thSilverBlue"><label for="mfi_fileupload1mfi_no_files">&nbsp;</label></td> 
+                              <td></td>
+                            </tr>
+ 
+                            <tr class="BottomSilverBlue">
+                              <td colspan="2" align="right"><input type="hidden" id="mfi_fileupload1file_name" value="{file_name}" name="{file_name_Name}"><input type="hidden" id="mfi_fileupload1mfi_uploaded_by" value="{mfi_uploaded_by}" name="{mfi_uploaded_by_Name}">
+                                <!-- BEGIN Button Button_Insert --><input type="image" style="DISPLAY: none" id="mfi_fileupload1Button_Insert" value="{res:CCS_Insert}" alt="{res:CCS_Insert}" src="Styles/SilverBlue/Images/en/ButtonInsert.gif" name="{Button_Name}"><!-- END Button Button_Insert --></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                  <!-- END Record mfi_fileupload1 --></td>
+              </tr>
+ 
+              <tr>
+                <td>
+                  <!-- BEGIN Record cb_response_uploadSearch -->
+                  <form id="cb_response_uploadSearch" method="post" name="{HTMLFormName}" action="{Action}">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top">
+                          <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                              <td class="th"><strong>{res:CCS_SearchFormPrefix} {res:cb_response_upload} {res:CCS_SearchFormSuffix}</strong></td> 
+                              <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                            </tr>
+                          </table>
+ 
+                          <table class="Record" cellspacing="0" cellpadding="0">
+                            <!-- BEGIN Error -->
+                            <tr class="Error">
+                              <td colspan="2"><font size="2">{Error}</font></td>
+                            </tr>
+                            <!-- END Error -->
+                            <tr class="Controls">
+                              <td class="th"><label for="cb_response_uploadSearchs_mfi_file_name">{res:mfi_file_name}</label></td> 
+                              <td><input id="cb_response_uploadSearchs_mfi_file_name" value="{s_mfi_file_name}" maxlength="60" size="50" name="{s_mfi_file_name_Name}"></td>
+                            </tr>
+ 
+                            <tr class="Controls">
+                              <td class="th"><label for="cb_response_uploadSearchs_mfi_uploaded_by">{res:mfi_uploaded_by}</label></td> 
+                              <td><input id="cb_response_uploadSearchs_mfi_uploaded_by" value="{s_mfi_uploaded_by}" maxlength="50" size="50" name="{s_mfi_uploaded_by_Name}"></td>
+                            </tr>
+ 
+                            <tr class="Controls">
+                              <td class="th"><label for="cb_response_uploadSearchs_mfi_uploaded_on">{res:mfi_uploaded_on}</label></td> 
+                              <td><input id="cb_response_uploadSearchs_mfi_uploaded_on" value="{s_mfi_uploaded_on}" maxlength="100" size="10" name="{s_mfi_uploaded_on_Name}">
+                                <!-- BEGIN DatePicker DatePicker_s_mfi_uploaded_on --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="cb_response_uploadSearchDatePicker_s_mfi_uploaded_on"><img id="cb_response_uploadSearchDatePicker_s_mfi_uploaded_on_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_s_mfi_uploaded_on --></td>
+                            </tr>
+ 
+                            <tr class="Controls">
+                              <td class="th"><label for="cb_response_uploadSearchs_cb_analysis_status">{res:cb_analysis_status}</label></td> 
+                              <td><input id="cb_response_uploadSearchs_cb_analysis_status" value="{s_cb_analysis_status}" maxlength="9" size="9" name="{s_cb_analysis_status_Name}"></td>
+                            </tr>
+ 
+                            <tr class="Controls">
+                              <td class="th"><label for="cb_response_uploadSearchcb_response_uploadDirOrder">{res:CCS_SortBy}</label></td> 
+                              <td>
+                                <select id="cb_response_uploadSearchcb_response_uploadDirOrder" name="cb_response_uploadOrder">
+                                  {cb_response_uploadOrder_Options}
+                                </select>
+ <label for="cb_response_uploadSearchcb_response_uploadDirDir" style="display: none;">{res:CCS_SortDir}</label> 
+                                <select id="cb_response_uploadSearchcb_response_uploadDirDir" name="cb_response_uploadDir">
+                                  {cb_response_uploadDir_Options}
+                                </select>
+ </td>
+                            </tr>
+ 
+                            <tr class="Controls">
+                              <td class="th"><label for="cb_response_uploadSearchcb_response_uploadPageSize">{res:CCS_RecPerPage}</label></td> 
+                              <td>
+                                <select id="cb_response_uploadSearchcb_response_uploadPageSize" name="{cb_response_uploadPageSize_Name}">
+                                  {cb_response_uploadPageSize_Options}
+                                </select>
+ </td>
+                            </tr>
+ 
+                            <tr class="Bottom">
+                              <td colspan="2" align="right">
+                                <!-- BEGIN Button Button_DoSearch --><input type="image" id="cb_response_uploadSearchButton_DoSearch" value="{res:CCS_Search}" alt="{res:CCS_Search}" src="Styles/SilverBlue/Images/en/ButtonUpdate.gif" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                  <!-- END Record cb_response_uploadSearch --><br>
+                  <!-- BEGIN Grid cb_response_upload -->
+                  <table border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td valign="top">
+                        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                            <td class="th"><strong>{res:CCS_GridFormPrefix} {res:cb_response_upload} {res:CCS_GridFormSuffix}</strong></td> 
+                            <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                          </tr>
+                        </table>
+ 
+                        <table class="Grid" cellspacing="0" cellpadding="0">
+                          <tr class="Row">
+                            <td colspan="5">{res:CCS_TotalRecords}&nbsp;{cb_response_upload_TotalRecords}</td>
+                          </tr>
+ 
+                          <tr class="Caption">
+                            <th scope="col">
+                            <!-- BEGIN Sorter Sorter_mfi_file_name --><a href="{Sort_URL}" id="cb_response_uploadSorter_mfi_file_name">FILE-NAME</a> 
+                            <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                            <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_file_name --></th>
+ 
+                            <th scope="col">
+                            <!-- BEGIN Sorter Sorter_mfi_territorycode --><a href="{Sort_URL}" id="cb_response_uploadSorter_mfi_territorycode">RESPONES-COUNT</a> 
+                            <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                            <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_territorycode --></th>
+ 							 <td>Report Count</td> 
+                            <th scope="col">
+                            <!-- BEGIN Sorter Sorter_mfi_uploaded_by --><a href="{Sort_URL}" id="cb_response_uploadSorter_mfi_uploaded_by">{res:mfi_uploaded_by}</a> 
+                            <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                            <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_uploaded_by --></th>
+ 
+                            <th scope="col">
+                            <!-- BEGIN Sorter Sorter_mfi_uploaded_on --><a href="{Sort_URL}" id="cb_response_uploadSorter_mfi_uploaded_on">{res:mfi_uploaded_on}</a> 
+                            <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                            <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_uploaded_on --></th>
+ 
+                            <th scope="col">
+                            <!-- BEGIN Sorter Sorter_cb_analysis_status --><a href="{Sort_URL}" id="cb_response_uploadSorter_cb_analysis_status">{res:cb_analysis_status}</a> 
+                            <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                            <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_cb_analysis_status --></th>
+                          	<th>run analysis</th>
+                          </tr>
+ 
+                          <!-- BEGIN Row -->
+                         <tr {cb_response_upload:rowStyle}>
+						  <td id="fname_{cb_response_upload:rowNumber}">{mfi_file_name}</td> 
+						  <td>{response_count}&nbsp;</td> 
+						  <td id="rept_{cb_response_upload:rowNumber}">{report_cnt}</td> 
+						  <td>{mfi_uploaded_by}&nbsp;</td> 
+						  <td>{mfi_uploaded_on}&nbsp;</td> 
+						  <td id="stus_{cb_response_upload:rowNumber}">{cb_analysis_status}</td> 
+						  <td>
+						    <!-- BEGIN Button cb_analysis --><input type="button" id="cb_response_uploadcb_analysis_{cb_response_upload:rowNumber}" class="Button" onclick="runcb(this);" value="RunCbAnalysis" alt="Button1" name="{Button_Name}"><!-- END Button cb_analysis -->
+						    <div id="cbres_{cb_response_upload:rowNumber}">
+						    </div>
+						 </td> 
+						</tr>
+
+ <!-- END Row -->
+                          <!-- BEGIN NoRecords -->
+                          <tr class="NoRecords">
+                            <td colspan="5">{res:CCS_NoRecords}</td>
+                          </tr>
+                          <!-- END NoRecords -->
+                          <tr class="Footer">
+                            <td colspan="5">
+                              <!-- BEGIN Navigator Navigator -->
+                              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+                              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                                <option selected value="">-</option>
+ {PageSize_Options}
+                              </select>
+ 
+                              <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+                              <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                              <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+                              <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                              <!-- BEGIN Pages -->
+                              <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                              <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                              <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+                              <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                              <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+                              <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- END Grid cb_response_upload --><br>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

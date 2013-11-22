@@ -1,0 +1,1035 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_Components_doctype.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/grid.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/external/jquery-ui-1.9.1.custom.css">
+<link rel="stylesheet" href="css/external/jquery.chosen.css">
+<link rel="stylesheet" href="css/external/jquery.cleditor.css">
+<link rel="stylesheet" href="css/external/jquery.colorpicker.css">
+<link rel="stylesheet" href="css/external/jquery.elfinder.css">
+<link rel="stylesheet" href="css/external/jquery.fancybox.css">
+<link rel="stylesheet" href="css/external/jquery.jgrowl.css">
+<link rel="stylesheet" href="css/external/jquery.plupload.queue.css">
+<link rel="stylesheet" href="css/external/syntaxhighlighter/shCore.css">
+<link rel="stylesheet" href="css/external/syntaxhighlighter/shThemeDefault.css">
+<!-- Elements -->
+<link rel="stylesheet" href="css/elements.css">
+<link rel="stylesheet" href="css/forms.css">
+<!-- OPTIONAL: Print Stylesheet for Invoice -->
+<link rel="stylesheet" href="css/print-invoice.css">
+<!-- Typographics -->
+<link rel="stylesheet" href="css/typographics.css">
+<!-- Responsive Design -->
+<link rel="stylesheet" href="css/media-queries.css">
+<!-- Bad IE Styles -->
+<link rel="stylesheet" href="css/ie-fixes.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-B884FA9D
+</script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/scriptaculous.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/controls.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="manageFileUpload_old_style.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//Date Picker Object Definitions @1-49320D4E
+
+var mfi_fileupload1_DatePicker_ListBox6 = new Object(); 
+mfi_fileupload1_DatePicker_ListBox6.format           = "yyyy-mm-dd";
+mfi_fileupload1_DatePicker_ListBox6.style            = "Styles/SilverBlue/Style.css";
+mfi_fileupload1_DatePicker_ListBox6.relativePathPart = "";
+mfi_fileupload1_DatePicker_ListBox6.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//mfi_fileupload1mfi_territorycode_OnLoad @44-E854B146
+function mfi_fileupload1mfi_territorycode_OnLoad()
+{
+    var result = true;
+//End mfi_fileupload1mfi_territorycode_OnLoad
+
+//Custom Code @57-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close mfi_fileupload1mfi_territorycode_OnLoad @44-BC33A33A
+    return result;
+}
+//End Close mfi_fileupload1mfi_territorycode_OnLoad
+
+//mfi_fileupload1Region_OnChange @5-61E28DFC
+function mfi_fileupload1Region_OnChange()
+{
+    var result = true;
+//End mfi_fileupload1Region_OnChange
+
+//Custom Code @50-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+alert(document.getElementById("mfi_fileupload1Region").value);
+document.getElementById("mfi_fileupload1mfi_territorycode").value=document.getElementById("mfi_fileupload1Region").value;
+//Close mfi_fileupload1Region_OnChange @5-BC33A33A
+    return result;
+}
+//End Close mfi_fileupload1Region_OnChange
+
+//mfi_fileupload1new_cp_id_OnChange @158-3842A4E2
+function mfi_fileupload1new_cp_id_OnChange()
+{
+    var result = true;
+//End mfi_fileupload1new_cp_id_OnChange
+
+//Custom Code @168-2A29BDB7
+    // -------------------------
+    var cp_id=document.getElementById("mfi_fileupload1new_cp_id").value;
+        if(cp_id.length==7)
+        {
+                var state=cp_id.substr(0,2).toUpperCase();
+                if(state=="KA" || state=="TN")
+                {
+                        if(!(cp_id.substr(2).match(/^[0-9]+$/)))
+                        {
+                                alert("PLEASE GIVE CORRECT CP ID");
+                                document.getElementById("mfi_fileupload1new_cp_id").value='';
+                        document.getElementById("mfi_fileupload1new_cp_id").focus();
+                        }
+                        else
+                                document.getElementById("mfi_fileupload1Button1").disabled = false;
+                }       
+                else
+                {
+                        alert("CP ID SHOULD START WITH KA OR TN");
+                        document.getElementById("mfi_fileupload1new_cp_id").value='';
+                document.getElementById("mfi_fileupload1new_cp_id").focus();
+                }
+        }
+        else
+        {
+                alert("enter correct cp id");
+                document.getElementById("mfi_fileupload1new_cp_id").value='';
+                document.getElementById("mfi_fileupload1new_cp_id").focus();
+        }
+    // -------------------------
+//End Custom Code
+
+//Close mfi_fileupload1new_cp_id_OnChange @158-BC33A33A
+    return result;
+}
+//End Close mfi_fileupload1new_cp_id_OnChange
+
+//mfi_fileupload1_OnLoad @41-F88CE389
+function mfi_fileupload1_OnLoad(form)
+{
+    var result = true;
+//End mfi_fileupload1_OnLoad
+
+//Custom Code @59-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+//alert("fup1");
+//Close mfi_fileupload1_OnLoad @41-BC33A33A
+    return result;
+}
+//End Close mfi_fileupload1_OnLoad
+
+//mfi_fileuploadSearch_OnLoad @16-D06590BF
+function mfi_fileuploadSearch_OnLoad(form)
+{
+    var result = true;
+//End mfi_fileuploadSearch_OnLoad
+
+//Custom Code @63-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+//alert("search");
+//Close mfi_fileuploadSearch_OnLoad @16-BC33A33A
+    return result;
+}
+//End Close mfi_fileuploadSearch_OnLoad
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @58-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+//alert("_onload");
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//mfi_fileupload1RegionPTDependentListBox1 Start @52-8E55F1DE
+function mfi_fileupload1RegionPTDependentListBox1_start(sender) {
+    if (!sender) return;
+    var dependentElement = $("mfi_fileupload1Region" + sender.id.substring(29));
+    if (!dependentElement) return;
+    var selected = null;
+    if (addEventHandler.isOnLoad) {
+        if (dependentElement.multiple) {
+            selected = [];
+            for (var i = 0; i < dependentElement.options.length; i++)
+                if (dependentElement.options[i].selected)
+                    selected[dependentElement.options[i].value] = true;
+        }
+        else
+            selected = dependentElement.value;
+    }
+    new Ajax.Request("services/manageFileUpload_mfi_fileupload1_Region_PTDependentListBox1.php?keyword=" + sender.value, {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+            for (var i = dependentElement.options.length - 1; i >= 0; i--) {
+                var currentOption = dependentElement.options.item(i);
+                if (currentOption.value != "") {
+                    dependentElement.remove(i);
+                }
+            }
+            var valueRows = eval(transport.responseText);
+            for (var i = 0; i < valueRows.length; i++) {
+                var newOption = new Option(valueRows[i]["1"], valueRows[i]["0"]);
+                dependentElement.options[dependentElement.options.length] = newOption;
+            } 
+            if (CCGetParam(sender.name) == sender.value) {
+                dependentElement.value = CCGetParam(dependentElement.name);
+            }
+            if (selected) {
+                if (dependentElement.multiple) {
+                    for (var i = 0; i < dependentElement.options.length; i++)
+                        if (selected[dependentElement.options[i].value])
+                            dependentElement.options[i].selected = true;
+                }
+                else
+                    dependentElement.value = selected;
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End mfi_fileupload1RegionPTDependentListBox1 Start
+
+//mfi_fileupload1ListBox7PTDependentListBox4 Start @147-6D7F1618
+function mfi_fileupload1ListBox7PTDependentListBox4_start(sender) {
+    if (!sender) return;
+    var dependentElement = $("mfi_fileupload1ListBox7" + sender.id.substring(23));
+    if (!dependentElement) return;
+    var selected = null;
+    if (addEventHandler.isOnLoad) {
+        if (dependentElement.multiple) {
+            selected = [];
+            for (var i = 0; i < dependentElement.options.length; i++)
+                if (dependentElement.options[i].selected)
+                    selected[dependentElement.options[i].value] = true;
+        }
+        else
+            selected = dependentElement.value;
+    }
+    new Ajax.Request("services/manageFileUpload_mfi_fileupload1_ListBox4_PTDependentListBox1.php?keyword=" + sender.value, {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+            for (var i = dependentElement.options.length - 1; i >= 0; i--) {
+                var currentOption = dependentElement.options.item(i);
+                if (currentOption.value != "") {
+                    dependentElement.remove(i);
+                }
+            }
+            var valueRows = eval(transport.responseText);
+            for (var i = 0; i < valueRows.length; i++) {
+                var newOption = new Option(valueRows[i]["1"], valueRows[i]["0"]);
+                dependentElement.options[dependentElement.options.length] = newOption;
+            } 
+            if (CCGetParam(sender.name) == sender.value) {
+                dependentElement.value = CCGetParam(dependentElement.name);
+            }
+            if (selected) {
+                if (dependentElement.multiple) {
+                    for (var i = 0; i < dependentElement.options.length; i++)
+                        if (selected[dependentElement.options[i].value])
+                            dependentElement.options[i].selected = true;
+                }
+                else
+                    dependentElement.value = selected;
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End mfi_fileupload1ListBox7PTDependentListBox4 Start
+
+//PTAutoFill1 Loading @162-1131A903
+function mfi_fileupload1cp_idPTAutoFill1_start(sender) {
+        
+    if (!sender) return;
+    new Ajax.Request("services/manageFileUpload_mfi_fileupload1_cp_id_PTAutoFill1.php?keyword=" + encodeURIComponent(sender.value).replace(/'/g, "%27"), {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+        
+            var valuesRow = eval(transport.responseText)[0];
+            if (typeof(valuesRow) != "undefined") {
+                getSameLevelCtl("mfi_fileupload1center_name", sender).value = valuesRow["cp_name"];
+                document.getElementById("uploadgps").style.display='';
+            } else {
+                getSameLevelCtl("mfi_fileupload1center_name", sender).value = "";
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End PTAutoFill1 Loading
+
+//Initialize mfi_fileupload1cp_idPTAutocomplete1 @161-93900FE9
+function mfi_fileupload1cp_idPTAutocomplete1_start() {
+    if (document.findElementById("mfi_fileupload1cp_id"))
+        new Ajax.Autocompleter(document.findElementById("mfi_fileupload1cp_id"), "mfi_fileupload1cp_id_choices", "services/manageFileUpload_mfi_fileupload1_cp_id_PTAutocomplete1.php", {});
+}
+//End Initialize mfi_fileupload1cp_idPTAutocomplete1
+
+//bind_events @1-70F85DEE
+function bind_events() {
+    if (functionExists("incHeader_bind_events")) incHeader_bind_events();
+    if (functionExists("incFooter_bind_events")) incFooter_bind_events();
+    addEventHandler("mfi_fileupload1State_Division", "change", mfi_fileupload1RegionPTDependentListBox1_start);
+    
+addEventHandler("mfi_fileupload1Region", "change", mfi_fileupload1Region_OnChange);
+addEventHandler("mfi_fileupload1cp_id", "blur", mfi_fileupload1cp_idPTAutoFill1_start);
+
+mfi_fileupload1cp_idPTAutocomplete1_start();
+addEventHandler("mfi_fileupload1new_cp_id", "change", mfi_fileupload1new_cp_id_OnChange);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script type="text/javascript">
+var len=0;
+var btch=0;
+function cpupload()
+{
+        document.getElementById("mfi_fileupload1Button1").disabled = true;
+        if(document.getElementById("cpfiletoupload").files.length>0)
+        {
+                if(document.getElementById("cpfiletoupload").files.length==1)
+                {
+                    if((document.getElementById("mfi_fileupload1new_cp_name").value).length==0)
+                    {
+                            alert("Enter Center Name");
+                            document.getElementById("mfi_fileupload1new_cp_name").focus();  
+                    }
+                    if((document.getElementById("mfi_fileupload1new_cp_id").value).length==0)
+                    {
+                            alert("Enter Center id");
+                            document.getElementById("mfi_fileupload1new_cp_id").focus();  
+                    }
+                    var fd = new FormData();
+                        fd.append("udirect",document.getElementById("mfi_fileupload1mfi_territorycode").value);
+                        fd.append("batcode",btch);
+                        fd.append("cpname",document.getElementById("mfi_fileupload1new_cp_name").value);
+                        fd.append("cpid",document.getElementById("mfi_fileupload1new_cp_id").value);            
+            fd.append("fileToUpload",document.getElementById("cpfiletoupload").files[0]);
+                fd.append("updby",document.getElementById("mfi_fileupload1mfi_uploaded_by").value);
+                fd.append("filetyp","cp");
+                        fd.append("gpcode",0);  
+            cpsendajax(fd);
+                }
+                else
+                        alert("select only one file");
+        }
+        else
+                alert("select file");
+}
+function cpsendajax(fd)
+{
+        var xhr = new XMLHttpRequest();
+    xhr.upload.addEventListener("progress", cpuploadProgress, false);
+    xhr.addEventListener("load", cpuploadComplete, false);
+    xhr.addEventListener("error", uploadFailed, false);
+    xhr.addEventListener("abort", uploadCanceled, false);
+    xhr.open("POST", "satajup.php");
+        xhr.send(fd);
+}
+function cpuploadProgress(evt) 
+{
+        if (evt.lengthComputable) 
+        {
+        var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+        document.getElementById('cp_progress_no').innerHTML ="UPLOADED "+percentComplete.toString() + '%';
+        if(percentComplete==100)
+                document.getElementById('mfi_fileupload1mfi_no_files').value=1;
+    }
+    else 
+    {
+        document.getElementById('cp_progress_no').innerHTML = 'unable to compute';
+    }
+}
+
+function cpuploadComplete(evt) 
+{
+ /* This event is raised when the server send back a response */
+        var retobj ='';
+         retobj=(JSON.parse(evt.target.responseText));
+    //alert(retobj[0]);
+    //alert(retobj[0][1]);
+    //retobj=JSON.parse(evt.target.responseText);
+    //alert(retobj[0]);
+    document.getElementById("cp_no_file").innerHTML+="<li>"+retobj[1]+"</li>";
+    document.getElementById('cp_progress_no').innerHTML="<br>"+retobj[0];
+}
+// to upload new file
+      function uploadFile() {
+            document.getElementById("fupdbtn").disabled=true;
+        document.getElementById("no_file").innerHTML="";
+                       var list = document.getElementById('fileName');
+                   list.innerHTML="";
+           //alert(inpl.length);
+                   len=0;
+                   for(var l=1;l<=5;l++)
+                   {
+                        if(document.getElementById('fileToUpload'+l).files.length>0)
+                        len++;
+
+                   }
+                   for(var x=1;x<=len;x++)
+           {
+                var fd = new FormData();
+                                fd.append("udirect",document.getElementById("mfi_fileupload1mfi_territorycode").value);
+                fd.append("gpname",document.getElementById("mfi_fileupload1gpname"+x).value);
+                                var gsz=document.getElementById("mfi_fileupload1gpsize"+x).value;
+                                if(!isNaN(gsz)&& (gsz>=3 && gsz<=10))
+                fd.append("gpsize",document.getElementById("mfi_fileupload1gpsize"+x).value);
+                                else
+                                {
+                                        alert(gsz+" is not a valid GP size");
+                                        document.getElementById("mfi_fileupload1gpsize"+x).value="";
+                                        document.getElementById("mfi_fileupload1gpsize"+x).focus();
+                                        document.getElementById("fupdbtn").disabled=false;
+                                        break;
+                                }
+               
+                                fd.append("fileToUpload"+x,document.getElementById("fileToUpload"+x).files[0]);
+                                list.innerHTML += x+ '.' +document.getElementById("fileToUpload"+x).files[0].name+"</br>";
+                fd.append("updby",document.getElementById("mfi_fileupload1mfi_uploaded_by").value);
+           fd.append("filetyp","new");
+           fd.append("cpid",document.getElementById("mfi_fileupload1cp_id").value);
+           fd.append("cpname",document.getElementById("mfi_fileupload1center_name").value);
+           fd.append("ext",document.getElementById("mfi_fileupload1form_extn").value);
+                sendajax(fd);
+            }
+
+        }
+                function uploadERRFile(btc,gpc,et,upd,obj) {
+                               
+            obj.disabled=true;
+                var fd = new FormData();
+                fd.append("udirect",document.getElementById("mfi_fileupload1mfi_territorycode").value);
+                fd.append("batcode",btc);
+                fd.append("fileToUpload",document.getElementById(upd).files[0]);
+                                fd.append("gpcode",document.getElementById("mfi_fileupload1ListBox5").value);
+                fd.append("updby",document.getElementById("mfi_fileupload1mfi_uploaded_by").value);
+                fd.append("filetyp",et);
+                senderrajax(fd);
+       }
+                 function senderrajax(fd){
+                var xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", euploadComplete, false);
+        xhr.open("POST", "satajup.php");
+        xhr.send(fd);
+      }
+                function sendajax(fd){
+                        
+                var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", uploadProgress, false);
+        xhr.addEventListener("load", uploadComplete, false);
+        xhr.addEventListener("error", uploadFailed, false);
+        xhr.addEventListener("abort", uploadCanceled, false);
+        xhr.open("POST", "satajup.php");
+               
+        xhr.send(fd);
+       
+      }
+
+      function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+          var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+          document.getElementById('progressNumber').innerHTML ="UPLOADED "+percentComplete.toString() + '%';
+                  if(percentComplete==100)
+                   document.getElementById('mfi_fileupload1mfi_no_files').value=len;
+        }
+        else {
+          document.getElementById('progressNumber').innerHTML = 'unable to compute';
+        }
+      }
+
+      function uploadComplete(evt) {
+        /* This event is raised when the server send back a response */
+                var retobj = new Array();
+                retobj=JSON.parse(evt.target.responseText);
+                document.getElementById("no_file").innerHTML+="<li>"+retobj[1]+"</li>";
+        document.getElementById('progressNumber').innerHTML="<br>"+retobj[0];
+
+
+      }
+          function euploadComplete(evt) {
+           alert("reached");
+                  var retobj = new Array();
+                  alert(evt.target.responseText);
+                retobj=JSON.parse(evt.target.responseText);
+        /* This event is raised when the server send back a response */
+                document.getElementById("no_file").innerHTML="<li>"+retobj[0]+"</li>";
+                        }
+
+      function uploadFailed(evt) {
+        alert("There was an error attempting to upload the file.");
+      }
+
+      function uploadCanceled(evt) {
+        alert("The upload has been canceled by the user or the browser dropped the connection.");
+      }
+          function AddNextRow(obj)
+           {
+              var ele=parseInt(obj.id.substr(-1));
+                  var repele=obj.id.replace(ele,(ele+1));
+                                  if(document.getElementById('fileToUpload'+ele).files.length>0 && document.getElementById('mfi_fileupload1gpname'+ele).value!=''&& document.getElementById('mfi_fileupload1gpsize'+ele).value!='')
+                  document.getElementById(repele).style.display = '';
+                                  else
+                                  alert("Please set File | GROUP NAME | GROUP SIZE");
+
+
+           }
+                   function setFormType(obj)
+                        {
+                                var dtype=obj.value;
+                                alert(dtype);
+                                switch(dtype)
+                                {
+                                case "new cp":
+                                        document.getElementById("newcp").style.display='';
+                                        document.getElementById("newdoc").style.display='none';
+                                		document.getElementById("relog").style.display='none';
+                                        document.getElementById("disb").style.display='none';
+                                        document.getElementById("eod").style.display='none';              
+                                break;
+                                case "New Form With Kyc":
+                                document.getElementById("newcp").style.display='none';
+                                document.getElementById("mfi_fileupload1form_extn").value="NWK";
+                                document.getElementById("newdoc").style.display='';
+                                document.getElementById("relog").style.display='none';
+                                                                document.getElementById("disb").style.display='none';
+                                                                document.getElementById("eod").style.display='none';
+                                                                break;
+                                case "New Form Without Kyc":
+                                document.getElementById("newcp").style.display='none';
+                                document.getElementById("mfi_fileupload1form_extn").value="NNK";
+                                document.getElementById("newdoc").style.display='';
+                                document.getElementById("relog").style.display='none';
+                                                                document.getElementById("disb").style.display='none';
+                                                                document.getElementById("eod").style.display='none';
+                                                                break;
+                                case "RELOGIN":
+                                document.getElementById("newcp").style.display='none';
+                                document.getElementById("mfi_fileupload1form_extn").value="REL";
+                                document.getElementById("relog").style.display='';
+                                document.getElementById("newdoc").style.display='none';
+                                                                document.getElementById("disb").style.display='none';
+                                                                document.getElementById("eod").style.display='none';
+                                break;
+                                case "DISB PHOTO":
+                                document.getElementById("newcp").style.display='none';
+                                document.getElementById("mfi_fileupload1form_extn").value="DPH";
+                                                                document.getElementById("disb").style.display='';
+                                document.getElementById("relog").style.display='none';
+                                document.getElementById("newdoc").style.display='none';
+                                                                document.getElementById("eod").style.display='none';
+                                break;
+                                                                case "EOD":
+                                                                document.getElementById("newcp").style.display='none';
+                                                                document.getElementById("mfi_fileupload1form_extn").value="EOD";
+                                                                document.getElementById("disb").style.display='none';
+                                document.getElementById("relog").style.display='none';
+                                document.getElementById("newdoc").style.display='none';
+                                                                document.getElementById("eod").style.display='';
+                                break;
+                                }
+                        }
+    function checksize(obj)
+        {
+         if((obj.value<3||obj.value>10)||isNaN(obj.value))
+         {
+         alert("Invalid Group Size");
+         obj.value="";
+         obj.focus();
+         }
+        }
+    function setBranch(obj)
+        {
+        
+        document.getElementById("mfi_fileupload1mfi_territorycode").value=obj.value;
+        }
+    </script>
+<style type="text/css">
+.normal-text { font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; }
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" align="center" valign="top" width="100%">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="row">
+    <td width="100%">
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 100%; PADDING-RIGHT: 10px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; align: center; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr class="row">
+          <td width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" align="left">
+              <tr class="row">
+                <td width="100%">
+                  <!-- BEGIN Record mfi_fileupload1 -->
+                  <form id="mfi_fileupload1" method="post" name="{HTMLFormName}" action="{Action}">
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                      <tr class="row">
+                        <td valign="top">
+                          <table class="HeaderSilverBlue" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="row">
+                              <td class="HeaderLeftSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                              <td class="thSilverBlue"><strong>{res:CCS_RecordFormPrefix} {res:mfi_fileupload} {res:CCS_RecordFormSuffix}</strong></td> 
+                              <td class="HeaderRightSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                            </tr>
+                          </table>
+ 
+                          <table class="RecordSilverBlue" cellspacing="0" cellpadding="0">
+                            <!-- BEGIN Error -->
+                            <tr class="ErrorSilverBlue">
+                              <td colspan="2">{Error}</td>
+                            </tr>
+                            <!-- END Error -->
+                            <tr style="DISPLAY: none" class="row">
+                              <td class="thSilverBlue">&nbsp;</td> 
+                              <td><label for="mfi_fileupload1State_Division">State&amp;Division</label> 
+                                <select style="WIDTH: 103px" id="mfi_fileupload1State_Division" class="normal-text" name="{State_Division_Name}">
+                                  <option selected value="">{res:CCS_SelectValue}</option>
+                                  {State_Division_Options}
+                                </select>
+ <label for="mfi_fileupload1Region">Region</label> 
+                                <!-- BEGIN ListBox Region -->
+                                <select id="mfi_fileupload1Region" name="{Region_Name}">
+                                  <option selected value="">{res:CCS_SelectValue}</option>
+                                  {Region_Options}
+                                </select>
+ <!-- END ListBox Region --></td>
+                            </tr>
+ 
+                            <tr class="ControlsSilverBlue">
+                              <td>Region:{Label6}. Select Branch 
+                                <select id="mfi_fileupload1branch" class="chzn-single chzn-default chzn-single-with-drop" onchange="setBranch(this);" name="{branch_Name}">
+                                  <option selected value="">Select Value</option>
+                                  {branch_Options}
+                                </select>
+ </td> 
+                              <td class="thSilverBlue"><input type="hidden" id="mfi_fileupload1mfi_territorycode" value="{mfi_territorycode}" name="{mfi_territorycode_Name}">&nbsp; Select Upload Type 
+                                <select id="mfi_fileupload1ListBox1" onchange="setFormType(this);" name="{ListBox1_Name}">
+                                  <option selected value="">Select Value</option>
+                                  {ListBox1_Options}
+                                </select>
+ <input type="hidden" id="mfi_fileupload1form_extn" value="{form_extn}" name="{form_extn_Name}"></td>
+                            </tr>
+ 
+                            <tr class="ControlsSilverBlue">
+                              <td class="thSilverBlue">&nbsp;</td> 
+                              <td>
+                                <table style="DISPLAY: none" id="newcp" border="0">
+                                  <tr>
+                                    <td>select cp:<input type="file" id="cpfiletoupload" class="customfile-input ready" accept="application/pdf" name="cpfiletoupload"></td> 
+                                    <td>Center Name:<input id="mfi_fileupload1new_cp_name" class="maskProd" value="{new_cp_name}" name="{new_cp_name_Name}"></td> 
+                                    <td>Cp Id:<input id="mfi_fileupload1new_cp_id" class="maskProd" value="{new_cp_id}" size="7" name="{new_cp_id_Name}"></td>
+                                  </tr>
+ 
+                                  <tr>
+                                    <td>
+                                      <!-- BEGIN Button Button1 --><input type="button" id="mfi_fileupload1Button1" class="Button" disabled onclick="cpupload();" value="UploadCp" alt="Button1" name="{Button_Name}"><!-- END Button Button1 --></td> 
+                                    <td>
+                                      <div id="cp_no_file">
+                                      </div>
+                                    </td> 
+                                    <td>
+                                      <div id="cp_progress_no">
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </table>
+ 
+                                <table style="DISPLAY: none" id="newdoc" border="0">
+                                  <tr class="row">
+                                    <td colspan="5" align="center"><font color="#610b0b" size="2"><b>Upload Forms. 1 file for each Group HVs &amp;KYCs</b></font> </td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>Enter Cp Id: 
+                                      <!-- BEGIN TextBox cp_id --><input id="mfi_fileupload1cp_id" class="maskProd" value="{cp_id}" size="7" name="{cp_id_Name}" autocomplete="on">
+                                      <!-- BEGINF PTAutocomplete PTAutocomplete1 -->
+                                      <div id="mfi_fileupload1cp_id_choices">
+                                      </div>
+                                      <!-- ENDF PTAutocomplete PTAutocomplete1 --><!-- END TextBox cp_id --></td> 
+                                    <td>Center Name:<input id="mfi_fileupload1center_name" class="maskProd" value="{center_name}" readonly name="{center_name_Name}"></td>
+                                  </tr>
+                                </table>
+ 
+                                <table style="DISPLAY: none" id="uploadgps">
+                                  <tr id="row1">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        <label for="fileToUpload">Select a File to Upload</label><br>
+                                        <input type="file" id="fileToUpload1" class="customfile-input ready" accept="application/pdf" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>Group&nbsp;Name&nbsp;<br>
+                                      <input id="mfi_fileupload1gpname1" class="maskProd" value="{gpname1}" name="{gpname1_Name}"></td> 
+                                    <td>Group Size<br>
+                                      <input id="mfi_fileupload1gpsize1" class="maskProd" onchange="checksize(this);" value="{gpsize1}" size="2" name="{gpsize1_Name}"></td> 
+                                    <td><input type="button" style="FONT-SIZE: 8pt" id="mfi_fileupload1Button1" class="ButtonSilverBlue" onclick="AddNextRow(document.getElementById('row1'));" value="Upload Next Group" alt="Button1" name="{Button_Name}"></td>
+                                  </tr>
+ 
+                                  <tr style="DISPLAY: none" id="row2">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        <label for="fileToUpload">Select a File to Upload</label><br>
+                                        <input type="file" id="fileToUpload2" class="customfile-input ready" accept="application/pdf" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>Group&nbsp;Name&nbsp;<br>
+                                      <input id="mfi_fileupload1gpname2" class="maskProd" value="{gpname2}" name="{gpname2_Name}"></td> 
+                                    <td>Group Size<br>
+                                      <input id="mfi_fileupload1gpsize2" class="maskProd" onchange="checksize(this);" value="{gpsize2}" size="2" name="{gpsize2_Name}"></td> 
+                                    <td><input type="button" style="FONT-SIZE: 8pt" id="mfi_fileupload1Button1" class="ButtonSilverBlue" onclick="AddNextRow(document.getElementById('row2'));" value="Upload Next Group" alt="Button1" name="{Button_Name}"></td>
+                                  </tr>
+ 
+                                  <tr style="DISPLAY: none" id="row3">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        <label for="fileToUpload">Select a File to Upload</label><br>
+                                        <input type="file" id="fileToUpload3" class="customfile-input ready" accept="application/pdf" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>Group&nbsp;Name&nbsp;<br>
+                                      <input id="mfi_fileupload1gpname3" class="maskProd" value="{gpname3}" name="{gpname3_Name}"></td> 
+                                    <td>Group Size<br>
+                                      <input id="mfi_fileupload1gpsize3" class="maskProd" onchange="checksize(this);" value="{gpsize3}" size="2" name="{gpsize3_Name}"></td> 
+                                    <td><input type="button" style="FONT-SIZE: 8pt" id="mfi_fileupload1Button1" class="ButtonSilverBlue" onclick="AddNextRow(document.getElementById('row3'));" value="Upload Next Group" alt="Button1" name="{Button_Name}"></td>
+                                  </tr>
+ 
+                                  <tr style="DISPLAY: none" id="row4">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        <label for="fileToUpload">Select a File to Upload</label><br>
+                                        <input type="file" id="fileToUpload4" class="customfile-input ready" accept="application/pdf" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>Group&nbsp;Name&nbsp;<br>
+                                      <input id="mfi_fileupload1gpname4" class="maskProd" value="{gpname4}" name="{gpname4_Name}"></td> 
+                                    <td>Group Size<br>
+                                      <input id="mfi_fileupload1gpsize4" class="maskProd" onchange="checksize(this);" value="{gpsize4}" size="2" name="{gpsize4_Name}"></td> 
+                                    <td>GP CODE <br>
+                                      <input type="button" style="FONT-SIZE: 8pt" id="mfi_fileupload1Button1" class="ButtonSilverBlue" onclick="AddNextRow(document.getElementById('row4'));" value="Upload Next Group" alt="Button1" name="{Button_Name}"></td>
+                                  </tr>
+ 
+                                  <tr style="DISPLAY: none" id="row5">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        <label for="fileToUpload">Select a File to Upload</label><br>
+                                        <input type="file" id="fileToUpload5" class="customfile-input ready" accept="application/pdf" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>Group&nbsp;Name&nbsp;<br>
+                                      <input id="mfi_fileupload1gpname5" class="maskProd" value="{gpname5}" name="{gpname5_Name}"></td> 
+                                    <td>Group Size<br>
+                                      <input id="mfi_fileupload1gpsize5" class="maskProd" onchange="checksize(this);" value="{gpsize5}" size="2" name="{gpsize5_Name}"></td> 
+                                    <td></td>
+                                  </tr>
+ 
+                                  <tr class="BottomSilverBlue">
+                                    <td colspan="4" align="right"><input type="hidden" id="mfi_fileupload1mfi_uploaded_by" value="{mfi_uploaded_by}" name="{mfi_uploaded_by_Name}">
+                                      <!-- BEGIN Button Button_Insert --><input type="button" id="fupdbtn" class="ButtonSilverBlue" onclick="uploadFile()" value="{res:CCS_Insert}" alt="{res:CCS_Insert}" name="{Button_Name}"><!-- END Button Button_Insert --></td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>
+                                      <div id="fileName">
+                                      </div>
+                                    </td> 
+                                    <td>&nbsp;</td> 
+                                    <td>&nbsp;</td> 
+                                    <td>
+                                      <div id="progressNumber">
+                                      </div>
+ 
+                                      <ol id="no_file">
+                                      </ol>
+                                    </td>
+                                  </tr>
+ 
+                                  <div>
+                                  </div>
+                                </table>
+ 
+                                <table style="DISPLAY: none" id="relog" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                  <tr class="row">
+                                    <td colspan="5" align="center"><font color="#610b0b" size="2"><b>Upload ErrorRejection/Relogin Forms. 1 file for each Group HVs &amp; KYCs</b></font> </td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        Select a File to Upload<br>
+                                        <input type="file" id="fileToUploader" class="customfile-input ready" accept="application/pdf" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>BATCH CODE<br>
+                                      <label for="mfi_fileupload1ListBox2" style="display: none;">ListBox2</label> 
+                                      <select id="mfi_fileupload1ListBox2" name="{ListBox2_Name}">
+                                        <option selected value="">Select Value</option>
+                                        {ListBox2_Options}
+                                      </select>
+ </td> 
+                                    <td>GROUP CODE<br>
+                                      <label for="mfi_fileupload1ListBox5" style="display: none;">ListBox5</label> 
+                                      <!-- BEGIN ListBox ListBox5 -->
+                                      <select id="mfi_fileupload1ListBox5" name="{ListBox5_Name}">
+                                        <option selected value="">Select Value</option>
+                                        {ListBox5_Options}
+                                      </select>
+ <!-- END ListBox ListBox5 --></td> 
+                                    <td colspan="2"><input type="button" style="FONT-SIZE: 8pt" id="mfi_fileuploadButton5" class="ButtonSilverBlue" onclick="uploadERRFile(document.getElementById('mfi_fileupload1ListBox2').value,document.getElementById('mfi_fileupload1ListBox5').value,'err','fileToUploader',this);" value="Upload Document" alt="Button1" size="15" name="{Button_Name}"><br>
+                                    </td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>&nbsp;</td> 
+                                    <td>&nbsp;</td> 
+                                    <td>&nbsp;</td> 
+                                    <td colspan="2">&nbsp;</td>
+                                  </tr>
+                                </table>
+ 
+                                <table style="DISPLAY: none" id="disb" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                  <tr class="row">
+                                    <td colspan="5" align="center"><font color="#610b0b" size="2"><b>Upload Disbursement Photo</b></font> </td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        Select a File to Upload<br>
+                                        <input type="file" id="fileToUploader" class="customfile-input ready" accept="image/*" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>BATCH CODE<br>
+                                      <label for="mfi_fileupload1ListBox3" style="display: none;">ListBox2</label> 
+                                      <select id="mfi_fileupload1ListBox3" name="{ListBox3_Name}">
+                                        <option selected value="">Select Value</option>
+                                        {ListBox3_Options}
+                                      </select>
+ </td> 
+                                    <td>GROUP CODE<br>
+                                      <label for="mfi_fileupload1ListBox4" style="display: none;">ListBox4</label> 
+                                      <!-- BEGIN ListBox ListBox4 -->
+                                      <select id="mfi_fileupload1ListBox4" name="{ListBox4_Name}">
+                                        <option selected value="">Select Value</option>
+                                        {ListBox4_Options}
+                                      </select>
+ <!-- END ListBox ListBox4 --></td> 
+                                    <td colspan="2"><input type="button" style="FONT-SIZE: 8pt" id="mfi_fileuploadButton5" class="ButtonSilverBlue" onclick="uploadERRFile(document.getElementById('mfi_fileupload1ListBox3').value,document.getElementById('mfi_fileupload1ListBox4').value,'disb','fileToUploaddis',this);" value="Upload Document" alt="Button1" size="15" name="{Button_Name}"><br>
+                                    </td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>&nbsp;</td> 
+                                    <td>&nbsp;</td> 
+                                    <td>&nbsp;</td> 
+                                    <td colspan="2">&nbsp;</td>
+                                  </tr>
+                                </table>
+ 
+                                <table style="DISPLAY: none" id="eod" border="0" cellspacing="0" cellpadding="0" width="100%">
+                                  <tr class="row">
+                                    <td colspan="5" align="center"><font color="#610b0b" size="2"><b>Upload EOD Documents</b></font> </td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>
+                                      <div class="RowSilverBlue">
+                                        Select a File to Upload<br>
+                                        <input type="file" id="fileToUploader" class="customfile-input ready" accept="application/pdf|xls|xlsx" name="fileToUpload">
+                                      </div>
+                                    </td> 
+                                    <td>EOD DATE<br>
+                                      <label for="mfi_fileupload1ListBox6" style="display: none;">ListBox2</label> <input id="mfi_fileupload1ListBox6" value="{ListBox6}" name="{ListBox6_Name}">
+                                      <!-- BEGIN DatePicker DatePicker_ListBox6 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="mfi_fileupload1DatePicker_ListBox6"><img id="mfi_fileupload1DatePicker_ListBox6_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_ListBox6 --></td> 
+                                    <td>FILE DETAILS<br>
+                                      <label for="mfi_fileupload1ListBox7" style="display: none;">ListBox4</label> <input id="mfi_fileupload1ListBox7" value="{ListBox7}" name="{ListBox7_Name}"></td> 
+                                    <td colspan="2"><input type="button" style="FONT-SIZE: 8pt" id="mfi_fileuploadButton5" class="ButtonSilverBlue" onclick="uploadERRFile(document.getElementById('mfi_fileupload1ListBox6').value,document.getElementById('mfi_fileupload1ListBox7').value,'eod','fileToUploadeod',this);" value="Upload Document" alt="Button1" size="15" name="{Button_Name}"><br>
+                                    </td>
+                                  </tr>
+ 
+                                  <tr class="row">
+                                    <td>&nbsp;</td> 
+                                    <td>&nbsp;</td> 
+                                    <td>&nbsp;</td> 
+                                    <td colspan="2">&nbsp;</td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+ 
+                            <tr class="ControlsSilverBlue">
+                              <td class="thSilverBlue"><label for="mfi_fileupload1mfi_no_files">{res:mfi_no_files} Uploaded</label></td> 
+                              <td><input id="mfi_fileupload1mfi_no_files" value="{mfi_no_files}" readonly maxlength="10" size="10" name="{mfi_no_files_Name}"></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                  <!-- END Record mfi_fileupload1 --><br>
+                  <!-- BEGIN Record mfi_fileuploadSearch -->
+                  <form id="mfi_fileuploadSearch" method="post" name="{HTMLFormName}" action="{Action}">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr class="row">
+                        <td valign="top">
+                          <table class="HeaderSilverBlue" border="0" cellspacing="0" cellpadding="0">
+                            <tr class="row">
+                              <td class="HeaderLeftSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                              <td class="thSilverBlue"><strong>{res:CCS_SearchFormPrefix} {res:mfi_fileupload} {res:CCS_SearchFormSuffix}</strong></td> 
+                              <td class="HeaderRightSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                            </tr>
+                          </table>
+ 
+                          <table class="RecordSilverBlue" cellspacing="0" cellpadding="0">
+                            <!-- BEGIN Error -->
+                            <tr class="ErrorSilverBlue">
+                              <td colspan="2">{Error}</td>
+                            </tr>
+                            <!-- END Error -->
+                            <tr class="ControlsSilverBlue">
+                              <td class="thSilverBlue">BATCH CODE</td> 
+                              <td><input id="mfi_fileuploadSearchs_mfi_territorycode" value="{s_mfi_territorycode}" maxlength="50" size="50" name="{s_mfi_territorycode_Name}"></td>
+                            </tr>
+ 
+                            <tr class="BottomSilverBlue">
+                              <td colspan="2" align="right">
+                                <!-- BEGIN Button Button_DoSearch --><input type="submit" id="mfi_fileuploadSearchButton_DoSearch" class="ButtonCompact" value="{res:CCS_Search}" alt="{res:CCS_Search}" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                  <!-- END Record mfi_fileuploadSearch --><br>
+                  <!-- BEGIN Grid mfi_fileupload -->
+                  <table id="satgrid" border="0" cellspacing="0" cellpadding="0">
+                    <tr class="row">
+                      <td valign="top">
+                        <table class="HeaderSilverBlue" border="0" cellspacing="0" cellpadding="0">
+                          <tr class="row">
+                            <td class="HeaderLeftSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                            <td class="thSilverBlue"><strong>{res:CCS_GridFormPrefix} {res:mfi_fileupload} {res:CCS_GridFormSuffix} </strong></td> 
+                            <td class="HeaderRightSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                          </tr>
+                        </table>
+ 
+                        <table class="GridSilverBlue" cellspacing="0" cellpadding="0">
+                          <tr class="CaptionSilverBlue">
+                            <th scope="col">Batch Code</th>
+ 
+                            <th scope="col">No of Files</th>
+ 
+                            <th scope="col">Proper Images</th>
+ 
+                            <th scope="col">Uploaded At</th>
+                          </tr>
+ 
+                          <!-- BEGIN Row -->
+                          <tr class="RowSilverBlue">
+                            <td><a href="{mfi_territorycode_Src}" id="mfi_fileuploadmfi_territorycode_{mfi_fileupload:rowNumber}">{mfi_territorycode}</a>&nbsp;</td> 
+                            <td style="TEXT-ALIGN: right">{mfi_no_files}&nbsp;</td> 
+                            <td style="TEXT-ALIGN: right">{mfi_no_files1}&nbsp;</td> 
+                            <td>{mfi_uploaded_on}&nbsp;</td>
+                          </tr>
+ <!-- END Row -->
+                          <!-- BEGIN NoRecords -->
+                          <tr class="NoRecordsSilverBlue">
+                            <td colspan="4">{res:CCS_NoRecords}</td>
+                          </tr>
+                          <!-- END NoRecords -->
+                          <tr class="FooterSilverBlue">
+                            <td colspan="4"><a href="{mfi_fileupload_Insert_Src}" id="mfi_fileuploadmfi_fileupload_Insert">{res:CCS_InsertLink}</a>&nbsp; 
+                              <!-- BEGIN Navigator Navigator -->
+                              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+                              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                                <option selected value="">-</option>
+ {PageSize_Options}
+                              </select>
+ 
+                              <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+                              <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                              <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+                              <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                              <!-- BEGIN Pages -->
+                              <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                              <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                              <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+                              <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                              <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+                              <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- END Grid mfi_fileupload --><br>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<a href="#top" style="DISPLAY: inline" id="gotoTop"></a>{incFooter} 
+</body>
+</html>

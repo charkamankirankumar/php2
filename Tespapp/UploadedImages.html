@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script>
+                !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<link rel="stylesheet" href="style.css" />
+<script language="JavaScript" type="text/javascript">
+
+//End Include Common JSFunctions
+
+//Include User Scripts @1-4F3BDF01
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo/yahoo-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/datasource/datasource-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/connection/connection-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/animation/animation-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/json/json-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/autocomplete/autocomplete-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/autocomplete-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="js/yui/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="UploadedImages_style.css" />
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//PagePanelmfi_doc_uploadButton_Submit_OnClick @254-47BCEC3A
+function PagePanelmfi_doc_uploadButton_Submit_OnClick()
+{
+    var result = true;
+//End PagePanelmfi_doc_uploadButton_Submit_OnClick
+
+//Confirmation Message @255-C22C3F83
+    return confirm('{res:CCS_SubmitConfirmation}');
+//End Confirmation Message
+
+//Close PagePanelmfi_doc_uploadButton_Submit_OnClick @254-BC33A33A
+    return result;
+}
+//End Close PagePanelmfi_doc_uploadButton_Submit_OnClick
+
+//PagePanelmfi_doc_uploadCancel_OnClick @256-07AA1D9A
+function PagePanelmfi_doc_uploadCancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End PagePanelmfi_doc_uploadCancel_OnClick
+
+//Initialize PagePanelmfi_doc_uploadSearchs_file_uploadedYahooAutocomplete1 @262-D1BE6742
+function PagePanelmfi_doc_uploadSearchs_file_uploadedYahooAutocomplete1_start() {
+    initAutocomplete("PagePanelmfi_doc_uploadSearchs_file_uploaded", "services/ProcessUploadedImages_s_file_uploaded_YahooAutocomplete1.php");
+}
+//End Initialize PagePanelmfi_doc_uploadSearchs_file_uploadedYahooAutocomplete1
+
+//Initialize PagePanelmfi_doc_uploadSearchs_gp_codeYahooAutocomplete2 @263-2B76BDB4
+function PagePanelmfi_doc_uploadSearchs_gp_codeYahooAutocomplete2_start() {
+    initAutocomplete("PagePanelmfi_doc_uploadSearchs_gp_code", "services/ProcessUploadedImages_s_gp_code_YahooAutocomplete1.php");
+}
+//End Initialize PagePanelmfi_doc_uploadSearchs_gp_codeYahooAutocomplete2
+
+//Initialize PagePanelmfi_doc_uploadSearchs_batch_codeYahooAutocomplete3 @264-52CCFE03
+function PagePanelmfi_doc_uploadSearchs_batch_codeYahooAutocomplete3_start() {
+    initAutocomplete("PagePanelmfi_doc_uploadSearchs_batch_code", "services/ProcessUploadedImages_s_batch_code_YahooAutocomplete1.php");
+}
+//End Initialize PagePanelmfi_doc_uploadSearchs_batch_codeYahooAutocomplete3
+
+   /* var myCookie = getCookie("docregion");
+    if (myCookie == null)
+         document.getElementById("mfi_docsImageLink1").click();*/
+                var icode=document.getElementById("PagePanelmfi_docsmfi_doc_path").value+"/"+document.getElementById("PagePanelmfi_docsmfi_doc_filename").value
+                document.getElementById("PagePanelmfi_docsmfi_doc_img").src=icode;
+        updateToTagging();
+                document.getElementById("PagePanelmfi_docsListBox3").focus();
+        //window.setInterval("updateToTagging()", 120000);
+
+//bind_events @1-A9D69B73
+function bind_events() {
+    try { incFooter_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    try { incHeader_bind_events(); } catch(e) {}
+    PagePanelmfi_doc_uploadSearchs_file_uploadedYahooAutocomplete1_start();
+    PagePanelmfi_doc_uploadSearchs_gp_codeYahooAutocomplete2_start();
+    PagePanelmfi_doc_uploadSearchs_batch_codeYahooAutocomplete3_start();
+    addEventHandler("PagePanelmfi_doc_uploadButton_Submit", "click", PagePanelmfi_doc_uploadButton_Submit_OnClick);
+    addEventHandler("PagePanelmfi_doc_uploadCancel", "click", PagePanelmfi_doc_uploadCancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script>
+function updateToTagging(){
+        new Ajax.Request( "services/docPreNumberingUpdatetype.php", {
+          method:  'get',
+          parameters:  { 'mfi_doc_id': document.getElementById("PagePanelmfi_docsmfi_doc_id").value},
+          onSuccess:  function(response){
+                //alert(trim(response.responseText));
+          },
+          onFailure:  function(){
+            alert('Error in updating server for mfi_doc_id:'+document.getElementById("PagePanelmfi_docsmfi_doc_id").value);
+          }
+        });
+}
+
+function deleteImage()
+{
+document.getElementById("PagePanelmfi_docsmfi_doc_type").value="INVALID IMAGE";
+document.getElementById("PagePanelmfi_docsmfi_doc_status").value="DeletedByUser";
+document.getElementById("PagePanelmfi_docsButton_Update").disabled=false;
+document.getElementById("PagePanelmfi_docsButton_Update").click();
+}
+function trim(text) {
+    return text.replace(/^\s+|\s+$/g, "");
+}
+function ltrim(text) {
+    return text.replace(/^\s+/g, "");
+}
+function rtrim(text) {
+    return text.replace(/\s+$/g, "");
+}
+function setformType(obj)
+{
+document.getElementById("PagePanelmfi_docsmfi_doc_type").value=obj.value;
+}
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+} 
+
+function changeRegion()
+{
+window.open("ChangeRegion.php","_blank","toolbar=no, location=yes, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=200, height=200");
+var rgnname=prompt("Enter Region Name For Dataentry","");
+                 if (rgnname!=null && rgnname!="")
+                 {
+                           switch(rgnname)
+                           {
+                                case "COIMBATORE":
+                                rgncode="RO-TN04-COIMB";
+                                break;
+                                case "HAVERI":
+                                rgncode="RO-KA03-HAVRI";
+                                break;
+                                case "TANJAVUR":
+                                rgncode="RO-TN04-TNJVR";
+                                break;
+                                case "GADAG":
+                                rgncode="RO-KA03-GADAG";
+                                break;
+                                case "NAGAPATTINAM":
+                                rgncode="RO-TN04-NGPTM";
+                                break;
+                                case "DAVANGERE":
+                                rgncode="RO-KA03-DVGRE";
+                                break;
+                                default:
+                                _OnLoad();
+                                break;
+
+                           }
+                        var date = new Date();
+                date.setTime(date.getTime()+(180*60*1000));
+                document.cookie = "docregion="+rgncode+"; expires="+date.toGMTString()+"; path=/";
+                        window.location.reload();
+         }
+}
+$(document).ready(function() {
+                                
+                            $("input#Butt").fancybox({
+                                'width'                         : 400,
+                                'height'                        : 150,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe',
+                                                                'onCleanup' : function() {
+                                                                         window.location.reload(true);}
+                        });
+});
+function chkSurvey()
+{
+var str="Doc_Tagging_Report_Summary.php?mfi_doc_region="+document.getElementById("PagePanelmfi_docsListBox1").value+
+"&batch_code="+document.getElementById("PagePanelmfi_docsbatch_no").value;
+window.open(str,"_blank","toolbar=no, location=yes, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=500, height=400");
+}
+</script>
+<style>
+.normal-text{ 
+  font-family:Tahoma; 
+  font-size:9pt; 
+  background-color:#eeeeee; 
+  border-color:#333333; 
+  border-style:solid; 
+  border-width:1px; 
+  color:#333333; 
+}
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css" />
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-RIGHT: 5px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; align: center; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td align="center">
+            <!-- BEGIN Panel PagePanel -->{incMenu}<br>
+            <br>
+            <br>
+            &nbsp; 
+            <!-- BEGIN Record mfi_doc_uploadSearch -->
+            <form id="PagePanelmfi_doc_uploadSearch" method="post" name="{HTMLFormName}" action="{Action}">
+              <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:Search_Form}</strong></td> 
+                        <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      </tr>
+ 
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="6">{Error}</td> 
+                      </tr>
+ <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="PagePanelmfi_doc_uploadSearchs_file_uploaded">{res:file_uploaded}</label></td> 
+                        <td>
+                          <!-- BEGIN TextBox s_file_uploaded --><input id="PagePanelmfi_doc_uploadSearchs_file_uploaded" name="{s_file_uploaded_Name}" maxlength="40" value="{s_file_uploaded}" size="40" autocomplete="off"><!-- END TextBox s_file_uploaded --></td> 
+                        <td class="th"><label for="PagePanelmfi_doc_uploadSearchs_gp_code">{res:gp_code}</label></td> 
+                        <td>
+                          <!-- BEGIN TextBox s_gp_code --><input id="PagePanelmfi_doc_uploadSearchs_gp_code" name="{s_gp_code_Name}" maxlength="10" value="{s_gp_code}" size="10" autocomplete="off"><!-- END TextBox s_gp_code --></td> 
+                        <td class="th"><label for="PagePanelmfi_doc_uploadSearchs_batch_code">{res:batch_code}</label></td> 
+                        <td>
+                          <!-- BEGIN TextBox s_batch_code --><input id="PagePanelmfi_doc_uploadSearchs_batch_code" name="{s_batch_code_Name}" maxlength="20" value="{s_batch_code}" autocomplete="off" size="20"><!-- END TextBox s_batch_code --></td> 
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td style="TEXT-ALIGN: right" colspan="6">
+                          <!-- BEGIN Button Button_DoSearch --><input type="submit" id="PagePanelmfi_doc_uploadSearchButton_DoSearch" class="Button" name="{Button_Name}" alt="{res:CCS_Search}" value="{res:CCS_Search}"><!-- END Button Button_DoSearch --></td> 
+                      </tr>
+ 
+                    </table>
+ </td> 
+                </tr>
+ 
+              </table>
+ 
+            </form>
+ <!-- END Record mfi_doc_uploadSearch --><br>
+            <!-- BEGIN EditableGrid mfi_doc_upload -->
+            <form id="PagePanelmfi_doc_upload" method="post" name="{HTMLFormName}" action="{Action}">
+              <input type="hidden" name="FormState" value="{FormState}">{FormScript} 
+              <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:mfi_doc_upload_EditableGridForm}</strong></td> 
+                        <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      </tr>
+ 
+                    </table>
+ 
+                    <table class="Grid" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="8">{Error}</td> 
+                      </tr>
+ <!-- END Error -->
+                      <tr class="Caption">
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_batch_code --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_batch_code">{res:batch_code}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_batch_code --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_cp_name --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_cp_name">{res:cp_name}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_cp_name --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_cp_id --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_cp_id">{res:cp_id}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_cp_id --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_gp_name --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_gp_name">{res:gp_name}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_gp_name --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_gp_size --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_gp_size">{res:gp_size}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_gp_size --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_gp_code --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_gp_code">{res:gp_code}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_gp_code --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_status --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_status">{res:status}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_status --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_rap_reason --><span class="Sorter"><a href="{Sort_URL}" id="PagePanelmfi_doc_uploadSorter_rap_reason">{res:rap_reason}</a><font color="#000000"></font> 
+                        <!-- BEGIN Asc_On --><font color="#000000"><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_rap_reason --></th>
+ 
+                      </tr>
+ 
+                      <!-- BEGIN Row -->
+                      <!-- BEGIN RowError -->
+                      <tr class="Error">
+                        <td colspan="8">{Error}</td> 
+                      </tr>
+ <!-- END RowError -->
+                      <tr class="Row">
+                        <td>{batch_code}</td> 
+                        <td>{cp_name}</td> 
+                        <td>{cp_id}</td> 
+                        <td>{gp_name}</td> 
+                        <td>{gp_size}</td> 
+                        <td><a href="{gp_code_Src}" id="PagePanelmfi_doc_uploadgp_code_{mfi_doc_upload:rowNumber}">{gp_code}</a></td> 
+                        <td>{status}</td> 
+                        <td><label for="PagePanelmfi_doc_uploadrap_reason_{mfi_doc_upload:rowNumber}" style="display: none;">{res:rap_reason}</label> <textarea id="PagePanelmfi_doc_uploadrap_reason_{mfi_doc_upload:rowNumber}" cols="50" rows="3" name="{rap_reason_Name}">{rap_reason}</textarea></td> 
+                      </tr>
+ <!-- END Row -->
+                      <!-- BEGIN NoRecords -->
+                      <tr class="NoRecords">
+                        <td colspan="8">{res:CCS_NoRecords}</td> 
+                      </tr>
+ <!-- END NoRecords -->
+                      <tr class="Footer">
+                        <td style="TEXT-ALIGN: right" colspan="8">
+                          <!-- BEGIN Navigator Navigator --><span class="Navigator">
+                          <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a><font color="#000000"></font><!-- END First_On -->
+                          <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                          <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a><font color="#000000"></font><!-- END Prev_On -->
+                          <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                          <!-- BEGIN Pages -->
+                          <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                          <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                          <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a><font color="#000000"></font><!-- END Next_On -->
+                          <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                          <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a><font color="#000000"></font><!-- END Last_On -->
+                          <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --></span><!-- END Navigator Navigator -->
+                          <!-- BEGIN Button Button_Submit --><input type="submit" id="PagePanelmfi_doc_uploadButton_Submit" class="Button" name="{Button_Name}" alt="{res:CCS_Update}" value="{res:CCS_Update}"><!-- END Button Button_Submit -->
+                          <!-- BEGIN Button Cancel --><input type="submit" id="PagePanelmfi_doc_uploadCancel" class="Button" name="{Button_Name}" alt="{res:CCS_Cancel}" value="{res:CCS_Cancel}"><!-- END Button Cancel --></td> 
+                      </tr>
+ 
+                    </table>
+ </td> 
+                </tr>
+ 
+              </table>
+ 
+            </form>
+ <!-- END EditableGrid mfi_doc_upload --><br>
+            <!-- END Panel PagePanel --></td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

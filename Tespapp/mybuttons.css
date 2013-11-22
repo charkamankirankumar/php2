@@ -1,0 +1,21 @@
+/*Css for buttons*/
+.learn-more {
+color: white;
+/*background-color: #754EA1;*/
+	background-image:url('Styles/SilverBlue/Images/MenuBg.gif');background-repeat: repeat-x;background-position: top left;
+display: inline-block;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+font-size: 8pt;
+border-radius: 10px;
+text-shadow: 1px 1px black;
+font-family: Arial;
+font-weight: bold;
+}
+/*.learn-more:hover{
+color: white;
+text-decoration: none;
+border: none;
+background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #9479AC), color-stop(1, #6A3B8D) );
+background-image: -moz-linear-gradient( center bottom, #9479AC 0%, #6A3B8D 100% );
+}*/

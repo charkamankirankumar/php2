@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_Components_doctype.css">
+<style>
+.normal-text { font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+input [type=text] {font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+</style>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="docentryjs.js" type="text/javascript"></script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-B93D65AC
+</script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+function setnatureofres(obj)
+{
+        document.getElementById("mfi_hvf1natureofresidence").value=obj.value;
+}
+
+function setMaritalStatus(obj)
+{
+        document.getElementById("mfi_hvf1marital_status").value=obj.value;
+}
+function setReligion(obj)
+{
+        document.getElementById("mfi_hvf1borrower_religion").value=obj.value;
+}
+function setCaste(obj)
+{
+        document.getElementById("mfi_hvf1customer_caste").value=obj.value;
+}
+function setCustomerEducation(obj)
+{
+        document.getElementById("mfi_hvf1customer_education").value=obj.value;
+}
+function setBorrowerOccupation(obj)
+{
+        if(obj.value=="Others")
+        {
+                document.getElementById("mfi_hvf1borrower_other_occupation").focus();
+        }
+        else
+        {
+                document.getElementById("mfi_hvf1borrower_occupation").value=obj.value;
+        }
+}
+function setGurantorOccupation(obj)
+{
+        if(obj.value=="Others")
+    {
+        document.getElementById("mfi_hvf1gurantor_other_occupation").focus();
+    }
+    else
+    {
+        document.getElementById("mfi_hvf1gurantor_occupation").value=obj.value;
+    }
+}
+function setHouseType(obj)
+{
+        document.getElementById("mfi_hvf1house_type").value=obj.value();
+}
+function setMonthlyIncome(obj)
+{
+        if(obj.value=="Others")
+        {
+                document.getElementById("mfi_hvf1other_monthly_hh_income").focus();
+        }
+        else
+        {
+                document.getElementById("mfi_hvf1monthly_hh_income").value=obj.value;
+        }
+}
+//mfi_hvf1_OnLoad @2-32FC29B8
+function mfi_hvf1_OnLoad(form)
+{
+    var result = true;
+//End mfi_hvf1_OnLoad
+
+//Custom Code @104-2A29BDB7
+    // -------------------------
+        var fname=parent.mfi_docs.mfi_doc_filename.value;
+                var gpno=fname.substr(0,7);
+		document.getElementById("mfi_hvf1gp_no").value=gpno;
+		
+        document.getElementById("mfi_hvf1la_id").value=parent.mfi_docs.mfi_doc_territory_code.value;
+        document.getElementById("mfi_hvf1la_id").focus();
+setRadioButtonValue("marital_status",document.getElementById("mfi_hvf1marital_status").value);
+setRadioButtonValue("natureofresidence",document.getElementById("mfi_hvf1natureofresidence").value);
+setRadioButtonValue("borrower_education",document.getElementById("mfi_hvf1customer_education").value);
+setRadioButtonValue("borrower_occupation",document.getElementById("mfi_hvf1borrower_occupation").value);
+setRadioButtonValue("gurantor_occupation",document.getElementById("mfi_hvf1gurantor_occupation").value);
+setRadioButtonValue("house_type",document.getElementById("mfi_hvf1house_type").value);
+if(document.getElementById("mfi_hvf1monthly_hh_income").value=="<Rs. 1000" || document.getElementById("mfi_hvf1monthly_hh_income").value=="Rs. 1000-Rs. 2999" || document.getElementById("mfi_hvf1monthly_hh_income").value=="Rs. 3000-Rs. 4999" )
+{
+	setRadioButtonValue("monthly_hh_income",document.getElementById("mfi_hvf1monthly_hh_income").value);
+}
+        setRadioButtonValue("religion",document.getElementById("mfi_hvf1borrower_religion").value);
+        setRadioButtonValue("cast",document.getElementById("mfi_hvf1customer_caste").value);
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf1_OnLoad @2-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_OnLoad
+
+//PTAutoFill1 Loading @112-F2F32593
+function mfi_hvf1la_idPTAutoFill1_start(sender) {
+        
+    if (!sender) return;
+
+    new Ajax.Request("services/LAForm1_mfi_hvf1_la_id_PTAutoFill1.php?keyword=" + encodeURIComponent(sender.value).replace(/'/g, "%27"), {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+           
+            var valuesRow = eval(transport.responseText)[0];
+            //alert(transport.responseText);
+            if (typeof(valuesRow) != "undefined") {
+           
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_name", sender).value = valuesRow["member_name_1"];
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_age_years", sender).value = valuesRow["current_age_1"];
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_kyc_id_no", sender).value = valuesRow["kyc_id_primary_1"];
+                getSameLevelCtl("mfi_hvf1member_kyc_type",sender).value=valuesRow["kyc_type_primary_1"];
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_current_address1", sender).value = valuesRow["member_address_1"];
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_pin_code", sender).value = valuesRow["pincode_1"];
+                if(valuesRow["member_relation_type_1"]=="HUSBAND")
+                {
+                        getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_husband_name", sender).value = valuesRow["relation_name_1"];
+                        getSameLevelCtl("mfi_hvf1mfi_hvf1_husband_age_years", sender).value = valuesRow["gurantor_current_age_1"];
+                        getSameLevelCtl("mfi_hvf1mfi_hvf1_husband_kyc_id_no", sender).value = valuesRow["guarantor_kyc_id_primery_1"];
+                        getSameLevelCtl("mfi_hvf1mfi_hvf1husband_kyc_type", sender).value = valuesRow["guarantor_kyc_type_primery_1"];
+                }
+                else if(valuesRow["member_relation_type_1"]=="FATHER")
+                {
+                        getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_father_name", sender).value = valuesRow["relation_name_1"];
+                }
+                
+            } else {
+           
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_name", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_father_name", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_age_years", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_husband_age_years", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_husband_name", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_kyc_id_no", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_husband_kyc_id_no", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_current_address1", sender).value = "";
+                getSameLevelCtl("mfi_hvf1mfi_hvf1_customer_pin_code", sender).value = "";
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End PTAutoFill1 Loading
+
+//bind_events @1-6C348FF1
+function bind_events() {
+    addEventHandler("mfi_hvf1la_id", "change", mfi_hvf1la_idPTAutoFill1_start);
+    addEventHandler("mfi_hvf1", "load", mfi_hvf1_OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body style="LINE-HEIGHT: normal; BACKGROUND-COLOR: #1c415e; FONT-VARIANT: normal; FONT-STYLE: normal; FONT-SIZE: 60%; FONT-WEIGHT: normal" leftmargin="0" topmargin="0" align="center" valign="top">
+<!-- BEGIN Record mfi_hvf1 -->
+<form id="mfi_hvf1" method="post" name="{HTMLFormName}" action="{Action}">
+  <table style="PADDING-BOTTOM: 2px; BACKGROUND-COLOR: #f3faff; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT-SIZE: 8pt; VERTICAL-ALIGN: middle; PADDING-TOP: 2px; align: center; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px" border="0" cellspacing="0" cellpadding="0" width="50%" align="center">
+    <tr>
+      <td>
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr>
+            <td valign="top">
+              <table class="HeaderSilverBlue" border="0" cellspacing="0" cellpadding="0" bgcolor="#f4f4f4">
+                <tr>
+                  <td class="HeaderLeftSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                  <td class="thSilverBlue"><strong>LA1</strong></td> 
+                  <td class="HeaderRightSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+ 
+          <tr>
+            <td>
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td>{Error}</td>
+                </tr>
+                <!-- END Error -->
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td align="left"><img src="images/ffsllogo.jpg" width="100" height="40"></img> </td> 
+                  <td align="center"><strong><u>ENROLLMENT &amp; LOAN APPLICATION FORM</u></strong></td> 
+                  <td nowrap align="center"><font size="1"><strong>EN &amp; LA Form No.</strong></font></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2"></td> 
+                  <td align="center">
+                    <!-- BEGIN TextBox la_id --><input id="mfi_hvf1la_id" class="normal-text" value="{la_id}" maxlength="8" size="8" name="{la_id_Name}"><!-- END TextBox la_id --></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2">YEAR-ROUTE-STATEDIVISION-REGION-BRANCH</td> 
+                  <td align="center"><font size="1"><strong>If Relogin Previous EN &amp; LA Form No.</strong></font></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2"><input id="mfi_hvf1hv_route" class="normal-text" value="{hv_route}" maxlength="40" size="50" name="{hv_route_Name}">&nbsp;&nbsp; <input type="hidden" id="mfi_hvf1gp_no" value="{gp_no}" name="{gp_no_Name}"></td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" align="center"><input id="mfi_hvf1mfi_hvf1_relogin_hv_no" class="normal-text" value="{mfi_hvf1_relogin_hv_no}" maxlength="8" size="8" name="{mfi_hvf1_relogin_hv_no_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="3"></td>
+                </tr>
+              </table>
+ 
+              <table width="100%">
+                <tr>
+                  <td align="left"><strong><u>A.ENROLLMENT DETAILS</u></strong></td> 
+                  <td nowrap align="right"><font size="2">Existing Enrollment No</font>.</td> 
+                  <td><input id="mfi_hvf1mfi_hvf1_existing_enrollment_no" class="normal-text" value="{mfi_hvf1_existing_enrollment_no}" maxlength="30" size="30" name="{mfi_hvf1_existing_enrollment_no_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap><font size="1">please Keep the "ENROLLMENT" Section blank if the Member is already enrolled</font></td> 
+                  <td colspan="2" align="center"><font size="1">(Write the previous "Enrollment &amp; Loan Application Form No."in the abovebox)</font></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2" align="right"><font size="1">Please fill the below details as per KYC Document and leave 1 box blank between First,Middle and Last name</font></td> 
+                  <td align="right">Current Age in Years</td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td align="right">Member Name</td> 
+                  <td><input id="mfi_hvf1mfi_hvf1_customer_name" class="normal-text" value="{mfi_hvf1_customer_name}" maxlength="40" size="80" name="{mfi_hvf1_customer_name_Name}"></td> 
+                  <td align="center"><input id="mfi_hvf1mfi_hvf1_customer_age_years" class="normal-text" value="{mfi_hvf1_customer_age_years}" maxlength="4" size="4" name="{mfi_hvf1_customer_age_years_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td align="right">Father Name</td> 
+                  <td><input id="mfi_hvf1mfi_hvf1_customer_father_name" class="normal-text" value="{mfi_hvf1_customer_father_name}" maxlength="40" size="80" name="{mfi_hvf1_customer_father_name_Name}"></td> 
+                  <td></td>
+                </tr>
+ 
+                <tr>
+                  <td align="right">Husband Name</td> 
+                  <td><input id="mfi_hvf1mfi_hvf1_customer_husband_name" class="normal-text" value="{mfi_hvf1_customer_husband_name}" maxlength="40" size="80" name="{mfi_hvf1_customer_husband_name_Name}"></td> 
+                  <td><input id="mfi_hvf1mfi_hvf1_husband_age_years" class="normal-text" value="{mfi_hvf1_husband_age_years}" maxlength="4" size="4" name="{mfi_hvf1_husband_age_years_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="3"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td>KYC Submitted(Member)<input id="mfi_hvf1member_kyc_type" class="normal-text" value="{member_kyc_type}" name="{member_kyc_type_Name}"></td> 
+                  <td align="center">KYC Number<br>
+                    <input id="mfi_hvf1mfi_hvf1_customer_kyc_id_no" class="normal-text" value="{mfi_hvf1_customer_kyc_id_no}" maxlength="40" size="40" name="{mfi_hvf1_customer_kyc_id_no_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td>KYC Submitted(Husband) <input id="mfi_hvf1husband_kyc_type" class="normal-text" value="{husband_kyc_type}" name="{husband_kyc_type_Name}"></td> 
+                  <td align="center">KYC Number <br>
+                    <input id="mfi_hvf1mfi_hvf1_husband_kyc_id_no" class="normal-text" value="{mfi_hvf1_husband_kyc_id_no}" maxlength="40" size="40" name="{mfi_hvf1_husband_kyc_id_no_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="2"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td colspan="6" align="left">Current Address-(As per KYC Document)</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="6" align="left"><textarea id="mfi_hvf1mfi_hvf1_customer_current_address1" class="normal-text" cols="85" name="{mfi_hvf1_customer_current_address1_Name}">{mfi_hvf1_customer_current_address1}</textarea></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2" align="left">Pin Code<input id="mfi_hvf1mfi_hvf1_customer_pin_code" class="normal-text" value="{mfi_hvf1_customer_pin_code}" maxlength="6" size="6" name="{mfi_hvf1_customer_pin_code_Name}"></td> 
+                  <td colspan="2" nowrap>Borrower Mobile No.<input id="mfi_hvf1mfi_hvf1_customer_mobile_no" class="normal-text" value="{mfi_hvf1_customer_mobile_no}" maxlength="10" size="10" name="{mfi_hvf1_customer_mobile_no_Name}"></td> 
+                  <td colspan="2" nowrap>Husband Mobile No.<input id="mfi_hvf1mfi_hvf1_husband_mobile_no" class="normal-text" value="{mfi_hvf1_husband_mobile_no}" maxlength="10" size="10" name="{mfi_hvf1_husband_mobile_no_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td>Nature of Residence<input type="hidden" id="mfi_hvf1natureofresidence" value="{natureofresidence}" name="{natureofresidence_Name}"></td> 
+                  <td colspan="4" nowrap><input type="radio" id="natureofresidence" onclick="setnatureofres(this);" value="Rented" name="natureofresidence">Rented</input><input type="radio" id="natureofresidence" onclick="setnatureofres(this);" value="Self Owned" name="natureofresidence">Self Owned</input><input type="radio" id="natureofresidence" onclick="setnatureofres(this);" value="Family Owned" name="natureofresidence">Family Owned</input><input type="radio" id="natureofresidence" onclick="setnatureofres(this);" value="Alloted" name="natureofresidence">Alloted</input></td> 
+                  <td>Duration<input id="mfi_hvf1mfi_hvf1_customer_residence_years" class="normal-text" value="{mfi_hvf1_customer_residence_years}" maxlength="4" size="4" name="{mfi_hvf1_customer_residence_years_Name}">Years</td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="6"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td colspan="2">Marital Status<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1marital_status" value="{marital_status}" name="{marital_status_Name}"></td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" colspan="2">Religion<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1borrower_religion" value="{borrower_religion}" name="{borrower_religion_Name}"></td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" colspan="2">Category<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1customer_caste" value="{customer_caste}" name="{customer_caste_Name}"></td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid">Education<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1customer_education" value="{customer_education}" name="{customer_education_Name}"></td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid">Household Members</td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap align="left"><input type="radio" id="marital_status" onclick="setMaritalStatus(this);" value="Married" name="marital_status">Married</td> 
+                  <td nowrap align="left"><input type="radio" id="marital_status" onclick="setMaritalStatus(this);" value="Widow" name="marital_status">Widow</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="religion" onclick="setReligion(this);" value="Hindu" name="religion">Hindu</td> 
+                  <td nowrap align="left"><input type="radio" id="religion" onclick="setReligion(this);" value="Christian" name="religion">Christian</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="cast" onclick="setCaste(this);" value="SC" name="cast">SC</td> 
+                  <td nowrap align="left"><input type="radio" id="cast" onclick="setCaste(this);" value="OBC" name="cast">OBC</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="borrower_education" onclick="setCustomerEducation(this);" value="Below Primary" name="borrower_education">Below Primary</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input id="mfi_hvf1household_children" class="normal-text" value="{household_children}" maxlength="2" size="2" name="{household_children_Name}">Children</td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap align="left"><input type="radio" id="marital_status" onclick="setMaritalStatus(this);" value="Divorced" name="marital_status">Divorced</td> 
+                  <td nowrap align="left"><input type="radio" id="marital_status" onclick="setMaritalStatus(this);" value="Unmarried" name="marital_status">Unmarried</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="religion" onclick="setReligion(this);" value="Muslim" name="religion">Muslim</td> 
+                  <td nowrap align="left"><input type="radio" id="religion" onclick="setReligion(this);" value="Others" name="religion">Others</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="cast" onclick="setCaste(this);" value="ST" name="cast">ST</td> 
+                  <td nowrap align="left"><input type="radio" id="cast" onclick="setCaste(this);" value="General" name="cast">General</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="borrower_education" onclick="setCustomerEducation(this);" value="Below Secondary" name="borrower_education">Below Secondary</td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" align="left"><input id="mfi_hvf1household_adults" class="normal-text" value="{household_adults}" maxlength="2" size="2" name="{household_adults_Name}">Adults</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="6"></td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="borrower_education" onclick="setCustomerEducation(this);" value="Secondary or Above" name="borrower_education">Secondary or Above</td></td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" align="left"><input id="mfi_hvf1household_total_members" class="normal-text" value="{household_total_members}" maxlength="2" size="2" name="{household_total_members_Name}">Total</td>
+              </tr>
+ 
+              <tr>
+                <td style="HEIGHT: 2px" bgcolor="#999999" colspan="8"></td>
+              </tr>
+            </table>
+ 
+            <table cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td colspan="4"><strong><u>B.HOUSE VERIFICATION DETAILS<u></strong> (To be filled for every Loan Application in each Cycle)</u></u></td>
+              </tr>
+ 
+              <tr>
+                <td colspan="4"><strong><u>OCCUPATION</u></strong></td>
+              </tr>
+ 
+              <tr>
+                <td colspan="2">Borrower<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1borrower_occupation" value="{borrower_occupation}" name="{borrower_occupation_Name}"></td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" colspan="2">Husband/Guarantor<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1gurantor_occupation" value="{gurantor_occupation}" name="{gurantor_occupation_Name}"></td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="radio" id="borrower_occupation" onclick="setBorrowerOccupation(this);" value="Daily Labourer" name="borrower_occupation">Daily Labourer</td> 
+                <td align="left"><input type="radio" id="borrower_occupation" onclick="setBorrowerOccupation(this);" value="Small Business" name="borrower_occupation">Small Business</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" align="left"><input type="radio" id="gurantor_occupation" onclick="setGurantorOccupation(this);" value="Daily Labourer" name="gurantor_occupation">Daily Labourer</td> 
+                <td align="left"><input type="radio" id="gurantor_occupation" onclick="setGurantorOccupation(this);" value="Small Business" name="gurantor_occupation">Small Business</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="radio" id="borrower_occupation" onclick="setBorrowerOccupation(this);" value="Farmer (Agri & Agri Allied)" name="borrower_occupation">Farmer (Agri &amp; Agri Allied)</td> 
+                <td align="left"><input type="radio" id="borrower_occupation" onclick="setBorrowerOccupation(this);" value="Salaried" name="borrower_occupation">Salaried</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" align="left"><input type="radio" id="gurantor_occupation" onclick="setGurantorOccupation(this);" value="Farmer (Agri & Agri Allied)" name="gurantor_occupation">Farmer (Agri &amp; Agri Allied)</td> 
+                <td align="left"><input type="radio" id="gurantor_occupation" onclick="setGurantorOccupation(this);" value="Salaried" name="gurantor_occupation">Salaried</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="radio" id="borrower_occupation" onclick="setBorrowerOccupation(this);" value="Others" name="borrower_occupation">Others</td> 
+                <td><input id="mfi_hvf1borrower_other_occupation" class="normal-text" onchange="setBorrowerOccupation(this);" value="{borrower_other_occupation}" name="{borrower_other_occupation_Name}"></td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" align="left"><input type="radio" id="gurantor_occupation" onclick="setGurantorOccupation(this);" value="Others" name="gurantor_occupation">Others</td> 
+                <td align="left"><input id="mfi_hvf1gurantor_other_occupation" class="normal-text" onchange="setGurantorOccupation(this);" value="{gurantor_other_occupation}" name="{gurantor_other_occupation_Name}"></td>
+              </tr>
+ 
+              <tr>
+                <td style="HEIGHT: 2px" bgcolor="#999999" colspan="4"></td>
+              </tr>
+            </table>
+ 
+            <table cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td colspan="6"><strong><u>AGRICULTURE &amp; ALLIED ACTIVITY</u></strong></td>
+              </tr>
+ 
+              <tr>
+                <td>Agriculture Land(In Acre)</td> 
+                <td><input id="mfi_hvf1mfi_hvf1_agricultureland" class="normal-text" value="{mfi_hvf1_agricultureland}" maxlength="4" size="4" name="{mfi_hvf1_agricultureland_Name}"></td> 
+                <td>No. of Crops per Year</td> 
+                <td><input id="mfi_hvf1mfi_hvf1_no_of_crops" class="normal-text" value="{mfi_hvf1_no_of_crops}" maxlength="4" size="4" name="{mfi_hvf1_no_of_crops_Name}"></td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid">Total Monthly Milk selling (In Ltr.)</td> 
+                <td><input id="mfi_hvf1mfi_hvf1_total_milk_selling" class="normal-text" value="{mfi_hvf1_total_milk_selling}" maxlength="4" size="4" name="{mfi_hvf1_total_milk_selling_Name}"></td>
+              </tr>
+ 
+              <tr>
+                <td style="HEIGHT: 2px" bgcolor="#999999" colspan="6"></td>
+              </tr>
+            </table>
+ 
+            <table cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td colspan="2"><strong><u>ADDITIONAL HH INCOME GENERATING ACTIVITY</u></strong></td> 
+                <td colspan="2">Livestock Details</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="checkbox" id="mfi_hvf1Auto_Rickshaw_Driver" value="1" name="{Auto_Rickshaw_Driver_Name}" {Auto_Rickshaw_Driver}>Auto Rickshaw Driver</td> 
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_provision_grocery" value="1" name="{mfi_hvf1_provision_grocery_Name}" {mfi_hvf1_provision_grocery}>Provision / Grocery Store</td> 
+                <td align="left"><input id="mfi_hvf1mfi_hvf1_customer_livestock_details_cows" class="normal-text" value="{mfi_hvf1_customer_livestock_details_cows}" maxlength="2" size="2" name="{mfi_hvf1_customer_livestock_details_cows_Name}">Cows</td> 
+                <td align="left"><input id="mfi_hvf1mfi_hvf1_customer_livestock_details_goats_sheep" class="normal-text" value="{mfi_hvf1_customer_livestock_details_goats_sheep}" maxlength="2" size="2" name="{mfi_hvf1_customer_livestock_details_goats_sheep_Name}">Goats/Sheep</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_barber_shop" value="1" name="{mfi_hvf1_barber_shop_Name}" {mfi_hvf1_barber_shop}>Barber Shop</td> 
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_skilled_labour" value="1" name="{mfi_hvf1_skilled_labour_Name}" {mfi_hvf1_skilled_labour}>Skilled Labour (Carpentry/Mason)</td> 
+                <td align="left"><input id="mfi_hvf1mfi_hvf1_customer_livestock_details_buffalos" class="normal-text" value="{mfi_hvf1_customer_livestock_details_buffalos}" maxlength="2" size="2" name="{mfi_hvf1_customer_livestock_details_buffalos_Name}">Buffalos</td> 
+                <td align="left"><input id="mfi_hvf1mfi_hvf1_customer_livestock_details_pigs" class="normal-text" value="{mfi_hvf1_customer_livestock_details_pigs}" maxlength="2" size="2" name="{mfi_hvf1_customer_livestock_details_pigs_Name}">Pigs</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_cuttleri_cloth" value="1" name="{mfi_hvf1_cuttleri_cloth_Name}" {mfi_hvf1_cuttleri_cloth}>Cutlery &amp; Cloth Feri ( Street Vendor)</td> 
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_tailoring_shop" value="1" name="{mfi_hvf1_tailoring_shop_Name}" {mfi_hvf1_tailoring_shop}>Tailoring Shop</td> 
+                <td align="left"><input id="mfi_hvf1mfi_hvf1_customer_livestock_details_bullocks_ox" class="normal-text" value="{mfi_hvf1_customer_livestock_details_bullocks_ox}" maxlength="2" size="2" name="{mfi_hvf1_customer_livestock_details_bullocks_ox_Name}">Bullocks/Ox</td> 
+                <td align="left"><input id="mfi_hvf1mfi_hvf1_customer_livestock_details_chicken" class="normal-text" value="{mfi_hvf1_customer_livestock_details_chicken}" maxlength="2" size="2" name="{mfi_hvf1_customer_livestock_details_chicken_Name}">Chicken</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_cycle_repair" value="1" name="{mfi_hvf1_cycle_repair_Name}" {mfi_hvf1_cycle_repair}>Cycle Repair Shop</td> 
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_tea_fastfood" value="1" name="{mfi_hvf1_tea_fastfood_Name}" {mfi_hvf1_tea_fastfood}>Tea/Fast food Shop</td> 
+                <td>&nbsp;</td> 
+                <td>&nbsp;</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_daily_labour" value="1" name="{mfi_hvf1_daily_labour_Name}" {mfi_hvf1_daily_labour}>Daily Labour<input id="mfi_hvf1daily_labour_count" class="normal-text" value="{daily_labour_count}" size="3" name="{daily_labour_count_Name}"></td> 
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_others" value="1" name="{mfi_hvf1_others_Name}" {mfi_hvf1_others}>Others (Please Specify)</td> 
+                <td>&nbsp;</td> 
+                <td>&nbsp;</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_fruit_vegetables" value="1" name="{mfi_hvf1_fruit_vegetables_Name}" {mfi_hvf1_fruit_vegetables}>Fruit &amp; Vegetables Businees</td> 
+                <td align="left"><input id="mfi_hvf1mfi_hvf1_other_income_details" class="normal-text" value="{mfi_hvf1_other_income_details}" maxlength="30" size="30" name="{mfi_hvf1_other_income_details_Name}"></td> 
+                <td>&nbsp;</td> 
+                <td>&nbsp;</td>
+              </tr>
+ 
+              <tr>
+                <td style="HEIGHT: 2px" bgcolor="#999999" colspan="4"></td>
+              </tr>
+            </table>
+ 
+            <table cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+                <td colspan="5"><strong><u>OTHER ASSET OWNERSHIP</u></strong></td>
+              </tr>
+ 
+              <tr>
+                <td nowrap align="center">House Type<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1house_type" value="{house_type}" name="{house_type_Name}"></td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" colspan="2" align="center">Vechicles</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" colspan="2" align="center">Monthly HH Income<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1monthly_hh_income" value="{monthly_hh_income}" name="{monthly_hh_income_Name}"></td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="radio" id="house_type" onclick="setHouseType(this);" value="Pucca House" name="house_type">Pucca House</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_customer_vehicles_cycle_cart" value="1" name="{mfi_hvf1_customer_vehicles_cycle_cart_Name}" {mfi_hvf1_customer_vehicles_cycle_cart}>Cycle Cart</td> 
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_customer_vehicles_tractor" value="1" name="{mfi_hvf1_customer_vehicles_tractor_Name}" {mfi_hvf1_customer_vehicles_tractor}>Tractor</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="monthly_hh_income" onclick="setMonthlyIncome(this);" value="<Rs. 1000" name="monthly_hh_income">&lt;Rs. 1000</td> 
+                <td nowrap align="left"><input type="radio" id="monthly_hh_income" onclick="setMonthlyIncome(this);" value="Rs. 3000-Rs. 4999" name="monthly_hh_income">Rs. 3000-Rs. 4999</td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="radio" id="house_type" onclick="setHouseType(this);" value="Semi-Pucca House" name="house_type">Semi-Pucca House</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_customer_vehicles_two_wheeler" value="1" name="{mfi_hvf1_customer_vehicles_two_wheeler_Name}" {mfi_hvf1_customer_vehicles_two_wheeler}>Two Wheeler</td> 
+                <td align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_customer_vehicles_bullock_cart" value="1" name="{mfi_hvf1_customer_vehicles_bullock_cart_Name}" {mfi_hvf1_customer_vehicles_bullock_cart}>Bullock Cart</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" nowrap align="left"><input type="radio" id="monthly_hh_income" onclick="setMonthlyIncome(this);" value="Rs. 1000-Rs. 2999" name="monthly_hh_income">Rs. 1000-Rs. 2999</td> 
+                <td nowrap align="left"><input type="radio" id="monthly_hh_income" onclick="setMonthlyIncome(this);" value="Others" name="monthly_hh_income">Others Rs.<input id="mfi_hvf1other_monthly_hh_income" class="normal-text" onchange="setMonthlyIncome(this);" value="{other_monthly_hh_income}" name="{other_monthly_hh_income_Name}"></td>
+              </tr>
+ 
+              <tr>
+                <td align="left"><input type="radio" id="house_type" onclick="setHouseType(this);" value="Hut Shed" name="house_type">Hut Shed</td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid" align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_customer_vehicles_auto_or_tempo" value="1" name="{mfi_hvf1_customer_vehicles_auto_or_tempo_Name}" {mfi_hvf1_customer_vehicles_auto_or_tempo}>Auto or Tempo</td> 
+                <td></td> 
+                <td style="BORDER-LEFT: #b9c9fe 1px solid"></td> 
+                <td></td>
+              </tr>
+ 
+              <tr>
+                <td style="HEIGHT: 2px" bgcolor="#999999" colspan="5"></td>
+              </tr>
+            </table>
+ 
+            <table>
+              <tr>
+                <td colspan="7"><strong><u>FINANCIAL INCLUSION</u></strong></td>
+              </tr>
+ 
+              <tr>
+                <td nowrap align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_financial_inclusion_loans" value="1" name="{mfi_hvf1_financial_inclusion_loans_Name}" {mfi_hvf1_financial_inclusion_loans}>Loans</td> 
+                <td nowrap align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_financial_inclusion_bank_account" value="1" name="{mfi_hvf1_financial_inclusion_bank_account_Name}" {mfi_hvf1_financial_inclusion_bank_account}>Bank Account</td> 
+                <td nowrap align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_financial_inclusion_insurance" value="1" name="{mfi_hvf1_financial_inclusion_insurance_Name}" {mfi_hvf1_financial_inclusion_insurance}>Insurance</td> 
+                <td nowrap align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_financial_inclusion_chits" value="1" name="{mfi_hvf1_financial_inclusion_chits_Name}" {mfi_hvf1_financial_inclusion_chits}>Chits</td> 
+                <td nowrap align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_financial_inclusion_micro_rimittances" value="1" name="{mfi_hvf1_financial_inclusion_micro_rimittances_Name}" {mfi_hvf1_financial_inclusion_micro_rimittances}>Micro Remittances</td> 
+                <td nowrap align="left"><input type="checkbox" id="mfi_hvf1mfi_hvf1_financial_inclusion_others" value="1" name="{mfi_hvf1_financial_inclusion_others_Name}" {mfi_hvf1_financial_inclusion_others}>Others</td> 
+                <td><input id="mfi_hvf1mfi_hvf1_financial_inclusion_others_specify" class="normal-text" value="{mfi_hvf1_financial_inclusion_others_specify}" maxlength="40" size="40" name="{mfi_hvf1_financial_inclusion_others_specify_Name}"></td>
+              </tr>
+ 
+              <tr>
+                <td style="HEIGHT: 2px" bgcolor="#999999" colspan="7"></td>
+              </tr>
+ 
+              <tr class="Bottom">
+                <td style="TEXT-ALIGN: right" colspan="7">&nbsp;&nbsp;&nbsp;<input type="hidden" style="WIDTH: 10px" id="mfi_hvf1updated_at" value="{updated_at}" name="{updated_at_Name}">&nbsp;&nbsp;&nbsp; <input type="hidden" style="WIDTH: 10px" id="mfi_hvf1updated_by" value="{updated_by}" name="{updated_by_Name}">&nbsp; <input type="hidden" style="WIDTH: 10px" id="mfi_hvf1added_at" value="{added_at}" name="{added_at_Name}"><input type="hidden" style="WIDTH: 10px" id="mfi_hvf1added_by" value="{added_by}" name="{added_by_Name}">&nbsp;&nbsp; 
+                  <!-- BEGIN Button Button_Insert --><input type="submit" id="mfi_hvf1Button_Insert" class="ButtonSilverBlue" value="Add" alt="Add" name="{Button_Name}"><!-- END Button Button_Insert -->
+                  <!-- BEGIN Button Button_Update --><input type="submit" id="mfi_hvf1Button_Update" class="ButtonSilverBlue" value="Submit" alt="Submit" name="{Button_Name}"><!-- END Button Button_Update --></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <!-- END Record mfi_hvf1 --><br>
+  </td>
+</tr>
+</table>
+</span>
+</body>
+</html>

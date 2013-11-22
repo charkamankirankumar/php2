@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>DOC_GENERATE</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css" />
+<script language="JavaScript" type="text/javascript">
+function gotopage()
+{
+var str= document.getElementById("nps_masterListBox1").value;
+document.getElementById("progress").style.display="inline";
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+                xmlhttp.addEventListener("progress", uploadProgress, false);
+        xmlhttp.addEventListener("load", uploadComplete, false);
+        xmlhttp.addEventListener("error", uploadFailed, false);
+        xmlhttp.addEventListener("abort", uploadCanceled, false);
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+        xmlhttp.onreadystatechange=function()
+        {
+                        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        var arr=eval(xmlhttp.responseText);
+                        
+                    }
+        }
+xmlhttp.open("POST","zipdocfiles.php?ListBox1="+str,true);
+xmlhttp.send();
+}
+function uploadProgress(evt) {
+             document.getElementById('progress').innerHTML ="DOC generation in Progess Please Wait";
+            }
+
+      function uploadComplete(evt) {
+        /* This event is raised when the server send back a response */
+                document.getElementById("doclink").innerHTML=evt.target.responseText;
+        document.getElementById("doclink").href="downloadzip.php?zipfile="+evt.target.responseText;
+            document.getElementById('progress').innerHTML ="Doc Generated Successfully";
+        }
+
+      function uploadFailed(evt) {
+        alert("There was an error attempting to upload the file.");
+      }
+
+      function uploadCanceled(evt) {
+        alert("The upload has been canceled by the user or the browser dropped the connection.");
+      }
+function findoldfiles(obj)
+{
+var str= document.getElementById("nps_masterListBox2").value;
+if(str!="")
+{
+			var frmdt=document.getElementById("nps_masterTextBox1").value;
+			var todt=document.getElementById("nps_masterTextBox2").value;
+			str+="&frmdate="+frmdt+"&todate="+todt+"23:59:59";
+			document.getElementById("oldfiles").innerHTML="";
+			//alert(str);
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			    xmlhttp=new XMLHttpRequest();
+			    xmlhttp.addEventListener("progress", fetchProgress, false);
+		        xmlhttp.addEventListener("load", fetchComplete, false);
+		        xmlhttp.addEventListener("error", fetchFailed, false);
+		        xmlhttp.addEventListener("abort", fetchCanceled, false);
+			  }
+			else
+			  {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			xmlhttp.onreadystatechange=function()
+			  {
+			        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			    {
+			        var arr=eval(xmlhttp.responseText);
+			                var mydiv=document.getElementById("oldfiles");
+			                if(arr!=null)
+			                {
+			                        for(var i=0;i<arr.length;i++)
+			                {
+			                                // alert(arr[i]["filename"]);
+			                            var aTag = document.createElement('a');
+			                                var brk = document.createElement("br");
+			                                aTag.setAttribute('href',"downloadzip.php?zipfile="+arr[i]["filename"]);
+			                                aTag.innerHTML = arr[i]["filename"];
+			                                mydiv.appendChild(aTag);
+			                                mydiv.appendChild(brk);
+			                }
+			                }
+			    }
+			  }
+			xmlhttp.open("GET","findzipfiles.php?zipfile="+str,true);
+			xmlhttp.send();
+}
+}
+function fetchProgress(evt) {
+             document.getElementById("findstatus").innerHTML ="File download in Progess Please Wait";
+            }
+
+      function fetchComplete(evt) {
+        /* This event is raised when the server send back a response */
+          
+            document.getElementById("findstatus").innerHTML ="Files downloaded Successfully";
+        }
+
+      function fetchFailed(evt) {
+         document.getElementById("findstatus").innerHTML ="Some Error Occurred Please Try Again";
+      }
+
+      function fetchCanceled(evt) {
+        document.getElementById("findstatus").innerHTML ="Fetching of Files cancelled by user";
+      }
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-E0194050
+
+var nps_master_DatePicker_TextBox1 = new Object(); 
+nps_master_DatePicker_TextBox1.format           = "yyyy-mm-dd";
+nps_master_DatePicker_TextBox1.style            = "Styles/SilverBlue/Style.css";
+nps_master_DatePicker_TextBox1.relativePathPart = "";
+nps_master_DatePicker_TextBox1.themeVersion = "3.0";
+
+var nps_master_DatePicker_TextBox2 = new Object(); 
+nps_master_DatePicker_TextBox2.format           = "yyyy-mm-dd";
+nps_master_DatePicker_TextBox2.style            = "Styles/SilverBlue/Style.css";
+nps_master_DatePicker_TextBox2.relativePathPart = "";
+nps_master_DatePicker_TextBox2.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//nps_masterButton_Update_OnClick @3-E85D7F60
+function nps_masterButton_Update_OnClick()
+{
+    var result = true;
+//End nps_masterButton_Update_OnClick
+
+//Custom Code @27-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close nps_masterButton_Update_OnClick @3-BC33A33A
+    return result;
+}
+//End Close nps_masterButton_Update_OnClick
+
+//bind_events @1-66562FC6
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incMenuRegion_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    addEventHandler("nps_masterButton_Update", "click", nps_masterButton_Update_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 20px; WIDTH: 100%; PADDING-RIGHT: 20px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 100%; PADDING-RIGHT: 10px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; align: center; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td>
+            <table border="0" width="100%" align="left">
+              <tr>
+                <td align="center">{incMenu}</td> 
+              </tr>
+ 
+              <tr>
+                <td>
+                  <!-- BEGIN Record nps_master -->
+                  <form id="nps_master" method="post" name="{HTMLFormName}" action="{Action}">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top">
+                          <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                              <td class="th"><strong>Add/Edit Nps Master </strong></td> 
+                              <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                            </tr>
+ 
+                          </table>
+ 
+                          <table class="Record" cellspacing="0" cellpadding="0">
+                            <!-- BEGIN Error -->
+                            <tr class="Error">
+                              <td colspan="2">{Error}</td> 
+                            </tr>
+ <!-- END Error -->
+                            <tr class="Bottom">
+                              <td colspan="2" align="right">Select&nbsp;BRANCH Number&nbsp;<label style="display: none;" for="nps_masterListBox1">ListBox1</label> 
+                                <select id="nps_masterListBox1" name="{ListBox1_Name}">
+                                  <option selected value="">Select Value</option>
+ {ListBox1_Options} 
+                                </select>
+ </td> 
+                            </tr>
+ 
+                            <tr class="Bottom">
+                              <td colspan="2" align="right">
+                                <!-- BEGIN Button Button_Update --><input id="nps_masterButton_Update" class="Button" onclick="gotopage();" name="{Button_Name}" alt="Submit" value="Submit" type="button"><!-- END Button Button_Update --><input id="nps_mastergenerated" name="{generated_Name}" value="{generated}" type="hidden"></td> 
+                            </tr>
+ 
+                            <tr class="Bottom">
+                              <td style="DISPLAY: none" id="progress" colspan="2" align="right">Doc Generation in Process</td> 
+                            </tr>
+ 
+                            <tr class="Bottom">
+                              <td colspan="2" align="right"><a href="{Link1_Src}" id="doclink">DocLink</a></td> 
+                            </tr>
+ 
+                            <tr>
+                              <td>&nbsp;<font color="#000080" size="1">
+                                <h1>SELECT GENERATED DATE </h1>
+ </font></td> 
+                              <td>&nbsp;FROM:<label style="display: none;" for="nps_masterTextBox1">TextBox1</label><input id="nps_masterTextBox1" name="{TextBox1_Name}" value="{TextBox1}" onblur="findoldfiles(this);">
+                                <!-- BEGIN DatePicker DatePicker_TextBox1 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="nps_masterDatePicker_TextBox1"><img id="nps_masterDatePicker_TextBox1_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_TextBox1 --><label style="display: none;" for="nps_masterTextBox2">TextBox2</label> TO:<input id="nps_masterTextBox2" name="{TextBox2_Name}" value="{TextBox2}" onblur="findoldfiles(this);">
+                                <!-- BEGIN DatePicker DatePicker_TextBox2 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="nps_masterDatePicker_TextBox2"><img id="nps_masterDatePicker_TextBox2_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_TextBox2 --></td> 
+                            </tr>
+ 
+                            <tr>
+                              <td>
+                                <h1><font size="2">Select Branch To Download Old files</font></h1>
+ </td> 
+                              <td>
+                                <select id="nps_masterListBox2" onblur="findoldfiles(this);" name="{ListBox2_Name}">
+                                  <option selected value="">Select Value</option>
+ {ListBox2_Options} 
+                                </select>
+                                &nbsp;<label id="findstatus"></label> </td> 
+                            </tr>
+ 
+                            <tr>
+                              <td id="oldfiles" colspan="2"></td> 
+                            </tr>
+ 
+                          </table>
+ </td> 
+                      </tr>
+ 
+                    </table>
+ 
+                  </form>
+ <!-- END Record nps_master --></td> 
+              </tr>
+ 
+            </table>
+ </td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

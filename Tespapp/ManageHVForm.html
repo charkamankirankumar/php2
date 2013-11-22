@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-3CC9F699
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script language="JavaScript" type="text/javascript" src="docentryjs.js">
+function converttoexcel()
+{
+alert("Converted to Excel");
+window.location.href="datatoxls.php";
+}
+</script>
+<script>
+                !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen">
+<link rel="stylesheet" href="style.css">
+<script>
+$(document).ready(function() {
+  
+                       $("a#mfi_gp1view").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 900,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe'
+                        });
+                        $("a#mfi_gp1update").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 900,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe'
+                        });
+                        $("a#mfi_gpnew").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 900,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe',
+                                                                'onCleanup' : function() {
+                                                                        return window.confirm('Close?');}
+                        });
+                                
+                });
+
+</script>
+<style>
+.normal-text{ 
+  font-family:Tahoma; 
+  font-size:9pt; 
+  background-color:#eeeeee; 
+  border-color:#333333; 
+  border-style:solid; 
+  border-width:1px; 
+  color:#333333; 
+}
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 20px; WIDTH: 1220px; PADDING-RIGHT: 20px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 1220px; PADDING-RIGHT: 10px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; align: center; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td align="center">{incMenu}</td>
+        </tr>
+ 
+        <tr>
+          <td align="center">&nbsp;</td>
+        </tr>
+ 
+        <tr>
+          <td align="left"><font color="#000080" size="3"><a href="{Link1_Src}" id="mfi_gpnew">Add HV Form</a></font> </td>
+        </tr>
+ 
+        <tr>
+          <td align="center"></td>
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Record cbodataentry_mfi_hvf1 -->
+            <form id="cbodataentry_mfi_hvf1" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_SearchFormPrefix} {res:cbodataentry_mfi_hvf1} {res:CCS_SearchFormSuffix}</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2"><font size="2">{Error}</font></td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="cbodataentry_mfi_hvf1s_added_by">{res:added_by}</label></td> 
+                        <td><input id="cbodataentry_mfi_hvf1s_added_by" value="{s_added_by}" maxlength="50" size="50" name="{s_added_by_Name}"></td>
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th"><label for="cbodataentry_mfi_hvf1s_added_at">{res:added_at}</label></td> 
+                        <td><input id="cbodataentry_mfi_hvf1s_added_at" value="{s_added_at}" maxlength="20" name="{s_added_at_Name}" size="20"></td>
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th"><label for="cbodataentry_mfi_hvf1s_mfi_hvf1_no">{res:mfi_hvf1_no}</label></td> 
+                        <td><input id="cbodataentry_mfi_hvf1s_mfi_hvf1_no" value="{s_mfi_hvf1_no}" maxlength="40" size="40" name="{s_mfi_hvf1_no_Name}"></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="2" align="right">
+                          <!-- BEGIN Button Button_DoSearch --><input type="image" style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px" id="cbodataentry_mfi_hvf1Button_DoSearch" value="{res:CCS_Search}" alt="{res:CCS_Search}" src="Styles/SilverBlue/Images/{res:CCS_LanguageID}/ButtonSearch.gif" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record cbodataentry_mfi_hvf1 --></td>
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Grid mfi_hvf1_mfi_hvf2 -->
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top">
+                  <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      <td class="th"><strong>{res:CCS_GridFormPrefix} {res:mfi_hvf1mfi_hvf2} {res:CCS_GridFormSuffix}</strong></td> 
+                      <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                    </tr>
+                  </table>
+ 
+                  <table class="Grid" cellspacing="0" cellpadding="0">
+                    <tr class="Row">
+                      <td colspan="14">{res:CCS_TotalRecords}&nbsp;{mfi_hvf1_mfi_hvf2_TotalRecords}</td>
+                    </tr>
+ 
+                    <tr class="Caption">
+                      <th scope="col">
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_no --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_no">{res:mfi_hvf1_no}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_no --><br>
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_name --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_name">{res:mfi_hvf1_customer_name}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_name --></th>
+ 
+                      <th scope="col">
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_father_name --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_father_name">{res:mfi_hvf1_customer_father_name}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_father_name --><br>
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_occupation --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_occupation">{res:mfi_hvf1_customer_occupation}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_occupation --></th>
+ 
+                      <th scope="col">
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_mobile_no --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_mobile_no">{res:mfi_hvf1_customer_mobile_no}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_mobile_no --><br>
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_voter_id --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_voter_id">{res:mfi_hvf1_customer_voter_id}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_voter_id --><br>
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_ration_card_id --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_ration_card_id">{res:mfi_hvf1_customer_ration_card_id}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_ration_card_id --></th>
+ 
+                      <th scope="col">
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_guarantor_relationship --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_guarantor_relationship">{res:mfi_hvf1_customer_guarantor_relationship}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_guarantor_relationship --><br>
+                      <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_guarantor_name --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_guarantor_name">{res:mfi_hvf1_customer_guarantor_name}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf1_customer_guarantor_name --></th>
+ 
+                      <th scope="col">
+                      <!-- BEGIN Sorter Sorter_mfi_hvf2_customer_business_cashflow_monthly_receipts_total --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf2_customer_business_cashflow_monthly_receipts_total">{res:mfi_hvf2_customer_business_cashflow_monthly_receipts_total}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf2_customer_business_cashflow_monthly_receipts_total --><br>
+                      <!-- BEGIN Sorter Sorter_mfi_hvf2_customer_business_cashflow_monthly_payments_total --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf2_customer_business_cashflow_monthly_payments_total">{res:mfi_hvf2_customer_business_cashflow_monthly_payments_total}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf2_customer_business_cashflow_monthly_payments_total --></th>
+ 
+                      <th scope="col">
+                      <!-- BEGIN Sorter Sorter_mfi_hvf2_customer_expenses_monthly_total --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf2_customer_expenses_monthly_total">{res:mfi_hvf2_customer_expenses_monthly_total}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf2_customer_expenses_monthly_total --><br>
+                      <!-- BEGIN Sorter Sorter_mfi_hvf2_customer_expenses_annual_seasonal_total --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf2_customer_expenses_annual_seasonal_total">{res:mfi_hvf2_customer_expenses_annual_seasonal_total}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_mfi_hvf2_customer_expenses_annual_seasonal_total --><br>
+                      <!-- BEGIN Sorter Sorter_added_at --><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_added_at">{res:added_at}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_added_at --></th>
+                    </tr>
+ 
+                    <!-- BEGIN Row -->
+                    <tr class="Row">
+                      <td>{mfi_hvf1_no}&nbsp;</td> 
+                      <td>{mfi_hvf1_customer_name}&nbsp;</td> 
+                      <td>{mfi_hvf1_customer_father_name}&nbsp;</td> 
+                      <td>{mfi_hvf1_customer_occupation}&nbsp;</td> 
+                      <td style="TEXT-ALIGN: right">{mfi_hvf1_customer_mobile_no}&nbsp;</td> 
+                      <td>{mfi_hvf1_customer_voter_id}&nbsp;</td> 
+                      <td>&nbsp;</td> 
+                      <td>{mfi_hvf1_customer_guarantor_relationship}&nbsp;</td> 
+                      <td>{mfi_hvf1_customer_guarantor_name}&nbsp;</td> 
+                      <td style="TEXT-ALIGN: right">&nbsp;</td> 
+                      <td style="TEXT-ALIGN: right">&nbsp;</td> 
+                      <td style="TEXT-ALIGN: right">&nbsp;</td> 
+                      <td style="TEXT-ALIGN: right">&nbsp;</td> 
+                      <td>{added_at}&nbsp;</td>
+                    </tr>
+ <!-- END Row -->
+                    <!-- BEGIN NoRecords -->
+                    <tr class="NoRecords">
+                      <td colspan="14">{res:CCS_NoRecords}</td>
+                    </tr>
+                    <!-- END NoRecords -->
+                    <tr class="Footer">
+                      <td colspan="14">
+                        <!-- BEGIN Navigator Navigator -->
+                        <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+                        <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                          <option selected value="">-</option>
+ {PageSize_Options}
+                        </select>
+ 
+                        <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+                        <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                        <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+                        <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                        <!-- BEGIN Pages -->
+                        <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                        <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                        <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+                        <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                        <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+                        <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!-- END Grid mfi_hvf1_mfi_hvf2 --><br>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+/*
+var str="";
+if(document.getElementById("cams_himark_viewSearchs_Member_ID").value)
+str+="&mid="+document.getElementById("cams_himark_viewSearchs_Member_ID").value;
+
+if(document.getElementById("cams_himark_viewSearchs_Branch_ID").value)
+str+="&bid="+document.getElementById("cams_himark_viewSearchs_Branch_ID").value;
+
+if(document.getElementById("cams_himark_viewSearchs_Kendra_ID").value)
+str+="&kid="+document.getElementById("cams_himark_viewSearchs_Kendra_ID").value;
+
+if(document.getElementById("cams_himark_viewSearchs_Enquiry_Add_at").value)
+str+="&eadd="+document.getElementById("cams_himark_viewSearchs_Enquiry_Add_at").value;
+
+if(document.getElementById("cams_himark_viewSearchs_enquiry_status").value)
+str+="&estatus="+document.getElementById("cams_himark_viewSearchs_enquiry_status").value;
+
+if(document.getElementById("cams_himark_viewSearchgenfrm").value)
+str+="&genfrm="+document.getElementById("cams_himark_viewSearchgenfrm").value;
+if(document.getElementById("cams_himark_viewSearchgento").value)
+str+="&gento="+document.getElementById("cams_himark_viewSearchgento").value;
+window.location.href="datatocsv.php?tname=himark"+str;
+*/
+//Button3_OnClick @94-761C910B
+function Button3_OnClick()
+{
+    var result = true;
+//End Button3_OnClick
+
+//Custom Code @105-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+var str="";
+if(document.getElementById("cams_himark_viewSearchs_Member_ID").value)
+str+="&mid="+document.getElementById("cams_himark_viewSearchs_Member_ID").value;
+
+if(document.getElementById("cams_himark_viewSearchs_Branch_ID").value)
+str+="&bid="+document.getElementById("cams_himark_viewSearchs_Branch_ID").value;
+
+if(document.getElementById("cams_himark_viewSearchs_Kendra_ID").value)
+str+="&kid="+document.getElementById("cams_himark_viewSearchs_Kendra_ID").value;
+
+if(document.getElementById("cams_himark_viewSearchs_Enquiry_Add_at").value)
+str+="&eadd="+document.getElementById("cams_himark_viewSearchs_Enquiry_Add_at").value;
+
+if(document.getElementById("cams_himark_viewSearchs_enquiry_status").value)
+str+="&estatus="+document.getElementById("cams_himark_viewSearchs_enquiry_status").value;
+
+
+if(document.getElementById("cams_himark_viewSearchgenfrm").value)
+str+="&genfrm="+document.getElementById("cams_himark_viewSearchgenfrm").value;
+if(document.getElementById("cams_himark_viewSearchgento").value)
+str+="&gento="+document.getElementById("cams_himark_viewSearchgento").value;
+
+window.location.href="datatotxt.php?tname=himark"+str;
+//Close Button3_OnClick @94-BC33A33A
+    return result;
+}
+//End Close Button3_OnClick
+
+//bind_events @1-54395B3F
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    addEventHandler("Button3", "click", Button3_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<style type="text/css" media="screen">
+.normal-text { font-family: Courier New; font-size: 9pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; }
+.learn-more {
+color: white;
+/*background-color: #754EA1;*/
+        background-image:url('Styles/SilverBlue/Images/MenuBg.gif');background-repeat: repeat-x;background-position: top left;
+display: inline-block;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+font-size: 8pt;
+border-radius: 10px;
+text-shadow: 1px 1px black;
+font-family: Arial;
+font-weight: bold;
+}
+.learn-more:hover{
+color: white;
+text-decoration: none;
+border: none;
+background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #9479AC), color-stop(1, #6A3B8D) );
+background-image: -moz-linear-gradient( center bottom, #9479AC 0%, #6A3B8D 100% );
+}
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 100%; PADDING-RIGHT: 10px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; align: center; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td align="center">{incMenu}</td>
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Record NewRecord1 -->
+            <form id="NewRecord1" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>CB Enquiry Generation</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2"><font size="2">{Error}</font></td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="NewRecord1TextBox1">Pending CB Enquiry Generation Records</label></td> 
+                        <td><font size="3"><b>{TextBox1}<b></font></b></b></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="2" align="right"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record NewRecord1 --></td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp; 
+            <!-- BEGIN Button Button3 --><input type="submit" style="WIDTH: 100px; HEIGHT: 24px" id="Button3" class="learn-more" value="Export To Text" alt="Button3" size="1" name="{Button_Name}"><!-- END Button Button3 --></td>
+        </tr>
+ 
+        <tr>
+          <td><br>
+            <!-- BEGIN Record cams_himark_viewSearch -->
+            <form id="cams_himark_viewSearch" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0" width="1220">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_SearchFormPrefix} {res:cams_himark_view} {res:CCS_SearchFormSuffix}</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="12"><font size="2">{Error}</font></td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="cams_himark_viewSearchs_Branch_ID">{res:BranchID}</label></td> 
+                        <td class="th"><label for="cams_himark_viewSearchs_Member_ID">{res:MemberID}</label></td> 
+                        <td class="th"><label for="cams_himark_viewSearchs_Kendra_ID">{res:KendraID}</label></td> 
+                        <td class="th"><label for="cams_himark_viewSearchs_Enquiry_Add_at">{res:Enquiry_Add_at}</label></td> 
+                        <td class="th"><label for="cams_himark_viewSearchs_enquiry_status">{res:enquiry_status}</label></td> 
+                        <td class="th"><label for="cams_himark_viewSearchcams_himark_viewDirOrder">DateBetween</label></td>
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td>
+                          <select id="cams_himark_viewSearchs_Branch_ID" name="{s_Branch_ID_Name}">
+                            <option selected value="">{res:CCS_SelectValue}</option>
+                            {s_Branch_ID_Options}
+                          </select>
+ </td> 
+                        <td><input id="cams_himark_viewSearchs_Member_ID" class="normal-text" value="{s_Member_ID}" maxlength="40" size="30" name="{s_Member_ID_Name}"></td> 
+                        <td>
+                          <select style="WIDTH: 190px" id="cams_himark_viewSearchs_Kendra_ID" class="normal-text" name="{s_Kendra_ID_Name}">
+                            <option selected value="">{res:CCS_SelectValue}</option>
+                            {s_Kendra_ID_Options}
+                          </select>
+ </td> 
+                        <td><input id="cams_himark_viewSearchs_Enquiry_Add_at" class="normal-text" value="{s_Enquiry_Add_at}" maxlength="15" size="12" name="{s_Enquiry_Add_at_Name}"></td> 
+                        <td>
+                          <select style="WIDTH: 150px" id="cams_himark_viewSearchs_enquiry_status" class="normal-text" name="{s_enquiry_status_Name}">
+                            <option selected value="">{res:CCS_SelectValue}</option>
+                            {s_enquiry_status_Options}
+                          </select>
+ </td> 
+                        <td><input id="cams_himark_viewSearchgenfrm" value="{genfrm}" name="{genfrm_Name}"><input id="cams_himark_viewSearchgento" value="{gento}" name="{gento_Name}"></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="12" align="right">
+                          <!-- BEGIN Button Button_DoSearch --><input type="submit" id="cams_himark_viewSearchButton_DoSearch" class="Button" value="{res:CCS_Search}" alt="{res:CCS_Search}" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record cams_himark_viewSearch --><br>
+            <!-- BEGIN Grid cams_himark_view -->
+            <table cellspacing="0" cellpadding="0" width="1220">
+              <tr>
+                <td valign="top">
+                  <div style="WIDTH: 1220px; SCROLLBAR-BASE-COLOR: #ffeaff; OVERFLOW: auto">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_GridFormPrefix} {res:cams_himark_view} {res:CCS_GridFormSuffix} </strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Grid" border="1" cellspacing="0" cellpadding="0">
+                      <tr class="Row">
+                        <td colspan="54">{res:CCS_TotalRecords}&nbsp;{cams_himark_view_TotalRecords}</td>
+                      </tr>
+ 
+                      <tr class="Caption">
+                        <th scope="col">{res:SegmentIdentifier}</th>
+ 
+                        <th scope="col">{res:CreditRequestType}</th>
+ 
+                        <th scope="col">{res:CreditReportTransactionID}</th>
+ 
+                        <th scope="col">{res:CreditInquiryPurposeType}</th>
+ 
+                        <th scope="col">{res:CreditInquiryPurposeTypeDescription}</th>
+ 
+                        <th scope="col">{res:CreditInquiryStage}</th>
+ 
+                        <th scope="col">{res:CreditReportTransactionDateTime}</th>
+ 
+                        <th scope="col">{res:ApplicantName1}</th>
+ 
+                        <th scope="col">{res:ApplicantName2}</th>
+ 
+                        <th scope="col">{res:ApplicantName3}</th>
+ 
+                        <th scope="col">{res:ApplicantName4}</th>
+ 
+                        <th scope="col">{res:ApplicantName5}</th>
+ 
+                        <th scope="col">{res:MemberFatherName}</th>
+ 
+                        <th scope="col">{res:MemberMotherName}</th>
+ 
+                        <th scope="col">{res:MemberSpouseName}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipType1}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipName1}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipType2}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipName2}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipType3}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipName3}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipType4}</th>
+ 
+                        <th scope="col">{res:MemberrelationshipName4}</th>
+ 
+                        <th scope="col">{res:ApplicantBirthDate}</th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_Applicant_Age -->{res:ApplicantAge} 
+                        <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Asc_Off --><a href="{Asc_URL}" id="cams_himark_viewSorter_Applicant_Age"><img border="0" alt="{Asc_URL}" src="Styles/SilverBlue/Images/AscOff.gif"></a><!-- END Asc_Off -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On -->
+                        <!-- BEGIN Desc_Off --><a href="{Desc_URL}" id="cams_himark_viewSorter_Applicant_Age"><img border="0" alt="{Desc_URL}" src="Styles/SilverBlue/Images/DescOff.gif"></a><!-- END Desc_Off --><!-- END Sorter Sorter_Applicant_Age --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_Applicant_Age_asondate -->{res:ApplicantAgeasondate} 
+                        <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Asc_Off --><a href="{Asc_URL}" id="cams_himark_viewSorter_Applicant_Age_asondate"><img border="0" alt="{Asc_URL}" src="Styles/SilverBlue/Images/AscOff.gif"></a><!-- END Asc_Off -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On -->
+                        <!-- BEGIN Desc_Off --><a href="{Desc_URL}" id="cams_himark_viewSorter_Applicant_Age_asondate"><img border="0" alt="{Desc_URL}" src="Styles/SilverBlue/Images/DescOff.gif"></a><!-- END Desc_Off --><!-- END Sorter Sorter_Applicant_Age_asondate --></th>
+ 
+                        <th scope="col">{res:ApplicantIDType1}</th>
+ 
+                        <th scope="col">{res:ApplicantID1}</th>
+ 
+                        <th scope="col">{res:ApplicantIDType2}</th>
+ 
+                        <th scope="col">{res:ApplicantID2}</th>
+ 
+                        <th scope="col">{res:AcctOpenDate}</th>
+ 
+                        <th scope="col">{res:ApplicationIDAccountNo}</th>
+ 
+                        <th scope="col">{res:BranchID}</th>
+ 
+                        <th scope="col">{res:MemberID}</th>
+ 
+                        <th scope="col">{res:KendraID}</th>
+ 
+                        <th scope="col">{res:AppliedforamtCurrentbalance}</th>
+ 
+                        <th scope="col">{res:KeyPersonName}</th>
+ 
+                        <th scope="col">{res:KeyPersonRelation}</th>
+ 
+                        <th scope="col">{res:NomineeName}</th>
+ 
+                        <th scope="col">{res:NomineeRelationshipType}</th>
+ 
+                        <th scope="col">{res:ApplicantTelephoneNumberType1}</th>
+ 
+                        <th scope="col">{res:ApplicantTelephoneNumber1}</th>
+ 
+                        <th scope="col">{res:ApplicantTelephoneNumberType2}</th>
+ 
+                        <th scope="col">{res:ApplicantTelephoneNumber2}</th>
+ 
+                        <th scope="col">{res:ApplicantAddressType1}</th>
+ 
+                        <th scope="col">{res:ApplicantAddress1}</th>
+ 
+                        <th scope="col">{res:ApplicantAddress1City}</th>
+ 
+                        <th scope="col">{res:ApplicantAddress1State}</th>
+ 
+                        <th scope="col">{res:ApplicantAddress1PINCode}</th>
+ 
+                        <th scope="col">{res:ApplicantAddressType2}</th>
+ 
+                        <th scope="col">{res:Applicant_Address2}</th>
+ 
+                        <th scope="col">{res:ApplicantAddress2City}</th>
+ 
+                        <th scope="col">{res:ApplicantAddress2State}</th>
+ 
+                        <th scope="col">{res:ApplicantAddress2PINCode}</th>
+                      </tr>
+ 
+                      <!-- BEGIN Row -->
+                      <tr class="Row">
+                        <td>{Segment_Identifier}&nbsp;</td> 
+                        <td>{Credit_Request_Type}&nbsp;</td> 
+                        <td>{Credit_Report_Transaction_ID}&nbsp;</td> 
+                        <td>{Credit_Inquiry_Purpose_Type}&nbsp;</td> 
+                        <td>{Credit_Inquiry_Purpose_Type_Description}&nbsp;</td> 
+                        <td>{Credit_Inquiry_Stage}&nbsp;</td> 
+                        <td>{Credit_Report_Transaction_DateTime}&nbsp;</td> 
+                        <td>{Applicant_Name1}&nbsp;</td> 
+                        <td>{Applicant_Name2}&nbsp;</td> 
+                        <td>{Applicant_Name3}&nbsp;</td> 
+                        <td>{Applicant_Name4}&nbsp;</td> 
+                        <td>{Applicant_Name5}&nbsp;</td> 
+                        <td>{Member_Father_Name}&nbsp;</td> 
+                        <td>{Member_Mother_Name}&nbsp;</td> 
+                        <td>{Member_Spouse_Name}&nbsp;</td> 
+                        <td>{Member_relationship_Type1}&nbsp;</td> 
+                        <td>{Member_relationship_Name1}&nbsp;</td> 
+                        <td>{Member_relationship_Type2}&nbsp;</td> 
+                        <td>{Member_relationship_Name2}&nbsp;</td> 
+                        <td>{Member_relationship_Type3}&nbsp;</td> 
+                        <td>{Member_relationship_Name3}&nbsp;</td> 
+                        <td>{Member_relationship_Type4}&nbsp;</td> 
+                        <td>{Member_relationship_Name4}&nbsp;</td> 
+                        <td>{Applicant_BirthDate}&nbsp;</td> 
+                        <td style="TEXT-ALIGN: right">{Applicant_Age}&nbsp;</td> 
+                        <td>{Applicant_Age_asondate}&nbsp;</td> 
+                        <td>{Applicant_ID_Type1}&nbsp;</td> 
+                        <td>{Applicant_ID1}&nbsp;</td> 
+                        <td>{Applicant_ID_Type2}&nbsp;</td> 
+                        <td>{Applicant_ID2}&nbsp;</td> 
+                        <td>{Acct_Open_Date}&nbsp;</td> 
+                        <td>{Application_ID_AccountNo}&nbsp;</td> 
+                        <td>{Branch_ID}&nbsp;</td> 
+                        <td>{Member_ID}&nbsp;</td> 
+                        <td>{Kendra_ID}&nbsp;</td> 
+                        <td>{Applied_for_amt_Current_balance}&nbsp;</td> 
+                        <td>{KeyPerson_Name}&nbsp;</td> 
+                        <td>{KeyPerson_Relation}&nbsp;</td> 
+                        <td>{Nominee_Name}&nbsp;</td> 
+                        <td>{Nominee_Relationship_Type}&nbsp;</td> 
+                        <td>{Applicant_Telephone_Number_Type1}&nbsp;</td> 
+                        <td>{Applicant_Telephone_Number1}&nbsp;</td> 
+                        <td>{Applicant_Telephone_Number_Type2}&nbsp;</td> 
+                        <td>{Applicant_Telephone_Number2}&nbsp;</td> 
+                        <td>{Applicant_Address_Type1}&nbsp;</td> 
+                        <td>{Applicant_Address1}&nbsp;</td> 
+                        <td>{Applicant_Address1_City}&nbsp;</td> 
+                        <td>{Applicant_Address1_State}&nbsp;</td> 
+                        <td>{Applicant_Address1_PINCode}&nbsp;</td> 
+                        <td>{Applicant_Address_Type2}&nbsp;</td> 
+                        <td>{Applicant_Address2}&nbsp;</td> 
+                        <td>{Applicant_Address2_City}&nbsp;</td> 
+                        <td>{Applicant_Address2_State}&nbsp;</td> 
+                        <td>{Applicant_Address2_PINCode}&nbsp;</td>
+                      </tr>
+ <!-- END Row -->
+                      <!-- BEGIN NoRecords -->
+                      <tr class="NoRecords">
+                        <td colspan="54">{res:CCS_NoRecords}</td>
+                      </tr>
+                      <!-- END NoRecords -->
+                      <tr class="Footer">
+                        <td colspan="54">
+                          <!-- BEGIN Navigator Navigator -->
+                          <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+                          <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                            <option selected value="">-</option>
+ {PageSize_Options}
+                          </select>
+ 
+                          <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a><font color="#000000"></font><!-- END First_On -->
+                          <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                          <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a><font color="#000000"></font><!-- END Prev_On -->
+                          <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                          <!-- BEGIN Pages -->
+                          <!-- BEGIN Page_On --><a href="{Page_URL}"><font color="#000080">{Page_Number}</font></a>&nbsp;<!-- END Page_On -->
+                          <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                          <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a><font color="#000000"></font><!-- END Next_On -->
+                          <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                          <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a><font color="#000000"></font><!-- END Last_On -->
+                          <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <!-- END Grid cams_himark_view --><br>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

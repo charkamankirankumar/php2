@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CADataEntryReport</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css" />
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-2161D228
+
+var mfi_docsSearch_DatePicker_s_mfi_doc_entered_atfrm1 = new Object(); 
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atfrm1.format           = "yyyy-mm-dd";
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atfrm1.style            = "Styles/SilverBlue/Style.css";
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atfrm1.relativePathPart = "";
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atfrm1.themeVersion = "3.0";
+
+var mfi_docsSearch_DatePicker_s_mfi_doc_entered_atto1 = new Object(); 
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atto1.format           = "yyyy-mm-dd";
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atto1.style            = "Styles/SilverBlue/Style.css";
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atto1.relativePathPart = "";
+mfi_docsSearch_DatePicker_s_mfi_doc_entered_atto1.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//bind_events @1-BF0EB765
+function bind_events() {
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>
+<!-- BEGIN Record mfi_docsSearch -->
+<form id="mfi_docsSearch" method="post" name="{HTMLFormName}" action="{Action}">
+  <table border="0" cellspacing="0" cellpadding="0" style="FONT-SIZE: 12pt">
+    <tr>
+      <td valign="top">
+        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+            <td class="th"><strong>{res:CCS_SearchFormPrefix} {res:mfi_docs} {res:CCS_SearchFormSuffix}</strong></td> 
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_entered_by">{res:mfi_doc_entered_by}</label></td> 
+            <td><input id="mfi_docsSearchs_mfi_doc_entered_by" name="{s_mfi_doc_entered_by_Name}" maxlength="32" value="{s_mfi_doc_entered_by}" size="32"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_entered_at">{res:mfi_doc_entered_at}</label></td> 
+            <td><input id="mfi_docsSearchs_mfi_doc_entered_at" name="{s_mfi_doc_entered_at_Name}" maxlength="40" value="{s_mfi_doc_entered_at}" size="40"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">&nbsp;FROM DATE</td> 
+            <td>&nbsp;<label for="mfi_docsSearchs_mfi_doc_entered_atfrm" style="display: none;">TextBox1</label><input id="mfi_docsSearchs_mfi_doc_entered_atfrm" name="{s_mfi_doc_entered_atfrm_Name}" value="{s_mfi_doc_entered_atfrm}">
+              <!-- BEGIN DatePicker DatePicker_s_mfi_doc_entered_atfrm1 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="mfi_docsSearchDatePicker_s_mfi_doc_entered_atfrm1"><img id="mfi_docsSearchDatePicker_s_mfi_doc_entered_atfrm1_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_s_mfi_doc_entered_atfrm1 --></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">&nbsp;TO DATE</td> 
+            <td>&nbsp;<label for="mfi_docsSearchs_mfi_doc_entered_atto" style="display: none;">TextBox2</label><input id="mfi_docsSearchs_mfi_doc_entered_atto" name="{s_mfi_doc_entered_atto_Name}" value="{s_mfi_doc_entered_atto}">
+              <!-- BEGIN DatePicker DatePicker_s_mfi_doc_entered_atto1 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="mfi_docsSearchDatePicker_s_mfi_doc_entered_atto1"><img id="mfi_docsSearchDatePicker_s_mfi_doc_entered_atto1_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_s_mfi_doc_entered_atto1 --></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td colspan="2" align="right">
+              <!-- BEGIN Button Button_DoSearch --><input id="mfi_docsSearchButton_DoSearch" class="Button" name="{Button_Name}" alt="{res:CCS_Search}" value="{res:CCS_Search}" type="submit"><!-- END Button Button_DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record mfi_docsSearch --><br>
+<!-- BEGIN Report mfi_docs -->
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+          <td class="th"><strong>{res:CCS_ReportFormPrefix} {res:mfi_docs} {res:CCS_ReportFormSuffix}</strong></td> 
+          <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0" style="FONT-SIZE: 12pt">
+        <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+        <!-- BEGIN Section Page_Header -->
+        <tr class="Caption">
+          <th scope="col">{res:mfi_doc_entered_by} &nbsp;</th>
+ 
+          <th scope="col">{res:mfi_doc_type} &nbsp;</th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_Expr1 --><a href="{Sort_URL}">{res:Expr1}</a><font color="#000000"></font> 
+          <!-- BEGIN Asc_On --><font color="#000000"><img border="0" alt="" src="Styles/SilverBlue/Images/Asc.gif"></font><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" alt="" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_Expr1 -->&nbsp;</th>
+ 
+        </tr>
+ <!-- END Section Page_Header -->
+        <!-- BEGIN Section Page_Footer -->
+        <tr class="Footer">
+          <td>{Report_CurrentDate}</td> 
+          <td style="TEXT-ALIGN: right" colspan="2">{res:CCS_ReportPageNumber1} {Report_CurrentPage} {res:CCS_ReportPageNumber2} {Report_TotalPages} 
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a><font color="#000000"></font><!-- END First_On -->
+            <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a><font color="#000000"></font><!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+            <!-- BEGIN Pages -->
+            <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+            <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a><font color="#000000"></font><!-- END Next_On -->
+            <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a><font color="#000000"></font><!-- END Last_On -->
+            <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator --></td> 
+        </tr>
+ <!-- END Section Page_Footer -->
+        <!-- BEGIN Section mfi_doc_entered_by_Header -->
+        <tr class="GroupCaption">
+          <th scope="col">{mfi_doc_entered_by} </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+        </tr>
+ <!-- END Section mfi_doc_entered_by_Header -->
+        <!-- BEGIN Section Detail -->
+        <tr class="Row">
+          <td>{ReportLabel1} </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">{Expr1} </td> 
+        </tr>
+ <!-- END Section Detail -->
+        <!-- BEGIN Section mfi_doc_entered_by_Footer -->
+        <tr class="SubTotal">
+          <td>{res:CCS_ReportSubTotal} &nbsp; </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{Sum_Expr1} </td> 
+        </tr>
+ <!-- END Section mfi_doc_entered_by_Footer -->
+        <!-- BEGIN Section Report_Footer -->
+        <!-- BEGIN Panel NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="3">{res:CCS_NoRecords}</td> 
+        </tr>
+ <!-- END Panel NoRecords -->
+        <tr class="Total">
+          <td valign="baseline">{res:CCS_ReportTotal} </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{TotalSum_Expr1} </td> 
+        </tr>
+ <!-- END Section Report_Footer -->
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Report mfi_docs --><br>
+</p>
+</body>
+</html>

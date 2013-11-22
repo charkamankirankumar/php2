@@ -1,0 +1,455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>MFICp</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript" src="docentryjs.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-971BDB43
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/ccs-yui-calendar.css" />
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//PanelCPmfi_cp_OnLoad @2-7FD14EA7
+function PanelCPmfi_cp_OnLoad(form)
+{
+    var result = true;
+//End PanelCPmfi_cp_OnLoad
+
+//Custom Code @132-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+setRadioButtonValue("LocationType",document.getElementById("PagePanelPanelCPmfi_cpmfi_cp_location_type").value);
+setRadioButtonValue("Distance",document.getElementById("PagePanelPanelCPmfi_cpmfi_cp_distance_from_region_or_branch").value);
+setRadioButtonValue("CPMFrequency",document.getElementById("PagePanelPanelCPmfi_cpmfi_cp_meeting_frequency").value);
+setRadioButtonValue("MeetingWeek",document.getElementById("PagePanelPanelCPmfi_cpmfi_cp_1st_meeting_week_and_day_of_the_month").value.substr(0,3));
+setRadioButtonValue("Meeting",document.getElementById("PagePanelPanelCPmfi_cpmfi_cp_1st_meeting_week_and_day_of_the_month").value.substr(9,3));
+if(document.getElementById("PanelCPmfi_cpformmode").value=="view")
+disableForm(document.getElementById("PanelCPmfi_cp"));
+
+//Close PanelCPmfi_cp_OnLoad @2-BC33A33A
+    return result;
+}
+//End Close PanelCPmfi_cp_OnLoad
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+document.getElementById("PanelCPmfi_cpcp_id").value=parent.mfi_docs.mfi_doc_territory_code.value;
+//Custom Code @134-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+/*var myCookie = getCookie("submitpage");
+     if (myCookie != null)
+                {
+         parent.mfi_docs.submit();
+                //document.cookie = encodeURIComponent("submitpage") + "=deleted; expires=" + new Date(0).toUTCString();
+                }*/
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//PanelCPmfi_cpButton_Cancel_OnClick @7-5EA20FFD
+function PanelCPmfi_cpButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End PanelCPmfi_cpButton_Cancel_OnClick
+
+//Handle PanelCPmfi_cpmfi_cp_dateInlineDatePicker2 @165-63E7C02A
+function PanelCPmfi_cpmfi_cp_dateInlineDatePicker2_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle PanelCPmfi_cpmfi_cp_dateInlineDatePicker2
+
+//Handle PanelCPmfi_cpmfi_cp_proposal_dateInlineDatePicker1 @164-35B9AC68
+function PanelCPmfi_cpmfi_cp_proposal_dateInlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle PanelCPmfi_cpmfi_cp_proposal_dateInlineDatePicker1
+
+//PTAutoFill1 Loading @166-7EB72067
+function PanelCPmfi_cpmfi_cp_relogin_noPTAutoFill1_start(sender) {
+    if (!sender) return;
+    new Ajax.Request("services/CPform_mfi_cp_mfi_cp_relogin_no_PTAutoFill1.php?keyword=" + encodeURIComponent(sender.value).replace(/'/g, "%27"), {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+            var valuesRow = eval(transport.responseText)[0];
+            if (typeof(valuesRow) != "undefined") {
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_district", sender).value = valuesRow["mfi_cp_district"];
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_centre_name", sender).value = valuesRow["mfi_cp_centre_name"];
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_location_type", sender).value = valuesRow["mfi_cp_location_type"];
+                getSameLevelCtl("PanelCPmfi_cpcp_route", sender).value = valuesRow["cp_route"];
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_1st_meeting_week_and_day_of_the_month", sender).value = valuesRow["mfi_cp_1st_meeting_week_and_day_of_the_month"];
+                getSameLevelCtl("PanelCPmfi_cpcensus_village", sender).value = valuesRow["mfi_cp_census_village"];
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_latitude1", sender).value = valuesRow["mfi_cp_latitude1"];
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_latitude2", sender).value = valuesRow["mfi_cp_latitude2"];
+                getSameLevelCtl("PanelCPmfi_cpvillage_code", sender).value = valuesRow["mfi_cp_cansus_village_code"];
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_village_or_locality", sender).value = valuesRow["mfi_cp_village_or_locality"];
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_pincode", sender).value = valuesRow["mfi_cp_pincode"];
+            } else {
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_district", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_centre_name", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_location_type", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpcp_route", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_1st_meeting_week_and_day_of_the_month", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpcensus_village", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_latitude1", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_latitude2", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpvillage_code", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_village_or_locality", sender).value = "";
+                getSameLevelCtl("PanelCPmfi_cpmfi_cp_pincode", sender).value = "";
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End PTAutoFill1 Loading
+
+//PanelCPmfi_cpmfi_cp_weekly_meeting_time_toPTDependentListBox2 Start @202-0224B36B
+function PanelCPmfi_cpmfi_cp_weekly_meeting_time_toPTDependentListBox2_start(sender) {
+    if (!sender) return;
+    var dependentElement = $("PanelCPmfi_cpmfi_cp_weekly_meeting_time_to" + sender.id.substring(44));
+    if (!dependentElement) return;
+    var selected = null;
+    if (addEventHandler.isOnLoad) {
+        if (dependentElement.multiple) {
+            selected = [];
+            for (var i = 0; i < dependentElement.options.length; i++)
+                if (dependentElement.options[i].selected)
+                    selected[dependentElement.options[i].value] = true;
+        }
+        else
+            selected = dependentElement.value;
+    }
+    new Ajax.Request("services/manageCentres_mfi_centresSearch_s_mfi_centre_to_DependentOnFrom.php?keyword=" + sender.value, {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+            for (var i = dependentElement.options.length - 1; i >= 0; i--) {
+                var currentOption = dependentElement.options.item(i);
+                if (currentOption.value != "") {
+                    dependentElement.remove(i);
+                }
+            }
+            var valueRows = eval(transport.responseText);
+            for (var i = 0; i < valueRows.length; i++) {
+                var newOption = new Option(valueRows[i]["1"], valueRows[i]["0"]);
+                dependentElement.options[dependentElement.options.length] = newOption;
+            } 
+            if (CCGetParam(sender.name) == sender.value) {
+                dependentElement.value = CCGetParam(dependentElement.name);
+            }
+            if (selected) {
+                if (dependentElement.multiple) {
+                    for (var i = 0; i < dependentElement.options.length; i++)
+                        if (selected[dependentElement.options[i].value])
+                            dependentElement.options[i].selected = true;
+                }
+                else
+                    dependentElement.value = selected;
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End PanelCPmfi_cpmfi_cp_weekly_meeting_time_toPTDependentListBox2 Start
+
+//bind_events @1-B2C511B2
+function bind_events() {
+    addEventHandler("PanelCPmfi_cpmfi_cp_date", "load", PanelCPmfi_cpmfi_cp_dateInlineDatePicker2_start);
+    addEventHandler("PanelCPmfi_cpmfi_cp_proposal_date", "load", PanelCPmfi_cpmfi_cp_proposal_dateInlineDatePicker1_start);
+    addEventHandler("PanelCPmfi_cpmfi_cp_relogin_no", "change", PanelCPmfi_cpmfi_cp_relogin_noPTAutoFill1_start);
+    addEventHandler("PanelCPmfi_cpmfi_cp_weekly_meeting_time_from", "change", PanelCPmfi_cpmfi_cp_weekly_meeting_time_toPTDependentListBox2_start);
+    addEventHandler("PanelCPmfi_cpmfi_cp_weekly_meeting_time_from", "load", PanelCPmfi_cpmfi_cp_weekly_meeting_time_toPTDependentListBox2_start);
+    addEventHandler("PanelCPmfi_cp", "load", PanelCPmfi_cp_OnLoad);
+    addEventHandler("", "load", _OnLoad);
+    addEventHandler("PanelCPmfi_cpButton_Cancel", "click", PanelCPmfi_cpButton_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+</script>
+<script language="JavaScript" type="text/javascript">
+function DisableControls() {
+            var controls = document.forms[0].elements.length;
+            for (i = 0; i < controls; i++) {
+                document.forms[0].elements[i].disabled = true;
+            }
+            return true;
+        }
+//End CCS script
+function getCookie(name) {
+    var dc = document.cookie;
+    var prefix = name + "=";
+    var begin = dc.indexOf("; " + prefix);
+    if (begin == -1) {
+        begin = dc.indexOf(prefix);
+        if (begin != 0) return null;
+    }
+    else
+    {
+        begin += 2;
+        var end = document.cookie.indexOf(";", begin);
+        if (end == -1) {
+        end = dc.length;
+        }
+    }
+    return unescape(dc.substring(begin + prefix.length, end));
+} 
+function setimgrcode(obj)
+{
+parent.mfi_docs.mfi_doc_territory_code.value=document.getElementById("PanelCPmfi_cpcp_id").value;
+}
+
+</script>
+<style>
+.normal-text { font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+input{font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_Components_doctype.css" />
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_Components_doctype.css" />
+</head>
+<body style="BACKGROUND-COLOR: #1c415e; FONT-SIZE: 8.5pt" leftmargin="0" topmargin="0" align="center" valign="top" width="500px">
+<table style="BACKGROUND-COLOR: #1c415e" border="0" cellspacing="0" cellpadding="0" width="500" align="center" height="840">
+  <tr>
+    <td valign="top" align="center">
+      <!-- BEGIN Panel PanelCP -->
+      <!-- BEGIN Record mfi_cp -->
+      <form id="PanelCPmfi_cp" method="post" name="{HTMLFormName}" action="{Action}">
+        <table class="HeaderSilverBlue" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#f4f4f4">
+          <tr>
+            <td class="HeaderLeftSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+            <td class="thSilverBlue">{res:CCS_RecordFormPrefix}{res:cpform}{res:CCS_RecordFormSuffix}</td> 
+            <td class="HeaderRightSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+          </tr>
+ 
+          <tr class="ErrorSilverBlue">
+            <td colspan="3">
+              <!-- BEGIN Error -->{Error}<!-- END Error --></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table style="LINE-HEIGHT: 70%; MARGIN: 0px" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#f4f4f4">
+          <tr>
+            <td colspan="2" align="left"><img src="./images/ffsllogo.jpg" width="100" height="40"></img></td> 
+            <td valign="top" colspan="2" align="center"><font style="COLOR: #000000"><u>CENTRE PROPOSAL FORM </u></font></td> 
+            <td colspan="2" align="right">
+              <!-- BEGIN RadioButton RadioButton2 --><input type="radio" id="PanelCPmfi_cpRadioButton2_{RadioButton2:optionNumber}" value="{Value}" name="{RadioButton2_Name}" {Check}><label for="PanelCPmfi_cpRadioButton2_{RadioButton2:optionNumber}">{Description}</label><!-- END RadioButton RadioButton2 --></td> 
+            <tr>
+              <td colspan="4" align="left">Year-Route-StateDivision-Region-Branch</td> 
+              <td align="left">CP NO.</td> 
+              <td align="left">Proposal Date</td> 
+            </tr>
+ 
+            <tr>
+              <td style="LINE-HEIGHT: 60%" width="50%" colspan="4"><input style="WIDTH: 97%" id="PanelCPmfi_cpcp_route" class="normal-text" value="{cp_route}" maxlength="24" name="{cp_route_Name}"></td> 
+              <td><input onblur="setimgrcode(this);" style="WIDTH: 60%" id="PanelCPmfi_cpcp_id" class="normal-text" value="{cp_id}" maxlength="7" name="{cp_id_Name}"></td> 
+              <td>
+                <!-- BEGIN TextBox mfi_cp_proposal_date --><input onblur="checkDateVal(this);" style="WIDTH: 60%" id="PanelCPmfi_cpmfi_cp_proposal_date" class="normal-text" value="{mfi_cp_proposal_date}" maxlength="100" size="12" name="{mfi_cp_proposal_date_Name}"><!-- END TextBox mfi_cp_proposal_date --></td> 
+            </tr>
+ 
+            <tr>
+              <td style="LINE-HEIGHT: 80%" colspan="4">&nbsp;</td> 
+              <td colspan="2"><font size="2">If Relogin&nbsp;Previous CP No</font>.<input style="WIDTH: 30%" id="PanelCPmfi_cpmfi_cp_relogin_no" value="{mfi_cp_relogin_no}" maxlength="5" size="4" name="{mfi_cp_relogin_no_Name}"></td> 
+              <tr>
+                <td style="HEIGHT: 2px" bgcolor="#999999" colspan="6"></td> 
+              </tr>
+ 
+            </tr>
+ 
+            <tr>
+              <td>Census Village</td> 
+              <td colspan="3"><input id="PanelCPmfi_cpcensus_village" value="{census_village}" size="35" name="{census_village_Name}"></td> 
+              <td>code</td> 
+              <td><input id="PanelCPmfi_cpvillage_code" value="{village_code}" name="{village_code_Name}"></td> 
+            </tr>
+ 
+            <tr>
+              <td colspan="6" align="left">Address 1<input style="WIDTH: 86%" id="PanelCPmfi_cpmfi_cp_address" class="normal-text" value="{mfi_cp_address}" name="{mfi_cp_address_Name}"></td> 
+            </tr>
+ 
+            <tr>
+              <td style="LINE-HEIGHT: 80%" colspan="5" align="right">Hamlet / Locality<input style="WIDTH: 70%" id="PanelCPmfi_cpmfi_cp_village_or_locality" class="normal-text" value="{mfi_cp_village_or_locality}" maxlength="25" name="{mfi_cp_village_or_locality_Name}"></td> 
+              <td>Pincode<input style="WIDTH: 60%" id="PanelCPmfi_cpmfi_cp_pincode" class="normal-text" value="{mfi_cp_pincode}" maxlength="6" name="{mfi_cp_pincode_Name}"></td> 
+            </tr>
+ 
+            <tr>
+              <td style="LINE-HEIGHT: 80%" width="50%" colspan="3" nowrap align="right">Taluk Or Town<input id="PanelCPmfi_cpmfi_cp_taluk_or_town1" class="normal-text" value="{mfi_cp_taluk_or_town1}" name="{mfi_cp_taluk_or_town1_Name}" size="20"></td> 
+              <td style="LINE-HEIGHT: 80%" width="50%" colspan="3" nowrap align="left">District<input id="PanelCPmfi_cpmfi_cp_district" class="normal-text" value="{mfi_cp_district}" name="{mfi_cp_district_Name}" size="20"></td> 
+            </tr>
+ 
+            <tr>
+              <td style="LINE-HEIGHT: 80%" colspan="5" align="right">Centre Name<input style="WIDTH: 70%" id="PanelCPmfi_cpmfi_cp_centre_name" class="normal-text" value="{mfi_cp_centre_name}" maxlength="25" name="{mfi_cp_centre_name_Name}"></td> 
+              <td>EmpCode</td> 
+            </tr>
+ 
+            <tr>
+              <td style="LINE-HEIGHT: 80%" colspan="5" align="right">Center Manager<input style="WIDTH: 70%" id="PanelCPmfi_cpmfi_cp_co_name" class="normal-text" value="{mfi_cp_co_name}" maxlength="25" name="{mfi_cp_co_name_Name}"></td> 
+              <td><input style="WIDTH: 83%" id="PanelCPmfi_cpmfi_cp_co_emp_code" class="normal-text" value="{mfi_cp_co_emp_code}" maxlength="10" name="{mfi_cp_co_emp_code_Name}"></td> 
+            </tr>
+ 
+          </table>
+ 
+          <table style="LINE-HEIGHT: 80%; FONT-SIZE: 8pt" cellspacing="0" cellpadding="0" width="100%" bgcolor="#f4f4f4">
+            <tr>
+              <td colspan="6" align="center"><u>CENTRE MEETING DETAILS</u></td> 
+            </tr>
+ 
+            <tr>
+              <td bgcolor="#999999" height="2" colspan="6"></td> 
+            </tr>
+ 
+            <tr>
+              <td style="LINE-HEIGHT: 100%; FONT-SIZE: 8pt" valign="bottom" colspan="2" align="left"><u>LocationType</u><input type="hidden" id="PagePanelPanelCPmfi_cpmfi_cp_location_type" value="{mfi_cp_location_type}" size="2" name="{mfi_cp_location_type_Name}"></td> 
+              <td style="LINE-HEIGHT: 100%; FONT-SIZE: 8pt" valign="bottom" nowrap align="left"><u>DistanceFrom Region/Branch</u></td> 
+              <td style="LINE-HEIGHT: 100%; FONT-SIZE: 8pt" valign="bottom" nowrap align="center"><u>Meeting Frequency</u></td> 
+              <td style="LINE-HEIGHT: 100%; FONT-SIZE: 8pt" valign="bottom" colspan="2" align="center"><u>1st Meeting Week and Day of the Month</u></td> 
+            </tr>
+ 
+            <tr>
+              <td nowrap><input type="radio" onclick="setLocationType()" value="Court Yard" name="LocationType">CourtYard</td> 
+              <td nowrap><input type="radio" onclick="setLocationType()" value="School" name="LocationType">School</td> 
+              <td nowrap><input type="radio" onclick="setDistance()" value="00-05km" name="Distance">00-05km</td> 
+              <td nowrap><input type="radio" disabled onclick="setCPFrequency()" value="Weekly" name="CPMFrequency">Weekly</td> 
+              <td nowrap><input type="radio" onclick="setMeetingWeek()" value="1st" name="MeetingWeek">1st&nbsp;<input type="radio" onclick="setMeetingWeek()" value="3rd" name="MeetingWeek">3rd</td> 
+              <td nowrap><input type="radio" onclick="setMeetingDay()" value="Mon" name="Meeting">Mon&nbsp;<input type="radio" onclick="setMeetingDay()" value="Wed" name="Meeting">Wed&nbsp;<input type="radio" onclick="setMeetingDay()" value="Fri" name="Meeting">Fri </td> 
+            </tr>
+ 
+            <tr>
+              <td nowrap><input type="radio" onclick="setLocationType()" value="Terrace" name="LocationType">Terrace</td> 
+              <td nowrap><input type="radio" onclick="setLocationType()" value="Street" name="LocationType">Street</td> 
+              <td nowrap><input type="radio" onclick="setDistance()" value="05-10Km " name="Distance">05-10Km </td> 
+              <td nowrap><input type="radio" onclick="setCPFrequency()" value="Fortnightly" name="CPMFrequency">Fortnightly</td> 
+              <td nowrap><input type="radio" onclick="setMeetingWeek()" value="2nd" name="MeetingWeek">2nd&nbsp;<input type="radio" onclick="setMeetingWeek()" value="4th" name="MeetingWeek">4th</td> 
+              <td nowrap><input type="radio" onclick="setMeetingDay()" value="Tue" name="Meeting">Tue&nbsp;<input type="radio" onclick="setMeetingDay()" value="Thu" name="Meeting">Thu&nbsp;</td> 
+            </tr>
+ 
+            <tr>
+              <td nowrap><input type="radio" onclick="setLocationType()" value="Public Hall" name="LocationType">Public Hall</td> 
+              <td nowrap><input type="radio" onclick="setLocationType()" value="Anganwadi Centre" name="LocationType">Anganwadi Centre</td> 
+              <td nowrap><input type="radio" onclick="setDistance()" value="10-20Km" name="Distance">10-20Km</td> 
+              <td nowrap><input type="radio" onclick="setCPFrequency()" value="Monthly" name="CPMFrequency">Monthly</td> 
+              <td colspan="2" nowrap align="center"><u>Centre Meeting Time</u></td> 
+            </tr>
+ 
+            <tr>
+              <td nowrap><input type="radio" onclick="setLocationType()" value="other" name="LocationType">Other</td> 
+              <td nowrap><input id="PanelCPmfi_cpother_location_type" value="{other_location_type}" name="{other_location_type_Name}"></td> 
+              <td><input type="radio" onclick="setDistance()" value=">20Km" name="Distance">&gt;20Km</td> 
+              <td nowrap></td> 
+              <td nowrap>
+                <select style="HEIGHT: 80%" id="PanelCPmfi_cpmfi_cp_weekly_meeting_time_from" class="normal-text" name="{mfi_cp_weekly_meeting_time_from_Name}">
+                  <option selected value="">{res:CCS_SelectValue}</option>
+ {mfi_cp_weekly_meeting_time_from_Options} 
+                </select>
+ </td> 
+              <td nowrap>
+                <select style="HEIGHT: 80%" id="PanelCPmfi_cpmfi_cp_weekly_meeting_time_to" class="normal-text" name="{mfi_cp_weekly_meeting_time_to_Name}">
+                  <option selected value="">{res:CCS_SelectValue}</option>
+ {mfi_cp_weekly_meeting_time_to_Options} 
+                </select>
+ </td> 
+            </tr>
+ 
+            <tr>
+              <td style="HEIGHT: 2px" bgcolor="#999999" colspan="6"></td> 
+            </tr>
+ 
+          </table>
+ 
+          <table style="LINE-HEIGHT: 60%; MARGIN: 0px; FONT-SIZE: 8pt" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#f4f4f4" align="center">
+            <tr>
+              <td align="left">Latitude&nbsp;&nbsp; <input id="PagePanelPanelCPmfi_cpmfi_cp_latitude1" class="normal-text" value="{mfi_cp_latitude1}" maxlength="3" size="5" name="{mfi_cp_latitude1_Name}"><input id="PagePanelPanelCPmfi_cpmfi_cp_latitude2" class="normal-text" value="{mfi_cp_latitude2}" maxlength="6" size="6" name="{mfi_cp_latitude2_Name}"></td> 
+              <td align="right">Longitude&nbsp;&nbsp;<input id="PagePanelPanelCPmfi_cpmfi_cp_longitude1" class="normal-text" value="{mfi_cp_longitude1}" maxlength="3" size="3" name="{mfi_cp_longitude1_Name}"><input id="PagePanelPanelCPmfi_cpmfi_cp_longitude2" class="normal-text" value="{mfi_cp_longitude2}" maxlength="6" size="6" name="{mfi_cp_longitude2_Name}"></td> 
+            </tr>
+ 
+          </table>
+ 
+          <table style="LINE-HEIGHT: 100%" border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr>
+              <td><img style="WIDTH: 100%; HEIGHT: 315px" id="Image1" name="Image1" alt="" src="images/cppart.png" width="100%" height="200"></td> 
+            </tr>
+ 
+          </table>
+ 
+          <table style="LINE-HEIGHT: 80%" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#f4f4f4">
+            <tr>
+              <td><label for="PanelCPmfi_cpmfi_cp_licensor">Licensor </label><input id="PanelCPmfi_cpmfi_cp_licensor" value="{mfi_cp_licensor}" maxlength="15" size="15" name="{mfi_cp_licensor_Name}"></td> 
+              <td><label for="PanelCPmfi_cpmfi_cp_licensee">Licensee&nbsp; </label><input id="PanelCPmfi_cpmfi_cp_licensee" value="{mfi_cp_licensee}" maxlength="22" size="22" name="{mfi_cp_licensee_Name}"></td> 
+            </tr>
+ 
+            <tr>
+              <td>Contact No.<input id="PanelCPmfi_cpmfi_cp_licensor_contact_no" value="{mfi_cp_licensor_contact_no}" maxlength="12" size="10" name="{mfi_cp_licensor_contact_no_Name}"></td> 
+              <td>Place:<input id="PanelCPmfi_cpmfi_cp_place" value="{mfi_cp_place}" maxlength="20" size="15" name="{mfi_cp_place_Name}"><label for="PanelCPmfi_cpmfi_cp_date">Date: </label> 
+                <!-- BEGIN TextBox mfi_cp_date --><input id="PanelCPmfi_cpmfi_cp_date" value="{mfi_cp_date}" maxlength="12" size="8" name="{mfi_cp_date_Name}"><!-- END TextBox mfi_cp_date -->&nbsp;<label for="PanelCPmfi_cpmfi_cp_place">&nbsp;</label></td> 
+            </tr>
+ 
+            <tr>
+              <td><label for="PanelCPmfi_cpmfi_cp_witness1_name">Witness1 Name &amp; Address</label></td> 
+              <td><label for="PanelCPmfi_cpmfi_cp_witness2_name">Witness2 Name &amp; Address</label></td> 
+            </tr>
+ 
+            <tr>
+              <td><input id="PanelCPmfi_cpmfi_cp_witness1_name" value="{mfi_cp_witness1_name}" maxlength="35" name="{mfi_cp_witness1_name_Name}"></td> 
+              <td><input id="PanelCPmfi_cpmfi_cp_witness2_name" value="{mfi_cp_witness2_name}" maxlength="35" size="35" name="{mfi_cp_witness2_name_Name}"></td> 
+            </tr>
+ 
+            <tr>
+              <td><input id="PanelCPmfi_cpmfi_cp_witness1_address" value="{mfi_cp_witness1_address}" maxlength="35" name="{mfi_cp_witness1_address_Name}"></td> 
+              <td><input id="PanelCPmfi_cpmfi_cp_witness2_address" value="{mfi_cp_witness2_address}" maxlength="35" size="35" name="{mfi_cp_witness2_address_Name}"></td> 
+            </tr>
+ 
+            <tr>
+              <td colspan="2" align="right">EFIMO Group Code&nbsp;<input id="PanelCPmfi_cpefimo_group_code" value="{efimo_group_code}" name="{efimo_group_code_Name}"></td> 
+            </tr>
+ 
+            <tr>
+              <td align="left"><input type="hidden" style="WIDTH: 68px" id="PanelCPmfi_cpformmode" value="{formmode}" size="7" name="{formmode_Name}"><input type="hidden" style="WIDTH: 12px; HEIGHT: 22px" id="PagePanelPanelCPmfi_cpmfi_cp_1st_meeting_week_and_day_of_the_month" value="{mfi_cp_1st_meeting_week_and_day_of_the_month}" maxlength="10" size="2" name="{mfi_cp_1st_meeting_week_and_day_of_the_month_Name}"><input type="hidden" style="WIDTH: 12px; HEIGHT: 22px" id="PagePanelPanelCPmfi_cpmfi_cp_meeting_frequency" value="{mfi_cp_meeting_frequency}" maxlength="15" size="1" name="{mfi_cp_meeting_frequency_Name}"><input type="hidden" id="PagePanelPanelCPmfi_cpmfi_cp_distance_from_region_or_branch" value="{mfi_cp_distance_from_region_or_branch}" size="1" name="{mfi_cp_distance_from_region_or_branch_Name}">
+                <!-- BEGIN Button Button_Insert --><input type="image" id="PanelCPmfi_cpButton_Insert" value="Add" alt="Add" src="Styles/SilverBlue/Images/en/ButtonInsert.gif" name="{Button_Name}"><!-- END Button Button_Insert -->
+                <!-- BEGIN Button Button_Update --><input type="image" id="PanelCPmfi_cpButton_Update" value="Button1" alt="Update" src="Styles/SilverBlue/Images/en/ButtonUpdate.gif" name="{Button_Name}"><!-- END Button Button_Update -->
+                <!-- BEGIN Button Button_Cancel --><input type="image" id="PanelCPmfi_cpButton_Cancel" value="Cancel" alt="Cancel" src="Styles/SilverBlue/Images/en/ButtonCancel.gif" name="{Button_Name}"><!-- END Button Button_Cancel --><input type="hidden" style="WIDTH: 8px" id="PanelCPmfi_cpuser_login" value="{user_login}" name="{user_login_Name}">&nbsp;<input type="hidden" style="WIDTH: 8px" id="PanelCPmfi_cpadded_at" value="{added_at}" name="{added_at_Name}">&nbsp;<input type="hidden" style="WIDTH: 8px" id="PanelCPmfi_cpupdated_by" value="{updated_by}" name="{updated_by_Name}">&nbsp;<input type="hidden" style="WIDTH: 8px" id="PanelCPmfi_cpupdated_at" value="{updated_at}" name="{updated_at_Name}"></td> 
+            </tr>
+ 
+          </table>
+ 
+        </form>
+ <!-- END Record mfi_cp --><!-- END Panel PanelCP --></td> 
+    </tr>
+ 
+  </table>
+ <br>
+  </body>
+ 
+  </html>

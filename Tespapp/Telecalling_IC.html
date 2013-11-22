@@ -1,0 +1,617 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Telecalling_IC</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/Basic/Style_doctype.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+function chk_remarks()
+{
+        if(((this.value).toString()).trim()==null)
+                this.focus();
+}
+//Include User Scripts @1-81A87B40
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/None/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//mfi_hvf2_mfi_hvf1member_name_OnLoad @561-1905D483
+function mfi_hvf2_mfi_hvf1member_name_OnLoad()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1member_name_OnLoad
+
+//Custom Code @566-2A29BDB7
+    // -------------------------
+    var num=(this.id).substr(((this.id).lastIndexOf("_")+1));
+    document.getElementById("mfi_hvf2_mfi_hvf1member_name_"+num).value=document.getElementById("mem_name_"+num).innerHTML;
+    document.getElementById("mfi_tc_individualcheckmfi_borrower_name").value=document.getElementById("mem_name_"+num).innerHTML;
+    document.getElementById("mfi_tc_individualcheckmfi_customer_mobile_no").value=document.getElementById("mob_num_"+num).innerHTML;
+    document.getElementById("mfi_tc_individualcheckla_id").value=document.getElementById("mfi_hvf2_mfi_hvf1mfi_hvf1_la_id_"+num).value;
+        document.getElementById("mfi_tc_individualcheckmfi_tc_call_attempt").value=document.getElementById("mfi_hvf2_mfi_hvf1call_attempt_"+num).value;
+        document.getElementById("mfi_tc_individualcheckmfi_group_name").value=document.getElementById("mfi_hvf2_mfi_hvf1mfi_gp_group_name_"+num).value;
+        document.getElementById("mfi_tc_individualcheckmfi_center_name").value=document.getElementById("mfi_hvf2_mfi_hvf1mfi_cp_centre_name_"+num).value;
+        document.getElementById("mfi_tc_individualcheckmfi_group_id").value=document.getElementById("mfi_hvf2_mfi_hvf1mfi_gp_id_"+num).value;
+        document.getElementById("mfi_tc_individualcheckmfi_tc_cp_id").value=document.getElementById("mfi_hvf2_mfi_hvf1cp_id_"+num).value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1member_name_OnLoad @561-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1member_name_OnLoad
+
+//mfi_hvf2_mfi_hvf1ListBox1_OnChange @563-634FFC25
+function mfi_hvf2_mfi_hvf1ListBox1_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1ListBox1_OnChange
+
+//Custom Code @564-2A29BDB7
+    // -------------------------
+    
+    document.getElementById("mfi_tc_individualcheckmfi_tc_call_log").value=this.value;
+    var num=(this.id).substr(((this.id).lastIndexOf("_")+1));
+        if(document.getElementById("mfi_hvf2_mfi_hvf1ListBox1_"+num).value=="CONNECTED")
+        {
+                document.getElementById("memdetails_"+num).setAttribute("style", "bgcolor:#CAFAF6");
+                document.getElementById("memdetails_"+num).style.display="inline";
+                        
+        }
+        else
+                document.getElementById("memdetails_"+num).style.display="none";
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1ListBox1_OnChange @563-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1ListBox1_OnChange
+
+//mfi_hvf2_mfi_hvf1mem_name_list_box_OnChange @601-D265DDA7
+function mfi_hvf2_mfi_hvf1mem_name_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1mem_name_list_box_OnChange
+
+//Custom Code @612-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_b1_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1mem_name_list_box_OnChange @601-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1mem_name_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1mem_age_list_box_OnChange @602-7718AA27
+function mfi_hvf2_mfi_hvf1mem_age_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1mem_age_list_box_OnChange
+
+//Custom Code @613-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_b2_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1mem_age_list_box_OnChange @602-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1mem_age_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1mem_father_list_box_OnChange @603-DD9F7BB7
+function mfi_hvf2_mfi_hvf1mem_father_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1mem_father_list_box_OnChange
+
+//Custom Code @614-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_b3_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1mem_father_list_box_OnChange @603-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1mem_father_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1mem_gruntor_list_box_OnChange @604-47020363
+function mfi_hvf2_mfi_hvf1mem_gruntor_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1mem_gruntor_list_box_OnChange
+
+//Custom Code @615-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_b4_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1mem_gruntor_list_box_OnChange @604-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1mem_gruntor_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1group_list_box_OnChange @605-AD9EA9C5
+function mfi_hvf2_mfi_hvf1group_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1group_list_box_OnChange
+
+//Custom Code @616-2A29BDB7
+    // -------------------------
+     document.getElementById("mfi_tc_individualcheckmfi_tc_b5_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1group_list_box_OnChange @605-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1group_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1address_list_box_OnChange @606-6FDC17B6
+function mfi_hvf2_mfi_hvf1address_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1address_list_box_OnChange
+
+//Custom Code @618-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_1_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1address_list_box_OnChange @606-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1address_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1mem_occupation_OnChange @607-A3EE9AEC
+function mfi_hvf2_mfi_hvf1mem_occupation_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1mem_occupation_OnChange
+
+//Custom Code @619-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_2_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1mem_occupation_OnChange @607-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1mem_occupation_OnChange
+
+//mfi_hvf2_mfi_hvf1lon_amt_list_box_OnChange @608-D6169CE5
+function mfi_hvf2_mfi_hvf1lon_amt_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1lon_amt_list_box_OnChange
+
+//Custom Code @620-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_3_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1lon_amt_list_box_OnChange @608-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1lon_amt_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1lon_purpose_list_box_OnChange @609-0B538030
+function mfi_hvf2_mfi_hvf1lon_purpose_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1lon_purpose_list_box_OnChange
+
+//Custom Code @621-2A29BDB7
+    // -------------------------
+   document.getElementById("mfi_tc_individualcheckmfi_tc_4_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1lon_purpose_list_box_OnChange @609-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1lon_purpose_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1visit_list_box_OnChange @610-47584182
+function mfi_hvf2_mfi_hvf1visit_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1visit_list_box_OnChange
+
+//Custom Code @623-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_5_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1visit_list_box_OnChange @610-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1visit_list_box_OnChange
+
+//mfi_hvf2_mfi_hvf1visit_report_list_box_OnChange @611-872F3BF5
+function mfi_hvf2_mfi_hvf1visit_report_list_box_OnChange()
+{
+    var result = true;
+//End mfi_hvf2_mfi_hvf1visit_report_list_box_OnChange
+
+//Custom Code @622-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_tc_individualcheckmfi_tc_6_ans").value=this.value;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf2_mfi_hvf1visit_report_list_box_OnChange @611-BC33A33A
+    return result;
+}
+//End Close mfi_hvf2_mfi_hvf1visit_report_list_box_OnChange
+
+//mfi_tc_individualchecktc_individual_check_status_OnChange @593-DE13301C
+function mfi_tc_individualchecktc_individual_check_status_OnChange()
+{
+    var result = true;
+//End mfi_tc_individualchecktc_individual_check_status_OnChange
+
+//Custom Code @1051-2A29BDB7
+    // -------------------------
+    if(this.value=="REJECTED")
+        {
+                document.getElementById("tc_remarks").style.display="inline";
+                document.getElementById("mfi_tc_individualchecktc_remarks").focus();
+        }
+    // -------------------------
+//End Custom Code
+
+//Close mfi_tc_individualchecktc_individual_check_status_OnChange @593-BC33A33A
+    return result;
+}
+//End Close mfi_tc_individualchecktc_individual_check_status_OnChange
+
+//mfi_tc_individualcheckgroup_affinity_OnClick @1050-C4310626
+function mfi_tc_individualcheckgroup_affinity_OnClick()
+{
+    var result = true;
+//End mfi_tc_individualcheckgroup_affinity_OnClick
+
+//Custom Code @1052-2A29BDB7
+    // -------------------------
+    var str="Groupaffinity1.php?gp_id="+document.getElementById("mfi_tc_individualcheckmfi_group_id").value+"&la_id="+document.getElementById("mfi_tc_individualcheckla_id").value;
+    if (window.showModalDialog) {
+     window.showModalDialog(str,"Updatepage","dialogWidth:1200px;dialogHeight:400px");
+    } else 
+    {
+    window.open('str','name','height=1200px,width=400px,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no ,modal=yes');
+    } 
+    // -------------------------
+//End Custom Code
+
+//Close mfi_tc_individualcheckgroup_affinity_OnClick @1050-BC33A33A
+    return result;
+}
+//End Close mfi_tc_individualcheckgroup_affinity_OnClick
+
+//Handle mfi_tc_individualcheckcalled_atInlineDatePicker1 @592-8FDBFFFE
+function mfi_tc_individualcheckcalled_atInlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","None");
+}
+//End Handle mfi_tc_individualcheckcalled_atInlineDatePicker1
+
+//bind_events @1-339FA2DA
+function bind_events() {
+    addEventHandler("mfi_tc_individualcheckcalled_at", "load", mfi_tc_individualcheckcalled_atInlineDatePicker1_start);
+    addEventHandler("mfi_hvf2_mfi_hvf1member_name", "load", mfi_hvf2_mfi_hvf1member_name_OnLoad);
+    addEventHandler("mfi_hvf2_mfi_hvf1ListBox1", "change", mfi_hvf2_mfi_hvf1ListBox1_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1mem_name_list_box", "change", mfi_hvf2_mfi_hvf1mem_name_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1mem_age_list_box", "change", mfi_hvf2_mfi_hvf1mem_age_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1mem_father_list_box", "change", mfi_hvf2_mfi_hvf1mem_father_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1mem_gruntor_list_box", "change", mfi_hvf2_mfi_hvf1mem_gruntor_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1group_list_box", "change", mfi_hvf2_mfi_hvf1group_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1address_list_box", "change", mfi_hvf2_mfi_hvf1address_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1mem_occupation", "change", mfi_hvf2_mfi_hvf1mem_occupation_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1lon_amt_list_box", "change", mfi_hvf2_mfi_hvf1lon_amt_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1lon_purpose_list_box", "change", mfi_hvf2_mfi_hvf1lon_purpose_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1visit_list_box", "change", mfi_hvf2_mfi_hvf1visit_list_box_OnChange);
+    addEventHandler("mfi_hvf2_mfi_hvf1visit_report_list_box", "change", mfi_hvf2_mfi_hvf1visit_report_list_box_OnChange);
+    addEventHandler("mfi_tc_individualchecktc_individual_check_status", "change", mfi_tc_individualchecktc_individual_check_status_OnChange);
+    addEventHandler("mfi_tc_individualcheckgroup_affinity", "click", mfi_tc_individualcheckgroup_affinity_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<!-- BEGIN Grid mfi_hvf2_mfi_hvf1 -->
+<table style="BACKGROUND-COLOR: #afc0f4" cellspacing="0" cellpadding="0" width="100%">
+  <!-- BEGIN Row -->
+  <tr>
+    <th scope="row">LA NO:</th>
+ 
+    <td><input id="mfi_hvf2_mfi_hvf1mfi_hvf1_la_id_{mfi_hvf2_mfi_hvf1:rowNumber}" value="{mfi_hvf1_la_id}" name="{mfi_hvf1_la_id_Name}">&nbsp;</td> 
+    <td>loan cycle :{mfi_hvf2_loan_cycle}</td>
+  </tr>
+ 
+  <tr>
+    <td>Call Attempt :</td> 
+    <td colspan="2"><input id="mfi_hvf2_mfi_hvf1call_attempt_{mfi_hvf2_mfi_hvf1:rowNumber}" value="{call_attempt}" maxlength="4" size="3" name="{call_attempt_Name}"></td>
+  </tr>
+ 
+  <tr>
+    <td>Member Name</td> 
+    <td colspan="2"><input id="mfi_hvf2_mfi_hvf1member_name_{mfi_hvf2_mfi_hvf1:rowNumber}" value="{member_name}" name="{member_name_Name}"></td>
+  </tr>
+ 
+  <tr>
+    <td>Mobile NO.</td> 
+    <td id="mob_num_{mfi_hvf2_mfi_hvf1:rowNumber}" colspan="2">{mfi_hvf1_customer_mobile_no}</td>
+  </tr>
+ 
+  <tr>
+    <td>Call Log:</td> 
+    <td colspan="2">
+      <select id="mfi_hvf2_mfi_hvf1ListBox1_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{ListBox1_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {ListBox1_Options}
+      </select>
+ </td>
+  </tr>
+</table>
+<table style="BACKGROUND-COLOR: #cafaf6; DISPLAY: none" id="memdetails_{mfi_hvf2_mfi_hvf1:rowNumber}" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="3">Borrower basic Details</td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">What is your name?</th>
+ 
+    <td id="mem_name_{mfi_hvf2_mfi_hvf1:rowNumber}">{mfi_hvf1_customer_name}</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1mem_name_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{mem_name_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {mem_name_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">What is your current age?</th>
+ 
+    <td>{mfi_hvf1_customer_age_years}&nbsp;</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1mem_age_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{mem_age_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {mem_age_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">What is your father's name?</th>
+ 
+    <td>{mfi_hvf1_customer_father_name}&nbsp;</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1mem_father_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{mem_father_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {mem_father_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">What is the name of your guarantor/spouse ?</th>
+ 
+    <td>{mfi_hvf1_customer_husband_name}&nbsp;</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1mem_gruntor_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{mem_gruntor_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {mem_gruntor_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">What is your Group name?</th>
+ 
+    <td>{mfi_gp_proposed_group_name}&nbsp;</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1group_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{group_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {group_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" nowrap align="left">1. What is your current home address? How long you are staying in that home?</th>
+ 
+    <td>{mfi_hvf1_customer_current_address1}&nbsp;{mfi_hvf1_customer_pin_code}<br>
+      {mfi_hvf1_customer_residence_years} </td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1address_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{address_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {address_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">2. What is your present occupation?</th>
+ 
+    <td>{mfi_hvf1_customer_occupation}&nbsp;</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1mem_occupation_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{mem_occupation_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {mem_occupation_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">3. What is the loan amount you have applied for?</th>
+ 
+    <td>{mfi_hvf2_loan_amount}&nbsp;</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1lon_amt_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{lon_amt_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {lon_amt_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" nowrap align="left">4. What is the loan purpose?what all you will buy with this loan amount(Detail of Loan Purpose)?</th>
+ 
+    <td>{mfi_hvf2_loan_purpose}&nbsp;</td> 
+    <td>
+      <select id="mfi_hvf2_mfi_hvf1lon_purpose_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{lon_purpose_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {lon_purpose_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <td nowrap align="left">5. Did anyone from FFSL visited your house and what he had collected / asked from you?</td> 
+    <td></td> 
+    <td nowrap>
+      <select id="mfi_hvf2_mfi_hvf1visit_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{visit_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {visit_list_box_Options}
+      </select>
+ 
+      <select id="mfi_hvf2_mfi_hvf1visit_report_list_box_{mfi_hvf2_mfi_hvf1:rowNumber}" name="{visit_report_list_box_Name}">
+        <option selected value="">{res:CCS_SelectValue}</option>
+        {visit_report_list_box_Options}
+      </select>
+ </td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">&nbsp;<input type="hidden" id="mfi_hvf2_mfi_hvf1mfi_gp_group_name_{mfi_hvf2_mfi_hvf1:rowNumber}" value="{mfi_gp_group_name}" name="{mfi_gp_group_name_Name}"></th>
+ 
+    <td><input type="hidden" id="mfi_hvf2_mfi_hvf1mfi_cp_centre_name_{mfi_hvf2_mfi_hvf1:rowNumber}" value="{mfi_cp_centre_name}" name="{mfi_cp_centre_name_Name}">&nbsp;</td>
+  </tr>
+ 
+  <tr>
+    <th scope="row" align="left">&nbsp;<input type="hidden" id="mfi_hvf2_mfi_hvf1mfi_gp_id_{mfi_hvf2_mfi_hvf1:rowNumber}" value="{mfi_gp_id}" name="{mfi_gp_id_Name}"></th>
+ 
+    <td><input type="hidden" id="mfi_hvf2_mfi_hvf1cp_id_{mfi_hvf2_mfi_hvf1:rowNumber}" value="{cp_id}" name="{cp_id_Name}">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%">
+  <!-- END Row -->
+  <!-- BEGIN NoRecords -->
+  <tr>
+    <td colspan="2">{res:CCS_NoRecords}</td>
+  </tr>
+  <!-- END NoRecords -->
+  <tr bgcolor="#acf3f5">
+    <td colspan="2" align="center">
+      <!-- BEGIN Navigator Navigator --><span class="Navigator">
+      <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img alt="" src="Styles/SilverBlue/Images/Prev.gif"></a> <!-- END Prev_On -->
+      <!-- BEGIN Prev_Off -->&nbsp;<!-- END Prev_Off -->&nbsp; 
+      <!-- BEGIN Next_On --><a href="{Next_URL}"><img alt="" src="Styles/SilverBlue/Images/Next.gif"></a> <!-- END Next_On -->
+      <!-- BEGIN Next_Off -->&nbsp;<!-- END Next_Off --></span><!-- END Navigator Navigator -->&nbsp;</td>
+  </tr>
+</table>
+<!-- END Grid mfi_hvf2_mfi_hvf1 --><br>
+<!-- BEGIN Record mfi_tc_individualcheck -->
+<table width="100%">
+  <tr>
+    <td width="50%" align="right">
+      <form id="mfi_tc_individualcheck" method="post" name="{HTMLFormName}" action="{Action}">
+        <table class="MainTable" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="15">{Error}</td>
+                </tr>
+                <!-- END Error -->
+                <tr class="tlass=&amp;quot;Controls">
+                  <td><input type="hidden" id="mfi_tc_individualcheckla_id" value="{la_id}" name="{la_id_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_borrower_name" value="{mfi_borrower_name}" maxlength="35" size="35" name="{mfi_borrower_name_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_call_attempt" value="{mfi_tc_call_attempt}" maxlength="4" size="4" name="{mfi_tc_call_attempt_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_call_log" value="{mfi_tc_call_log}" maxlength="50" size="5" name="{mfi_tc_call_log_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b1_ans" value="{mfi_tc_b1_ans}" maxlength="50" size="5" name="{mfi_tc_b1_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b2_ans" value="{mfi_tc_b2_ans}" maxlength="50" size="5" name="{mfi_tc_b2_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b3_ans" value="{mfi_tc_b3_ans}" maxlength="50" size="5" name="{mfi_tc_b3_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b4_ans" value="{mfi_tc_b4_ans}" maxlength="50" size="5" name="{mfi_tc_b4_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b5_ans" value="{mfi_tc_b5_ans}" maxlength="50" size="5" name="{mfi_tc_b5_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_1_ans" value="{mfi_tc_1_ans}" maxlength="50" size="5" name="{mfi_tc_1_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_2_ans" value="{mfi_tc_2_ans}" maxlength="50" size="5" name="{mfi_tc_2_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_3_ans" value="{mfi_tc_3_ans}" maxlength="50" size="5" name="{mfi_tc_3_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_4_ans" value="{mfi_tc_4_ans}" maxlength="50" size="5" name="{mfi_tc_4_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_5_ans" value="{mfi_tc_5_ans}" maxlength="50" size="5" name="{mfi_tc_5_ans_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_6_ans" value="{mfi_tc_6_ans}" maxlength="50" size="5" name="{mfi_tc_6_ans_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_region_name" value="{mfi_region_name}" maxlength="36" size="36" name="{mfi_region_name_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_center_name" value="{mfi_center_name}" maxlength="35" size="35" name="{mfi_center_name_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_group_id" value="{mfi_group_id}" maxlength="35" size="35" name="{mfi_group_id_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_group_name" value="{mfi_group_name}" maxlength="35" size="35" name="{mfi_group_name_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckcalled_by" value="{called_by}" maxlength="25" size="25" name="{called_by_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckcalled_at" value="{called_at}" maxlength="100" size="10" name="{called_at_Name}"></td> 
+                  <td>select tele verification result 
+                    <select id="mfi_tc_individualchecktc_individual_check_status" name="{tc_individual_check_status_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+                      {tc_individual_check_status_Options}
+                    </select>
+ </td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_interest_details" value="{mfi_interest_details}" maxlength="100" size="50" name="{mfi_interest_details_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualchecktc_ic_rejection_details" value="{tc_ic_rejection_details}" maxlength="250" size="50" name="{tc_ic_rejection_details_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_customer_mobile_no" value="{mfi_customer_mobile_no}" maxlength="20" name="{mfi_customer_mobile_no_Name}" size="20"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_mobile_status" value="{mfi_mobile_status}" maxlength="5" size="5" name="{mfi_mobile_status_Name}"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_incoming_mobile_no" value="{mfi_incoming_mobile_no}" maxlength="20" name="{mfi_incoming_mobile_no_Name}" size="20"></td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_customer_relationship" value="{mfi_customer_relationship}" maxlength="35" size="35" name="{mfi_customer_relationship_Name}"></td> 
+                  <td>
+                    <div style="DISPLAY: none" id="tc_remarks">
+                      TC remarks <textarea onblur="chk_remarks();" id="mfi_tc_individualchecktc_remarks" rows="3" cols="25" name="{tc_remarks_Name}">{tc_remarks}</textarea>
+                    </div>
+                  </td> 
+                  <td><input type="hidden" id="mfi_tc_individualcheckmfi_tc_cp_id" value="{mfi_tc_cp_id}" name="{mfi_tc_cp_id_Name}"></td>
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td style="TEXT-ALIGN: right" colspan="15">
+                    <!-- BEGIN Button Button_Insert --><input type="submit" id="mfi_tc_individualcheckButton_Insert" class="Button" value="{res:CCS_Insert}" alt="{res:CCS_Insert}" name="{Button_Name}"><!-- END Button Button_Insert --></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td> 
+      <td width="50%" align="left">
+        <!-- BEGIN Button group_affinity --><input type="button" id="mfi_tc_individualcheckgroup_affinity" class="Button" value="GroupAfinity" alt="Button1" name="{Button_Name}"><!-- END Button group_affinity --></td>
+    </tr>
+  </table>
+</form>
+<!-- END Record mfi_tc_individualcheck --><br>
+</body>
+</html>

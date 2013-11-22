@@ -1,0 +1,46 @@
+/*YahooAutocomplete Style @1-2601486E*/
+.mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_idYahooAutocomplete1 .yui-ac-container {
+    left: 0;
+}
+.mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_idYahooAutocomplete1 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_id_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-F0934958*/
+.mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_idYahooAutocomplete2 .yui-ac-container {
+    left: 0;
+}
+.mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_idYahooAutocomplete2 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_id_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+

@@ -1,0 +1,667 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-35C0C63F
+
+var mfi_hvf3_mfi_hvf1_DatePicker_ENTERED_AT = new Object(); 
+mfi_hvf3_mfi_hvf1_DatePicker_ENTERED_AT.format           = "yyyy-mm-dd";
+mfi_hvf3_mfi_hvf1_DatePicker_ENTERED_AT.style            = "Styles/SilverBlue/Style.css";
+mfi_hvf3_mfi_hvf1_DatePicker_ENTERED_AT.relativePathPart = "";
+mfi_hvf3_mfi_hvf1_DatePicker_ENTERED_AT.themeVersion = "3.0";
+
+var mfi_hvf1_mfi_hvf3_DatePicker_s_ENTERED_AT = new Object(); 
+mfi_hvf1_mfi_hvf3_DatePicker_s_ENTERED_AT.format           = "yyyy-mm-dd";
+mfi_hvf1_mfi_hvf3_DatePicker_s_ENTERED_AT.style            = "Styles/SilverBlue/Style.css";
+mfi_hvf1_mfi_hvf3_DatePicker_s_ENTERED_AT.relativePathPart = "";
+mfi_hvf1_mfi_hvf3_DatePicker_s_ENTERED_AT.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//mfi_hvf1Button_Submit_OnClick @54-F5267387
+function mfi_hvf1Button_Submit_OnClick()
+{
+    var result = true;
+//End mfi_hvf1Button_Submit_OnClick
+
+//Confirmation Message @55-257FDD03
+    return confirm('Submit records?');
+//End Confirmation Message
+
+//Close mfi_hvf1Button_Submit_OnClick @54-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1Button_Submit_OnClick
+
+//mfi_hvf3_mfi_hvf1Button_Submit_OnClick @121-5ECFCA94
+function mfi_hvf3_mfi_hvf1Button_Submit_OnClick()
+{
+    var result = true;
+//End mfi_hvf3_mfi_hvf1Button_Submit_OnClick
+
+//Confirmation Message @122-257FDD03
+    return confirm('Submit records?');
+//End Confirmation Message
+
+//Close mfi_hvf3_mfi_hvf1Button_Submit_OnClick @121-BC33A33A
+    return result;
+}
+//End Close mfi_hvf3_mfi_hvf1Button_Submit_OnClick
+
+//ybl_kyc_mfi_hvf1Button_Submit_OnClick @251-04583DB0
+function ybl_kyc_mfi_hvf1Button_Submit_OnClick()
+{
+    var result = true;
+//End ybl_kyc_mfi_hvf1Button_Submit_OnClick
+
+//Confirmation Message @252-257FDD03
+    return confirm('Submit records?');
+//End Confirmation Message
+
+//Close ybl_kyc_mfi_hvf1Button_Submit_OnClick @251-BC33A33A
+    return result;
+}
+//End Close ybl_kyc_mfi_hvf1Button_Submit_OnClick
+
+//mfi_hvf1Cancel_OnClick @56-48655A65
+function mfi_hvf1Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End mfi_hvf1Cancel_OnClick
+
+//mfi_hvf3_mfi_hvf1Cancel_OnClick @123-A52F9F00
+function mfi_hvf3_mfi_hvf1Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End mfi_hvf3_mfi_hvf1Cancel_OnClick
+
+//ybl_kyc_mfi_hvf1Cancel_OnClick @253-B8E74BAE
+function ybl_kyc_mfi_hvf1Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End ybl_kyc_mfi_hvf1Cancel_OnClick
+
+//bind_events @1-4917EAA5
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    addEventHandler("mfi_hvf1Button_Submit", "click", mfi_hvf1Button_Submit_OnClick);
+    addEventHandler("mfi_hvf3_mfi_hvf1Button_Submit", "click", mfi_hvf3_mfi_hvf1Button_Submit_OnClick);
+    addEventHandler("ybl_kyc_mfi_hvf1Button_Submit", "click", ybl_kyc_mfi_hvf1Button_Submit_OnClick);
+    addEventHandler("mfi_hvf1Cancel", "click", mfi_hvf1Cancel_OnClick);
+    addEventHandler("mfi_hvf3_mfi_hvf1Cancel", "click", mfi_hvf3_mfi_hvf1Cancel_OnClick);
+    addEventHandler("ybl_kyc_mfi_hvf1Cancel", "click", ybl_kyc_mfi_hvf1Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script>
+function satChangePassword()
+{
+        if(document.getElementById("ChangePasswordHidden1").value!=document.getElementById("ChangePasswordTextBox1").value)
+        {
+        alert("Old Password not Correct");
+        document.getElementById("ChangePasswordTextBox1").focus();
+        document.getElementById("ChangePasswordButton_Update").style.display="none";
+        }
+        else
+        {
+                if(document.getElementById("ChangePasswordTextBox2").value!=document.getElementById("ChangePasswordTextBox3").value && document.getElementById("ChangePasswordTextBox2").value!="")
+                {
+                alert("Retype Password Not Same");
+                document.getElementById("ChangePasswordTextBox3").value="";
+                document.getElementById("ChangePasswordTextBox2").focus();
+                document.getElementById("ChangePasswordButton_Update").style.display="none";
+                }
+                else
+                {
+                document.getElementById("ChangePasswordButton_Update").style.display="inline";
+                }
+
+    }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css" />
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 20px; WIDTH: 1220px; PADDING-RIGHT: 20px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 1220px; PADDING-RIGHT: 10px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; align: center; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td align="center">{incMenu}</td> 
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Record mfi_hvf1_mfi_hvf3 -->
+            <form id="mfi_hvf1_mfi_hvf3" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>Search Mfi Hvf1 Mfi Hvf3 </strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      </tr>
+ 
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2">{Error}</td> 
+                      </tr>
+ <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="mfi_hvf1_mfi_hvf3s_GP_No">GP No</label></td> 
+                        <td><input id="mfi_hvf1_mfi_hvf3s_GP_No" value="{s_GP_No}" maxlength="8" size="8" name="{s_GP_No_Name}"></td> 
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th"><label for="mfi_hvf1_mfi_hvf3s_HV_No">HV No</label></td> 
+                        <td><input id="mfi_hvf1_mfi_hvf3s_HV_No" value="{s_HV_No}" maxlength="8" size="8" name="{s_HV_No_Name}"></td> 
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th"><label for="mfi_hvf1_mfi_hvf3s_ENTERED_BY">ENTERED BY</label></td> 
+                        <td><input id="mfi_hvf1_mfi_hvf3s_ENTERED_BY" value="{s_ENTERED_BY}" maxlength="30" size="30" name="{s_ENTERED_BY_Name}"></td> 
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th"><label for="mfi_hvf1_mfi_hvf3s_ENTERED_AT">ENTERED AT</label></td> 
+                        <td><input id="mfi_hvf1_mfi_hvf3s_ENTERED_AT" value="{s_ENTERED_AT}" maxlength="100" size="8" name="{s_ENTERED_AT_Name}">
+                          <!-- BEGIN DatePicker DatePicker_s_ENTERED_AT --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="mfi_hvf1_mfi_hvf3DatePicker_s_ENTERED_AT"><img id="mfi_hvf1_mfi_hvf3DatePicker_s_ENTERED_AT_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_s_ENTERED_AT --></td> 
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="2" align="right">
+                          <!-- BEGIN Button Button_DoSearch --><input type="submit" id="mfi_hvf1_mfi_hvf3Button_DoSearch" class="Button" value="Search" alt="Search" name="{Button_Name}"><!-- END Button Button_DoSearch --></td> 
+                      </tr>
+ 
+                    </table>
+ </td> 
+                </tr>
+ 
+              </table>
+ 
+            </form>
+ <!-- END Record mfi_hvf1_mfi_hvf3 -->
+            <!-- BEGIN Grid mfi_hvf2 -->
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top">
+                  <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      <td class="th"><strong>MISSING IN HV2 </strong></td> 
+                      <td class="th"><strong>COUNT {Label3}</strong></td> 
+                      <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                    </tr>
+ 
+                  </table>
+ 
+                  <table class="Grid" cellspacing="0" cellpadding="0">
+                    <tr class="Caption">
+                      <th scope="col">HV NO</th>
+ 
+                      <th scope="col">SHG NAME</th>
+ 
+                      <th scope="col">GP NO</th>
+ 
+                      <th scope="col">GROUP NAME</th>
+ 
+                      <th scope="col">CP NO</th>
+ 
+                      <th scope="col">CENTRE NAME</th>
+ 
+                      <th scope="col">CUSTOMER NAME</th>
+ 
+                      <th scope="col">FATHER NAME</th>
+ 
+                      <th scope="col">FILE NAME</th>
+ 
+                      <th scope="col">REJECTION REASON</th>
+ 
+                    </tr>
+ 
+                    <!-- BEGIN Row -->
+                    <tr class="Row">
+                      <td>{HV_NO}&nbsp;</td> 
+                      <td>{SHG_NAME}&nbsp;</td> 
+                      <td>{GP_NO}&nbsp;</td> 
+                      <td>{GROUP_NAME}&nbsp;</td> 
+                      <td>{CP_NO}&nbsp;</td> 
+                      <td>{CENTRE_NAME}&nbsp;</td> 
+                      <td>{CUSTOMER_NAME}&nbsp;</td> 
+                      <td>{FATHER_NAME}&nbsp;</td> 
+                      <td>{Label1}</td> 
+                      <td>{Label2}</td> 
+                    </tr>
+ <!-- END Row -->
+                    <!-- BEGIN NoRecords -->
+                    <tr class="NoRecords">
+                      <td colspan="10">No records</td> 
+                    </tr>
+ <!-- END NoRecords -->
+                  </table>
+ </td> 
+              </tr>
+ 
+            </table>
+ <!-- END Grid mfi_hvf2 --><br>
+            <br>
+            <!-- BEGIN EditableGrid mfi_hvf1 -->
+            <form id="mfi_hvf1" method="post" name="{HTMLFormName}" action="{Action}">
+              <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>List of HV1 </strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      </tr>
+ 
+                      <tr>
+                        <td class="th" colspan="3"><strong>COUNT {Label1}</strong></td> 
+                      </tr>
+ 
+                    </table>
+ 
+                    <table class="Grid" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="9">{Error}</td> 
+                      </tr>
+ <!-- END Error -->
+                      <tr class="Caption">
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_HV_No --><a href="{Sort_URL}" id="mfi_hvf1Sorter_HV_No">HV No</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_HV_No --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_CP_No_1 --><a href="{Sort_URL}" id="mfi_hvf1Sorter_CP_No_1">CP No</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_CP_No_1 --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_CENTRE_NAME --><a href="{Sort_URL}" id="mfi_hvf1Sorter_CENTRE_NAME">CENTRE NAME</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_CENTRE_NAME --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_GP_No_1 --><a href="{Sort_URL}" id="mfi_hvf1Sorter_GP_No_1">GP No</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_GP_No_1 --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_GROUP_NAME --><a href="{Sort_URL}" id="mfi_hvf1Sorter_GROUP_NAME">GROUP NAME</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_GROUP_NAME --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_SHG_NAME --><a href="{Sort_URL}" id="mfi_hvf1Sorter_SHG_NAME">SHG NAME</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_SHG_NAME --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_SHG_COUNT --><a href="{Sort_URL}" id="mfi_hvf1Sorter_SHG_COUNT">SHG COUNT</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_SHG_COUNT --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_BORROWER_NAME --><a href="{Sort_URL}" id="mfi_hvf1Sorter_BORROWER_NAME">BORROWER NAME</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_BORROWER_NAME --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_BORROWER_FATHER --><a href="{Sort_URL}" id="mfi_hvf1Sorter_BORROWER_FATHER">BORROWER FATHER</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_BORROWER_FATHER --></th>
+ 
+                      </tr>
+ 
+                      <!-- BEGIN Row -->
+                      <!-- BEGIN RowError -->
+                      <tr class="Error">
+                        <td colspan="9">{Error}</td> 
+                      </tr>
+ <!-- END RowError -->
+                      <tr class="Row">
+                        <td><label for="mfi_hvf1HV_No_{mfi_hvf1:rowNumber}" style="display: none;">HV No</label><input id="mfi_hvf1HV_No_{mfi_hvf1:rowNumber}" value="{HV_No}" maxlength="8" size="6" name="{HV_No_Name}"></td> 
+                        <td><label for="mfi_hvf1CP_No_{mfi_hvf1:rowNumber}" style="display: none;">CP No </label></td> 
+                        <td><label for="mfi_hvf1CENTRE_NAME_{mfi_hvf1:rowNumber}" style="display: none;">CENTRE NAME</label></td> 
+                        <td><label for="mfi_hvf1GP_No_{mfi_hvf1:rowNumber}" style="display: none;">GP No </label><input id="mfi_hvf1GP_No_{mfi_hvf1:rowNumber}" value="{GP_No}" maxlength="8" size="6" name="{GP_No_Name}"></td> 
+                        <td><label for="mfi_hvf1GROUP_NAME_{mfi_hvf1:rowNumber}" style="display: none;">GROUP NAME</label></td> 
+                        <td><label for="mfi_hvf1SHG_NAME_{mfi_hvf1:rowNumber}" style="display: none;">SHG NAME</label></td> 
+                        <td><label for="mfi_hvf1SHG_COUNT_{mfi_hvf1:rowNumber}" style="display: none;">SHG COUNT</label></td> 
+                        <td><label for="mfi_hvf1BORROWER_NAME_{mfi_hvf1:rowNumber}" style="display: none;">BORROWER NAME</label><input id="mfi_hvf1BORROWER_NAME_{mfi_hvf1:rowNumber}" value="{BORROWER_NAME}" maxlength="30" name="{BORROWER_NAME_Name}"></td> 
+                        <td><label for="mfi_hvf1BORROWER_FATHER_{mfi_hvf1:rowNumber}" style="display: none;">BORROWER FATHER</label><input id="mfi_hvf1BORROWER_FATHER_{mfi_hvf1:rowNumber}" value="{BORROWER_FATHER}" maxlength="30" name="{BORROWER_FATHER_Name}"></td> 
+                      </tr>
+ <!-- END Row -->
+                      <!-- BEGIN NoRecords -->
+                      <tr class="NoRecords">
+                        <td colspan="9">No records</td> 
+                      </tr>
+ <!-- END NoRecords -->
+                      <tr class="Footer">
+                        <td style="TEXT-ALIGN: right" colspan="9">
+                          <!-- BEGIN Navigator Navigator -->
+                          <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+                          <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                            <option selected value="">-</option>
+ {PageSize_Options} 
+                          </select>
+ 
+                          <!-- BEGIN First_On --><a href="{First_URL}">First</a> <!-- END First_On -->
+                          <!-- BEGIN First_Off -->First <!-- END First_Off -->
+                          <!-- BEGIN Prev_On --><a href="{Prev_URL}">Prev</a> <!-- END Prev_On -->
+                          <!-- BEGIN Prev_Off -->Prev <!-- END Prev_Off -->&nbsp; 
+                          <!-- BEGIN Pages -->
+                          <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                          <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of &nbsp;{Total_Pages}&nbsp; 
+                          <!-- BEGIN Next_On --><a href="{Next_URL}">Next</a> <!-- END Next_On -->
+                          <!-- BEGIN Next_Off -->Next <!-- END Next_Off -->
+                          <!-- BEGIN Last_On --><a href="{Last_URL}">Last</a> <!-- END Last_On -->
+                          <!-- BEGIN Last_Off -->Last <!-- END Last_Off --><!-- END Navigator Navigator -->
+                          <!-- BEGIN Button Button_Submit --><input type="submit" id="mfi_hvf1Button_Submit" class="Button" value="Submit" alt="Submit" name="{Button_Name}"><!-- END Button Button_Submit -->
+                          <!-- BEGIN Button Cancel --><input type="submit" id="mfi_hvf1Cancel" class="Button" value="Cancel" alt="Cancel" name="{Button_Name}"><!-- END Button Cancel --></td> 
+                      </tr>
+ 
+                    </table>
+ </td> 
+                </tr>
+ 
+              </table>
+ 
+            </form>
+ <!-- END EditableGrid mfi_hvf1 --><br>
+            <!-- BEGIN EditableGrid mfi_hvf3_mfi_hvf1 -->
+            <form id="mfi_hvf3_mfi_hvf1" method="post" name="{HTMLFormName}" action="{Action}">
+              <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>LIST OF HV2 </strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      </tr>
+ 
+                      <tr>
+                        <td class="th" colspan="3"><strong>COUNT {Label1}</strong></td> 
+                      </tr>
+ 
+                    </table>
+ 
+                    <table class="Grid" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="12">{Error}</td> 
+                      </tr>
+ <!-- END Error -->
+                      <tr class="Caption">
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_HV_No --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_HV_No">HV No</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_HV_No --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_AGRICULTURE_LAND --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_AGRICULTURE_LAND">AGRICULTURE LAND</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_AGRICULTURE_LAND --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_TOTAL_CROPS --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_TOTAL_CROPS">TOTAL CROPS</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_TOTAL_CROPS --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_MILK_SELLING --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_MILK_SELLING">MILK SELLING</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_MILK_SELLING --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_MONTHLY_EXPENSE --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_MONTHLY_EXPENSE">MONTHLY EXPENSE</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_MONTHLY_EXPENSE --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_ANNUAL_EXPENSE --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_ANNUAL_EXPENSE">ANNUAL EXPENSE</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_ANNUAL_EXPENSE --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_ENTERED_BY --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_ENTERED_BY">ENTERED BY</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_ENTERED_BY --></th>
+ 
+                        <th scope="col">
+                        <!-- BEGIN Sorter Sorter_ENTERED_AT --><a href="{Sort_URL}" id="mfi_hvf3_mfi_hvf1Sorter_ENTERED_AT">ENTERED AT</a> 
+                        <!-- BEGIN Asc_On --><img border="0" alt="Ascending" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                        <!-- BEGIN Desc_On --><img border="0" alt="Descending" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_ENTERED_AT --></th>
+ 
+                      </tr>
+ 
+                      <!-- BEGIN Row -->
+                      <!-- BEGIN RowError -->
+                      <tr class="Error">
+                        <td colspan="12">{Error}</td> 
+                      </tr>
+ <!-- END RowError -->
+                      <tr class="Row">
+                        <td><label for="mfi_hvf3_mfi_hvf1HV_No_{mfi_hvf3_mfi_hvf1:rowNumber}" style="display: none;">HV No</label><input id="mfi_hvf3_mfi_hvf1HV_No_{mfi_hvf3_mfi_hvf1:rowNumber}" value="{HV_No}" maxlength="8" size="6" name="{HV_No_Name}"></td> 
+                        <td><input id="mfi_hvf3_mfi_hvf1gp_no_{mfi_hvf3_mfi_hvf1:rowNumber}" value="{gp_no}" name="{gp_no_Name}"></td> 
+                        <td><input id="mfi_hvf3_mfi_hvf1group_name_{mfi_hvf3_mfi_hvf1:rowNumber}" value="{group_name}" name="{group_name_Name}"></td> 
+                        <td><input id="mfi_hvf3_mfi_hvf1group_size_{mfi_hvf3_mfi_hvf1:rowNumber}" value="{group_size}" name="{group_size_Name}"></td> 
+                        <td></td> 
+                        <td></td> 
+                        <td><label for="mfi_hvf3_mfi_hvf1ENTERED_BY_{mfi_hvf3_mfi_hvf1:rowNumber}" style="display: none;">ENTERED BY</label><input id="mfi_hvf3_mfi_hvf1ENTERED_BY_{mfi_hvf3_mfi_hvf1:rowNumber}" value="{ENTERED_BY}" maxlength="20" size="15" name="{ENTERED_BY_Name}"></td> 
+                        <td><label for="mfi_hvf3_mfi_hvf1ENTERED_AT_{mfi_hvf3_mfi_hvf1:rowNumber}" style="display: none;">ENTERED AT</label><input id="mfi_hvf3_mfi_hvf1ENTERED_AT_{mfi_hvf3_mfi_hvf1:rowNumber}" value="{ENTERED_AT}" maxlength="10" size="8" name="{ENTERED_AT_Name}">
+                          <!-- BEGIN DatePicker DatePicker_ENTERED_AT --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="mfi_hvf3_mfi_hvf1DatePicker_ENTERED_AT_{mfi_hvf3_mfi_hvf1:rowNumber}"><img id="mfi_hvf3_mfi_hvf1DatePicker_ENTERED_AT_Image_{mfi_hvf3_mfi_hvf1:rowNumber}" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_ENTERED_AT --></td> 
+                      </tr>
+ <!-- END Row -->
+                      <!-- BEGIN NoRecords -->
+                      <tr class="NoRecords">
+                        <td colspan="12">No records</td> 
+                      </tr>
+ <!-- END NoRecords -->
+                      <tr class="Footer">
+                        <td style="TEXT-ALIGN: right" colspan="12">
+                          <!-- BEGIN Navigator Navigator -->
+                          <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+                          <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                            <option selected value="">-</option>
+ {PageSize_Options} 
+                          </select>
+ 
+                          <!-- BEGIN First_On --><a href="{First_URL}">First</a> <!-- END First_On -->
+                          <!-- BEGIN First_Off -->First <!-- END First_Off -->
+                          <!-- BEGIN Prev_On --><a href="{Prev_URL}">Prev</a> <!-- END Prev_On -->
+                          <!-- BEGIN Prev_Off -->Prev <!-- END Prev_Off -->&nbsp; 
+                          <!-- BEGIN Pages -->
+                          <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                          <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->of &nbsp;{Total_Pages}&nbsp; 
+                          <!-- BEGIN Next_On --><a href="{Next_URL}">Next</a> <!-- END Next_On -->
+                          <!-- BEGIN Next_Off -->Next <!-- END Next_Off -->
+                          <!-- BEGIN Last_On --><a href="{Last_URL}">Last</a> <!-- END Last_On -->
+                          <!-- BEGIN Last_Off -->Last <!-- END Last_Off --><!-- END Navigator Navigator -->
+                          <!-- BEGIN Button Button_Submit --><input type="submit" id="mfi_hvf3_mfi_hvf1Button_Submit" class="Button" value="Submit" alt="Submit" name="{Button_Name}"><!-- END Button Button_Submit -->
+                          <!-- BEGIN Button Cancel --><input type="submit" id="mfi_hvf3_mfi_hvf1Cancel" class="Button" value="Cancel" alt="Cancel" name="{Button_Name}"><!-- END Button Cancel --></td> 
+                      </tr>
+ 
+                    </table>
+ </td> 
+                </tr>
+ 
+              </table>
+ 
+            </form>
+ <!-- END EditableGrid mfi_hvf3_mfi_hvf1 --><br>
+            <br>
+            <!-- BEGIN EditableGrid ybl_kyc_mfi_hvf1 -->
+            <form id="ybl_kyc_mfi_hvf1" method="post" name="{HTMLFormName}" action="{Action}">
+              <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th" align="left"><strong>LIST OF KYCs Entered </strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      </tr>
+ 
+                      <tr>
+                        <td colspan="3" align="left"><strong>
+                          <h1>COUNT{Label1} 
+                          <h1></strong></h1>
+ </h1>
+ </td> 
+                      </tr>
+ 
+                    </table>
+ 
+                    <table class="Grid" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="23">{Error}</td> 
+                      </tr>
+ <!-- END Error -->
+                      <tr class="Caption">
+                        <th scope="col">SHG NAME</th>
+ 
+                        <th scope="col">GP NO</th>
+ 
+                        <th scope="col">HV NO</th>
+ 
+                        <th scope="col">KYC TYPE 1</th>
+ 
+                        <th scope="col">KYC TYPE 2</th>
+ 
+                        <th scope="col">BORROWER VOTER ID 1</th>
+ 
+                        <th scope="col">BORROWER VOTER ID 2</th>
+ 
+                        <th scope="col">BORROWER AADHAAR 1</th>
+ 
+                        <th scope="col">BORROWER AADHAAR 2</th>
+ 
+                        <th scope="col">BORROWER NAME1</th>
+ 
+                        <th scope="col">BORROWER NAME2</th>
+ 
+                        <th scope="col">RELATION TYPE1</th>
+ 
+                        <th scope="col">RELATION TYPE2</th>
+ 
+                        <th scope="col">RELATIVE NAME1</th>
+ 
+                        <th scope="col">RELATIVE NAME2</th>
+ 
+                        <th scope="col">PINCODE 1</th>
+ 
+                        <th scope="col">PINCODE 2</th>
+ 
+                        <th scope="col">GUARANTOR VOTER ID1</th>
+ 
+                        <th scope="col">GUARANTOR VOTER ID2</th>
+ 
+                        <th scope="col">GUARANTOR LNO</th>
+ 
+                        <th scope="col">GUARANTOR LNO2</th>
+ 
+                        <th scope="col">KYC ENTERED BY</th>
+ 
+                        <th scope="col">KYC DEDUPED BY</th>
+ 
+                      </tr>
+ 
+                      <!-- BEGIN Row -->
+                      <!-- BEGIN RowError -->
+                      <tr class="Error">
+                        <td colspan="23">{Error}</td> 
+                      </tr>
+ <!-- END RowError -->
+                      <tr class="Row">
+                        <td><label for="ybl_kyc_mfi_hvf1SHG_NAME_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">SHG NAME</label></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1GP_NO_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">GP NO</label><input id="ybl_kyc_mfi_hvf1GP_NO_{ybl_kyc_mfi_hvf1:rowNumber}" value="{GP_NO}" maxlength="8" size="8" name="{GP_NO_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1HV_NO_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">HV NO</label><input id="ybl_kyc_mfi_hvf1HV_NO_{ybl_kyc_mfi_hvf1:rowNumber}" value="{HV_NO}" maxlength="8" size="8" name="{HV_NO_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1KYC_TYPE_1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">KYC TYPE 1</label><input id="ybl_kyc_mfi_hvf1KYC_TYPE_1_{ybl_kyc_mfi_hvf1:rowNumber}" value="{KYC_TYPE_1}" maxlength="12" size="12" name="{KYC_TYPE_1_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1KYC_TYPE_2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">KYC TYPE 2</label><input id="ybl_kyc_mfi_hvf1KYC_TYPE_2_{ybl_kyc_mfi_hvf1:rowNumber}" value="{KYC_TYPE_2}" maxlength="12" size="12" name="{KYC_TYPE_2_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1BORROWER_VOTER_ID_1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">BORROWER VOTER ID 1</label><input id="ybl_kyc_mfi_hvf1BORROWER_VOTER_ID_1_{ybl_kyc_mfi_hvf1:rowNumber}" value="{BORROWER_VOTER_ID_1}" maxlength="40" name="{BORROWER_VOTER_ID_1_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1BORROWER_VOTER_ID_2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">BORROWER VOTER ID 2</label><input id="ybl_kyc_mfi_hvf1BORROWER_VOTER_ID_2_{ybl_kyc_mfi_hvf1:rowNumber}" value="{BORROWER_VOTER_ID_2}" maxlength="40" name="{BORROWER_VOTER_ID_2_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1BORROWER_AADHAAR_1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">BORROWER AADHAAR 1</label></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1BORROWER_AADHAAR_2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">BORROWER AADHAAR 2</label></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1BORROWER_NAME1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">BORROWER NAME1</label><input id="ybl_kyc_mfi_hvf1BORROWER_NAME1_{ybl_kyc_mfi_hvf1:rowNumber}" value="{BORROWER_NAME1}" maxlength="45" size="30" name="{BORROWER_NAME1_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1BORROWER_NAME2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">BORROWER NAME2</label><input id="ybl_kyc_mfi_hvf1BORROWER_NAME2_{ybl_kyc_mfi_hvf1:rowNumber}" value="{BORROWER_NAME2}" maxlength="45" size="30" name="{BORROWER_NAME2_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1RELATION_TYPE1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">RELATION TYPE1</label><input id="ybl_kyc_mfi_hvf1RELATION_TYPE1_{ybl_kyc_mfi_hvf1:rowNumber}" value="{RELATION_TYPE1}" maxlength="8" size="8" name="{RELATION_TYPE1_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1RELATION_TYPE2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">RELATION TYPE2</label><input id="ybl_kyc_mfi_hvf1RELATION_TYPE2_{ybl_kyc_mfi_hvf1:rowNumber}" value="{RELATION_TYPE2}" maxlength="8" size="8" name="{RELATION_TYPE2_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1RELATIVE_NAME1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">RELATIVE NAME1</label><input id="ybl_kyc_mfi_hvf1RELATIVE_NAME1_{ybl_kyc_mfi_hvf1:rowNumber}" value="{RELATIVE_NAME1}" maxlength="45" name="{RELATIVE_NAME1_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1RELATIVE_NAME2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">RELATIVE NAME2</label><input id="ybl_kyc_mfi_hvf1RELATIVE_NAME2_{ybl_kyc_mfi_hvf1:rowNumber}" value="{RELATIVE_NAME2}" maxlength="45" name="{RELATIVE_NAME2_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1PINCODE_1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">PINCODE 1</label><input id="ybl_kyc_mfi_hvf1PINCODE_1_{ybl_kyc_mfi_hvf1:rowNumber}" value="{PINCODE_1}" maxlength="10" size="6" name="{PINCODE_1_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1PINCODE_2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">PINCODE 2</label><input id="ybl_kyc_mfi_hvf1PINCODE_2_{ybl_kyc_mfi_hvf1:rowNumber}" value="{PINCODE_2}" maxlength="10" size="6" name="{PINCODE_2_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1GUARANTOR_VOTER_ID1_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">GUARANTOR VOTER ID1</label><input id="ybl_kyc_mfi_hvf1GUARANTOR_VOTER_ID1_{ybl_kyc_mfi_hvf1:rowNumber}" value="{GUARANTOR_VOTER_ID1}" maxlength="50" name="{GUARANTOR_VOTER_ID1_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1GUARANTOR_VOTER_ID2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">GUARANTOR VOTER ID2</label><input id="ybl_kyc_mfi_hvf1GUARANTOR_VOTER_ID2_{ybl_kyc_mfi_hvf1:rowNumber}" value="{GUARANTOR_VOTER_ID2}" maxlength="50" name="{GUARANTOR_VOTER_ID2_Name}"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1GUARANTOR_LNO_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">GUARANTOR LNO</label></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1GUARANTOR_LNO2_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">GUARANTOR LNO2</label></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1KYC_ENTERED_BY_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">KYC ENTERED BY</label><input id="ybl_kyc_mfi_hvf1KYC_ENTERED_BY_{ybl_kyc_mfi_hvf1:rowNumber}" value="{KYC_ENTERED_BY}" maxlength="20" name="{KYC_ENTERED_BY_Name}" size="20"></td> 
+                        <td><label for="ybl_kyc_mfi_hvf1KYC_DEDUPED_BY_{ybl_kyc_mfi_hvf1:rowNumber}" style="display: none;">KYC DEDUPED BY</label><input id="ybl_kyc_mfi_hvf1KYC_DEDUPED_BY_{ybl_kyc_mfi_hvf1:rowNumber}" value="{KYC_DEDUPED_BY}" maxlength="20" name="{KYC_DEDUPED_BY_Name}" size="20"></td> 
+                      </tr>
+ <!-- END Row -->
+                      <!-- BEGIN NoRecords -->
+                      <tr class="NoRecords">
+                        <td colspan="23">No records</td> 
+                      </tr>
+ <!-- END NoRecords -->
+                      <tr class="Footer">
+                        <td style="TEXT-ALIGN: right" colspan="23">
+                          <!-- BEGIN Button Button_Submit --><input type="submit" id="ybl_kyc_mfi_hvf1Button_Submit" class="Button" value="Submit" alt="Submit" name="{Button_Name}"><!-- END Button Button_Submit -->
+                          <!-- BEGIN Button Cancel --><input type="submit" id="ybl_kyc_mfi_hvf1Cancel" class="Button" value="Cancel" alt="Cancel" name="{Button_Name}"><!-- END Button Cancel --></td> 
+                      </tr>
+ 
+                    </table>
+ </td> 
+                </tr>
+ 
+              </table>
+ 
+            </form>
+ <!-- END EditableGrid ybl_kyc_mfi_hvf1 --><br>
+          </td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

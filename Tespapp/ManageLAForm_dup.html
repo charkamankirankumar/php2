@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>ManageLAForm</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/Basic/Style_doctype.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/grid.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/external/jquery-ui-1.9.1.custom.css">
+<link rel="stylesheet" href="css/external/jquery.chosen.css">
+<link rel="stylesheet" href="css/external/jquery.cleditor.css">
+<link rel="stylesheet" href="css/external/jquery.colorpicker.css">
+<link rel="stylesheet" href="css/external/jquery.elfinder.css">
+<link rel="stylesheet" href="css/external/jquery.fancybox.css">
+<link rel="stylesheet" href="css/external/jquery.jgrowl.css">
+<link rel="stylesheet" href="css/external/jquery.plupload.queue.css">
+<link rel="stylesheet" href="css/external/syntaxhighlighter/shCore.css">
+<link rel="stylesheet" href="css/external/syntaxhighlighter/shThemeDefault.css">
+<!-- Elements -->
+<link rel="stylesheet" href="css/elements.css">
+<link rel="stylesheet" href="css/forms.css">
+<!-- OPTIONAL: Print Stylesheet for Invoice -->
+<link rel="stylesheet" href="css/print-invoice.css">
+<!-- Typographics -->
+<link rel="stylesheet" href="css/typographics.css">
+<!-- Responsive Design -->
+<link rel="stylesheet" href="css/media-queries.css">
+<!-- Bad IE Styles -->
+<link rel="stylesheet" href="css/ie-fixes.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-D67C07D8
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo/yahoo-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/datasource/datasource-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/connection/connection-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/animation/animation-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/json/json-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/autocomplete/autocomplete-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/autocomplete-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="js/yui/build/autocomplete/assets/skins/sam/autocomplete.css">
+<link rel="stylesheet" type="text/css" href="ManageLAForm_dup_style.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+function setUrl(obj)
+{
+        var idval=(obj.id).substr(((obj.id).lastIndexOf("_"))+1);
+        var page=(obj.id).substr(0,3);
+        var laid=document.getElementById("laid_"+idval).innerHTML;
+        if(page=="la1")
+                document.getElementById("la1_"+idval).href="DataUpdatePage.php?doc_type=LA1&doc_code="+laid;
+        else if(page=="la2")
+                document.getElementById("la2_"+idval).href="DataUpdatePage.php?doc_type=LA2&doc_code="+laid;
+}
+//Initialize mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_idYahooAutocomplete1 @37-4E606104
+function mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_idYahooAutocomplete1_start() {
+    initAutocomplete("mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_id", "services/ManageLAForm_s_mfi_hvf1_la_id_YahooAutocomplete1.php");
+}
+//End Initialize mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_idYahooAutocomplete1
+
+//Initialize mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_idYahooAutocomplete2 @38-C50B6561
+function mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_idYahooAutocomplete2_start() {
+    initAutocomplete("mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_id", "services/ManageLAForm_s_mfi_hvf1_gp_id_YahooAutocomplete1.php");
+}
+//End Initialize mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_idYahooAutocomplete2
+
+//bind_events @1-4C6B0DD5
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_idYahooAutocomplete1_start();
+    mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_idYahooAutocomplete2_start();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 20px; WIDTH: 100%; PADDING-RIGHT: 20px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="row">
+    <td>
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 90%; PADDING-RIGHT: 10px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; align: center; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr class="row">
+          <td align="center">{incMenu}</td>
+        </tr>
+ 
+        <tr class="row">
+          <td align="center"><br>
+            <!-- BEGIN Record mfi_hvf2_mfi_hvf2 -->
+            <form id="mfi_hvf2_mfi_hvf2" method="post" name="{HTMLFormName}" action="{Action}">
+              <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+                <tr class="row">
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:Search_Form}</strong></td> 
+                        <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif">&gt;</td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2">{Error}</td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="row">
+                        <td class="th"><label for="mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_id">{res:mfi_hvf1_la_id}</label></td> 
+                        <td>
+                          <!-- BEGIN TextBox s_mfi_hvf1_la_id --><input id="mfi_hvf2_mfi_hvf2s_mfi_hvf1_la_id" class="maskProd" value="{s_mfi_hvf1_la_id}" maxlength="8" size="8" name="{s_mfi_hvf1_la_id_Name}" autocomplete="off"><!-- END TextBox s_mfi_hvf1_la_id --></td>
+                      </tr>
+ 
+                      <tr class="row">
+                        <td class="th"><label for="mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_id">{res:mfi_hvf1_gp_id}</label></td> 
+                        <td>
+                          <!-- BEGIN TextBox s_mfi_hvf1_gp_id --><input id="mfi_hvf2_mfi_hvf2s_mfi_hvf1_gp_id" class="maskProd" value="{s_mfi_hvf1_gp_id}" maxlength="8" size="8" name="{s_mfi_hvf1_gp_id_Name}" autocomplete="off"><!-- END TextBox s_mfi_hvf1_gp_id --></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td style="TEXT-ALIGN: right" colspan="2">
+                          <!-- BEGIN Button Button_DoSearch --><input type="submit" id="mfi_hvf2_mfi_hvf2Button_DoSearch" class="Button" value="{res:CCS_Search}" alt="{res:CCS_Search}" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record mfi_hvf2_mfi_hvf2 --><br>
+            <!-- BEGIN Grid mfi_hvf2_mfi_hvf1 -->
+            <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+              <tr class="row">
+                <td valign="top">
+                  <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif">&gt;</td> 
+                      <td class="th" align="center"><strong>MANAGE LA </strong></td> 
+                      <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                    </tr>
+                  </table>
+ 
+                  <table class="Grid" border="1" cellspacing="0" cellpadding="0">
+                    <tr class="row">
+                      <th scope="col">LA ID</th>
+ 
+                      <th scope="col">CUSTOMER NAME</th>
+ 
+                      <th scope="col">CUSTOMER FATHER NAME</th>
+ 
+                      <th scope="col">CUSTOMER HUSBAND NAME</th>
+ 
+                      <th scope="col">GP ID</th>
+ 
+                      <th scope="col">CUSTOMER MOBILE NO.</th>
+ 
+                      <th scope="col">GROUP NAME</th>
+ 
+                      <th scope="col">GROUP SIZE</th>
+ 
+                      <th scope="col">GURANTOR TYPE</th>
+ 
+                      <th scope="col">GURANTOR NAME</th>
+ 
+                      <th scope="col">LA1 ERRORS</th>
+ 
+                      <th scope="col">LA2 ERRORS</th>
+ 
+                      <th scope="col">PAGES</th>
+                    </tr>
+ 
+                    <!-- BEGIN Row -->
+                    <tr class="row">
+                      <td id="laid_{mfi_hvf2_mfi_hvf1:rowNumber}">{mfi_hvf1_la_id}</td> 
+                      <td>{mfi_hvf1_customer_name}</td> 
+                      <td>{mfi_hvf1_customer_father_name}</td> 
+                      <td>{mfi_hvf1_customer_husband_name}</td> 
+                      <td>{mfi_hvf1_gp_id}</td> 
+                      <td>{mfi_hvf1_customer_mobile_no}</td> 
+                      <td>{mfi_gp_proposed_group_name}</td> 
+                      <td style="TEXT-ALIGN: right">{mfi_hvf2_group_size}</td> 
+                      <td>{mfi_hvf2_customer_guarantor_type}</td> 
+                      <td>{mfi_hvf2_customer_guarantor_name}</td> 
+                      <td>{mfi_hvf1_error_cols}</td> 
+                      <td>{mfi_hvf2_error_cols}</td> 
+                      <td><a href="#" id="la1_{mfi_hvf2_mfi_hvf1:rowNumber}" onclick="setUrl(this);">LA1</a>&nbsp;<a href="#" id="la2_{mfi_hvf2_mfi_hvf1:rowNumber}" onclick="setUrl(this);">LA2</a></td>
+                    </tr>
+ <!-- END Row -->
+                    <!-- BEGIN NoRecords -->
+                    <tr class="NoRecords">
+                      <td colspan="13">{res:CCS_NoRecords}</td>
+                    </tr>
+                    <!-- END NoRecords -->
+                    <tr class="Footer">
+                      <td colspan="13">
+                        <!-- BEGIN Navigator Navigator --><span class="Navigator">{res:CCS_RecPerPage} 
+                        <select style="VERTICAL-ALIGN: middle" onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                          <option selected value="">-</option>
+ {PageSize_Options}
+                        </select>
+ 
+                        <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+                        <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                        <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+                        <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                        <!-- BEGIN Pages -->
+                        <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                        <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                        <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+                        <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                        <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+                        <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --></span><!-- END Navigator Navigator -->&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!-- END Grid mfi_hvf2_mfi_hvf1 --><br>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

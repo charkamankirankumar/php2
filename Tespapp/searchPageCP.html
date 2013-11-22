@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-CAA84CDD
+</script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/ajaxpanel.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//Date Picker Object Definitions @1-2E8088A6
+
+var mfi_gpSearch_DatePicker_s_mfi_gp_proposal_date = new Object(); 
+mfi_gpSearch_DatePicker_s_mfi_gp_proposal_date.format           = "yyyy-mm-dd";
+mfi_gpSearch_DatePicker_s_mfi_gp_proposal_date.style            = "Styles/SilverBlue/Style.css";
+mfi_gpSearch_DatePicker_s_mfi_gp_proposal_date.relativePathPart = "";
+mfi_gpSearch_DatePicker_s_mfi_gp_proposal_date.themeVersion = "3.0";
+
+var mfi_gpSearch_DatePicker_TextBox1 = new Object(); 
+mfi_gpSearch_DatePicker_TextBox1.format           = "yyyy-mm-dd";
+mfi_gpSearch_DatePicker_TextBox1.style            = "Styles/SilverBlue/Style.css";
+mfi_gpSearch_DatePicker_TextBox1.relativePathPart = "";
+mfi_gpSearch_DatePicker_TextBox1.themeVersion = "3.0";
+
+var mfi_gpSearch_DatePicker_TextBox2 = new Object(); 
+mfi_gpSearch_DatePicker_TextBox2.format           = "yyyy-mm-dd";
+mfi_gpSearch_DatePicker_TextBox2.style            = "Styles/SilverBlue/Style.css";
+mfi_gpSearch_DatePicker_TextBox2.relativePathPart = "";
+mfi_gpSearch_DatePicker_TextBox2.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+document.getElementById("Panel1Division_Region_Branchcpno").value=document.getElementById("Panel1Division_Region_BranchListBox1").value.substr(3);
+
+document.getElementById("Panel1Division_Region_Branchcpno").value=document.getElementById("Panel1Division_Region_BranchListBox2").value.substr(3);
+
+str=window.parent.location.pathname;
+myurl=str.substr(str.lastIndexOf("/")+1,str.indexOf("."));
+window.parent.location.href="manageCP.php?s_mfi_cp_no="+
+document.getElementById("Panel1Division_Region_Branchcpno").value;
+var date = new Date();
+        date.setTime(date.getTime()+(11*1000));
+        document.cookie = "cpno="+document.getElementById("Panel1Division_Region_Branchcpno").value+
+        "; expires="+date.toGMTString()+"; path=/";
+
+document.getElementById("Panel1Division_Region_Branchcpno").value=document.getElementById("Panel1Division_Region_BranchListBox3").value.substr(3);
+//document.forms["Panel1Division_Region_Branch"].submit();
+
+//Panel1mfi_gpSearchButton_DoSearch_OnClick @13-242037EB
+function Panel1mfi_gpSearchButton_DoSearch_OnClick()
+{
+    var result = true;
+//End Panel1mfi_gpSearchButton_DoSearch_OnClick
+
+//Custom Code @68-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+str=window.parent.location.pathname;
+myurl=str.substr(str.lastIndexOf("/")+1,str.indexOf("."));
+window.parent.location.href="manageCP.php?s_mfi_cp_no="+
+document.getElementById("Panel1mfi_gpSearchs_mfi_cp_no").value
++"&s_mfi_gp_centre_name="+document.getElementById("Panel1mfi_gpSearchs_mfi_gp_centre_name").value
++"&fromdate="+document.getElementById("Panel1mfi_gpSearchfromdate").value
++"&todate="+document.getElementById("Panel1mfi_gpSearchtodate").value
++"&s_mfi_gp_proposal_date="+document.getElementById("Panel1mfi_gpSearchs_mfi_gp_proposal_date").value
++"&cpno="+document.getElementById("Panel1Division_Region_Branchcpno").value;;
+//Close Panel1mfi_gpSearchButton_DoSearch_OnClick @13-BC33A33A
+    return result;
+}
+//End Close Panel1mfi_gpSearchButton_DoSearch_OnClick
+
+//Panel1mfi_gpSearchs_mfi_cp_no_OnChange @15-891EE8C5
+function Panel1mfi_gpSearchs_mfi_cp_no_OnChange()
+{
+    var result = true;
+//End Panel1mfi_gpSearchs_mfi_cp_no_OnChange
+
+//Custom Code @53-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+setSatListBox(document.getElementById("Panel1mfi_gpSearchs_mfi_gp_centre_name"),document.getElementById("Panel1mfi_gpSearchs_mfi_cp_no").value);
+//Close Panel1mfi_gpSearchs_mfi_cp_no_OnChange @15-BC33A33A
+    return result;
+}
+//End Close Panel1mfi_gpSearchs_mfi_cp_no_OnChange
+
+//Panel1mfi_gpSearchs_mfi_gp_centre_name_OnChange @16-2AA05314
+function Panel1mfi_gpSearchs_mfi_gp_centre_name_OnChange()
+{
+    var result = true;
+//End Panel1mfi_gpSearchs_mfi_gp_centre_name_OnChange
+
+//Custom Code @56-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+setSatListBox(document.getElementById("Panel1mfi_gpSearchs_mfi_cp_no"),document.getElementById("Panel1mfi_gpSearchs_mfi_gp_centre_name").value);
+Panel1mfi_gpSearchs_mfi_gp_noPTDependentListBox1_start(document.getElementById("Panel1mfi_gpSearchs_mfi_cp_no"));
+//Close Panel1mfi_gpSearchs_mfi_gp_centre_name_OnChange @16-BC33A33A
+    return result;
+}
+//End Close Panel1mfi_gpSearchs_mfi_gp_centre_name_OnChange
+
+//Panel1mfi_gpSearchtodate_OnChange @82-11F54DCD
+function Panel1mfi_gpSearchtodate_OnChange()
+{
+    var result = true;
+//End Panel1mfi_gpSearchtodate_OnChange
+
+//Custom Code @89-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close Panel1mfi_gpSearchtodate_OnChange @82-BC33A33A
+    return result;
+}
+//End Close Panel1mfi_gpSearchtodate_OnChange
+
+//Panel1mfi_gpSearchButton1_OnClick @94-2FF87ED6
+function Panel1mfi_gpSearchButton1_OnClick()
+{
+    var result = true;
+//End Panel1mfi_gpSearchButton1_OnClick
+
+//Custom Code @95-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+window.parent.location.href="manageCP.php?s_mfi_cp_no="+
+document.getElementById("Panel1mfi_gpSearchTextBox1").value;
+//Close Panel1mfi_gpSearchButton1_OnClick @94-BC33A33A
+    return result;
+}
+//End Close Panel1mfi_gpSearchButton1_OnClick
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @74-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//Start Panel1 @5-6F19DF97
+function Panel1_start(sender) {
+    var panel = $("Panel1");
+    if (!panel) return;
+    panel.onrefresh = function() {
+    };
+    AjaxPanel.init(panel);
+    AjaxPanel._bind(panel);
+    Panel1_bind(sender);
+}
+//End Start Panel1
+
+//Refresh Panel1 @5-8CEAAD3C
+function Panel1_bind(sender) {
+    addEventHandler("Panel1mfi_gpSearchButton_DoSearch", "click", Panel1mfi_gpSearchButton_DoSearch_OnClick);
+    addEventHandler("Panel1mfi_gpSearchs_mfi_cp_no", "change", Panel1mfi_gpSearchs_mfi_cp_no_OnChange);
+    addEventHandler("Panel1mfi_gpSearchs_mfi_gp_centre_name", "change", Panel1mfi_gpSearchs_mfi_gp_centre_name_OnChange);
+    addEventHandler("Panel1mfi_gpSearchtodate", "change", Panel1mfi_gpSearchtodate_OnChange);
+    addEventHandler("Panel1mfi_gpSearchButton1", "click", Panel1mfi_gpSearchButton1_OnClick);
+}
+//End Refresh Panel1
+
+//Refresh Panel1UpdatePanel @6-B0171027
+function Panel1UpdatePanel_refresh(sender) {
+    var panel = $("Panel1");
+    if (!panel) return;
+    AjaxPanel.reload(panel);
+}
+//End Refresh Panel1UpdatePanel
+
+//bind_events @1-5E3D2783
+function bind_events() {
+    Panel1_start(window);
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script language="JavaScript" type="text/javascript" src="docentryjs.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+function setSatListBox(lname,lval)
+{
+        for(i=0;i<lname.options.length;i++)
+        {
+          if(lname.options[i].value.toUpperCase()==lval.toUpperCase())
+          {
+          lname.options[i].selected=true;
+          break;
+          }
+        }
+}
+function sat()
+{
+alert("got focus");
+}
+</script>
+</head>
+<body leftmargin="0" topmargin="0" align="center" valign="top">
+<table cellspacing="0" cellpadding="0" align="left">
+  <tr>
+    <td align="left">
+      <!-- BEGIN Panel Panel1 -->&nbsp; 
+      <!-- BEGIN Record mfi_gpSearch -->
+      <form id="Panel1mfi_gpSearch" method="post" name="{HTMLFormName}" action="{Action}">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr>
+            <td valign="top">
+              <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                  <td class="th"><strong>Search By {res:mfi_cp} {res:CCS_SearchFormSuffix}</strong></td> 
+                  <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                </tr>
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="19">{Error}</td>
+                </tr>
+                <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th"><label for="Panel1mfi_gpSearchs_mfi_cp_no">{res:mfi_cp_no}</label><br>
+                    <select id="Panel1mfi_gpSearchs_mfi_cp_no" name="{s_mfi_cp_no_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+                      {s_mfi_cp_no_Options}
+                    </select>
+ </td> 
+                  <td class="th"><label for="Panel1mfi_gpSearchs_mfi_gp_centre_name">{res:mfi_gp_centre_name}</label> <br>
+                    <select id="Panel1mfi_gpSearchs_mfi_gp_centre_name" name="{s_mfi_gp_centre_name_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+                      {s_mfi_gp_centre_name_Options}
+                    </select>
+ </td> 
+                  <td class="th"><label for="Panel1mfi_gpSearchs_mfi_gp_proposal_date">{res:mfi_gp_proposal_date}</label> <br>
+                    <input id="Panel1mfi_gpSearchs_mfi_gp_proposal_date" value="{s_mfi_gp_proposal_date}" maxlength="100" size="10" name="{s_mfi_gp_proposal_date_Name}">
+                    <!-- BEGIN DatePicker DatePicker_s_mfi_gp_proposal_date --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="Panel1mfi_gpSearchDatePicker_s_mfi_gp_proposal_date"><img id="Panel1mfi_gpSearchDatePicker_s_mfi_gp_proposal_date_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a> <!-- END DatePicker DatePicker_s_mfi_gp_proposal_date --></td> 
+                  <td class="th">{res:from}<br>
+                    <input id="Panel1mfi_gpSearchfromdate" value="{fromdate}" name="{fromdate_Name}">
+                    <!-- BEGIN DatePicker DatePicker_TextBox1 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="Panel1mfi_gpSearchDatePicker_TextBox1"><img id="Panel1mfi_gpSearchDatePicker_TextBox1_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_TextBox1 --></td> 
+                  <td class="th">{res:to}<br>
+                    <input onblur="compareDate(document.getElementById('Panel1mfi_gpSearchfromdate'),this);" id="Panel1mfi_gpSearchtodate" value="{todate}" name="{todate_Name}">
+                    <!-- BEGIN DatePicker DatePicker_TextBox2 --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="Panel1mfi_gpSearchDatePicker_TextBox2"><img id="Panel1mfi_gpSearchDatePicker_TextBox2_Image" border="0" alt="Show Date Picker" src="Styles/SilverBlue/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_TextBox2 --></td> 
+                  <td valign="middle" colspan="14" align="right"><br>
+                    <!-- BEGIN Button Button_DoSearch --><input type="image" style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px" id="Panel1mfi_gpSearchButton_DoSearch" value="{res:CCS_Search}" alt="{res:CCS_Search}" align="middle" src="./Styles/SilverBlue/Images/{res:CCS_LanguageID}/ButtonSearch.gif" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" valign="top" colspan="18"></td>
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th" colspan="2"><font size="2"><b>Search By CPNO.</b></font><input id="Panel1mfi_gpSearchTextBox1" class="normal-text" value="{TextBox1}" size="40" name="{TextBox1_Name}"></td> 
+                  <td class="th">
+                    <!-- BEGIN Button Button1 --><input type="image" id="Panel1mfi_gpSearchButton1" value="Button1" alt="Button1" src="./Styles/SilverBlue/Images/en/ButtonSearch.gif" name="{Button_Name}"><!-- END Button Button1 --></td> 
+                  <td class="th">&nbsp;</td> 
+                  <td class="th">&nbsp;</td> 
+                  <td colspan="14" align="center">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- END Record mfi_gpSearch --><!-- END Panel Panel1 --></td>
+  </tr>
+</table>
+</body>
+</html>

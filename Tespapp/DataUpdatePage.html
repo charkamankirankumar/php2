@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script>
+                !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen">
+<link rel="stylesheet" href="style.css">
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+
+//End Include Common JSFunctions
+
+//mfi_docs_OnLoad @29-DF3CCF76
+function mfi_docs_OnLoad(form)
+{
+    var result = true;
+//End mfi_docs_OnLoad
+
+//Custom Code @50-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+document.getElementById("sat").src=document.getElementById("mfi_docsmfi_doc_path").value+"/"+document.getElementById("mfi_docsmfi_doc_filename").value;
+document.getElementById("mfi_docsmfi_doc_status").value="DATA ENTERED";
+setformType();
+//Close mfi_docs_OnLoad @29-BC33A33A
+    return result;
+}
+//End Close mfi_docs_OnLoad
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @5-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//bind_events @1-820E54A2
+function bind_events() {
+    addEventHandler("mfi_docs", "load", mfi_docs_OnLoad);
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script language="JavaScript" type="text/javascript">
+//check region cookie exists or not
+function setformType()
+{
+if(document.getElementById("ListBox3").value!="")
+document.getElementById("mfi_docsmfi_doc_type").value=document.getElementById("ListBox3").value;
+switch(document.getElementById("mfi_docsmfi_doc_type").value)
+{
+ case "CP":
+ document.getElementById("setform").src="CPform.php?doc_code="+document.getElementById("mfi_docsmfi_doc_territory_code").value;
+ break;
+ 
+ case "LA1":
+ document.getElementById("setform").src="LAForm1_dup.php?doc_code="+document.getElementById("mfi_docsmfi_doc_territory_code").value;
+ break;
+ case "LA2":
+ document.getElementById("setform").src="LAForm2_upd.php?doc_code="+document.getElementById("mfi_docsmfi_doc_territory_code").value;
+ break;
+case "KYC":
+ document.getElementById("setform").src="KYCUPD.php?doc_code="+document.getElementById("mfi_docsmfi_doc_territory_code").value;
+ break;
+ case "INVALID IMAGE":
+ var s=window.confirm("Cancel This Image");
+         if(s)
+         {
+            document.getElementById("mfi_docsmfi_doc_status").value="INVALID IMAGE";
+            document.getElementById("mfi_docsButton_Update").click();
+        }
+
+        break;
+}
+
+}
+function setroutecode(obj)
+{
+ht=document.getElementById("mfi_docsmfi_doc_type").value;
+rc="13-"+obj.value+"-"+document.getElementById("ListBox1").value.substr(3);
+var ifr = document.getElementById("setform");
+var ifrDoc = ifr.contentDocument || ifr.contentWindow.document;
+var theForm = ifrDoc.getElementById("PagePanelEntryHV1Panelmfi_hvf1");
+        switch(ht)
+        {
+         case "CP":
+                ifrDoc.getElementById("PanelCPmfi_cpcp_route").value=rc;
+         break;
+         
+         case "LA1":
+                 ifrDoc.getElementById("PagePanelEntryHV1Panelmfi_hvf1hv_route").value=rc;
+         break;
+                 case "LA2":
+             ifrDoc.getElementById("mfi_la2la2_route").value=rc;
+         break;
+    }
+}
+
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+<table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; PADDING-TOP: 5px; box-pack: center; box-align: center" border="1" cellspacing="0" cellpadding="0" width="100%" align="center">
+  <tr>
+    <td align="right"><a href="{ImageLink1}" id="ImageLink1"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 44px; HEIGHT: 36px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{ImageLink1}" src="images/home.jpg" width="47" height="45"></a></td>
+  </tr>
+ 
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 100%; VERTICAL-ALIGN: middle; PADDING-TOP: 5px; align: center; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td colspan="2">
+            <!-- BEGIN Record mfi_docs -->
+            <form style="WIDTH: 100%" id="mfi_docs" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td valign="top">
+                    <table style="DISPLAY: none" class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_RecordFormPrefix} {res:mfi_docs} {res:CCS_RecordFormSuffix}</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="10">{Error}</td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_id" value="{mfi_doc_id}" name="{mfi_doc_id_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_filename" value="{mfi_doc_filename}" name="{mfi_doc_filename_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_path" value="{mfi_doc_path}" name="{mfi_doc_path_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_type" value="{mfi_doc_type}" name="{mfi_doc_type_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_region" value="{mfi_doc_region}" name="{mfi_doc_region_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_territory_code" value="{mfi_doc_territory_code}" name="{mfi_doc_territory_code_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_entered_by" value="{mfi_doc_entered_by}" name="{mfi_doc_entered_by_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_status" value="{mfi_doc_status}" name="{mfi_doc_status_Name}"></td> 
+                        <td style="DISPLAY: none"><input type="hidden" id="mfi_docsmfi_doc_updatedon" value="{mfi_doc_updatedon}" name="{mfi_doc_updatedon_Name}"></td> 
+                        <td align="right">
+                          <!-- BEGIN Button Button_Update --><input type="submit" id="mfi_docsButton_Update" class="Button" value="{res:CCS_Update}" alt="{res:CCS_Update}" name="{Button_Name}"><!-- END Button Button_Update --></td>
+                      </tr>
+                    </table>
+                  </td> 
+                  <td>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td nowrap align="left"><font size="3"><b>Region:</b><font color="blue" size="4">{Label2}</font></font></td> 
+                        <td nowrap align="left"><font size="3"><b>Pending Cases:</b> <strong><font color="red" size="4">{Label1}</font></strong></font><font color="red"></font></td> 
+                        <td colspan="2">&nbsp;</td> 
+                        <td width="100%" colspan="2" align="right"><a href="{ImageLink1}" id="mfi_docsImageLink1"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" id="ImageLink1" alt="{ImageLink1}" src="images/ChangeRegion.png" width="150" height="20"></a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record mfi_docs --></td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3" align="left"><font size="2">Select Form Type</font> 
+            <select id="ListBox3" onchange="setformType();" name="{ListBox3_Name}">
+              <option selected value="">{res:CCS_SelectValue}</option>
+              {ListBox3_Options}
+            </select>
+ BRANCH 
+            <select id="ListBox1" name="{ListBox1_Name}">
+              <option selected value="">{res:CCS_SelectValue}</option>
+              {ListBox1_Options}
+            </select>
+ RouteCode 
+            <select id="ListBox2" onchange="setroutecode(this);" name="{ListBox2_Name}">
+              <option selected value="">{res:CCS_SelectValue}</option>
+              {ListBox2_Options}
+            </select>
+ </td>
+        </tr>
+ 
+       <tr>
+          <td height="100%" valign="top" width="45%"><br>
+            <div style="WIDTH: 100%; HEIGHT: 100%; OVERFLOW: hidden">
+              <img style="MARGIN: -3% -5% -5% -10%; WIDTH: 108%; HEIGHT: 90%" id="sat" src="">
+            </div>
+          </td>
+          <td height="100%" width="55%"><iframe id="setform" height="100%" src="" frameborder="0" width="100%" name="setform" marginwidth="0" scrolling="no" align="center" ccs_src=""></iframe></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

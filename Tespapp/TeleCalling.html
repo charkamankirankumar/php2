@@ -1,0 +1,861 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>TeleCalling</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-CAA84CDD
+</script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/ajaxpanel.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+      // -------------------------
+      // Write your own code here.
+      function setStatus()
+      {
+          if(document.getElementById("mfi_tc_individualchecktc_individual_check_status").value=="REJECTED")
+          {
+                  document.getElementById("mfi_tc_individualchecktc_ic_rejection_details").style.display="inline";        
+          }
+          else
+          {
+                  document.getElementById("mfi_tc_individualchecktc_ic_rejection_details").style.display="none";  
+          }
+          if(document.getElementById("mfi_tc_individualchecktc_individual_check_status").value=="SANCTIONED")
+          {
+                        for(var i=2;i<18;i++)
+                {
+                   if(document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox"+i+"_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value=="")
+                          document.getElementById("mfi_tc_individualcheckButton_Insert").style.display="none";            
+                }
+           }       
+      }
+      // -------------------------
+
+//udgapnlgacButton1_OnClick @153-919230EC
+function udgapnlgacButton1_OnClick()
+{
+    var result = true;
+//End udgapnlgacButton1_OnClick
+
+//Custom Code @158-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+    var str="Groupaffinity1.php?gp_id="+document.getElementById("udgapnlgacHidden1").value+"&la_id="+document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox2").value;
+    if (window.showModalDialog) {
+     window.showModalDialog(str,"Updatepage","dialogWidth:1200px;dialogHeight:400px");
+    } else 
+    {
+    window.open('str','name','height=1200px,width=400px,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no ,modal=yes');
+    } 
+  
+      // -------------------------
+
+
+//Close udgapnlgacButton1_OnClick @153-BC33A33A
+    return result;
+}
+//End Close udgapnlgacButton1_OnClick
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox1_OnChange @63-132DBC25
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox1_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox1_OnChange
+
+//Custom Code @90-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+      document.getElementById("mfi_tc_individualcheckla_id").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox2").value;
+document.getElementById("mfi_tc_individualcheckmfi_borrower_name").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_1").value;
+
+                  if(document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1").checked==true)
+                  {
+                  if(document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").value=="" || document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox18_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value=="")
+            {
+                    alert("Check Other & Incoming Mobile No Details");
+                    location.reload();
+                    }  
+                  }     
+          if(document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox1").value=="CONNECTED" && document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox5").value=="")
+          {
+                  document.getElementById("indiv").style.display="inline";               
+          }
+                  else
+          {
+                  document.getElementById("indiv").style.display="none";               
+          }
+                  
+                  document.getElementById("mfi_tc_individualcheckmfi_tc_call_attempt").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox1_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+                 // document.getElementById("mfi_tc_individualcheckmfi_tc_hvf_no").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox2").value;
+                  document.getElementById("mfi_tc_individualcheckmfi_tc_call_log").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox1").value;
+                  //document.getElementById("mfi_tc_individualcheckHidden2").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+                                  //document.getElementById("mfi_tc_individualcheckHidden4").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfLabel1_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+                                  //document.getElementById("mfi_tc_individualcheckHidden5").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1").value;
+                                  //document.getElementById("mfi_tc_individualcheckHidden6").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").value;
+                                  //document.getElementById("mfi_tc_individualcheckHidden7").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox18_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+                                  //document.getElementById("mfi_tc_individualcheckHidden8").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox5").value;
+  
+  
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox1_OnChange @63-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox1_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_OnChange @11-CF95E1F6
+function mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_OnChange
+
+//Custom Code @265-2A29BDB7
+    // -------------------------
+    // -------------------------
+//End Custom Code
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_OnChange @11-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_OnChange @64-11F3BB02
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_OnChange
+
+//Custom Code @129-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          document.getElementById("mfi_tc_individualcheckmfi_tc_b1_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_OnChange @64-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_OnChange @65-1046461F
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_OnChange
+
+//Custom Code @130-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          document.getElementById("mfi_tc_individualcheckmfi_tc_b2_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_OnChange @65-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_OnChange @66-144FB54C
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_OnChange
+
+//Custom Code @131-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          
+          document.getElementById("mfi_tc_individualcheckmfi_tc_b3_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_OnChange @66-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_OnChange @67-15FA4851
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_OnChange
+
+//Custom Code @134-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          
+                  document.getElementById("mfi_tc_individualcheckmfi_tc_b4_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_OnChange @67-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_OnChange @68-17244F76
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_OnChange
+
+//Custom Code @135-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          document.getElementById("mfi_tc_individualcheckmfi_tc_b5_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_OnChange @68-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_OnChange @69-1691B26B
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_OnChange
+
+//Custom Code @136-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          
+          document.getElementById("mfi_tc_individualcheckmfi_tc_1_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_OnChange @69-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_OnChange @70-1F37A9D0
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_OnChange
+
+//Custom Code @137-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          document.getElementById("mfi_tc_individualcheckmfi_tc_2_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_OnChange @70-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_OnChange @74-46C2DA52
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_OnChange
+
+//Custom Code @141-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          document.getElementById("mfi_tc_individualcheckmfi_tc_6_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_OnChange @74-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_OnChange @75-4777274F
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_OnChange
+
+//Custom Code @142-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          //document.getElementById("mfi_tc_individualcheckmfi_tc_7_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_OnChange @75-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_OnChange @77-42CB2901
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_OnChange
+
+//Custom Code @144-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+ //         document.getElementById("mfi_tc_individualcheckmfi_tc_9_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_OnChange @77-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_OnChange @79-41A0D33B
+function mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_OnChange
+
+//Custom Code @146-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+      //    document.getElementById("mfi_tc_individualcheckmfi_tc_11_ans").value=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").value;
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_OnChange @79-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3_OnChange @176-CF6158B4
+function mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3_OnChange()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3_OnChange
+
+//Custom Code @179-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+        var len=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").value;
+  if(len.length<10)
+  alert("Wrong Mobile No");
+  if(isNaN(len)||len.indexOf(" ")!=-1)
+                {
+                   alert("Enter numeric value")
+                   return false; 
+                }
+    
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3_OnChange @176-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3_OnChange
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1_OnClick @177-65C34761
+function mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1_OnClick()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1_OnClick
+
+//Custom Code @178-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          if(document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1").checked==true)
+          {
+          document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox18_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").style.display="inline"
+          document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").style.display="inline"
+                  document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").focus();
+          }
+          else
+          {
+          document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox18_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").style.display="none"
+          document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").style.display="none"
+                  document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").value="";
+                                  document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfListBox18_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}").selectedIndex="0";
+          }
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1_OnClick @177-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1_OnClick
+
+//mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4_OnLoad @185-E599B7A8
+function mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4_OnLoad()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4_OnLoad
+
+//Custom Code @187-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+      // -------------------------
+      // Write your own code here.
+          if(document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4").value>1)
+          {
+          document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox5").style.display="inline";
+          document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox5").value="IA Check";
+          }
+      // -------------------------
+
+
+//Close mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4_OnLoad @185-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4_OnLoad
+
+//Start udgapnl @150-2F2ABF2C
+function udgapnl_start(sender) {
+    var panel = $("udgapnl");
+    if (!panel) return;
+    panel.onrefresh = function() {
+    };
+    AjaxPanel.init(panel);
+    AjaxPanel._bind(panel);
+    udgapnl_bind(sender);
+}
+//End Start udgapnl
+
+//Refresh udgapnl @150-D3F68A30
+function udgapnl_bind(sender) {
+    addEventHandler("udgapnlgacButton1", "click", udgapnlgacButton1_OnClick);
+}
+//End Refresh udgapnl
+
+//Refresh udgapnlUpdatePanel @151-31DE3986
+function udgapnlUpdatePanel_refresh(sender) {
+    var panel = $("udgapnl");
+    if (!panel) return;
+    AjaxPanel.reload(panel);
+}
+//End Refresh udgapnlUpdatePanel
+
+//Start gpudpnl @154-3D85AF8F
+function gpudpnl_start(sender) {
+    var panel = $("gpudpnl");
+    if (!panel) return;
+    panel.onrefresh = function() {
+    };
+    AjaxPanel.init(panel);
+    AjaxPanel._bind(panel);
+    gpudpnl_bind(sender);
+}
+//End Start gpudpnl
+
+//Refresh gpudpnl @154-17E699F4
+function gpudpnl_bind(sender) {
+}
+//End Refresh gpudpnl
+
+//Refresh gpudpnlUpdatePanel @155-A4D643A4
+function gpudpnlUpdatePanel_refresh(sender) {
+    var panel = $("gpudpnl");
+    if (!panel) return;
+    AjaxPanel.reload(panel);
+}
+//End Refresh gpudpnlUpdatePanel
+
+//bind_events @1-4FE08E66
+function bind_events() {
+    udgapnl_start(window);
+    gpudpnl_start(window);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox1", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox1_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name", "change", mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox2", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox3", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox4", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox5", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox6", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox7", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox8", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox12", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox13", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox15", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfListBox17", "change", mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3", "change", mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3_OnChange);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1", "click", mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1_OnClick);
+    addEventHandler("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4", "load", mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4_OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+//End CCS script
+function checkval()
+{
+var len=document.getElementById("mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3").value;
+if(len.length==0)
+alert("Enter Mobile No");
+
+}
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/Blueprint/Style_doctype.css">
+</head>
+<body>
+&nbsp; 
+<!-- BEGIN Grid mfi_hvf1_mfi_hvf2_mfi_hvf -->
+<table border="1" cellspacing="0" cellpadding="0" width="100%" align="center">
+  <tr>
+    <!-- BEGIN Row -->
+    <td>
+      <form id="theform">
+        <table width="100%">
+          <font size="2">
+          <tr align="left">
+            <td><font size="2"><b>LA NO</b></font></td> 
+            <td valign="top"><b><input style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfTextBox2" value="{TextBox2}" readonly name="{TextBox2_Name}"></b></font></td> 
+            <td><strong>Loan Cycle</strong><input style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfTextBox4" value="{TextBox4}" readonly size="1" name="{TextBox4_Name}"><input style="DISPLAY: none; FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfTextBox5" value="{TextBox5}" readonly size="8" name="{TextBox5_Name}"></td>
+          </tr>
+ 
+          <tr>
+            <td><font size="2"><b>Call Attempt</b></font></td> 
+            <td></td> 
+            <td><input style="FONT-SIZE: 8px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfTextBox1_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" value="{TextBox1}" readonly size="1" name="{TextBox1_Name}"></td>
+          </tr>
+ 
+          <tr>
+            <td><font size="2"><b>Call Log</b></font></td> 
+            <td></td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox1" name="{ListBox1_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox1_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr>
+            <td><font size="2"><b>Member Name</b></font></td> 
+            <td><b><input style="FONT-SIZE: 10px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfmfi_hvf1_customer_name_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" value="{mfi_hvf1_customer_name}" readonly maxlength="30" name="{mfi_hvf1_customer_name_Name}"></b></td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td><font size="2"><b>Mobile Number</b></font></td> 
+            <td><font size="2"><b><input style="FONT-SIZE: 12px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfLabel1_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" value="{Label1}" readonly size="8" name="{Label1_Name}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; New&nbsp;no&nbsp;OR Incoming no:<input type="checkbox" id="mfi_hvf1_mfi_hvf2_mfi_hvfCheckBox1" value="1" name="{CheckBox1_Name}" {CheckBox1}><input onblur="checkval()" style="DISPLAY: none; FONT-SIZE: 12px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfTextBox3" value="{TextBox3}" maxlength="10" size="8" name="{TextBox3_Name}"></b></font></td> 
+            <td>
+              <select style="DISPLAY: none; FONT-SIZE: 12px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox18_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox18_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox18_Options}
+              </select>
+ </td>
+          </tr>
+        </table>
+ 
+        <table style="DISPLAY: none" id="indiv" width="100%">
+          <tr>
+            <td><b>Borrower Basic Details</b></td> 
+            <td></td> 
+            <td></td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>&nbsp;What is your name?</td> 
+            <td>{mfi_hvf1_customer_name1}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox2_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox2_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox2_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>&nbsp;What is your current age?</td> 
+            <td>{mfi_hvf1_customer_age_years}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox3_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox3_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox3_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>&nbsp;What is your father's name?</td> 
+            <td>{mfi_hvf1_customer_father_name}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox4_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox4_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox4_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>&nbsp;What is the name of your guarantor/spouse ?</td> 
+            <td>{mfi_hvf1_customer_guarantor_name}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox5_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox5_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox5_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>&nbsp;What is your Group name?</td> 
+            <td>{mfi_hvf1_mfi_gp_proposed_group_name}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox6_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox6_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox6_Options}
+              </select>
+ </td>
+          </tr>
+ 
+          <tr>
+            <td>1. What is your current home address? How long you are staying in that home?</td> 
+            <td>{mfi_hvf1_customer_current_address1}<br>
+              {mfi_hvf1_customer_residence_years}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox7_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox7_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox7_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>2. What is your present occupation?</td> 
+            <td>{mfi_hvf1_customer_occupation}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox8_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox8_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox8_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>3. What is the loan amount you have applied for?</td> 
+            <td>{mfi_hvf1_loan_amount}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox12_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox12_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox12_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>4. What is the loan purpose?what all you will buy with this loan amount(Detail of Loan Purpose)?</td> 
+            <td>{mfi_hvf1_loan_purpose} </td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox13_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox13_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox13_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr>
+            <td>5. Did anyone from FFSL visited your house and what he had collected / asked from you?</td> 
+            <td>{mfi_hvf1_co_name}</td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox15_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox15_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox15_Options}
+              </select>
+ </td> 
+            <td>
+              <select style="FONT-SIZE: 9px; FONT-WEIGHT: bold" id="mfi_hvf1_mfi_hvf2_mfi_hvfListBox17_{mfi_hvf1_mfi_hvf2_mfi_hvf:rowNumber}" name="{ListBox17_Name}">
+                <option selected value="">Select Value</option>
+                {ListBox17_Options}
+              </select>
+ </td>
+          </tr>
+          </font>
+        </table>
+      </td>
+    </form>
+ <!-- END Row -->
+  </tr>
+  <!-- BEGIN NoRecords -->
+  <tr class="NoRecords">
+    <td colspan="26">No records</td>
+  </tr>
+  <!-- END NoRecords -->
+  <tr class="Footer">
+    <td colspan="26">
+      <!-- BEGIN Navigator Navigator -->
+      <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" alt="{First_URL}" src="Styles/SilverBlue/Images/First.gif"></a> <!-- END First_On -->
+      <!-- BEGIN First_Off --><img border="0" alt="{First_URL}" src="Styles/SilverBlue/Images/FirstOff.gif"><!-- END First_Off -->
+      <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" alt="{Prev_URL}" src="Styles/SilverBlue/Images/Prev.gif"></a> <!-- END Prev_On -->
+      <!-- BEGIN Prev_Off --><img border="0" alt="{Prev_URL}" src="Styles/SilverBlue/Images/PrevOff.gif"><!-- END Prev_Off -->&nbsp;{Page_Number} of&nbsp;{Total_Pages}&nbsp; 
+      <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" alt="{Next_URL}" src="Styles/SilverBlue/Images/Next.gif"></a> <!-- END Next_On -->
+      <!-- BEGIN Next_Off --><img border="0" alt="{Next_URL}" src="Styles/SilverBlue/Images/NextOff.gif"><!-- END Next_Off -->
+      <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" alt="{Last_URL}" src="Styles/SilverBlue/Images/Last.gif"></a> <!-- END Last_On -->
+      <!-- BEGIN Last_Off --><img border="0" alt="{Last_URL}" src="Styles/SilverBlue/Images/LastOff.gif"><!-- END Last_Off -->&nbsp;<!-- END Navigator Navigator -->&nbsp;</td>
+  </tr>
+</table>
+&nbsp;<!-- END Grid mfi_hvf1_mfi_hvf2_mfi_hvf -->
+<table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table class="Record" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Error -->
+        <tr class="Error">
+          <td colspan="56">{Error}</td>
+        </tr>
+        <!-- END Error -->
+        <tr class="Controls">
+          <td><input type="hidden" id="mfi_tc_individualcheckla_id" value="{la_id}" name="{la_id_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_borrower_name" value="{mfi_borrower_name}" name="{mfi_borrower_name_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_call_attempt" value="{mfi_tc_call_attempt}" name="{mfi_tc_call_attempt_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_call_log" value="{mfi_tc_call_log}" name="{mfi_tc_call_log_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b1_ans" value="{mfi_tc_b1_ans}" name="{mfi_tc_b1_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b2_ans" value="{mfi_tc_b2_ans}" name="{mfi_tc_b2_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b3_ans" value="{mfi_tc_b3_ans}" name="{mfi_tc_b3_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b4_ans" value="{mfi_tc_b4_ans}" name="{mfi_tc_b4_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_b5_ans" value="{mfi_tc_b5_ans}" name="{mfi_tc_b5_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_1_ans" value="{mfi_tc_1_ans}" name="{mfi_tc_1_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_2_ans" value="{mfi_tc_2_ans}" name="{mfi_tc_2_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_3_ans" value="{mfi_tc_3_ans}" name="{mfi_tc_3_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_4_ans" value="{mfi_tc_4_ans}" name="{mfi_tc_4_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_5_ans" value="{mfi_tc_5_ans}" name="{mfi_tc_5_ans_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_tc_6_ans" value="{mfi_tc_6_ans}" name="{mfi_tc_6_ans_Name}">
+<input type="hidden" id="mfi_tc_individualcheckmfi_region_name" value="{mfi_region_name}" name="{mfi_region_name_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_center_name" value="{mfi_center_name}" name="{mfi_center_name_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_group_id" value="{mfi_group_id}" name="{mfi_group_id_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_group_name" value="{mfi_group_name}" name="{mfi_group_name_Name}"><input type="hidden" id="mfi_tc_individualcheckcalled_by" value="{called_by}" name="{called_by_Name}"><input type="hidden" id="mfi_tc_individualcheckcalled_at" value="{called_at}" name="{called_at_Name}"><label style="display: none;" for="mfi_tc_individualchecktc_individual_check_status">{res:tc_individual_check_status}</label> 
+            <select id="mfi_tc_individualchecktc_individual_check_status" name="{tc_individual_check_status_Name}">
+              <option selected value="">{res:CCS_SelectValue}</option>
+              {tc_individual_check_status_Options}
+            </select>
+ <input type="hidden" id="mfi_tc_individualcheckmfi_interest_details" value="{mfi_interest_details}" name="{mfi_interest_details_Name}"><textarea id="mfi_tc_individualchecktc_ic_rejection_details" rows="3" cols="50" name="{tc_ic_rejection_details_Name}">{tc_ic_rejection_details}</textarea><input type="hidden" id="mfi_tc_individualcheckmfi_customer_mobile_no" value="{mfi_customer_mobile_no}" name="{mfi_customer_mobile_no_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_mobile_status" value="{mfi_mobile_status}" name="{mfi_mobile_status_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_incoming_mobile_no" value="{mfi_incoming_mobile_no}" name="{mfi_incoming_mobile_no_Name}"><input type="hidden" id="mfi_tc_individualcheckmfi_customer_relationship" value="{mfi_customer_relationship}" name="{mfi_customer_relationship_Name}"><input type="hidden" id="mfi_tc_individualchecktc_remarks" value="{tc_remarks}" name="{tc_remarks_Name}"></td>
+        </tr>
+ 
+        <tr class="Bottom">
+          <td style="TEXT-ALIGN: right" colspan="56">
+            <!-- BEGIN Button Button_Insert --><input type="submit" id="mfi_tc_individualcheckButton_Insert" class="Button" value="{res:CCS_Insert}" alt="{res:CCS_Insert}" name="{Button_Name}"><!-- END Button Button_Insert --></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table border="1" width="100%" align="center">
+  <tr>
+    <td width="30%">
+      <!-- BEGIN Panel gpudpnl -->
+      <!-- BEGIN Record Gpbtn -->
+      <form id="gpudpnlGpbtn" method="post" name="{HTMLFormName}" action="{Action}">
+        <table border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td valign="top">
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <tr class="Bottom">
+                  <td>
+                    <!-- BEGIN Button Button1 --><input type="submit" id="gpudpnlGpbtnButton1" class="Button" value="Final Group Sanction" alt="Button1" name="{Button_Name}"><!-- END Button Button1 --><input type="hidden" style="WIDTH: 34px; HEIGHT: 22px" id="gpudpnlGpbtnTextBox1" value="{TextBox1}" size="4" name="{TextBox1_Name}"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- END Record Gpbtn --><!-- END Panel gpudpnl --></td> 
+    <td width="40%">
+      <!-- BEGIN Record mfi_tc_individualcheck -->
+      <form id="mfi_tc_individualcheck" method="post" name="{HTMLFormName}" action="{Action}">
+      </form>
+      <!-- END Record mfi_tc_individualcheck --><br>
+    </td> 
+    <td width="30%">
+      <!-- BEGIN Panel udgapnl -->
+      <!-- BEGIN Record gac -->
+      <form id="udgapnlgac" method="post" name="{HTMLFormName}" action="{Action}">
+        <table border="0" cellspacing="0" cellpadding="0" align="center">
+          <tr>
+            <td valign="top">
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <tr class="Bottom">
+                  <td colspan="2" align="right"><input type="hidden" style="WIDTH: 71px; HEIGHT: 22px" id="udgapnlgacHidden1" value="{Hidden1}" size="9" name="{Hidden1_Name}">
+                    <!-- BEGIN Button Button1 --><input type="submit" id="udgapnlgacButton1" class="Button" value="Group Affinity Check" alt="Button1" name="{Button_Name}"><!-- END Button Button1 --></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- END Record gac --><!-- END Panel udgapnl --></td>
+  </tr>
+</table>
+</body>
+</html>

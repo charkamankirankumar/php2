@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>forms_check</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/Basic/Style_doctype.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//mfi_doc_uploadqc_check_result_OnChange @14-56B177E7
+function mfi_doc_uploadqc_check_result_OnChange()
+{
+    var result = true;
+//End mfi_doc_uploadqc_check_result_OnChange
+
+//Custom Code @28-2A29BDB7
+    // -------------------------
+    document.getElementById("mfi_doc_uploadqc_check").value="DONE";
+    // -------------------------
+//End Custom Code
+
+//Close mfi_doc_uploadqc_check_result_OnChange @14-BC33A33A
+    return result;
+}
+//End Close mfi_doc_uploadqc_check_result_OnChange
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @15-2A29BDB7
+    // -------------------------
+    var img=document.getElementById("filename").innerHTML;
+    var reg=document.getElementById("region").innerHTML;
+        var path="";
+        switch(reg)
+        {
+                case "CTMNI":
+                        path="RO-KA01-CTMNI";
+                        break;
+                case "HSKTE":
+                        path="RO-KA01-HSKTE";
+                        break;
+        case "KOLAR":
+                        path="RO-KA01-KOLAR";
+                        break;
+        case "MLBGL":
+                        path="RO-KA01-MLBGL";
+                        break;
+        case "DBLPR":
+                        path="RO-KA02-DBLPR";
+                        break;
+        case "GWBNR":
+                        path="RO-KA02-GWBNR";
+                        break;
+        case "VJPUR":
+                        path="RO-KA02-VJPUR";
+                        break;
+        case "GADAG":
+                        path="RO-KA03-GADAG";
+                        break;
+        case "AMBUR":
+                        path="RO-TN01-AMBUR";
+                        break;
+        case "KTPDI":
+                        path="RO-TN01-KTPDI";
+                        break;
+        case "RNIPT":
+                        path="RO-TN01-RNIPT";
+                        break;
+        case "TVMLA":
+                        path="RO-TN01-TVMLA";
+                        break;
+        case "VLLOR":
+                        path="RO-TN01-VLLOR";
+                        break;
+        case "ARANI":
+                        path="RO-TN02-ARANI";
+                        break;
+        case "CHNPT":
+                        path="RO-TN02-CHNPT";
+                        break;
+        case "KNCHI":
+                        path="RO-TN02-KNCHI";
+                        break;
+        case "TRTNI":
+                        path="RO-TN02-TRTNI";
+                        break;
+        case "HOSUR":
+                        path="RO-TN03-HOSUR";
+                        break;
+        case "KGIRI":
+                        path="RO-TN03-KGIRI";
+                        break;
+        case "UTNGA":
+                        path="RO-TN03-UTNGA";
+                        break;
+        case "RO-TN03-VMBDI":
+                        path="RO-TN03-VMBDI";
+                        break;
+        case "COIMB":
+                        path="RO-TN04-COIMB";
+                        break;
+        case "TNJVR":
+                        path="RO-TN04-TNJVR";
+                        break;
+        }
+var imgpath="UploadedImages/"+path+"/"+img+".pdf";
+document.getElementById("setform").src=imgpath;
+document.getElementById("mfi_doc_uploadregion").value=reg;
+document.getElementById("mfi_doc_uploadfile_name").value=img+".pdf";
+    // -------------------------
+//End Custom Code
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//bind_events @1-60C02D87
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    addEventHandler("mfi_doc_uploadqc_check_result", "change", mfi_doc_uploadqc_check_result_OnChange);
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{incHeader} &nbsp; 
+<table width="100%">
+  <tr>
+    <td colspan="2"></td> 
+  </tr>
+ 
+  <tr>
+    <td width="90%"><iframe id="setform" height="550" src="" width="100%" src=""></iframe></td> 
+    <td width="10%">
+      <!-- BEGIN Record mfi_doc_upload -->
+      <form id="mfi_doc_upload" method="post" name="{HTMLFormName}" action="{Action}">
+        <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="HeaderLeft"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+                  <td class="th"><strong>{res:mfi_doc_upload_RecordForm}</strong></td> 
+                  <td class="HeaderRight"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+                </tr>
+ 
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td> 
+                </tr>
+ <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadbatch_code">{res:batch_code}</label></td> 
+                  <td>{batch_code}&nbsp;</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th">Gp No.</td> 
+                  <td><input id="mfi_doc_uploadgp_code" value="{gp_code}" readonly name="{gp_code_Name}"></td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadgp_name">{res:gp_name}</label></td> 
+                  <td>{gp_name}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadgp_size">{res:gp_size}</label></td> 
+                  <td>{gp_size}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th">CP ID</td> 
+                  <td>{cp_id}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th">CENTER NAME</td> 
+                  <td>{center_name}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadfile_type">{res:file_type}</label></td> 
+                  <td>{file_type}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadfile_uploaded">{res:file_uploaded}</label></td> 
+                  <td id="filename">{file_uploaded}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadfile_upload_region">{res:file_upload_region}</label></td> 
+                  <td id="region">{file_upload_region}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadfile_upload_branch">{res:file_upload_branch}</label></td> 
+                  <td>{file_upload_branch}</td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadqc_check">{res:qc_check}</label></td> 
+                  <td><input id="mfi_doc_uploadqc_check" value="{qc_check}" readonly maxlength="5" size="5" name="{qc_check_Name}"></td> 
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th"><label for="mfi_doc_uploadqc_check_result">{res:qc_check_result}</label></td> 
+                  <td>
+                    <select id="mfi_doc_uploadqc_check_result" name="{qc_check_result_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+ {qc_check_result_Options} 
+                    </select>
+ </td> 
+                </tr>
+ 
+                <tr>
+                  <td class="Controls" colspan="2" align="center">QC COMMENTS<br>
+                    <textarea id="mfi_doc_uploadqc_comments" rows="3" cols="30" name="{qc_comments_Name}">{qc_comments}</textarea></td> 
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td style="TEXT-ALIGN: right" colspan="2"><input type="hidden" style="WIDTH: 10px" id="mfi_doc_uploadfile_name" value="{file_name}" name="{file_name_Name}">&nbsp;&nbsp;<input type="hidden" style="WIDTH: 10px" id="mfi_doc_uploadregion" value="{region}" name="{region_Name}">&nbsp; <input type="hidden" id="mfi_doc_uploadqc_done_at" value="{qc_done_at}" name="{qc_done_at_Name}"><input type="hidden" style="WIDTH: 10px" id="mfi_doc_uploadqc_done_by" value="{qc_done_by}" name="{qc_done_by_Name}">
+                    <!-- BEGIN Button Button_Update --><input type="submit" id="mfi_doc_uploadButton_Update" class="Button" value="{res:CCS_Update}" alt="{res:CCS_Update}" name="{Button_Name}"><!-- END Button Button_Update --></td> 
+                </tr>
+ 
+              </table>
+ </td> 
+          </tr>
+ 
+        </table>
+ 
+      </form>
+ <!-- END Record mfi_doc_upload --><br>
+    </td> 
+  </tr>
+</table>
+</body>
+</html>

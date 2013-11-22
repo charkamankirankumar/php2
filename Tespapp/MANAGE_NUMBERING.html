@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>MANAGE_NUMBERING</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-3CC9F699
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{incHeader} 
+<table width="100%">
+  <tr>
+    <td align="center">{incMenu}<br>
+      <!-- BEGIN Report mfi_docs -->
+      <table border="1" width="95%" style="FONT-SIZE:9pt">
+        <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+        <!-- BEGIN Section Page_Header -->
+        <tr>
+          <td>batch_code</td> 
+          <td>mfi_doc_code</td> 
+          <td>mfi_doc_pre_number_code</td> 
+          <td>mfi_doc_territory_code</td> 
+          <td>Pre Numbered By</td> 
+          <td>Numbered By</td> 
+        </tr>
+ <!-- END Section Page_Header -->
+        <!-- BEGIN Section Page_Footer --><!-- END Section Page_Footer -->
+        <!-- BEGIN Section Detail -->
+        <tr>
+          <td>{batch_code} </td> 
+          <td id="doc_id"><a href="{mfi_doc_code_Src}" id="mfi_docsDetailmfi_doc_code_{mfi_docs:rowNumber}">{mfi_doc_code}</a> </td> 
+          <td>{mfi_doc_pre_number_code} </td> 
+          <td>{mfi_doc_territory_code} </td> 
+          <td>{pre_numbered_by} </td> 
+          <td>{numbered_by} </td> 
+        </tr>
+ <!-- END Section Detail -->
+        <!-- BEGIN Section Report_Footer -->
+        <!-- BEGIN Panel NoRecords -->
+        <tr>
+          <td colspan="6">No records</td> 
+        </tr>
+ <!-- END Panel NoRecords --><!-- END Section Report_Footer -->
+      </table>
+ <!-- END Report mfi_docs --><br>
+    </td> 
+  </tr>
+</table>
+ {incFooter} 
+</body>
+</html>

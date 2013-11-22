@@ -1,0 +1,23 @@
+/*YahooAutocomplete Style @1-2E8F669A*/
+.camsdata123_cgt_grtSearchs_GP_NOYahooAutocomplete1 .yui-ac-container {
+    left: 0;
+}
+.camsdata123_cgt_grtSearchs_GP_NOYahooAutocomplete1 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.camsdata123_cgt_grtSearchs_GP_NO_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+

@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/{CCS_Style}/Style_doctype.css">
+<style>
+.normal-text { font-family: Courier New; font-size: 7pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+input [type=text] {font-family: Courier New; font-size: 7pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+
+</style>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-6A3ED98B
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/{CCS_Style}/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//Handle mfi_kycadded_at_1InlineDatePicker1 @54-E4EE59D4
+function mfi_kycadded_at_1InlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","{CCS_Style}");
+}
+//End Handle mfi_kycadded_at_1InlineDatePicker1
+
+//Handle mfi_kycadded_at_2InlineDatePicker3 @56-502F8A75
+function mfi_kycadded_at_2InlineDatePicker3_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","{CCS_Style}");
+}
+//End Handle mfi_kycadded_at_2InlineDatePicker3
+
+//bind_events @1-14D6A19C
+function bind_events() {
+    addEventHandler("mfi_kycadded_at_1", "load", mfi_kycadded_at_1InlineDatePicker1_start);
+    addEventHandler("mfi_kycadded_at_2", "load", mfi_kycadded_at_2InlineDatePicker3_start);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<p>
+<!-- BEGIN Record mfi_kyc -->
+<font size="0.5">
+<form id="mfi_kyc" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" border="0" cellspacing="0" cellpadding="0" width="50%">
+    <tr>
+      <td valign="top">
+        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/{CCS_Style}/Images/Spacer.gif"></td> 
+            <td class="th"><strong>{res:mfi_kyc_RecordForm}</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/{CCS_Style}/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0" width="50%">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycla_id_2">{res:la_id_2}</label></td> 
+            <td><input id="mfi_kycla_id_2" class="normal-text" value="{la_id_2}" maxlength="8" size="8" name="{la_id_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kyckyc_type_primary_1"><font size="1">{res:kyc_type_primary_1}</font></label></td> 
+            <td><input id="mfi_kyckyc_type_primary_1" class="normal-text" value="{kyc_type_primary_1}" maxlength="5" size="8" name="{kyc_type_primary_1_Name}"></td> 
+            <td class="th"><label for="mfi_kyckyc_type_primary_2"><font size="1">{res:kyc_type_primary_2}</font></label></td> 
+            <td><input id="mfi_kyckyc_type_primary_2" class="normal-text" value="{kyc_type_primary_2}" maxlength="5" size="5" name="{kyc_type_primary_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kyckyc_id_primary_1"><font size="1">{res:kyc_id_primary_1}</font></label></td> 
+            <td><input id="mfi_kyckyc_id_primary_1" class="normal-text" value="{kyc_id_primary_1}" maxlength="40" name="{kyc_id_primary_1_Name}"></td> 
+            <td class="th"><label for="mfi_kyckyc_id_primary_2"><font size="1">{res:kyc_id_primary_2}</font></label></td> 
+            <td><input id="mfi_kyckyc_id_primary_2" class="normal-text" value="{kyc_id_primary_2}" maxlength="40" name="{kyc_id_primary_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kyckyc_type_secondary_1"><font size="1">{res:kyc_type_secondary_1}</font></label></td> 
+            <td><input id="mfi_kyckyc_type_secondary_1" class="normal-text" value="{kyc_type_secondary_1}" maxlength="30" name="{kyc_type_secondary_1_Name}"></td> 
+            <td class="th"><label for="mfi_kyckyc_type_secondary_2"><font size="1">{res:kyc_type_secondary_2}</font></label></td> 
+            <td><input id="mfi_kyckyc_type_secondary_2" class="normal-text" value="{kyc_type_secondary_2}" maxlength="30" name="{kyc_type_secondary_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kyckyc_id_secondary_1"><font size="1">{res:kyc_id_secondary_1}</font></label></td> 
+            <td><input id="mfi_kyckyc_id_secondary_1" class="normal-text" value="{kyc_id_secondary_1}" maxlength="250" name="{kyc_id_secondary_1_Name}"></td> 
+            <td class="th"><label for="mfi_kyckyc_id_secondary_2"><font size="1">{res:kyc_id_secondary_2}</font></label></td> 
+            <td><input id="mfi_kyckyc_id_secondary_2" class="normal-text" value="{kyc_id_secondary_2}" maxlength="250" name="{kyc_id_secondary_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycmember_name_1"><font size="1">{res:member_name_1}</font></label></td> 
+            <td><input id="mfi_kycmember_name_1" class="normal-text" value="{member_name_1}" maxlength="45" name="{member_name_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycmember_name_2"><font size="1">{res:member_name_2}</font></label></td> 
+            <td><input id="mfi_kycmember_name_2" class="normal-text" value="{member_name_2}" maxlength="45" name="{member_name_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycmember_relation_type_1"><font size="1">{res:member_relation_type_1}</font></label></td> 
+            <td><input id="mfi_kycmember_relation_type_1" class="normal-text" value="{member_relation_type_1}" maxlength="5" size="5" name="{member_relation_type_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycmember_relation_type_2"><font size="1">{res:member_relation_type_2}</font></label></td> 
+            <td><input id="mfi_kycmember_relation_type_2" class="normal-text" value="{member_relation_type_2}" maxlength="5" size="5" name="{member_relation_type_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycrelation_name_1"><font size="1">{res:relation_name_1}</font></label></td> 
+            <td><input id="mfi_kycrelation_name_1" class="normal-text" value="{relation_name_1}" maxlength="45" name="{relation_name_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycrelation_name_2"><font size="1">{res:relation_name_2}</font></label></td> 
+            <td><input id="mfi_kycrelation_name_2" class="normal-text" value="{relation_name_2}" maxlength="45" name="{relation_name_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycmember_age_1"><font size="1">{res:member_age_1}</font></label></td> 
+            <td><input id="mfi_kycmember_age_1" class="normal-text" value="{member_age_1}" maxlength="10" size="10" name="{member_age_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycmember_age_2"><font size="1">{res:member_age_2}</font></label></td> 
+            <td><input id="mfi_kycmember_age_2" class="normal-text" value="{member_age_2}" maxlength="10" size="10" name="{member_age_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycmember_age_as_on_1"><font size="1">{res:member_age_as_on_1}</font></label></td> 
+            <td><input id="mfi_kycmember_age_as_on_1" class="normal-text" value="{member_age_as_on_1}" maxlength="10" size="10" name="{member_age_as_on_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycmember_age_as_on_2"><font size="1">{res:member_age_as_on_2}</font></label></td> 
+            <td><input id="mfi_kycmember_age_as_on_2" class="normal-text" value="{member_age_as_on_2}" maxlength="10" size="10" name="{member_age_as_on_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycdate_of_birth_1"><font size="1">{res:date_of_birth_1}</font></label></td> 
+            <td><input id="mfi_kycdate_of_birth_1" class="normal-text" value="{date_of_birth_1}" maxlength="12" size="12" name="{date_of_birth_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycdate_of_birth_2"><font size="1">{res:date_of_birth_2}</font></label></td> 
+            <td><input id="mfi_kycdate_of_birth_2" class="normal-text" value="{date_of_birth_2}" maxlength="12" size="12" name="{date_of_birth_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kyccurrent_age_1"><font size="1">{res:current_age_1}</font></label></td> 
+            <td><input id="mfi_kyccurrent_age_1" class="normal-text" value="{current_age_1}" maxlength="10" size="10" name="{current_age_1_Name}"></td> 
+            <td class="th"><label for="mfi_kyccurrent_age_2"><font size="1">{res:current_age_2}</font></label></td> 
+            <td><input id="mfi_kyccurrent_age_2" class="normal-text" value="{current_age_2}" maxlength="10" size="10" name="{current_age_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycmember_address_1"><font size="1">{res:member_address_1}</font></label></td> 
+            <td><textarea id="mfi_kycmember_address_1" rows="4" cols="15" name="{member_address_1_Name}">{member_address_1}</textarea></td> 
+            <td class="th"><label for="mfi_kycmember_address_2"><font size="1">{res:member_address_2}</font></label></td> 
+            <td><textarea id="mfi_kycmember_address_2" rows="4" cols="15" name="{member_address_2_Name}">{member_address_2}</textarea></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycdistrict_1"><font size="1">{res:district_1}</font></label></td> 
+            <td><input id="mfi_kycdistrict_1" class="normal-text" value="{district_1}" maxlength="15" size="15" name="{district_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycdistrict_2"><font size="1">{res:district_2}</font></label></td> 
+            <td><input id="mfi_kycdistrict_2" class="normal-text" value="{district_2}" maxlength="15" size="15" name="{district_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycpincode_1"><font size="1">{res:pincode_1}</font></label></td> 
+            <td><input id="mfi_kycpincode_1" class="normal-text" value="{pincode_1}" maxlength="10" size="10" name="{pincode_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycpincode_2"><font size="1">{res:pincode_2}</font></label></td> 
+            <td><input id="mfi_kycpincode_2" class="normal-text" value="{pincode_2}" maxlength="10" size="10" name="{pincode_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycguarantor_kyc_type_primery_1"><font size="1">{res:guarantor_kyc_type_primery_1}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_type_primery_1" class="normal-text" value="{guarantor_kyc_type_primery_1}" maxlength="50" name="{guarantor_kyc_type_primery_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycguarantor_kyc_type_primery_2"><font size="1">{res:guarantor_kyc_type_primery_2}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_type_primery_2" class="normal-text" value="{guarantor_kyc_type_primery_2}" maxlength="50" name="{guarantor_kyc_type_primery_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycguarantor_kyc_id_primery_1"><font size="1">{res:guarantor_kyc_id_primery_1}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_id_primery_1" class="normal-text" value="{guarantor_kyc_id_primery_1}" maxlength="50" name="{guarantor_kyc_id_primery_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycguarantor_kyc_id_primery_2"><font size="1">{res:guarantor_kyc_id_primery_2}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_id_primery_2" class="normal-text" value="{guarantor_kyc_id_primery_2}" maxlength="30" name="{guarantor_kyc_id_primery_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycguarantor_kyc_type_secondry_1"><font size="1">{res:guarantor_kyc_type_secondry_1}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_type_secondry_1" class="normal-text" value="{guarantor_kyc_type_secondry_1}" maxlength="50" name="{guarantor_kyc_type_secondry_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycguarantor_kyc_type_secondry_2"><font size="1">{res:guarantor_kyc_type_secondry_2}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_type_secondry_2" class="normal-text" value="{guarantor_kyc_type_secondry_2}" maxlength="50" name="{guarantor_kyc_type_secondry_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycguarantor_kyc_id_secondry_1"><font size="1">{res:guarantor_kyc_id_secondry_1}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_id_secondry_1" class="normal-text" value="{guarantor_kyc_id_secondry_1}" maxlength="250" name="{guarantor_kyc_id_secondry_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycguarantor_kyc_id_secondry_2"><font size="1">{res:guarantor_kyc_id_secondry_2}</font></label></td> 
+            <td><input id="mfi_kycguarantor_kyc_id_secondry_2" class="normal-text" value="{guarantor_kyc_id_secondry_2}" maxlength="250" name="{guarantor_kyc_id_secondry_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycgurantor_age_1"><font size="1">{res:gurantor_age_1}</font></label></td> 
+            <td><input id="mfi_kycgurantor_age_1" class="normal-text" value="{gurantor_age_1}" maxlength="4" size="4" name="{gurantor_age_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycgurantor_age_2"><font size="1">{res:gurantor_age_2}</font></label></td> 
+            <td><input id="mfi_kycgurantor_age_2" class="normal-text" value="{gurantor_age_2}" maxlength="4" size="4" name="{gurantor_age_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycgurantor_age_ason_1"><font size="1">{res:gurantor_age_ason_1}</font></label></td> 
+            <td><input id="mfi_kycgurantor_age_ason_1" class="normal-text" value="{gurantor_age_ason_1}" maxlength="12" size="12" name="{gurantor_age_ason_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycgurantor_age_ason_2"><font size="1">{res:gurantor_age_ason_2}</font></label></td> 
+            <td><input id="mfi_kycgurantor_age_ason_2" class="normal-text" value="{gurantor_age_ason_2}" maxlength="12" size="12" name="{gurantor_age_ason_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycgurantor_dob_1"><font size="1">{res:gurantor_dob_1}</font></label></td> 
+            <td><input id="mfi_kycgurantor_dob_1" class="normal-text" value="{gurantor_dob_1}" maxlength="12" size="12" name="{gurantor_dob_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycgurantor_dob_2">{res:gurantor_dob_2}</label></td> 
+            <td><input id="mfi_kycgurantor_dob_2" class="normal-text" value="{gurantor_dob_2}" maxlength="12" size="12" name="{gurantor_dob_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycgurantor_current_age_1">{res:gurantor_current_age_1}</label></td> 
+            <td><input id="mfi_kycgurantor_current_age_1" class="normal-text" value="{gurantor_current_age_1}" maxlength="4" size="4" name="{gurantor_current_age_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycgurantor_current_age_2">{res:gurantor_current_age_2}</label></td> 
+            <td><input id="mfi_kycgurantor_current_age_2" class="normal-text" value="{gurantor_current_age_2}" maxlength="4" size="4" name="{gurantor_current_age_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycadded_by_1">{res:added_by_1}</label></td> 
+            <td><input id="mfi_kycadded_by_1" class="normal-text" value="{added_by_1}" readonly maxlength="20" name="{added_by_1_Name}" size="20"></td> 
+            <td class="th"><label for="mfi_kycadded_by_2">{res:added_by_2}</label></td> 
+            <td><input id="mfi_kycadded_by_2" class="normal-text" value="{added_by_2}" readonly maxlength="20" name="{added_by_2_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kycadded_at_1">{res:added_at_1}</label></td> 
+            <td><input id="mfi_kycadded_at_1" class="normal-text" value="{added_at_1}" readonly maxlength="100" size="10" name="{added_at_1_Name}"></td> 
+            <td class="th"><label for="mfi_kycadded_at_2">{res:added_at_2}</label></td> 
+            <td><input id="mfi_kycadded_at_2" class="normal-text" value="{added_at_2}" readonly maxlength="100" size="10" name="{added_at_2_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_kyctest_result">{res:test_result}</label></td> 
+            <td colspan="3"><input id="mfi_kyctest_result" class="normal-text" value="{test_result}" maxlength="250" size="50" name="{test_result_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="3">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="mfi_kycButton_Update" class="Button" value="{res:CCS_Update}" alt="{res:CCS_Update}" name="{Button_Name}"><!-- END Button Button_Update --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+</font>
+<!-- END Record mfi_kyc --><br>
+</p>
+</body>
+</html>

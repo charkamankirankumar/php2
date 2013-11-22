@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//cbodataentry_mfi_hvf2Button1_OnClick @278-50221291
+function cbodataentry_mfi_hvf2Button1_OnClick()
+{
+    var result = true;
+//End cbodataentry_mfi_hvf2Button1_OnClick
+
+//Custom Code @279-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+var str="";
+if(document.getElementById("cbodataentry_mfi_hvf1s_mfi_hvf1_no").value)
+str+="&mid="+document.getElementById("cbodataentry_mfi_hvf1s_mfi_hvf1_no").value;
+
+if(document.getElementById("cbodataentry_mfi_hvf1s_added_at").value)
+str+="&eaddat="+document.getElementById("cbodataentry_mfi_hvf1s_added_at").value;
+
+if(document.getElementById("cbodataentry_mfi_hvf1datefrom").value)
+str+="&efrom="+document.getElementById("cbodataentry_mfi_hvf1datefrom").value;
+
+if(document.getElementById("cbodataentry_mfi_hvf1dateto").value)
+str+="&eto="+document.getElementById("cbodataentry_mfi_hvf1dateto").value;
+window.location.href="cbodataentrytoxls.php?tname=cbodataentry"+str;
+//Close cbodataentry_mfi_hvf2Button1_OnClick @278-BC33A33A
+    return result;
+}
+//End Close cbodataentry_mfi_hvf2Button1_OnClick
+
+//bind_events @1-7867D318
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    addEventHandler("cbodataentry_mfi_hvf2Button1", "click", cbodataentry_mfi_hvf2Button1_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script language="JavaScript" type="text/javascript" src="docentryjs.js">
+function converttoexcel()
+{
+alert("Converted to Excel");
+window.location.href="datatoxls.php";
+}
+</script>
+<script>
+                !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen">
+<link rel="stylesheet" href="style.css">
+<script>
+$(document).ready(function() {
+                                                
+                                                $("a#mfi_gpnew").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 900,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe',
+                                                                'onCleanup' : function() {
+                                                                        return window.confirm('Close?');}
+                        });
+                      /* $("a#cbodataentry_mfi_hvf2hv1").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 900,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe'
+                        });
+                        $("a#cbodataentry_mfi_hvf2hv2").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 900,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe'
+                        });
+                        $("a#cbodataentry_mfi_hvf2hv3").fancybox({
+                                'width'                         : 730,
+                                'height'                        : 900,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe',
+                                                                'onCleanup' : function() {
+                                                                        return window.confirm('Close?');}
+                        });*/
+                                
+                });
+
+</script>
+<style>
+.normal-text { font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; }
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+<table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; HEIGHT: 100px; PADDING-TOP: 5px" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+  <tr>
+    <td>{incHeader} 
+      <table style="PADDING-BOTTOM: 10px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 10px; WIDTH: 100%; PADDING-RIGHT: 10px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; align: center; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td align="center">{incMenu}</td>
+        </tr>
+ 
+        <tr>
+          <td align="center">&nbsp;</td>
+        </tr>
+ 
+        <tr>
+          <td align="left"><a href="{Link1}" id="mfi_gpnew"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link1}" src="Styles/SilverBlue/Images/en/ButtonInsert.gif"></a>&nbsp;</td>
+        </tr>
+ 
+        <tr>
+          <td align="center"></td>
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Record cbodataentry_mfi_hvf1 -->
+            <form id="cbodataentry_mfi_hvf1" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_SearchFormPrefix} {res:cbodataentry_mfi_hvf1} {res:CCS_SearchFormSuffix}</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="8">{Error}</td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="cbodataentry_mfi_hvf1s_added_by">{res:added_by}</label></td> 
+                        <td><input id="cbodataentry_mfi_hvf1s_added_by" class="normal-text" value="{s_added_by}" maxlength="25" size="25" name="{s_added_by_Name}"></td> 
+                        <td class="th"><label for="cbodataentry_mfi_hvf1s_added_at">{res:added_at}</label></td> 
+                        <td><input id="cbodataentry_mfi_hvf1s_added_at" class="normal-text" value="{s_added_at}" maxlength="20" name="{s_added_at_Name}" size="20"></td> 
+                        <td class="th"><label for="cbodataentry_mfi_hvf1s_mfi_hvf1_no">{res:mfi_hvf1_no}</label></td> 
+                        <td><input id="cbodataentry_mfi_hvf1s_mfi_hvf1_no" class="normal-text" value="{s_mfi_hvf1_no}" maxlength="40" size="21" name="{s_mfi_hvf1_no_Name}"></td> 
+                        <td><label for="cbodataentry_mfi_hvf1datefrom">From Date</label><input id="cbodataentry_mfi_hvf1datefrom" class="normal-text" value="{datefrom}" name="{datefrom_Name}"></td> 
+                        <td><label for="cbodataentry_mfi_hvf1dateto">To Date</label><input onblur="compareDate(document.getElementById('cbodataentry_mfi_hvf1datefrom'),this);" id="cbodataentry_mfi_hvf1dateto" class="normal-text" value="{dateto}" name="{dateto_Name}"></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="8" align="right">
+                          <!-- BEGIN Button Button_DoSearch --><input type="image" style="BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px" id="cbodataentry_mfi_hvf1Button_DoSearch" value="{res:CCS_Search}" alt="{res:CCS_Search}" src="Styles/SilverBlue/Images/{res:CCS_LanguageID}/ButtonSearch.gif" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record cbodataentry_mfi_hvf1 --><br>
+            <!-- BEGIN Grid cbodataentry_mfi_hvf2 -->
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top">
+                  <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      <td class="th"><strong>{res:CCS_GridFormPrefix} {res:cbodataentrymfi_hvf1} {res:CCS_GridFormSuffix}</strong></td> 
+                      <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                    </tr>
+                  </table>
+ 
+                  <table class="Grid" cellspacing="0" cellpadding="0">
+                    <tr class="Row">
+                      <td colspan="4">{res:CCS_TotalRecords}&nbsp;{cbodataentry_mfi_hvf2_TotalRecords}</td>
+                    </tr>
+ 
+                    <tr class="Caption">
+                      <th scope="col"><a href="{Sort_URL}" id="cbodataentry_mfi_hvf2Sorter_MEMBER_ID">{res:MEMBERID}</a> </th>
+ 
+                      <th scope="col">
+                      <!-- BEGIN Sorter Sorter_BORROWER_NAME --><a href="{Sort_URL}" id="cbodataentry_mfi_hvf2Sorter_BORROWER_NAME">{res:BORROWER_NAME}</a> 
+                      <!-- BEGIN Asc_On --><img border="0" alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                      <!-- BEGIN Desc_On --><img border="0" alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_BORROWER_NAME --></th>
+                    </tr>
+ 
+                    <!-- BEGIN Row -->
+                    <tr class="Row">
+                      <td nowrap>{MEMBER_ID}</td> 
+                      <td>{BORROWER_NAME}</td> 
+                      <td>&nbsp;&nbsp;&nbsp;<a href="{Link3_Src}" id="cbodataentry_mfi_hvf2hv2">KYC</a></td>
+                    </tr>
+ 
+                    <tr>
+                      <td bgcolor="#1234" width="2" colspan="12"></td>
+                    </tr>
+ <!-- END Row -->
+                    <!-- BEGIN NoRecords -->
+                    <tr class="NoRecords">
+                      <td colspan="60">{res:CCS_NoRecords}</td>
+                    </tr>
+                    <!-- END NoRecords -->
+                    <tr class="Footer">
+                      <td colspan="60">
+                        <!-- BEGIN Navigator Navigator -->
+                        <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+                        <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                          <option selected value="">-</option>
+ {PageSize_Options}
+                        </select>
+ 
+                        <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+                        <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                        <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+                        <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                        <!-- BEGIN Pages -->
+                        <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                        <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                        <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+                        <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                        <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+                        <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+ 
+              <tr>
+                <td>
+                  <!-- BEGIN Button Button1 --><input type="submit" id="cbodataentry_mfi_hvf2Button1" class="Button" value="Export To Excel" alt="Button1" name="{Button_Name}"><!-- END Button Button1 --></td>
+              </tr>
+            </table>
+            <!-- END Grid cbodataentry_mfi_hvf2 --><br>
+          </td>
+        </tr>
+ 
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

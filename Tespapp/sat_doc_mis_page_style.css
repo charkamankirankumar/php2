@@ -1,0 +1,46 @@
+/*YahooAutocomplete Style @1-E2C73A1E*/
+.mfi_docs_mfi_doc_uploads_gp_codeYahooAutocomplete1 .yui-ac-container {
+    left: 0;
+}
+.mfi_docs_mfi_doc_uploads_gp_codeYahooAutocomplete1 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_docs_mfi_doc_uploads_gp_code_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-14161D09*/
+.mfi_docs_mfi_doc_uploads_mfi_doc_regionYahooAutocomplete2 .yui-ac-container {
+    left: 0;
+}
+.mfi_docs_mfi_doc_uploads_mfi_doc_regionYahooAutocomplete2 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_docs_mfi_doc_uploads_mfi_doc_region_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+

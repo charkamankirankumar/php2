@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>TESTPAGE</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css" />
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-25EB3B7C
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo/yahoo-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/datasource/datasource-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/connection/connection-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/animation/animation-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/json/json-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/autocomplete/autocomplete-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/autocomplete-commons.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="js/yui/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="TESTPAGE_style.css" />
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/ccs-yui-calendar.css" />
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//Initialize mfi_docsSearchs_batch_codeYahooAutocomplete1 @39-9D3824EA
+function mfi_docsSearchs_batch_codeYahooAutocomplete1_start() {
+    initAutocomplete("mfi_docsSearchs_batch_code", "services/TESTPAGE_s_batch_code_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_batch_codeYahooAutocomplete1
+
+//Initialize mfi_docsSearchs_mfi_doc_filenameYahooAutocomplete2 @40-5764EA26
+function mfi_docsSearchs_mfi_doc_filenameYahooAutocomplete2_start() {
+    initAutocomplete("mfi_docsSearchs_mfi_doc_filename", "services/TESTPAGE_s_mfi_doc_filename_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_mfi_doc_filenameYahooAutocomplete2
+
+//Initialize mfi_docsSearchs_mfi_doc_typeYahooAutocomplete3 @41-798707F0
+function mfi_docsSearchs_mfi_doc_typeYahooAutocomplete3_start() {
+    initAutocomplete("mfi_docsSearchs_mfi_doc_type", "services/TESTPAGE_s_mfi_doc_type_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_mfi_doc_typeYahooAutocomplete3
+
+//Initialize mfi_docsSearchs_mfi_doc_regionYahooAutocomplete4 @42-1AD32644
+function mfi_docsSearchs_mfi_doc_regionYahooAutocomplete4_start() {
+    initAutocomplete("mfi_docsSearchs_mfi_doc_region", "services/TESTPAGE_s_mfi_doc_region_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_mfi_doc_regionYahooAutocomplete4
+
+//Handle mfi_docsSearchs_mfi_doc_tagged_atInlineDatePicker1 @37-C092A104
+function mfi_docsSearchs_mfi_doc_tagged_atInlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle mfi_docsSearchs_mfi_doc_tagged_atInlineDatePicker1
+
+//Initialize mfi_docsSearchs_mfi_doc_statusYahooAutocomplete5 @43-0F96AAFF
+function mfi_docsSearchs_mfi_doc_statusYahooAutocomplete5_start() {
+    initAutocomplete("mfi_docsSearchs_mfi_doc_status", "services/TESTPAGE_s_mfi_doc_status_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_mfi_doc_statusYahooAutocomplete5
+
+//bind_events @1-82C72795
+function bind_events() {
+    mfi_docsSearchs_batch_codeYahooAutocomplete1_start();
+    mfi_docsSearchs_mfi_doc_filenameYahooAutocomplete2_start();
+    mfi_docsSearchs_mfi_doc_typeYahooAutocomplete3_start();
+    mfi_docsSearchs_mfi_doc_regionYahooAutocomplete4_start();
+    mfi_docsSearchs_mfi_doc_statusYahooAutocomplete5_start();
+    addEventHandler("mfi_docsSearchs_mfi_doc_tagged_at", "load", mfi_docsSearchs_mfi_doc_tagged_atInlineDatePicker1_start);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<!-- BEGIN Record mfi_docsSearch -->
+<form id="mfi_docsSearch" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+            <td class="th"><strong>{res:Search_Form}</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="12">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="mfi_docsSearchs_batch_code">{res:batch_code}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_batch_code --><input id="mfi_docsSearchs_batch_code" name="{s_batch_code_Name}" maxlength="20" value="{s_batch_code}" size="20" autocomplete="off"><!-- END TextBox s_batch_code --></td> 
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_filename">{res:mfi_doc_filename}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_mfi_doc_filename --><input id="mfi_docsSearchs_mfi_doc_filename" name="{s_mfi_doc_filename_Name}" maxlength="250" value="{s_mfi_doc_filename}" size="50" autocomplete="off"><!-- END TextBox s_mfi_doc_filename --></td> 
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_type">{res:mfi_doc_type}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_mfi_doc_type --><input id="mfi_docsSearchs_mfi_doc_type" name="{s_mfi_doc_type_Name}" maxlength="5" value="{s_mfi_doc_type}" size="5" autocomplete="off"><!-- END TextBox s_mfi_doc_type --></td> 
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_region">{res:mfi_doc_region}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_mfi_doc_region --><input id="mfi_docsSearchs_mfi_doc_region" name="{s_mfi_doc_region_Name}" maxlength="36" value="{s_mfi_doc_region}" size="36" autocomplete="off"><!-- END TextBox s_mfi_doc_region --></td> 
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_tagged_at">{res:mfi_doc_tagged_at}</label></td> 
+            <td><input id="mfi_docsSearchs_mfi_doc_tagged_at" name="{s_mfi_doc_tagged_at_Name}" maxlength="100" value="{s_mfi_doc_tagged_at}" size="10"></td> 
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_status">{res:mfi_doc_status}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_mfi_doc_status --><input id="mfi_docsSearchs_mfi_doc_status" name="{s_mfi_doc_status_Name}" maxlength="5" value="{s_mfi_doc_status}" size="5" autocomplete="off"><!-- END TextBox s_mfi_doc_status --></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="12">
+              <!-- BEGIN Button Button_DoSearch --><input type="submit" id="mfi_docsSearchButton_DoSearch" class="Button" name="{Button_Name}" alt="{res:CCS_Search}" value="{res:CCS_Search}"><!-- END Button Button_DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record mfi_docsSearch --><br>
+<!-- BEGIN Grid mfi_docs -->
+<table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+          <td class="th"><strong>{res:mfi_docs_GridForm} </strong></td> 
+          <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_batch_code --><span class="Sorter"><a href="{Sort_URL}" id="mfi_docsSorter_batch_code">{res:batch_code}</a> 
+          <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_batch_code --></th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_mfi_doc_filename --><span class="Sorter"><a href="{Sort_URL}" id="mfi_docsSorter_mfi_doc_filename">{res:mfi_doc_filename}</a> 
+          <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_doc_filename --></th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_mfi_doc_type --><span class="Sorter"><a href="{Sort_URL}" id="mfi_docsSorter_mfi_doc_type">{res:mfi_doc_type}</a> 
+          <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_doc_type --></th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_mfi_doc_region --><span class="Sorter"><a href="{Sort_URL}" id="mfi_docsSorter_mfi_doc_region">{res:mfi_doc_region}</a> 
+          <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_doc_region --></th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_mfi_doc_tagged_at --><span class="Sorter"><a href="{Sort_URL}" id="mfi_docsSorter_mfi_doc_tagged_at">{res:mfi_doc_tagged_at}</a> 
+          <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_doc_tagged_at --></th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_mfi_doc_status --><span class="Sorter"><a href="{Sort_URL}" id="mfi_docsSorter_mfi_doc_status">{res:mfi_doc_status}</a> 
+          <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_doc_status --></th>
+ 
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td>{batch_code}&nbsp;</td> 
+          <td>{mfi_doc_filename}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{mfi_doc_type}&nbsp;</td> 
+          <td>{mfi_doc_region}&nbsp;</td> 
+          <td>{mfi_doc_tagged_at}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{mfi_doc_status}&nbsp;</td> 
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="6">{res:CCS_NoRecords}</td> 
+        </tr>
+ <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="6">
+            <!-- BEGIN Navigator Navigator --><span class="Navigator">{res:CCS_RecPerPage} 
+            <select style="VERTICAL-ALIGN: middle" onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+              <option selected value="">-</option>
+ {PageSize_Options} 
+            </select>
+ 
+            <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+            <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+            <!-- BEGIN Pages -->
+            <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+            <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --></span><!-- END Navigator Navigator -->&nbsp;</td> 
+        </tr>
+ 
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Grid mfi_docs --><br>
+</body>
+</html>

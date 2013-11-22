@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>DOC_MIS_PAGE</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css" />
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-4282CAAE
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo/yahoo-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/datasource/datasource-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/connection/connection-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/animation/animation-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/json/json-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/autocomplete/autocomplete-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/autocomplete-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="js/yui/build/autocomplete/assets/skins/sam/autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="DOC_MIS_PAGE_style.css" />
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//Initialize mfi_docsSearchs_mfi_doc_regionYahooAutocomplete1 @49-5FD91B73
+function mfi_docsSearchs_mfi_doc_regionYahooAutocomplete1_start() {
+    initAutocomplete("mfi_docsSearchs_mfi_doc_region", "services/DOC_MIS_PAGE_s_mfi_doc_region_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_mfi_doc_regionYahooAutocomplete1
+
+//Initialize mfi_docsSearchs_mfi_doc_territory_codeYahooAutocomplete2 @50-4D19EE81
+function mfi_docsSearchs_mfi_doc_territory_codeYahooAutocomplete2_start() {
+    initAutocomplete("mfi_docsSearchs_mfi_doc_territory_code", "services/DOC_MIS_PAGE_s_mfi_doc_territory_code_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_mfi_doc_territory_codeYahooAutocomplete2
+
+//Initialize mfi_docsSearchs_doc_rejection_reasonYahooAutocomplete3 @51-FC4FE905
+function mfi_docsSearchs_doc_rejection_reasonYahooAutocomplete3_start() {
+    initAutocomplete("mfi_docsSearchs_doc_rejection_reason", "services/DOC_MIS_PAGE_s_doc_rejection_reason_YahooAutocomplete1.php");
+}
+//End Initialize mfi_docsSearchs_doc_rejection_reasonYahooAutocomplete3
+
+//bind_events @1-352BE978
+function bind_events() {
+    mfi_docsSearchs_mfi_doc_regionYahooAutocomplete1_start();
+    mfi_docsSearchs_mfi_doc_territory_codeYahooAutocomplete2_start();
+    mfi_docsSearchs_doc_rejection_reasonYahooAutocomplete3_start();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<!-- BEGIN Record mfi_docsSearch -->
+<form id="mfi_docsSearch" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+            <td class="th"><strong>{res:Search_Form}</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_region">{res:mfi_doc_region}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_mfi_doc_region --><input id="mfi_docsSearchs_mfi_doc_region" name="{s_mfi_doc_region_Name}" maxlength="36" value="{s_mfi_doc_region}" size="36" autocomplete="off"><!-- END TextBox s_mfi_doc_region --></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_docsSearchs_mfi_doc_territory_code">{res:mfi_doc_territory_code}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_mfi_doc_territory_code --><input id="mfi_docsSearchs_mfi_doc_territory_code" name="{s_mfi_doc_territory_code_Name}" maxlength="64" value="{s_mfi_doc_territory_code}" size="50" autocomplete="off"><!-- END TextBox s_mfi_doc_territory_code --></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_docsSearchs_doc_rejection_reason">{res:doc_rejection_reason}</label></td> 
+            <td>
+              <!-- BEGIN TextBox s_doc_rejection_reason --><input id="mfi_docsSearchs_doc_rejection_reason" name="{s_doc_rejection_reason_Name}" maxlength="200" value="{s_doc_rejection_reason}" size="50" autocomplete="off"><!-- END TextBox s_doc_rejection_reason --></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input type="submit" id="mfi_docsSearchButton_DoSearch" class="Button" name="{Button_Name}" alt="{res:CCS_Search}" value="{res:CCS_Search}"><!-- END Button Button_DoSearch --></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record mfi_docsSearch --><br>
+<!-- BEGIN Report mfi_docs -->
+<table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+          <td class="th"><strong>{res:mfi_docs_ReportForm}</strong></td> 
+          <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+        </tr>
+ 
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+        <!-- BEGIN Section Page_Header -->
+        <tr class="Caption">
+          <th scope="col">{res:mfi_doc_region} &nbsp;</th>
+ 
+          <th scope="col">{res:mfi_doc_filename} &nbsp;</th>
+ 
+          <th scope="col">{res:mfi_doc_type} &nbsp;</th>
+ 
+          <th scope="col">{res: Report Row Number} &nbsp;</th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_mfi_doc_territory_code --><span class="Sorter"><a href="{Sort_URL}">{res:mfi_doc_territory_code}</a> 
+          <!-- BEGIN Asc_On --><img alt="" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_doc_territory_code -->&nbsp;</th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_doc_rejection_reason --><span class="Sorter"><a href="{Sort_URL}">{res:doc_rejection_reason}</a> 
+          <!-- BEGIN Asc_On --><img alt="" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_doc_rejection_reason -->&nbsp;</th>
+ 
+          <th scope="col">
+          <!-- BEGIN Sorter Sorter_GPNO --><span class="Sorter"><a href="{Sort_URL}">{res:GPNO}</a> 
+          <!-- BEGIN Asc_On --><img alt="" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img alt="" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_GPNO -->&nbsp;</th>
+ 
+        </tr>
+ <!-- END Section Page_Header -->
+        <!-- BEGIN Section Page_Footer -->
+        <tr class="Footer">
+          <td colspan="7">
+            <!-- BEGIN Navigator Navigator --><span class="Navigator">
+            <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+            <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+            <!-- BEGIN Pages -->
+            <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+            <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --></span><!-- END Navigator Navigator --></td> 
+        </tr>
+ <!-- END Section Page_Footer -->
+        <!-- BEGIN Section mfi_doc_region_Header -->
+        <tr class="GroupCaption">
+          <th scope="col">{mfi_doc_region} </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+        </tr>
+ <!-- END Section mfi_doc_region_Header -->
+        <!-- BEGIN Section mfi_doc_filename_Header -->
+        <tr class="GroupCaption">
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">{mfi_doc_filename} </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+          <th scope="col">&nbsp; </th>
+ 
+        </tr>
+ <!-- END Section mfi_doc_filename_Header -->
+        <!-- BEGIN Section mfi_doc_type_Header -->
+        <tr class="GroupCaption">
+          <th style="TEXT-ALIGN: right" scope="col">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right" scope="col">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right" scope="col">{mfi_doc_type} </th>
+ 
+          <th style="TEXT-ALIGN: right" scope="col">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right" scope="col">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right" scope="col">&nbsp; </th>
+ 
+          <th style="TEXT-ALIGN: right" scope="col">&nbsp; </th>
+ 
+        </tr>
+ <!-- END Section mfi_doc_type_Header -->
+        <!-- BEGIN Section Detail -->
+        <tr class="Row">
+          <td>&nbsp; </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">{Report_Row_Number} </td> 
+          <td>{mfi_doc_territory_code} </td> 
+          <td>{doc_rejection_reason} </td> 
+          <td>{GPNO} </td> 
+        </tr>
+ <!-- END Section Detail -->
+        <!-- BEGIN Section mfi_doc_type_Footer -->
+        <tr class="SubTotal">
+          <td>{res:CCS_ReportSubTotal} &nbsp; </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{res:Count}{Count_mfi_doc_territory_code2} </td> 
+          <td>&nbsp; </td> 
+          <td>&nbsp; </td> 
+        </tr>
+ <!-- END Section mfi_doc_type_Footer -->
+        <!-- BEGIN Section mfi_doc_filename_Footer -->
+        <tr class="SubTotal">
+          <td>{res:CCS_ReportSubTotal} &nbsp; </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{res:Count}{Count_mfi_doc_territory_code1} </td> 
+          <td>&nbsp; </td> 
+          <td>&nbsp; </td> 
+        </tr>
+ <!-- END Section mfi_doc_filename_Footer -->
+        <!-- BEGIN Section mfi_doc_region_Footer -->
+        <tr class="SubTotal">
+          <td>{res:CCS_ReportSubTotal} &nbsp; </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{res:Count}{Count_mfi_doc_territory_code} </td> 
+          <td>&nbsp; </td> 
+          <td>&nbsp; </td> 
+        </tr>
+ <!-- END Section mfi_doc_region_Footer -->
+        <!-- BEGIN Section Report_Footer -->
+        <!-- BEGIN Panel NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="7">{res:CCS_NoRecords}</td> 
+        </tr>
+ <!-- END Panel NoRecords -->
+        <tr class="Total">
+          <td valign="baseline">{res:CCS_ReportTotal} </td> 
+          <td>&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right">&nbsp; </td> 
+          <td style="TEXT-ALIGN: right" valign="baseline">{res:Count}{TotalCount_mfi_doc_territory_code} </td> 
+          <td>&nbsp; </td> 
+          <td>&nbsp; </td> 
+        </tr>
+ <!-- END Section Report_Footer -->
+      </table>
+ </td> 
+  </tr>
+</table>
+<!-- END Report mfi_docs --><br>
+</body>
+</html>

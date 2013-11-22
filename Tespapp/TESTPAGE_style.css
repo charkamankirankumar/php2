@@ -1,0 +1,115 @@
+/*YahooAutocomplete Style @1-61C2F367*/
+.mfi_docsSearchs_batch_codeYahooAutocomplete1 .yui-ac-container {
+    left: 0;
+}
+.mfi_docsSearchs_batch_codeYahooAutocomplete1 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_docsSearchs_batch_code_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-044FC7D6*/
+.mfi_docsSearchs_mfi_doc_filenameYahooAutocomplete2 .yui-ac-container {
+    left: 0;
+}
+.mfi_docsSearchs_mfi_doc_filenameYahooAutocomplete2 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_docsSearchs_mfi_doc_filename_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-5F2C8B63*/
+.mfi_docsSearchs_mfi_doc_typeYahooAutocomplete3 .yui-ac-container {
+    left: 0;
+}
+.mfi_docsSearchs_mfi_doc_typeYahooAutocomplete3 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_docsSearchs_mfi_doc_type_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-BFA11D5C*/
+.mfi_docsSearchs_mfi_doc_regionYahooAutocomplete4 .yui-ac-container {
+    left: 0;
+}
+.mfi_docsSearchs_mfi_doc_regionYahooAutocomplete4 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_docsSearchs_mfi_doc_region_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+
+/*YahooAutocomplete Style @1-F7422CF1*/
+.mfi_docsSearchs_mfi_doc_statusYahooAutocomplete5 .yui-ac-container {
+    left: 0;
+}
+.mfi_docsSearchs_mfi_doc_statusYahooAutocomplete5 input {
+    position: relative;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    *width: expression(parseInt(this.parentNode.currentStyle.width)-6+'px');
+}
+.mfi_docsSearchs_mfi_doc_status_container {
+    display: block;
+}
+.YUIAutcompleteHighlight {
+    background-color: #AAAAAA;
+}
+.YUIAutcompletePreHighlight {
+    background-color: #DDDDDD;
+}
+/*End YahooAutocomplete Style*/
+

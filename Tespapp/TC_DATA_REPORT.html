@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>tc_dump</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/{CCS_Style}/Style_doctype.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+function exportexel()
+{
+        var status=document.getElementById("NewRecord1ListBox1").value;
+        var f_date=document.getElementById("NewRecord1from_date").value;
+        var t_date=document.getElementById("NewRecord1to_date").value;
+        var whr='';
+        if(status.length==0)
+        {
+                alert("select Status");
+                document.getElementById("NewRecord1ListBox1").focus();
+        }
+        if(status.length==0)
+        {
+                alert("select From Date");
+                document.getElementById("NewRecord1from_date").focus();
+        }
+        if(status=="SANCTIONED")
+        {
+                whr="tc_individual_check_status like 'SANCTIONED'";     
+        }
+        else if(status=="REJECTED")
+        {
+                whr="tc_individual_check_status like 'REJECTED'";       
+        }
+        else if(status=="PENDING")
+        {
+                whr="tc_individual_check_status like 'PENDING'";        
+        }
+        else if(status=="ALL")
+        {
+                whr="tc_individual_check_status is not null";   
+        }
+        if(t_date.length==0)
+        {
+                whr+=" and called_at like '"+f_date+"%'";
+        }
+        else
+        {
+                whr+=" and called_at < '"+t_date+"%' and called_at > '"+f_date+"%'";    
+        }
+  
+        window.location.href="givexls.php?cols=*&tblname=mfi_telecalling_check&whr="+whr;
+}
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-5EDAF545
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/ajaxpanel.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/{CCS_Style}/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//DEL      // -------------------------
+//DEL      
+//DEL      // -------------------------
+
+//Handle NewRecord1to_dateInlineDatePicker @7-701A3EC5
+function NewRecord1to_dateInlineDatePicker_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","{CCS_Style}");
+}
+//End Handle NewRecord1to_dateInlineDatePicker
+
+//Handle NewRecord1from_dateInlineDatePicker1 @9-1927F634
+function NewRecord1from_dateInlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","{CCS_Style}");
+}
+//End Handle NewRecord1from_dateInlineDatePicker1
+
+//Start PagePanel @12-25FAF324
+function PagePanel_start(sender) {
+    var panel = $("PagePanel");
+    if (!panel) return;
+    panel.onrefresh = function() {
+    };
+    AjaxPanel.init(panel);
+    AjaxPanel._bind(panel);
+    PagePanel_bind(sender);
+}
+//End Start PagePanel
+
+//Refresh PagePanel @12-62D7F56A
+function PagePanel_bind(sender) {
+}
+//End Refresh PagePanel
+
+//Refresh PagePanelUpdatePanel1 @17-E4A48991
+function PagePanelUpdatePanel1_refresh(sender) {
+    var panel = $("PagePanel");
+    if (!panel) return;
+    AjaxPanel.reload(panel);
+}
+//End Refresh PagePanelUpdatePanel1
+
+//bind_events @1-0B53BE92
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    PagePanel_start(window);
+    addEventHandler("NewRecord1to_date", "load", NewRecord1to_dateInlineDatePicker_start);
+    addEventHandler("NewRecord1from_date", "load", NewRecord1from_dateInlineDatePicker1_start);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-RIGHT: 5px; VERTICAL-ALIGN: middle; PADDING-TOP: 10px; align: center; border-size: 2px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td align="center">
+            <!-- BEGIN Panel PagePanel -->
+            <!-- BEGIN Panel pnlMenu -->{incMenu}<br>
+            <!-- END Panel pnlMenu --><br>
+            <br>
+            <br>
+            <!-- END Panel PagePanel -->
+            <!-- BEGIN Record NewRecord1 -->
+            <form id="NewRecord1" method="post" name="{HTMLFormName}" action="{Action}">
+              <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img alt="" src="Styles/{CCS_Style}/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>Tc Dump</strong></td> 
+                        <td class="HeaderRight"><img alt="" src="Styles/{CCS_Style}/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2">{Error}</td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th">SELECT STATUS</td> 
+                        <td>
+                          <select id="NewRecord1ListBox1" name="{ListBox1_Name}">
+                            <option selected value="">{res:CCS_SelectValue}</option>
+                            {ListBox1_Options}
+                          </select>
+ </td>
+                      </tr>
+                      <tr class="controls">
+                      <tr>
+                        <td>From Date: <input id="NewRecord1from_date" value="{from_date}" name="{from_date_Name}"></td> 
+                        <td>To Date: <input id="NewRecord1to_date" value="{to_date}" name="{to_date_Name}"></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td style="TEXT-ALIGN: right" colspan="2">
+                          <!-- BEGIN Button Button1 --><input type="button" id="NewRecord1Button1" class="Button" onclick="exportexel();" value="ExportToExel" alt="Button1" name="{Button_Name}"><!-- END Button Button1 -->&nbsp; </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record NewRecord1 --></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

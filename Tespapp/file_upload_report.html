@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>file_upload_report</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<link rel="stylesheet" type="text/css" href="Styles/Basic/Style_doctype.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-EB369584
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/Basic/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//Handle mfi_doc_uploadSearchs_uploaded_dateInlineDatePicker1 @38-C0445188
+function mfi_doc_uploadSearchs_uploaded_dateInlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","Basic");
+}
+//End Handle mfi_doc_uploadSearchs_uploaded_dateInlineDatePicker1
+
+//bind_events @1-C9AC7E07
+function bind_events() {
+    addEventHandler("mfi_doc_uploadSearchs_uploaded_date", "load", mfi_doc_uploadSearchs_uploaded_dateInlineDatePicker1_start);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<!-- BEGIN Record mfi_doc_uploadSearch -->
+<form id="mfi_doc_uploadSearch" method="post" name="{HTMLFormName}" action="{Action}">
+  <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="HeaderLeft"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+            <td class="th"><strong>{res:Search_Form}</strong></td> 
+            <td class="HeaderRight"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="2">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="mfi_doc_uploadSearchs_batch_code">{res:batch_code}</label></td> 
+            <td><input id="mfi_doc_uploadSearchs_batch_code" value="{s_batch_code}" maxlength="20" name="{s_batch_code_Name}" size="20"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_doc_uploadSearchs_gp_code">{res:gp_code}</label></td> 
+            <td><input id="mfi_doc_uploadSearchs_gp_code" value="{s_gp_code}" maxlength="7" size="7" name="{s_gp_code_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_doc_uploadSearchs_file_type">{res:file_type}</label></td> 
+            <td><input id="mfi_doc_uploadSearchs_file_type" value="{s_file_type}" maxlength="30" size="30" name="{s_file_type_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_doc_uploadSearchs_uploaded_date">{res:uploaded_date}</label></td> 
+            <td><input id="mfi_doc_uploadSearchs_uploaded_date" value="{s_uploaded_date}" maxlength="100" size="10" name="{s_uploaded_date_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_doc_uploadSearchs_uploaded_by">{res:uploaded_by}</label></td> 
+            <td><input id="mfi_doc_uploadSearchs_uploaded_by" value="{s_uploaded_by}" maxlength="30" size="30" name="{s_uploaded_by_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_doc_uploadSearchs_file_upload_region">{res:file_upload_region}</label></td> 
+            <td><input id="mfi_doc_uploadSearchs_file_upload_region" value="{s_file_upload_region}" maxlength="10" size="10" name="{s_file_upload_region_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="mfi_doc_uploadSearchs_file_upload_branch">{res:file_upload_branch}</label></td> 
+            <td><input id="mfi_doc_uploadSearchs_file_upload_branch" value="{s_file_upload_branch}" maxlength="10" size="10" name="{s_file_upload_branch_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td style="TEXT-ALIGN: right" colspan="2">
+              <!-- BEGIN Button Button_DoSearch --><input type="submit" id="mfi_doc_uploadSearchButton_DoSearch" class="Button" value="{res:CCS_Search}" alt="{res:CCS_Search}" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record mfi_doc_uploadSearch --><br>
+<!-- BEGIN Report mfi_doc_upload -->
+<table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="HeaderLeft"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+          <td class="th"><strong>File upload Report</strong></td> 
+          <td class="HeaderRight"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+        <!-- BEGIN Section Page_Header -->
+        <tr class="Caption">
+          <th scope="col">Sno</th>
+ 
+          <th scope="col">Batch Code</th>
+ 
+          <th scope="col">Group Name</th>
+ 
+          <th scope="col">Group Size</th>
+ 
+          <th scope="col">GP ID</th>
+ 
+          <th scope="col">Batchcode IN CAMS</th>
+ 
+          <th scope="col">ROUTE CODE</th>
+ 
+          <th scope="col">FILE TYPE</th>
+ 
+          <th scope="col">UPLOADED FILE NAME</th>
+ 
+          <th scope="col">UPLOAD DATE TIME</th>
+ 
+          <th scope="col">UPLOADED BY</th>
+ 
+          <th scope="col">REGION</th>
+ 
+          <th scope="col">BRANCH</th>
+        </tr>
+ <!-- END Section Page_Header -->
+        <!-- BEGIN Section Page_Footer -->
+        <tr class="Footer">
+          <td colspan="13">
+            <!-- BEGIN Navigator Navigator --><span class="Navigator">
+            <!-- BEGIN First_On --><a href="{First_URL}"><img alt="{First_URL}" src="Styles/Basic/Images/First.gif"></a> <!-- END First_On -->
+            <!-- BEGIN First_Off --><img alt="{First_URL}" src="Styles/Basic/Images/FirstOff.gif"><!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img alt="{Prev_URL}" src="Styles/Basic/Images/Prev.gif"></a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off --><img alt="{Prev_URL}" src="Styles/Basic/Images/PrevOff.gif"><!-- END Prev_Off -->&nbsp;{Page_Number} {res:CCS_Of}&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}"><img alt="{Next_URL}" src="Styles/Basic/Images/Next.gif"></a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off --><img alt="{Next_URL}" src="Styles/Basic/Images/NextOff.gif"><!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}"><img alt="{Last_URL}" src="Styles/Basic/Images/Last.gif"></a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off --><img alt="{Last_URL}" src="Styles/Basic/Images/LastOff.gif"><!-- END Last_Off --></span><!-- END Navigator Navigator --></td>
+        </tr>
+ <!-- END Section Page_Footer -->
+        <!-- BEGIN Section Detail -->
+        <tr class="Row">
+          <td style="TEXT-ALIGN: right">{sno} </td> 
+          <td>{batch_code} </td> 
+          <td>{gp_name} </td> 
+          <td style="TEXT-ALIGN: right">{gp_size} </td> 
+          <td>{gp_code} </td> 
+          <td>{mfi_docs_batchcode} </td> 
+          <td>{region} </td> 
+          <td>{file_type} </td> 
+          <td>{file_uploaded} </td> 
+          <td>{uploaded_date} </td> 
+          <td>{uploaded_by} </td> 
+          <td>{file_upload_region} </td> 
+          <td>{file_upload_branch} </td>
+        </tr>
+ <!-- END Section Detail -->
+        <!-- BEGIN Section Report_Footer -->
+        <!-- BEGIN Panel NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="13">{res:CCS_NoRecords}</td>
+        </tr>
+ <!-- END Panel NoRecords --><!-- END Section Report_Footer -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Report mfi_doc_upload --><br>
+</body>
+</html>

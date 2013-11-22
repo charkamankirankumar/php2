@@ -1,0 +1,735 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>cgt_grt</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+function gotoNPS()
+{
+        //alert("http://localhost/cams_ffsl_v2/DOC_GENARATENEW.php");
+        window.open("http://localhost/cams_ffsl_v2/DOC_GENARATENEW.php");
+}
+function gup( name )
+{
+name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+var regexS = "[\\?&]"+name+"=([^&#]*)";
+var regex = new RegExp( regexS );
+var results = regex.exec(unescape(window.location.href) );
+if( results == null )
+        return "";
+else 
+        return results[1];
+}
+function calTbdReq()
+{
+        var gpno=gup("s_GP_NO");
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+                var res=xmlhttp.responseText;
+                document.getElementById("tbdres").innerHTML=res;
+        }
+        }
+        xmlhttp.open("GET","request_tbd.php?gp_id="+gpno,true);
+        xmlhttp.send();
+}
+function chkfcdate()
+{
+        var fcdate1=document.getElementById("mfi_group_details_mfi_hvffirstcollectiondate_1").value;
+        var tbddate1=document.getElementById("mfi_group_details_mfi_hvfmfi_group_details_disbursement_date").value;
+        var fcdate= strtodate(fcdate1);
+        var tbddate= strtodate(tbddate1);
+        var diffdat=chkdatediff(tbddate,fcdate);
+        //alert(diffdat);
+        var freq=document.getElementById("mfi_hvf1_mfi_hvf2freq_1").value;
+        if(freq=="Monthly")
+        {
+                //alert(freq);
+                if(diffdat>45 || diffdat<30)
+                {
+                alert("first collection date should be 30 to 45 days from tbd date");
+                document.getElementById("mfi_group_details_mfi_hvffirstcollectiondate_1").value='';
+                document.getElementById("mfi_group_details_mfi_hvffirstcollectiondate_1").focus();
+                }
+        }
+        else if(freq=="Fortnightly")
+                {
+                //alert(freq);
+                if(diffdat>21 || diffdat<15)
+                {
+                alert("first collection date should be 15 to 21 days from tbd date");
+                document.getElementById("mfi_group_details_mfi_hvffirstcollectiondate_1").value='';
+                document.getElementById("mfi_group_details_mfi_hvffirstcollectiondate_1").focus();
+                }
+                }
+                else if(freq=="Weekly")
+                {
+                //alert(freq);
+                if(diffdat>9 || diffdat<7)
+                {
+                alert("first collection date should be 7 to 9 days from tbd date");
+                document.getElementById("mfi_group_details_mfi_hvffirstcollectiondate_1").value='';
+                document.getElementById("mfi_group_details_mfi_hvffirstcollectiondate_1").focus();
+                }
+        }
+}
+function strtodate(dateString)
+{
+        var year = dateString.substring(0,4);
+var month = dateString.substring(5,7);
+var day = dateString.substring(8,10);
+var dat = new Date(year, month-1, day);
+return dat;
+}
+function chkdatediff( date1, date2 ) {
+  //Get 1 day in milliseconds
+  var one_day=1000*60*60*24;
+
+  // Convert both dates to milliseconds
+  var date1_ms = date1.getTime();
+  var date2_ms = date2.getTime();
+
+  // Calculate the difference in milliseconds
+  var difference_ms = date2_ms - date1_ms;
+    
+  // Convert back to days and return
+  return Math.round(difference_ms/one_day); 
+}
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-7A2F8D44
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo/yahoo-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/datasource/datasource-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/connection/connection-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/animation/animation-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/json/json-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/autocomplete/autocomplete-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/autocomplete-commons.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="js/yui/build/autocomplete/assets/skins/sam/autocomplete.css">
+<link rel="stylesheet" type="text/css" href="cgt_grt_style.css">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//mfi_hvf1_mfi_hvf2Button_Submit_OnClick @195-B1B2227B
+function mfi_hvf1_mfi_hvf2Button_Submit_OnClick()
+{
+    var result = true;
+//End mfi_hvf1_mfi_hvf2Button_Submit_OnClick
+
+//Confirmation Message @196-C22C3F83
+    return confirm('{res:CCS_SubmitConfirmation}');
+//End Confirmation Message
+
+//Close mfi_hvf1_mfi_hvf2Button_Submit_OnClick @195-BC33A33A
+    return result;
+}
+//End Close mfi_hvf1_mfi_hvf2Button_Submit_OnClick
+
+//DEL      // -------------------------
+//DEL      alert('hi');
+//DEL      if(document.getElementById("mfi_group_details_mfi_hvfcgt_date1").value>document.getElementById("mfi_group_details_mfi_hvfcgt_date2").value)
+//DEL       {
+//DEL       alert("CGT Date 2 cannot be less then CGT Date1");
+//DEL       document.getElementById("cgtdate2").value="";
+//DEL       }
+//DEL      // -------------------------
+
+//mfi_group_details_mfi_hvfButton_Submit_OnClick @237-17FC08DF
+function mfi_group_details_mfi_hvfButton_Submit_OnClick()
+{
+    var result = true;
+//End mfi_group_details_mfi_hvfButton_Submit_OnClick
+
+//Confirmation Message @238-C22C3F83
+    return confirm('{res:CCS_SubmitConfirmation}');
+//End Confirmation Message
+
+//Close mfi_group_details_mfi_hvfButton_Submit_OnClick @237-BC33A33A
+    return result;
+}
+//End Close mfi_group_details_mfi_hvfButton_Submit_OnClick
+
+//mfi_hvf1_mfi_hvf2Cancel_OnClick @197-91008962
+function mfi_hvf1_mfi_hvf2Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End mfi_hvf1_mfi_hvf2Cancel_OnClick
+
+//mfi_group_details_mfi_hvfCancel_OnClick @239-90D3F6F0
+function mfi_group_details_mfi_hvfCancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End mfi_group_details_mfi_hvfCancel_OnClick
+
+//DEL      // -------------------------
+//DEL     if(document.getElementById("entry_date").value>document.getElementById("cgtdate1").value)
+//DEL     {
+//DEL     alert("CGT Date 1 cannot be less then Entry Date");
+//DEL     document.getElementById("cgtdate1").value="";
+//DEL     }
+//DEL      // -------------------------
+
+//DEL      // -------------------------
+//DEL      if(document.getElementById("cgtdate1").value>document.getElementById("cgtdate2").value)
+//DEL     {
+//DEL     alert("CGT Date 2 cannot be less then CGT Date1");
+//DEL     document.getElementById("cgtdate2").value="";
+//DEL     }
+//DEL      // -------------------------
+
+//DEL      // -------------------------
+//DEL      if(document.getElementById("cgtdate3").value>document.getElementById("grtdate").value)
+//DEL     {
+//DEL     alert("GRT Date cannot be less then CGT DATE3");
+//DEL     document.getElementById("grtdate").value="";
+//DEL     }
+//DEL      // -------------------------
+
+//DEL      // -------------------------
+//DEL       if(document.getElementById("grtdate").value>document.getElementById("disbursement_date").value)
+//DEL     {
+//DEL     alert("DISBURSEMENT Date cannot be less then GRT DATE");
+//DEL     document.getElementById("disbursement_date").value="";
+//DEL     }
+//DEL      // -------------------------
+
+//Initialize camsdata123_cgt_grtSearchs_GP_NOYahooAutocomplete1 @36-769B9301
+function camsdata123_cgt_grtSearchs_GP_NOYahooAutocomplete1_start() {
+    initAutocomplete("camsdata123_cgt_grtSearchs_GP_NO", "services/cgt_grt_s_GP_NO_YahooAutocomplete1.php");
+}
+//End Initialize camsdata123_cgt_grtSearchs_GP_NOYahooAutocomplete1
+
+//camsdata123_cgt_grtSearchs_GP_NOPTDependentListBox2 Start @82-FACD6C82
+function camsdata123_cgt_grtSearchs_GP_NOPTDependentListBox2_start(sender) {
+    if (!sender) return;
+    var dependentElement = $("camsdata123_cgt_grtSearchs_GP_NO" + sender.id.substring(33));
+    if (!dependentElement) return;
+    var selected = null;
+    if (addEventHandler.isOnLoad) {
+        if (dependentElement.multiple) {
+            selected = [];
+            for (var i = 0; i < dependentElement.options.length; i++)
+                if (dependentElement.options[i].selected)
+                    selected[dependentElement.options[i].value] = true;
+        }
+        else
+            selected = dependentElement.value;
+    }
+    new Ajax.Request("services/cgt_grt_camsdata123_cgt_grtSearch_s_GP_NO_PTDependentListBox1.php?keyword=" + sender.value, {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+            for (var i = dependentElement.options.length - 1; i >= 0; i--) {
+                var currentOption = dependentElement.options.item(i);
+                if (currentOption.value != "") {
+                    dependentElement.remove(i);
+                }
+            }
+            var valueRows = eval(transport.responseText);
+            for (var i = 0; i < valueRows.length; i++) {
+                var newOption = new Option(valueRows[i]["1"], valueRows[i]["0"]);
+                dependentElement.options[dependentElement.options.length] = newOption;
+            } 
+            if (CCGetParam(sender.name) == sender.value) {
+                dependentElement.value = CCGetParam(dependentElement.name);
+            }
+            if (selected) {
+                if (dependentElement.multiple) {
+                    for (var i = 0; i < dependentElement.options.length; i++)
+                        if (selected[dependentElement.options[i].value])
+                            dependentElement.options[i].selected = true;
+                }
+                else
+                    dependentElement.value = selected;
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End camsdata123_cgt_grtSearchs_GP_NOPTDependentListBox2 Start
+
+//camsdata123_cgt_grtSearchListBox2PTDependentListBox1 Start @86-409A3C2B
+function camsdata123_cgt_grtSearchListBox2PTDependentListBox1_start(sender) {
+    if (!sender) return;
+    var dependentElement = $("camsdata123_cgt_grtSearchListBox2" + sender.id.substring(33));
+    if (!dependentElement) return;
+    var selected = null;
+    if (addEventHandler.isOnLoad) {
+        if (dependentElement.multiple) {
+            selected = [];
+            for (var i = 0; i < dependentElement.options.length; i++)
+                if (dependentElement.options[i].selected)
+                    selected[dependentElement.options[i].value] = true;
+        }
+        else
+            selected = dependentElement.value;
+    }
+    new Ajax.Request("services/cgt_grt_camsdata123_cgt_grtSearch_ListBox2_PTDependentListBox1.php?keyword=" + sender.value, {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+            for (var i = dependentElement.options.length - 1; i >= 0; i--) {
+                var currentOption = dependentElement.options.item(i);
+                if (currentOption.value != "") {
+                    dependentElement.remove(i);
+                }
+            }
+            var valueRows = eval(transport.responseText);
+            for (var i = 0; i < valueRows.length; i++) {
+                var newOption = new Option(valueRows[i]["1"], valueRows[i]["0"]);
+                dependentElement.options[dependentElement.options.length] = newOption;
+            } 
+            if (CCGetParam(sender.name) == sender.value) {
+                dependentElement.value = CCGetParam(dependentElement.name);
+            }
+            if (selected) {
+                if (dependentElement.multiple) {
+                    for (var i = 0; i < dependentElement.options.length; i++)
+                        if (selected[dependentElement.options[i].value])
+                            dependentElement.options[i].selected = true;
+                }
+                else
+                    dependentElement.value = selected;
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End camsdata123_cgt_grtSearchListBox2PTDependentListBox1 Start
+
+//Handle mfi_group_details_mfi_hvfcgt_date1InlineDatePicker1 @229-45B9D329
+function mfi_group_details_mfi_hvfcgt_date1InlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle mfi_group_details_mfi_hvfcgt_date1InlineDatePicker1
+
+//Handle mfi_group_details_mfi_hvfcgt_date2InlineDatePicker2 @231-4F8D2E4F
+function mfi_group_details_mfi_hvfcgt_date2InlineDatePicker2_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle mfi_group_details_mfi_hvfcgt_date2InlineDatePicker2
+
+//Handle mfi_group_details_mfi_hvfgrt_dateInlineDatePicker3 @233-D6DDB275
+function mfi_group_details_mfi_hvfgrt_dateInlineDatePicker3_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle mfi_group_details_mfi_hvfgrt_dateInlineDatePicker3
+
+//Handle mfi_group_details_mfi_hvfmfi_group_details_disbursement_dateInlineDatePicker4 @236-53A3388A
+function mfi_group_details_mfi_hvfmfi_group_details_disbursement_dateInlineDatePicker4_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle mfi_group_details_mfi_hvfmfi_group_details_disbursement_dateInlineDatePicker4
+
+//bind_events @1-1A194B67
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    camsdata123_cgt_grtSearchs_GP_NOYahooAutocomplete1_start();
+    addEventHandler("camsdata123_cgt_grtSearchListBox2", "change", camsdata123_cgt_grtSearchs_GP_NOPTDependentListBox2_start);
+    addEventHandler("camsdata123_cgt_grtSearchListBox2", "load", camsdata123_cgt_grtSearchs_GP_NOPTDependentListBox2_start);
+    addEventHandler("camsdata123_cgt_grtSearchListBox1", "change", camsdata123_cgt_grtSearchListBox2PTDependentListBox1_start);
+    addEventHandler("camsdata123_cgt_grtSearchListBox1", "load", camsdata123_cgt_grtSearchListBox2PTDependentListBox1_start);
+    addEventHandler("mfi_group_details_mfi_hvfcgt_date1", "load", mfi_group_details_mfi_hvfcgt_date1InlineDatePicker1_start);
+    addEventHandler("mfi_group_details_mfi_hvfcgt_date2", "load", mfi_group_details_mfi_hvfcgt_date2InlineDatePicker2_start);
+    addEventHandler("mfi_group_details_mfi_hvfgrt_date", "load", mfi_group_details_mfi_hvfgrt_dateInlineDatePicker3_start);
+    addEventHandler("mfi_group_details_mfi_hvfmfi_group_details_disbursement_date", "load", mfi_group_details_mfi_hvfmfi_group_details_disbursement_dateInlineDatePicker4_start);
+    addEventHandler("mfi_hvf1_mfi_hvf2Button_Submit", "click", mfi_hvf1_mfi_hvf2Button_Submit_OnClick);
+    addEventHandler("mfi_group_details_mfi_hvfButton_Submit", "click", mfi_group_details_mfi_hvfButton_Submit_OnClick);
+    addEventHandler("mfi_hvf1_mfi_hvf2Cancel", "click", mfi_hvf1_mfi_hvf2Cancel_OnClick);
+    addEventHandler("mfi_group_details_mfi_hvfCancel", "click", mfi_group_details_mfi_hvfCancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script language="JavaScript" type="text/javascript">
+function checkdate(d1,d2,nd2,nd1)
+{
+dt1=document.getElementById(d1).value;
+dt2=document.getElementById(d2).value;
+
+if(dt1.value<dt2)
+{
+alert(nd2+" Date:"+dt1.value+" cannot be less than "+nd1+" Date:"+dt2);  
+dt1.value='';
+dt1.focus();
+}       
+}
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" width="100%" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 20px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr class="row">
+    <td width="100%">
+      <!-- BEGIN Record camsdata123_cgt_grtSearch -->
+      <form id="camsdata123_cgt_grtSearch" method="post" name="{HTMLFormName}" action="{Action}">
+        <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                  <td class="th"><strong>{res:Search_Form}</strong></td> 
+                  <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                </tr>
+              </table>
+ 
+              <table class="Record" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="2">{Error}</td>
+                </tr>
+                <!-- END Error -->
+                <tr class="Controls">
+                  <td class="th">&nbsp;Branch</td> 
+                  <td>
+                    <select id="camsdata123_cgt_grtSearchListBox1" onchange="camsdata123_cgt_grtSearchListBox2PTDependentListBox1_start(this);" name="{ListBox1_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+                      {ListBox1_Options}
+                    </select>
+ </td>
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th">&nbsp;Centre</td> 
+                  <td>
+                    <!-- BEGIN ListBox ListBox2 -->
+                    <select id="camsdata123_cgt_grtSearchListBox2" onchange="camsdata123_cgt_grtSearchs_GP_NOPTDependentListBox2_start(this);" name="{ListBox2_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+                      {ListBox2_Options}
+                    </select>
+ <!-- END ListBox ListBox2 --></td>
+                </tr>
+ 
+                <tr class="Controls">
+                  <td class="th">Group</td> 
+                  <td>
+                    <!-- BEGIN ListBox s_GP_NO -->
+                    <select id="camsdata123_cgt_grtSearchs_GP_NO" name="{s_GP_NO_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+                      {s_GP_NO_Options}
+                    </select>
+ <!-- END ListBox s_GP_NO --></td>
+                </tr>
+ 
+                <tr class="Bottom">
+                  <td style="TEXT-ALIGN: right" colspan="2">
+                    <!-- BEGIN Button Button_DoSearch --><input type="submit" id="camsdata123_cgt_grtSearchButton_DoSearch" class="Button" value="{res:CCS_Search}" alt="{res:CCS_Search}" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- END Record camsdata123_cgt_grtSearch --><br>
+      <!-- BEGIN EditableGrid mfi_group_details_mfi_hvf -->
+      <form id="mfi_group_details_mfi_hvf" method="post" name="{HTMLFormName}" action="{Action}">
+        <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+        <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                  <td class="th"><strong>{res:mfi_group_detailsmfi_hvf2_EditableGridForm}</strong></td> 
+                  <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                </tr>
+              </table>
+ 
+              <table class="Grid" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="10">{Error}</td>
+                </tr>
+                <!-- END Error -->
+                <tr class="Caption">
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_cp_id --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_cp_id">CP NO</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_cp_id --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_cp_centre_name --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_mfi_cp_centre_name">CENTRE NAME</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_cp_centre_name --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_group_name --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_group_name">GP NO</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_group_name --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_gp_proposed_group_name --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_mfi_gp_proposed_group_name">GROUP NAME</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_gp_proposed_group_name --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_cgt_date1 --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_cgt_date1">CGT DATE1</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_cgt_date1 --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_cgt_date2 --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_cgt_date2">CGT DATE2</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_cgt_date2 --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_grt_date --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_grt_date">GRT DATE</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_grt_date --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_group_details_grt_result --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_mfi_group_details_grt_result">GRT RESULT</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_group_details_grt_result --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_group_details_disbursement_date --><span class="Sorter"><a href="{Sort_URL}" id="mfi_group_details_mfi_hvfSorter_mfi_group_details_disbursement_date">DISBURSEMENT DATE</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_group_details_disbursement_date --></th>
+ 
+                  <th scope="col">First collection Date</th>
+                </tr>
+ 
+                <!-- BEGIN Row -->
+                <!-- BEGIN RowError -->
+                <tr class="Error">
+                  <td colspan="10">{Error}</td>
+                </tr>
+                <!-- END RowError -->
+                <tr class="Row">
+                  <td>{cp_id}</td> 
+                  <td>{mfi_cp_centre_name}</td> 
+                  <td>{group_name}</td> 
+                  <td>{mfi_gp_proposed_group_name}</td> 
+                  <td><label for="mfi_group_details_mfi_hvfcgt_date1_{mfi_group_details_mfi_hvf:rowNumber}" style="display: none;">{res:cgt_date1}</label><input id="mfi_group_details_mfi_hvfcgt_date1" value="{cgt_date1}" maxlength="100" size="10" name="{cgt_date1_Name}"></td> 
+                  <td><label for="mfi_group_details_mfi_hvfcgt_date2_{mfi_group_details_mfi_hvf:rowNumber}" style="display: none;">{res:cgt_date2}</label><input id="mfi_group_details_mfi_hvfcgt_date2" value="{cgt_date2}" maxlength="100" size="10" name="{cgt_date2_Name}"></td> 
+                  <td><label for="mfi_group_details_mfi_hvfgrt_date_{mfi_group_details_mfi_hvf:rowNumber}" style="display: none;">{res:grt_date}</label><input id="mfi_group_details_mfi_hvfgrt_date" onchange="checkdate('mfi_group_details_mfi_hvfcgt_date2','mfi_group_details_mfi_hvfcgt_date1','CGT2','CGT1');" value="{grt_date}" maxlength="100" size="10" name="{grt_date_Name}"></td> 
+                  <td><label for="mfi_group_details_mfi_hvfmfi_group_details_grt_result_{mfi_group_details_mfi_hvf:rowNumber}" style="display: none;">{res:mfi_group_details_grt_result}</label><input id="mfi_group_details_mfi_hvfmfi_group_details_grt_result_{mfi_group_details_mfi_hvf:rowNumber}" onchange="checkdate('mfi_group_details_mfi_hvfgrt_date','mfi_group_details_mfi_hvfcgt_date1','GRT','CGT2');" value="{mfi_group_details_grt_result}" maxlength="250" size="50" name="{mfi_group_details_grt_result_Name}"></td> 
+                  <td><label for="mfi_group_details_mfi_hvfmfi_group_details_disbursement_date_{mfi_group_details_mfi_hvf:rowNumber}" style="display: none;">{res:mfi_group_details_disbursement_date}</label><input id="mfi_group_details_mfi_hvfmfi_group_details_disbursement_date" value="{mfi_group_details_disbursement_date}" maxlength="100" size="10" name="{mfi_group_details_disbursement_date_Name}"></td> 
+                  <td><input id="mfi_group_details_mfi_hvffirstcollectiondate_{mfi_group_details_mfi_hvf:rowNumber}" onchange="chkfcdate();" value="{firstcollectiondate}" name="{firstcollectiondate_Name}"></td>
+                </tr>
+ <!-- END Row -->
+                <!-- BEGIN NoRecords -->
+                <tr class="NoRecords">
+                  <td colspan="10"><font color="red" size="1">GROUP IS SANCTIONED/NOT SANCTIONED</font></td>
+                </tr>
+                <!-- END NoRecords -->
+                <tr class="Footer">
+                  <td style="TEXT-ALIGN: right" colspan="10">
+                    <!-- BEGIN Button Button_Submit --><input type="submit" id="mfi_group_details_mfi_hvfButton_Submit" class="Button" onmouseover="checkdate('mfi_group_details_mfi_hvfmfi_group_details_disbursement_date','mfi_group_details_mfi_hvfgrt_date','DISBURSEMENT','GRT');" value="{res:CCS_Update}" alt="{res:CCS_Update}" name="{Button_Name}"><!-- END Button Button_Submit -->
+                    <!-- BEGIN Button Cancel --><input type="submit" id="mfi_group_details_mfi_hvfCancel" class="Button" value="{res:CCS_Cancel}" alt="{res:CCS_Cancel}" name="{Button_Name}"><!-- END Button Cancel --></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- END EditableGrid mfi_group_details_mfi_hvf --><br>
+      <br>
+      <!-- BEGIN EditableGrid mfi_hvf1_mfi_hvf2 -->
+      <form id="mfi_hvf1_mfi_hvf2" method="post" name="{HTMLFormName}" action="{Action}">
+        <input type="hidden" value="{FormState}" name="FormState">{FormScript} 
+        <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                  <td class="th"><strong>CBO Sanctioned Customers</strong></td> 
+                  <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                </tr>
+              </table>
+ 
+              <table class="Grid" cellspacing="0" cellpadding="0">
+                <!-- BEGIN Error -->
+                <tr class="Error">
+                  <td colspan="7">{Error}</td>
+                </tr>
+                <!-- END Error -->
+                <tr class="Caption">
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_hvf2_la_id --><span class="Sorter"><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf2_la_id">{res:mfi_hvf2_la_id}</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_hvf2_la_id --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_name --><span class="Sorter"><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_name">{res:mfi_hvf1_customer_name}</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_hvf1_customer_name --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_father_name --><span class="Sorter"><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_father_name">{res:mfi_hvf1_customer_father_name}</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_hvf1_customer_father_name --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_hvf1_customer_husband_name --><span class="Sorter"><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf1_customer_husband_name">{res:mfi_hvf1_customer_husband_name}</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_hvf1_customer_husband_name --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_final_result --><span class="Sorter"><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_final_result">{res:final_result}</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_final_result --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_mfi_hvf2_loan_amount --><span class="Sorter"><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_mfi_hvf2_loan_amount">{res:mfi_hvf2_loan_amount}</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_mfi_hvf2_loan_amount --></th>
+ 
+                  <th scope="col">
+                  <!-- BEGIN Sorter Sorter_tdb_result --><span class="Sorter"><a href="{Sort_URL}" id="mfi_hvf1_mfi_hvf2Sorter_tdb_result">{res:tdb_result}</a> 
+                  <!-- BEGIN Asc_On --><img alt="{res:CCS_ASC}" src="Styles/SilverBlue/Images/Asc.gif"><!-- END Asc_On -->
+                  <!-- BEGIN Desc_On --><img alt="{res:CCS_DESC}" src="Styles/SilverBlue/Images/Desc.gif"><!-- END Desc_On --></span><!-- END Sorter Sorter_tdb_result --></th>
+                </tr>
+ 
+                <!-- BEGIN Row -->
+                <!-- BEGIN RowError -->
+                <tr class="Error">
+                  <td colspan="7">{Error}</td>
+                </tr>
+                <!-- END RowError -->
+                <tr class="Row">
+                  <td>{mfi_hvf2_la_id}</td> 
+                  <td>{mfi_hvf1_customer_name}</td> 
+                  <td>{mfi_hvf1_customer_father_name}</td> 
+                  <td>{mfi_hvf1_customer_husband_name}</td> 
+                  <td>{final_result}</td> 
+                  <td><label for="mfi_hvf1_mfi_hvf2mfi_hvf2_loan_amount_{mfi_hvf1_mfi_hvf2:rowNumber}" style="display: none;">{res:mfi_hvf2_loan_amount}</label><input id="mfi_hvf1_mfi_hvf2mfi_hvf2_loan_amount_{mfi_hvf1_mfi_hvf2:rowNumber}" value="{mfi_hvf2_loan_amount}" maxlength="10" size="10" name="{mfi_hvf2_loan_amount_Name}"><input type="hidden" id="mfi_hvf1_mfi_hvf2freq_{mfi_hvf1_mfi_hvf2:rowNumber}" value="{freq}" name="{freq_Name}"></td> 
+                  <td><label for="mfi_hvf1_mfi_hvf2tdb_result_{mfi_hvf1_mfi_hvf2:rowNumber}" style="display: none;">{res:tdb_result}</label> <input type="checkbox" id="mfi_hvf1_mfi_hvf2tdb_result_{mfi_hvf1_mfi_hvf2:rowNumber}" value="1" name="{tdb_result_Name}" {tdb_result}></td>
+                </tr>
+ <!-- END Row -->
+                <!-- BEGIN NoRecords -->
+                <tr class="NoRecords">
+                  <td colspan="7">{res:CCS_NoRecords}</td>
+                </tr>
+                <!-- END NoRecords -->
+                <tr class="Footer">
+                  <td style="TEXT-ALIGN: right" colspan="7">
+                    <!-- BEGIN Button Button_Submit --><input type="submit" id="mfi_hvf1_mfi_hvf2Button_Submit" class="Button" value="{res:CCS_Update}" alt="{res:CCS_Update}" name="{Button_Name}"><!-- END Button Button_Submit -->
+                    <!-- BEGIN Button Cancel --><input type="submit" id="mfi_hvf1_mfi_hvf2Cancel" class="Button" value="{res:CCS_Cancel}" alt="{res:CCS_Cancel}" name="{Button_Name}"><!-- END Button Cancel --></td>
+                </tr>
+ 
+                <tr class="Footer">
+                  <td style="TEXT-ALIGN: left" colspan="7">
+                    <!-- BEGIN Button RequestTbd --><input type="button" id="mfi_hvf1_mfi_hvf2RequestTbd" class="Button" onclick="calTbdReq();" value="SubmitDataForTBD & NPS" alt="Button2" name="{Button_Name}"><!-- END Button RequestTbd -->
+                    <!-- BEGIN Button Button1 --><input type="button" id="mfi_hvf1_mfi_hvf2Button1" class="Button" onclick="gotoNPS();" value="Go To NPS" alt="GENERATE NPS DOC" name="{Button_Name}"><!-- END Button Button1 -->
+                    <div id="progress">
+                    </div>
+ 
+                    <div id="tbdres">
+                    </div>
+<a href="{Link1_Src}" id="doclink">NPS_DOC</a> </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- END EditableGrid mfi_hvf1_mfi_hvf2 -->
+      <!-- BEGIN Grid camsdata123_grid -->
+      <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td valign="top">
+            <table class="Header" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="HeaderLeft"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                <td class="th"><strong>REJECTED CUSTOMERS</strong></td> 
+                <td class="HeaderRight"><img alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+              </tr>
+            </table>
+ 
+            <table class="Grid" cellspacing="0" cellpadding="0">
+              <tr class="Caption">
+                <th scope="col">{res:CP_NO}</th>
+ 
+                <th scope="col">{res:CENTER_NAME}</th>
+ 
+                <th scope="col">{res:GP_NO}</th>
+ 
+                <th scope="col">{res:GROUP_NAME}</th>
+ 
+                <th scope="col">{res:LA_NO}</th>
+ 
+                <th scope="col">{res:BORROWER_NAME}</th>
+ 
+                <th scope="col">{res:FATHER_NAME}</th>
+ 
+                <th scope="col">{res:HUSBAND_NAME}</th>
+ 
+                <th scope="col">{res:REASON_REJECTION}</th>
+ 
+                <th scope="col">{res:FINAL_RESULT}</th>
+              </tr>
+ 
+              <!-- BEGIN Row -->
+              <tr class="Row">
+                <td>{CP_NO}&nbsp;</td> 
+                <td>{CENTER_NAME}&nbsp;</td> 
+                <td style="TEXT-ALIGN: right">{GP_NO}&nbsp;</td> 
+                <td>{GROUP_NAME}&nbsp;</td> 
+                <td>{LA_NO}&nbsp;</td> 
+                <td>{BORROWER_NAME}&nbsp;</td> 
+                <td>{FATHER_NAME}&nbsp;</td> 
+                <td>{HUSBAND_NAME}&nbsp;</td> 
+                <td>{REASON_REJECTION}&nbsp;</td> 
+                <td style="TEXT-ALIGN: right">{FINAL_RESULT}&nbsp;</td>
+              </tr>
+ <!-- END Row -->
+              <!-- BEGIN NoRecords -->
+              <tr class="NoRecords">
+                <td colspan="10">{res:CCS_NoRecords}</td>
+              </tr>
+              <!-- END NoRecords -->
+            </table>
+          </td>
+        </tr>
+      </table>
+      <!-- END Grid camsdata123_grid --><br>
+      <br>
+    </td>
+  </tr>
+</table>
+{incFooter} 
+</body>
+</html>

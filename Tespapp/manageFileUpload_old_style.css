@@ -1,0 +1,21 @@
+/*PTAutocomplete Style @1-7584211A*/
+#mfi_fileupload1cp_id_choices {
+    position: absolute;
+}
+#mfi_fileupload1cp_id_choices ul {
+    background-color: white;
+    border: 1px solid black;
+    border-top: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
+}
+#mfi_fileupload1cp_id_choices ul li.selected { background-color: #aaa;}
+#mfi_fileupload1cp_id_choices li {
+    list-style-type: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 0;
+}
+/*End PTAutocomplete Style*/
+

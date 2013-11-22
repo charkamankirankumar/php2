@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>upd_number</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//mfi_docs_OnLoad @2-DF3CCF76
+function mfi_docs_OnLoad(form)
+{
+    var result = true;
+//End mfi_docs_OnLoad
+
+//Custom Code @12-2A29BDB7
+    // -------------------------
+    var imgfile="UploadedImages/"+document.getElementById("mfi_docsmfi_doc_region").value+"/"+document.getElementById("mfi_docsmfi_doc_filename").value;
+        document.getElementById('imgiframe').src = imgfile;
+    // -------------------------
+//End Custom Code
+
+//Close mfi_docs_OnLoad @2-BC33A33A
+    return result;
+}
+//End Close mfi_docs_OnLoad
+
+//bind_events @1-B0F7663E
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+    addEventHandler("mfi_docs", "load", mfi_docs_OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+{incHeader} 
+<!-- BEGIN Record mfi_docs -->
+<form id="mfi_docs" method="post" name="{HTMLFormName}" action="{Action}">
+  <table>
+    <tr>
+      <td></td>
+    </tr>
+ 
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td width="50%"><iframe id="imgiframe" height="800" src="" width="550" src=""></iframe></td>
+          </tr>
+        </table>
+      </td> 
+      <td width="40%">
+        <table>
+          <!-- BEGIN Error -->
+          <tr>
+            <td colspan="4">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr>
+            <td colspan="2"><input type="hidden" id="mfi_docsmfi_doc_region" name="{mfi_doc_region_Name}" value="{mfi_doc_region}"></td> 
+            <td colspan="2"><input type="hidden" id="mfi_docsmfi_doc_filename" name="{mfi_doc_filename_Name}" value="{mfi_doc_filename}"></td>
+          </tr>
+ 
+          <tr>
+            <td nowrap>Status</td> 
+            <td><label style="display: none;" for="mfi_docspre_numbered_by">Pre Numbered By</label> 
+              <select id="mfi_docspre_numbered_by" name="{pre_numbered_by_Name}">
+                <option selected value="">{res:CCS_SelectValue}</option>
+                {pre_numbered_by_Options}
+              </select>
+ </td> 
+            <td nowrap>RAP Reason</td> 
+            <td><label for="mfi_docsnumbered_by" style="display: none;">Numbered By</label><textarea name="{numbered_by_Name}" cols="45" rows="3" id="mfi_docsnumbered_by">{numbered_by}</textarea></td>
+          </tr>
+ 
+          <tr>
+            <td nowrap>Numbering Errors</td> 
+            <td colspan="3"><input id="mfi_docsnumbering_errors" name="{numbering_errors_Name}" readonly maxlength="8" value="{numbering_errors}" size="8"></td>
+          </tr>
+ 
+          <tr>
+            <td colspan="4" align="right">
+              <!-- BEGIN Button Button_Update --><input type="submit" id="mfi_docsButton_Update" name="{Button_Name}" alt="Submit" value="Submit"><!-- END Button Button_Update --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record mfi_docs --><br>
+{incFooter} 
+</body>
+</html>

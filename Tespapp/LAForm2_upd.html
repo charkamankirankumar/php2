@@ -1,0 +1,426 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>LA2Form</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<style>
+.normal-text { font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+input [type=text] {font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; };
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-81A87B40
+</script>
+<script language="JavaScript" src="docentryjs.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+var fname=parent.mfi_docs.mfi_doc_filename.value;
+                var gpno=fname.substr(0,7);
+        document.getElementById("mfi_la2gp_no").value=gpno;
+document.getElementById("mfi_la2la_id").value=parent.mfi_docs.mfi_doc_territory_code.value;
+document.getElementById("mfi_la2la_id").focus();
+//Custom Code @52-2A29BDB7
+    // -------------------------
+        setRadioButtonValue("LoanPurpous",document.getElementById("mfi_la2loan_purps").value);
+        setRadioButtonValue("freq",document.getElementById("mfi_la2meeting_freq").value);
+        setRadioButtonValue("gurantor",document.getElementById("mfi_la2gurantor_type").value);
+    // -------------------------
+//End Custom Code
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//mfi_la2Button_Delete_OnClick @5-71F670EE
+function mfi_la2Button_Delete_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End mfi_la2Button_Delete_OnClick
+
+//Handle mfi_la2bm_sign_dateInlineDatePicker2 @87-0CDAAA99
+function mfi_la2bm_sign_dateInlineDatePicker2_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle mfi_la2bm_sign_dateInlineDatePicker2
+
+//PTAutoFill2 Loading @104-FD26B321
+function mfi_la2la_idPTAutoFill2_start(sender) {
+    if (!sender) return;
+
+    new Ajax.Request("services/LAForm2_mfi_la2_la_id_PTAutoFill1.php?keyword=" + encodeURIComponent(sender.value).replace(/'/g, "%27"), {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+        
+            var valuesRow = eval(transport.responseText)[0];
+            if (typeof(valuesRow) != "undefined") {
+                getSameLevelCtl("mfi_la2gurantor_name", sender).value = valuesRow["relation_name_1"];
+                getSameLevelCtl("mfi_la2gurantor_kyc_type_type", sender).value = valuesRow["guarantor_kyc_type_primery_1"];
+                getSameLevelCtl("mfi_la2kyc_number", sender).value = valuesRow["guarantor_kyc_id_primery_1"];
+                getSameLevelCtl("mfi_la2gurantor_age", sender).value = valuesRow["gurantor_current_age_1"];
+                getSameLevelCtl("mfi_la2gurantor_type", sender).value = valuesRow["member_relation_type_1"];               
+            } else {
+                getSameLevelCtl("mfi_la2gurantor_name", sender).value = "";
+                getSameLevelCtl("mfi_la2gurantor_type", sender).value = "";
+                getSameLevelCtl("mfi_la2gurantor_kyc_type_type", sender).value = "";
+                getSameLevelCtl("mfi_la2kyc_number", sender).value = "";
+                getSameLevelCtl("mfi_la2gurantor_age", sender).value = "";
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End PTAutoFill2 Loading
+
+//PTAutoFill1 Loading @91-3177FDEB
+function mfi_la2cp_idPTAutoFill1_start(sender) {
+    if (!sender) return;
+    new Ajax.Request("services/LAForm2_mfi_la2_cp_id_PTAutoFill1.php?keyword=" + encodeURIComponent(sender.value).replace(/'/g, "%27"), {
+        method: "get",
+        requestHeaders: ['If-Modified-Since', new Date(0)],
+        onSuccess: function(transport) {
+            var valuesRow = eval(transport.responseText)[0];
+            if (typeof(valuesRow) != "undefined") {
+                getSameLevelCtl("mfi_la2center_name", sender).value = valuesRow["mfi_cp_centre_name"];
+                getSameLevelCtl("mfi_la2cm_name", sender).value = valuesRow["mfi_cp_co_name"];
+                getSameLevelCtl("mfi_la2meeting_freq", sender).value = valuesRow["mfi_cp_meeting_frequency"];
+                getSameLevelCtl("mfi_la2co_emp_cod", sender).value = valuesRow["mfi_cp_co_emp_code"];
+            } else {
+                getSameLevelCtl("mfi_la2center_name", sender).value = "";
+                getSameLevelCtl("mfi_la2cm_name", sender).value = "";
+                getSameLevelCtl("mfi_la2meeting_freq", sender).value = "";
+                getSameLevelCtl("mfi_la2co_emp_cod", sender).value = "";
+            }
+        }, 
+        onFailure: function(transport) {
+            alert(transport.responseText);
+        }
+    });
+}
+//End PTAutoFill1 Loading
+
+//Handle mfi_la2co_sign_dateInlineDatePicker1 @86-992F3E1A
+function mfi_la2co_sign_dateInlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle mfi_la2co_sign_dateInlineDatePicker1
+function set_lon_purpus(obj)
+{
+                
+        if(obj.value=="Others")
+        {
+                document.getElementById("mfi_la2other_lon_purps").focus();
+        }
+        else
+        {
+                document.getElementById("mfi_la2loan_purps").value=obj.value;
+        }
+}
+function set_freq(obj)
+{
+        document.getElementById("mfi_la2meeting_freq").value=obj.value;
+}
+function set_gurantor_type(obj)
+{
+         if(obj.value=="Other")
+    {
+        document.getElementById("mfi_la2other_gurantor_type").focus();
+    }
+    else
+    {
+        document.getElementById("mfi_la2gurantor_type").value=obj.value;
+    }
+}
+//bind_events @1-A2D1CA61
+function bind_events() {
+    addEventHandler("mfi_la2bm_sign_date", "load", mfi_la2bm_sign_dateInlineDatePicker2_start);
+    addEventHandler("mfi_la2la_id", "change", mfi_la2la_idPTAutoFill2_start);
+    addEventHandler("mfi_la2cp_id", "change", mfi_la2cp_idPTAutoFill1_start);
+    addEventHandler("mfi_la2co_sign_date", "load", mfi_la2co_sign_dateInlineDatePicker1_start);
+    addEventHandler("", "load", _OnLoad);
+    addEventHandler("mfi_la2Button_Delete", "click", mfi_la2Button_Delete_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script>
+function setimgrcode(obj)
+{
+ parent.mfi_docs.mfi_doc_territory_code.value=document.getElementById("mfi_la2la_id").value;
+}
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_Components_doctype.css">
+</head>
+<body style="LINE-HEIGHT: normal; BACKGROUND-COLOR: #1c415e; FONT-VARIANT: normal; FONT-STYLE: normal; FONT-SIZE: 60%; FONT-WEIGHT: normal" leftmargin="0" topmargin="0" valign="top" align="center">
+<table style="PADDING-BOTTOM: 2px; BACKGROUND-COLOR: #f3faff; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT-SIZE: 8pt; VERTICAL-ALIGN: middle; PADDING-TOP: 2px; align: center; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px" border="0" cellspacing="0" cellpadding="0" width="50%" align="center">
+  <tr>
+    <td>
+      <!-- BEGIN Record mfi_la2 -->
+      <form id="mfi_la2" method="post" name="{HTMLFormName}" action="{Action}">
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr>
+            <td valign="top">
+              <table class="HeaderSilverBlue" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="HeaderLeftSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                  <td class="thSilverBlue"><strong>LA2</strong></td> 
+                  <td class="HeaderRightSilverBlue"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <!-- BEGIN Error -->
+                <tr class="ErrorSilverBlue">
+                  <td colspan="3">{Error}</td>
+                </tr>
+                <!-- END Error -->
+                <tr>
+                  <td align="left"><img src="images/ffsllogo.jpg" width="100" height="40"></img> </td> 
+                  <td align="center">
+                    <!-- BEGIN RadioButton RadioButton1 --><input type="radio" id="mfi_la2RadioButton1_{RadioButton1:optionNumber}" value="{Value}" name="{RadioButton1_Name}" {Check}><label for="mfi_la2RadioButton1_{RadioButton1:optionNumber}">{Description}</label><!-- END RadioButton RadioButton1 --></td> 
+                  <td align="center">EN &amp; LA FORM NO.<br>
+                    <!-- BEGIN TextBox la_id --><input onblur="setimgrcode(this);" id="mfi_la2la_id" class="normal-text" value="{la_id}" maxlength="20" name="{la_id_Name}" size="20"><!-- END TextBox la_id --></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td colspan="5"><u>C. LOAN APPLICATION DETAILS</u> (To be filled for every Loan Application in each Cycle) </td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="3" nowrap>center <input id="mfi_la2center_name" class="normal-text" value="{center_name}" size="40" name="{center_name_Name}"></td> 
+                  <td>CP No. <input id="mfi_la2cp_id" class="normal-text" value="{cp_id}" name="{cp_id_Name}">&nbsp; <input type="hidden" id="mfi_la2gp_no" value="{gp_no}" name="{gp_no_Name}"></td> 
+                  <td align="center">Loan <br>
+                    Cycle</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="3" nowrap>Group <input id="mfi_la2group_name" class="normal-text" value="{group_name}" size="40" name="{group_name_Name}"></td> 
+                  <td align="right">Group Size <input id="mfi_la2group_size" class="normal-text" value="{group_size}" maxlength="2" size="2" name="{group_size_Name}"></td> 
+                  <td align="center"><input id="mfi_la2loan_cycle" class="normal-text" value="{loan_cycle}" maxlength="2" size="2" name="{loan_cycle_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="5"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td width="50%" colspan="2" align="left"><u>LOAN DETAILS</u></td> 
+                  <td style="BORDER-LEFT: #b9c9fe 1px solid" rowspan="8" width="50%" colspan="2" align="center"><font color="#46f4da">JOINT PHOTOGRAPH OF BORROWER &amp; GUARANTOR<br>
+                    (DULY SIGNED BY BORROWER)</font></td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap align="right">Applied Loan Amount (in Rs.)</td> 
+                  <td align="left">&nbsp; 
+                    <select id="mfi_la2loan_amt" name="{loan_amt_Name}">
+                      <option selected value="">{res:CCS_SelectValue}</option>
+                      {loan_amt_Options}
+                    </select>
+ </td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap align="right">Last Cycle EFIMO Loan Ac. No.</td> 
+                  <td align="left">&nbsp;<input id="mfi_la2previous_efimo_loan_acc_no" class="normal-text" value="{previous_efimo_loan_acc_no}" name="{previous_efimo_loan_acc_no_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2" align="left">Loan Purpose <input type="hidden" style="WIDTH: 10px" id="mfi_la2loan_purps" class="normal-text" value="{loan_purps}" name="{loan_purps_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td align="left"><input type="radio" id="Radio1" onclick="set_lon_purpus(this);" value="Agriculture Inputs" name="LoanPurpous">&nbsp;Agriculture Inputs</td> 
+                  <td align="left"><input type="radio" id="Radio1" onclick="set_lon_purpus(this);" value="Business Stock" name="LoanPurpous">&nbsp;Business Stock</td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap align="left"><input type="radio" id="Radio1" onclick="set_lon_purpus(this);" value="Animal Husbandry" name="LoanPurpous">&nbsp;Animal Husbandry</td> 
+                  <td nowrap align="left"><input type="radio" id="Radio1" value="Children Education" name="LoanPurpous">&nbsp;Children Education</td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap align="left"><input type="radio" id="Radio1" onclick="set_lon_purpus(this);" value="Business Assets" name="LoanPurpous">&nbsp;Business Assets</td> 
+                  <td nowrap align="left"><input type="radio" id="Radio1" onclick="set_lon_purpus(this);" value="Others" name="LoanPurpous">&nbsp;Others&nbsp;<input id="mfi_la2other_lon_purps" class="normal-text" onchange="set_lon_purpus(this);" value="{other_lon_purps}" name="{other_lon_purps_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2">Repayment Frequency <input type="radio" id="Radio2" disabled onclick="set_freq(this);" value="Weekly" name="freq">Weekly <input type="radio" id="Radio2" onclick="set_freq(this);" value="Fortnightly" name="freq">Fortnightly<input type="radio" id="Radio2" onclick="set_freq(this);" value="Monthly" name="freq">Monthly&nbsp; <input type="hidden" style="WIDTH: 10px" id="mfi_la2meeting_freq" value="{meeting_freq}" name="{meeting_freq_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="4"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td colspan="3"><u><b>GUARANTOR DETAILS</b></u>&nbsp;&nbsp;&nbsp; <u>Guarantor</u>&nbsp;&nbsp; <input type="radio" id="Radio3" onclick="set_gurantor_type(this);" value="Husband" name="gurantor">Husband <input type="radio" id="Radio3" name="gurantor">Others&nbsp; <input type="hidden" style="WIDTH: 10px" id="mfi_la2gurantor_type" value="{gurantor_type}" name="{gurantor_type_Name}"></td> 
+                  <td colspan="2" nowrap align="left">Relationship</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="3" nowrap>Please fill the details (as per KYC) below in case Guarantor is other than "Husband" </td> 
+                  <td align="left"><input type="radio" id="Radio3" onclick="set_gurantor_type(this);" value="Father" name="gurantor">Father</td> 
+                  <td align="left"><input type="radio" id="Radio3" onclick="set_gurantor_type(this);" value="Mother-In-Law" name="gurantor">Mother-In-Law</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="3" nowrap>Name <input id="mfi_la2gurantor_name" class="normal-text" value="{gurantor_name}" size="40" name="{gurantor_name_Name}"></td> 
+                  <td align="left"><input type="radio" id="Radio3" onclick="set_gurantor_type(this);" value="Son" name="gurantor">Son</td> 
+                  <td align="left"><input type="radio" id="Radio3" onclick="set_gurantor_type(this);" value="Bother-In-Law" name="gurantor">Bother-In-Law</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="3">KYC Submitted (Guarantor)&nbsp;&nbsp;&nbsp;<input id="mfi_la2gurantor_kyc_type_type" class="normal-text" value="{gurantor_kyc_type}" name="{gurantor_kyc_type_Name}"></td> 
+                  <td align="left"><input type="radio" id="Radio3" onclick="set_gurantor_type(this);" value="Daughter" name="gurantor">Daughter</td> 
+                  <td align="left"><input type="radio" id="Radio3" onclick="set_gurantor_type(this);" value="Other" name="gurantor">Other</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2">KYC Number</td> 
+                  <td>Age in Years</td> 
+                  <td nowrap align="left"><input type="radio" id="Radio3" onclick="set_gurantor_type();" value="Father-In-Law" name="gurantor">Father-In-Law</td> 
+                  <td><input id="mfi_la2other_gurantor_type" class="normal-text" onchange="set_gurantor_type(this);" value="{other_gurantor_type}" name="{other_gurantor_type_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2"><input id="mfi_la2kyc_number" class="normal-text" value="{kyc_number}" name="{kyc_number_Name}"></td> 
+                  <td><input id="mfi_la2gurantor_age" class="normal-text" value="{gurantor_age}" name="{gurantor_age_Name}"></td> 
+                  <td colspan="2">Mobile No.&nbsp;<input id="mfi_la2gurantor_mobile" class="normal-text" value="{gurantor_mobile}" name="{gurantor_mobile_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="5"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td colspan="2"><u>INSURANCE NOMINEE DETAILS</u></td> 
+                  <td>Year of Birth</td> 
+                  <td>Nominee Mobile</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2">Borrower Ins.&nbsp;<input id="mfi_la2borrower_ins" class="normal-text" value="{borrower_ins}" name="{borrower_ins_Name}"></td> 
+                  <td><input id="mfi_la2borrower_ins_dob_year" class="normal-text" value="{borrower_ins_dob_year}" name="{borrower_ins_dob_year_Name}"></td> 
+                  <td><input id="mfi_la2borrower_nominee_mobile" class="normal-text" value="{borrower_nominee_mobile}" name="{borrower_nominee_mobile_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2">Guarantor Ins.<input id="mfi_la2gurantor_ins" class="normal-text" value="{gurantor_ins}" name="{gurantor_ins_Name}"></td> 
+                  <td><input id="mfi_la2gurantor_ins_dob_year" class="normal-text" value="{gurantor_ins_dob_year}" name="{gurantor_ins_dob_year_Name}"></td> 
+                  <td><input id="mfi_la2gurantor_nominee_mobile" class="normal-text" value="{gurantor_nominee_mobile}" name="{gurantor_nominee_mobile_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="4" align="center">DECLARATION</td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="4" align="center"><img src="images/la2.jpg" width="95%" height="200"></img></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td align="center">Guarantor Signature<br>
+                    <input id="mfi_la2gurantor_signature" class="normal-text" value="{gurantor_signature}" readonly name="{gurantor_signature_Name}"></td> 
+                  <td></td> 
+                  <td align="center">Member Signature<br>
+                    <input id="mfi_la2member_signature" class="normal-text" value="{member_signature}" readonly name="{member_signature_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2" nowrap align="left">CM Name <input id="mfi_la2cm_name" class="normal-text" value="{cm_name}" size="40" name="{cm_name_Name}"></td> 
+                  <td>CM SIGN.</td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap>Code <input id="mfi_la2co_emp_cod" class="normal-text" value="{co_emp_cod}" name="{co_emp_cod_Name}"></td> 
+                  <td nowrap>Date 
+                    <!-- BEGIN TextBox co_sign_date --><input id="mfi_la2co_sign_date" class="normal-text" value="{co_sign_date}" name="{co_sign_date_Name}"><!-- END TextBox co_sign_date --></td> 
+                  <td><input id="mfi_la2cm_sign" class="normal-text" value="{cm_sign}" readonly name="{cm_sign_Name}"></td>
+                </tr>
+              </table>
+ 
+              <table cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td colspan="3" align="center"><b>To be filled during GRT &amp; BM's HV </b></td>
+                </tr>
+ 
+                <tr>
+                  <td style="HEIGHT: 2px" bgcolor="#999999" colspan="3"></td>
+                </tr>
+ 
+                <tr>
+                  <td>Alloted Enrollment No <input id="mfi_la2enrollment_no" class="normal-text" value="{enrollment_no}" maxlength="10" size="10" name="{enrollment_no_Name}"></td> 
+                  <td nowrap>EFIMO Loan Ac. No.<input id="mfi_la2efimo_lon_acc_no" class="normal-text" value="{efimo_lon_acc_no}" name="{efimo_lon_acc_no_Name}"></td> 
+                  <td nowrap maxlength="10"><u>CBO Verification Result</u><br>
+                    <!-- BEGIN RadioButton cbo_verification_result --><input type="radio" id="mfi_la2cbo_verification_result_{cbo_verification_result:optionNumber}" value="{Value}" name="{cbo_verification_result_Name}" {Check}><label for="mfi_la2cbo_verification_result_{cbo_verification_result:optionNumber}">{Description}</label><!-- END RadioButton cbo_verification_result --></td>
+                </tr>
+ 
+                <tr>
+                  <td colspan="2" nowrap align="left">BM Name <input id="mfi_la2bm_name" class="normal-text" value="{bm_name}" size="40" name="{bm_name_Name}"></td> 
+                  <td>BM Sign.</td>
+                </tr>
+ 
+                <tr>
+                  <td nowrap>Code <input id="mfi_la2bm_emp_code" class="normal-text" value="{bm_emp_code}" maxlength="25" name="{bm_emp_code_Name}"></td> 
+                  <td nowrap>Date 
+                    <!-- BEGIN TextBox bm_sign_date --><input id="mfi_la2bm_sign_date" class="normal-text" value="{bm_sign_date}" maxlength="15" size="7" name="{bm_sign_date_Name}"><!-- END TextBox bm_sign_date --></td> 
+                  <td nowrap><input id="mfi_la2bm_sign" class="normal-text" value="{bm_sign}" readonly name="{bm_sign_Name}"></td>
+                </tr>
+ 
+                <tr>
+                  <td><input type="hidden" style="WIDTH: 10px" id="mfi_la2added_by" value="{added_by}" name="{added_by_Name}">&nbsp;<input type="hidden" style="WIDTH: 10px" id="mfi_la2added_at" value="{added_at}" name="{added_at_Name}">&nbsp;<input type="hidden" style="WIDTH: 10px" id="mfi_la2updated_by" value="{updated_by}" name="{updated_by_Name}">&nbsp;<input type="hidden" style="WIDTH: 10px" id="mfi_la2updated_at" value="{updated_at}" name="{updated_at_Name}"></td> 
+                  <td colspan="2" align="right">
+                    <!-- BEGIN Button Button_Insert --><input type="submit" id="mfi_la2Button_Insert" class="ButtonSilverBlue" value="Add" alt="Add" name="{Button_Name}"><!-- END Button Button_Insert -->
+                    <!-- BEGIN Button Button_Update --><input type="submit" id="mfi_la2Button_Update" class="ButtonSilverBlue" value="Submit" alt="Submit" name="{Button_Name}"><!-- END Button Button_Update -->
+                    <!-- BEGIN Button Button_Delete --><input type="submit" id="mfi_la2Button_Delete" class="ButtonSilverBlue" value="Delete" alt="Delete" name="{Button_Name}"><!-- END Button Button_Delete --></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <!-- END Record mfi_la2 --><br>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

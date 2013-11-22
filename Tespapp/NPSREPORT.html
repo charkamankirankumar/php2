@@ -1,0 +1,808 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title></title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+<style type="text/css" media="print">
+@media print {margin:1px};
+body {
+      width:100%;
+          height:100%;
+        /* to centre page on screen*/
+        
+    }
+@page
+{
+size: 8.5in 13in;
+ margin: 0.5cm;
+ valign:top;
+}
+</style>
+<style>
+.sat
+{
+width:25px;
+height:25px;
+text-align:center;
+vertical-align: middle;
+font-size:13pt;
+}
+.sat2
+{
+width:25px;
+height:25px;
+text-align:center;
+vertical-align: middle;
+font-size:11pt;
+}
+table {page-break-inside:avoid;}
+</style>
+<script language="JavaScript" type="text/javascript">
+function gup( name ){
+name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+var regexS = "[\\?&]"+name+"=([^&#]*)";  
+var regex = new RegExp( regexS );  
+var results = regex.exec(unescape(window.location.href) ); 
+ if( results == null )    return "";  
+else    return results[1];}
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+var dobtxt=document.getElementById("dob").innerHTML.replace(/-/g,"");
+setTxtValues(dobtxt.trim(),"dob");
+setTxtValues(document.getElementById("bfnm").innerHTML,"bfnm");
+setTxtValues(document.getElementById("bormnm").innerHTML,"bfmnm");
+setTxtValues(document.getElementById("borlnm").innerHTML,"blnm");
+setTxtValues(document.getElementById("ffnm").innerHTML,"ffnm");
+setTxtValues(document.getElementById("fatmnm").innerHTML,"ffmnm");
+setTxtValues(document.getElementById("fatflnm").innerHTML,"fflnm");
+setTxtValues(document.getElementById("dno").innerHTML,"dno");
+setTxtValues(document.getElementById("village").innerHTML,"village");
+setTxtValues(document.getElementById("taluk").innerHTML,"taluk");
+setTxtValues(document.getElementById("district").innerHTML,"district");
+setTxtValues(document.getElementById("state").innerHTML,"state");
+setTxtValues(document.getElementById("pincode").innerHTML.trim(),"pincode");
+setTxtValues(document.getElementById("mobno").innerHTML.trim(),"mob");
+if(document.getElementById("gndr").innerHTML.toUpperCase()=="MALE")
+{
+document.getElementById("shri").src="images/checked.png";
+document.getElementById("male").src="images/checked.png";
+}
+else
+{
+document.getElementById("female").src="images/checked.png";
+ if(document.getElementById("msts").innerHTML.toUpperCase()=="MARRIED")
+ document.getElementById("smt").src="images/checked.png";
+ else
+ document.getElementById("kumari").src="images/checked.png";
+}
+setTxtValues(document.getElementById("nomineef").innerHTML.trim(),"nomineefn");
+setTxtValues(document.getElementById("nomineem").innerHTML.trim(),"nomineemn");
+setTxtValues(document.getElementById("nomineel").innerHTML.trim(),"nomineeln");
+setTxtValues(document.getElementById("disdate").innerHTML.replace(/-/g,"").trim(),"disdate");
+setTxtValues(document.getElementById("relation").innerHTML.trim(),"nominee1rel");
+setTxtValues(document.getElementById("nlcno").innerHTML.trim(),"nlcno");
+setDtValue(document.getElementById("4pdt").innerHTML.replace(/-/g,"").trim(),document.getElementById("4pdt"));
+setDtValue(document.getElementById("3pdt").innerHTML.replace(/-/g,"").trim(),document.getElementById("3pdt"));
+document.title=gup("lano")+"_"+document.getElementById("bfnm").innerHTML.trim()+"_"+document.getElementById("borlnm").innerHTML.trim();
+window.print();
+//Custom Code @47-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//bind_events @1-B4BAE7CE
+function bind_events() {
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+function setTxtValues(obj,tvalue)
+{
+        var str=obj;
+               //alert(str+" "+tvalue);
+        var strlen=str.length;
+              //  alert(strlen);
+        for(var i=0;i<strlen;i++)
+        {
+        document.getElementById(tvalue+(i+1)).value=str[i];
+        }
+}
+function setDtValue(dtval,dtobj)
+{
+dtobj.innerHTML=dtval.substring(0,2)+"-"+dtval.substring(2,4)+"-"+dtval.substring(4,8);
+}
+
+//End CCS script
+</script>
+</head>
+<body>
+<!-- BEGIN Report nps_master -->
+<!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+<!-- BEGIN Section Page_Header --><!-- END Section Page_Header -->
+<!-- BEGIN Section Page_Footer --><!-- END Section Page_Footer -->
+<!-- BEGIN Section Detail -->
+<table style="FONT-SIZE: 14pt" border="0" cellspacing="0" width="1300" cellpadding="0" height="100%">
+  <tr>
+    <td colspan="2" align="left">
+      <table border="1" cellspacing="0" cellpadding="0" width="1300">
+        <tr>
+          <td colspan="2" align="center"><img src="images/mainlogo.png"></img></td>
+        </tr>
+ 
+        <tr>
+          <td colspan="2"><font size="4"><u>Application for Allotment of Permanent Retirement Account Number (PRAN) under NPS Lite</u></font></td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp; <b>(To be filled by FC) </b><br>
+            Acknowledgement No.<br>
+            <input dir="ltr" id="dummy1" class="sat" name="Text1" maxlength="1"><input id="dummy2" class="sat" name="Text1" maxlength="1"><input id="dummy3" class="sat" name="Text1" maxlength="1"><input id="dummy4" class="sat" name="Text1" maxlength="1"><input id="dummy5" class="sat" name="Text1" maxlength="1"><input id="dummy6" class="sat" name="Text1" maxlength="1"><input id="dummy7" class="sat" name="Text1" maxlength="1"><input id="dummy8" class="sat" name="Text1" maxlength="1"><input id="dummy9" class="sat" name="Text1" maxlength="1"><input id="dummy10" class="sat" name="Text1" maxlength="1"><input id="dummy11" class="sat" name="Text1" maxlength="1"><input id="dummy12" class="sat" name="Text1" maxlength="1"><input id="dummy13" class="sat" name="Text1" maxlength="1"><input id="dummy14" class="sat" name="Text1" maxlength="1"><input id="dummy15" class="sat" name="Text1" maxlength="1"><input id="dummy16" class="sat" name="Text1" maxlength="1"><input id="dummy17" class="sat" name="Text1" maxlength="1"><br>
+            Permanent Retirement Account Number : (To be filled after PRAN generation )<br>
+            <input dir="ltr" id="dummy1" class="sat" name="Text1" maxlength="1"><input id="dummy2" class="sat" name="Text1" maxlength="1"><input id="dummy3" class="sat" name="Text1" maxlength="1"><input id="dummy4" class="sat" name="Text1" maxlength="1"><input id="dummy5" class="sat" name="Text1" maxlength="1"><input id="dummy6" class="sat" name="Text1" maxlength="1"><input id="dummy7" class="sat" name="Text1" maxlength="1"><input id="dummy8" class="sat" name="Text1" maxlength="1"><input id="dummy9" class="sat" name="Text1" maxlength="1"><input id="dummy10" class="sat" name="Text1" maxlength="1"><input id="dummy11" class="sat" name="Text1" maxlength="1"><input id="dummy12" class="sat" name="Text1" maxlength="1"><br>
+          </td> 
+          <td valign="top" rowspan="2" align="center">
+            <table border="2" width="95%">
+              <tr>
+                <td align="center">
+                  <table border="2" width="200" height="250">
+                    <tr>
+                      <td></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+ 
+              <tr>
+                <td height="55" width="350">&nbsp;</td>
+              </tr>
+ 
+              <tr>
+                <td align="center"><font size="2pt">Signature/Left Thumb Impression<br>
+                  of Subscriber in black ink</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+ 
+        <tr>
+          <td><br>
+            Sir/Madam,<br>
+            <br>
+            I hereby request that a NPS-Lite account be opened in my name and Permanent Retirement Account number<br>
+            (PRAN) be allotted based on the particulars given below:<br>
+            <br>
+            <br>
+            <br>
+            (To avoid mistake, please follow the accompanying instructions carefully before filling up the form. * indicates<br>
+            Mandatory Field)<br>
+            <br>
+            <br>
+            <br>
+          </td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;</td> 
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+ 
+  <tr>
+    <td colspan="2">1. Full Name (Full expanded name: initials are not permitted):&nbsp; Shri&nbsp;<img id="shri" src="images/uncheck.png"></img>&nbsp;&nbsp; Smt. &nbsp;<img id="smt" src="images/uncheck.png"></img>&nbsp;&nbsp;Kumari&nbsp;<img id="kumari" src="images/uncheck.png"></img>&nbsp;(Please Tick as applicable)</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">First Name *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" width="100%" colspan="2"><input dir="ltr" id="bfnm1" class="sat" name="Text1" maxlength="1"><input id="bfnm2" class="sat" name="Text1" maxlength="1"><input id="bfnm3" class="sat" name="Text1" maxlength="1"><input id="bfnm4" class="sat" name="Text1" maxlength="1"><input id="bfnm5" class="sat" name="Text1" maxlength="1"><input id="bfnm6" class="sat" name="Text1" maxlength="1"><input id="bfnm7" class="sat" name="Text1" maxlength="1"><input id="bfnm8" class="sat" name="Text1" maxlength="1"><input id="bfnm9" class="sat" name="Text1" maxlength="1"><input id="bfnm10" class="sat" name="Text1" maxlength="1"><input id="bfnm11" class="sat" name="Text1" maxlength="1"><input id="bfnm12" class="sat" name="Text1" maxlength="1"><input id="bfnm13" class="sat" name="Text1" maxlength="1"><input id="bfnm14" class="sat" name="Text1" maxlength="1"><input id="bfnm15" class="sat" name="Text1" maxlength="1"><input id="bfnm16" class="sat" name="Text1" maxlength="1"><input id="bfnm17" class="sat" name="Text1" maxlength="1"><input id="bfnm18" class="sat" name="Text1" maxlength="1"><input id="bfnm19" class="sat" name="Text1" maxlength="1"><input id="bfnm20" class="sat" name="Text1" maxlength="1"><input id="bfnm21" class="sat" name="Text1" maxlength="1"><input id="bfnm22" class="sat" name="Text1" maxlength="1"><input id="bfnm23" class="sat" name="Text1" maxlength="1"><input id="bfnm24" class="sat" name="Text1" maxlength="1"><input id="bfnm25" class="sat" name="Text1" maxlength="1"><input id="bfnm26" class="sat" name="Text1" maxlength="1"><input id="bfnm27" class="sat" name="Text1" maxlength="1"><input id="bfnm28" class="sat" name="Text1" maxlength="1"><input id="bfnm29" class="sat" name="Text1" maxlength="1">
+<input id="bfnm30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Middle Name </td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" width="100%" colspan="2"><input id="bfmnm1" class="sat" name="Text1" maxlength="1"><input id="bfmnm2" class="sat" name="Text1" maxlength="1"><input id="bfmnm3" class="sat" name="Text1" maxlength="1"><input id="bfmnm4" class="sat" name="Text1" maxlength="1"><input id="bfmnm5" class="sat" name="Text1" maxlength="1"><input id="bfmnm6" class="sat" name="Text1" maxlength="1"><input id="bfmnm7" class="sat" name="Text1" maxlength="1"><input id="bfmnm8" class="sat" name="Text1" maxlength="1"><input id="bfmnm9" class="sat" name="Text1" maxlength="1"><input id="bfmnm10" class="sat" name="Text1" maxlength="1"><input id="bfmnm11" class="sat" name="Text1" maxlength="1"><input id="bfmnm12" class="sat" name="Text1" maxlength="1"><input id="bfmnm13" class="sat" name="Text1" maxlength="1"><input id="bfmnm14" class="sat" name="Text1" maxlength="1"><input id="bfmnm15" class="sat" name="Text1" maxlength="1"><input id="bfmnm16" class="sat" name="Text1" maxlength="1"><input id="bfmnm17" class="sat" name="Text1" maxlength="1"><input id="bfmnm18" class="sat" name="Text1" maxlength="1"><input id="bfmnm19" class="sat" name="Text1" maxlength="1"><input id="bfmnm20" class="sat" name="Text1" maxlength="1"><input id="bfmnm21" class="sat" name="Text1" maxlength="1"><input id="bfmnm22" class="sat" name="Text1" maxlength="1"><input id="bfmnm23" class="sat" name="Text1" maxlength="1"><input id="bfmnm24" class="sat" name="Text1" maxlength="1"><input id="bfmnm25" class="sat" name="Text1" maxlength="1"><input id="bfmnm26" class="sat" name="Text1" maxlength="1"><input id="bfmnm27" class="sat" name="Text1" maxlength="1"><input id="bfmnm28" class="sat" name="Text1" maxlength="1"><input id="bfmnm29" class="sat" name="Text1" maxlength="1">
+<input id="bfmnm30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Last Name *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" width="100%" colspan="2"><input id="blnm1" class="sat" name="Text1" maxlength="1"><input id="blnm2" class="sat" name="Text1" maxlength="1"><input id="blnm3" class="sat" name="Text1" maxlength="1"><input id="blnm4" class="sat" name="Text1" maxlength="1"><input id="blnm5" class="sat" name="Text1" maxlength="1"><input id="blnm6" class="sat" name="Text1" maxlength="1"><input id="blnm7" class="sat" name="Text1" maxlength="1"><input id="blnm8" class="sat" name="Text1" maxlength="1"><input id="blnm9" class="sat" name="Text1" maxlength="1"><input id="blnm10" class="sat" name="Text1" maxlength="1"><input id="blnm11" class="sat" name="Text1" maxlength="1"><input id="blnm12" class="sat" name="Text1" maxlength="1"><input id="blnm13" class="sat" name="Text1" maxlength="1"><input id="blnm14" class="sat" name="Text1" maxlength="1"><input id="blnm15" class="sat" name="Text1" maxlength="1"><input id="blnm16" class="sat" name="Text1" maxlength="1"><input id="blnm17" class="sat" name="Text1" maxlength="1"><input id="blnm18" class="sat" name="Text1" maxlength="1"><input id="blnm19" class="sat" name="Text1" maxlength="1"><input id="blnm20" class="sat" name="Text1" maxlength="1"><input id="blnm21" class="sat" name="Text1" maxlength="1"><input id="blnm22" class="sat" name="Text1" maxlength="1"><input id="blnm23" class="sat" name="Text1" maxlength="1"><input id="blnm24" class="sat" name="Text1" maxlength="1"><input id="blnm25" class="sat" name="Text1" maxlength="1"><input id="blnm26" class="sat" name="Text1" maxlength="1"><input id="blnm27" class="sat" name="Text1" maxlength="1"><input id="blnm28" class="sat" name="Text1" maxlength="1"><input id="blnm29" class="sat" name="Text1" maxlength="1"><input id="blnm30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">I would like my PRAN card to be printed in HINDI:<img id="hindiyes" src="images/uncheck.png"></img> Yes <img id="hindino" src="images/checked.png"></img> No (If Yes, please provide the details on Page No. 4)</td>
+  </tr>
+ 
+  <tr>
+    <td colspan="2">2. Gender * Please Tick as applicable, Male <img id="male" src="images/uncheck.png"></img> Female <img id="female" src="images/checked.png"></img> 3. Date of Birth *<input id="dob1" class="sat" name="Text1" maxlength="1"><input id="dob2" class="sat" name="Text1" maxlength="1"><input id="dob3" class="sat" name="Text1" maxlength="1"><input id="dob4" class="sat" name="Text1" maxlength="1"><input id="dob5" class="sat" name="Text1" maxlength="1"><input id="dob6" class="sat" name="Text1" maxlength="1"><input id="dob7" class="sat" name="Text1" maxlength="1"><input id="dob8" class="sat" name="Text1" maxlength="1">(DD/MM/YYYY)</td>
+  </tr>
+ 
+  <tr>
+    <td colspan="2" align="left">4. Father's Name</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">First Name *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input dir="ltr" id="ffnm1" class="sat" name="Text1" maxlength="1"><input id="ffnm2" class="sat" name="Text1" maxlength="1"><input id="ffnm3" class="sat" name="Text1" maxlength="1"><input id="ffnm4" class="sat" name="Text1" maxlength="1"><input id="ffnm5" class="sat" name="Text1" maxlength="1"><input id="ffnm6" class="sat" name="Text1" maxlength="1"><input id="ffnm7" class="sat" name="Text1" maxlength="1"><input id="ffnm8" class="sat" name="Text1" maxlength="1"><input id="ffnm9" class="sat" name="Text1" maxlength="1"><input id="ffnm10" class="sat" name="Text1" maxlength="1"><input id="ffnm11" class="sat" name="Text1" maxlength="1"><input id="ffnm12" class="sat" name="Text1" maxlength="1"><input id="ffnm13" class="sat" name="Text1" maxlength="1"><input id="ffnm14" class="sat" name="Text1" maxlength="1"><input id="ffnm15" class="sat" name="Text1" maxlength="1"><input id="ffnm16" class="sat" name="Text1" maxlength="1"><input id="ffnm17" class="sat" name="Text1" maxlength="1"><input id="ffnm18" class="sat" name="Text1" maxlength="1"><input id="ffnm19" class="sat" name="Text1" maxlength="1"><input id="ffnm20" class="sat" name="Text1" maxlength="1"><input id="ffnm21" class="sat" name="Text1" maxlength="1"><input id="ffnm22" class="sat" name="Text1" maxlength="1"><input id="ffnm23" class="sat" name="Text1" maxlength="1"><input id="ffnm24" class="sat" name="Text1" maxlength="1"><input id="ffnm25" class="sat" name="Text1" maxlength="1"><input id="ffnm26" class="sat" name="Text1" maxlength="1"><input id="ffnm27" class="sat" name="Text1" maxlength="1"><input id="ffnm28" class="sat" name="Text1" maxlength="1"><input id="ffnm29" class="sat" name="Text1" maxlength="1"><input id="ffnm30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Middle Name </td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input id="ffmnm1" class="sat" name="Text1" maxlength="1"><input id="ffmnm2" class="sat" name="Text1" maxlength="1"><input id="ffmnm3" class="sat" name="Text1" maxlength="1"><input id="ffmnm4" class="sat" name="Text1" maxlength="1"><input id="ffmnm5" class="sat" name="Text1" maxlength="1"><input id="ffmnm6" class="sat" name="Text1" maxlength="1"><input id="ffmnm7" class="sat" name="Text1" maxlength="1"><input id="ffmnm8" class="sat" name="Text1" maxlength="1"><input id="ffmnm9" class="sat" name="Text1" maxlength="1"><input id="ffmnm10" class="sat" name="Text1" maxlength="1"><input id="ffmnm11" class="sat" name="Text1" maxlength="1"><input id="ffmnm12" class="sat" name="Text1" maxlength="1"><input id="ffmnm13" class="sat" name="Text1" maxlength="1"><input id="ffmnm14" class="sat" name="Text1" maxlength="1"><input id="ffmnm15" class="sat" name="Text1" maxlength="1"><input id="ffmnm16" class="sat" name="Text1" maxlength="1"><input id="ffmnm17" class="sat" name="Text1" maxlength="1"><input id="ffmnm18" class="sat" name="Text1" maxlength="1"><input id="ffmnm19" class="sat" name="Text1" maxlength="1"><input id="ffmnm20" class="sat" name="Text1" maxlength="1"><input id="ffmnm21" class="sat" name="Text1" maxlength="1"><input id="ffmnm22" class="sat" name="Text1" maxlength="1"><input id="ffmnm23" class="sat" name="Text1" maxlength="1"><input id="ffmnm24" class="sat" name="Text1" maxlength="1"><input id="ffmnm25" class="sat" name="Text1" maxlength="1"><input id="ffmnm26" class="sat" name="Text1" maxlength="1"><input id="ffmnm27" class="sat" name="Text1" maxlength="1"><input id="ffmnm28" class="sat" name="Text1" maxlength="1"><input id="ffmnm29" class="sat" name="Text1" maxlength="1">
+<input id="ffmnm30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Last Name *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input id="fflnm1" class="sat" name="Text1" maxlength="1" colspan="2"><input id="fflnm2" class="sat" name="Text1" maxlength="1"><input id="fflnm3" class="sat" name="Text1" maxlength="1"><input id="fflnm4" class="sat" name="Text1" maxlength="1"><input id="fflnm5" class="sat" name="Text1" maxlength="1"><input id="fflnm6" class="sat" name="Text1" maxlength="1"><input id="fflnm7" class="sat" name="Text1" maxlength="1"><input id="fflnm8" class="sat" name="Text1" maxlength="1"><input id="fflnm9" class="sat" name="Text1" maxlength="1"><input id="fflnm10" class="sat" name="Text1" maxlength="1"><input id="fflnm11" class="sat" name="Text1" maxlength="1"><input id="fflnm12" class="sat" name="Text1" maxlength="1"><input id="fflnm13" class="sat" name="Text1" maxlength="1"><input id="fflnm14" class="sat" name="Text1" maxlength="1"><input id="fflnm15" class="sat" name="Text1" maxlength="1"><input id="fflnm16" class="sat" name="Text1" maxlength="1"><input id="fflnm17" class="sat" name="Text1" maxlength="1"><input id="fflnm18" class="sat" name="Text1" maxlength="1"><input id="fflnm19" class="sat" name="Text1" maxlength="1"><input id="fflnm20" class="sat" name="Text1" maxlength="1"><input id="fflnm21" class="sat" name="Text1" maxlength="1"><input id="fflnm22" class="sat" name="Text1" maxlength="1"><input id="fflnm23" class="sat" name="Text1" maxlength="1"><input id="fflnm24" class="sat" name="Text1" maxlength="1"><input id="fflnm25" class="sat" name="Text1" maxlength="1"><input id="fflnm26" class="sat" name="Text1" maxlength="1"><input id="fflnm27" class="sat" name="Text1" maxlength="1"><input id="fflnm28" class="sat" name="Text1" maxlength="1"><input id="fflnm29" class="sat" name="Text1" maxlength="1">
+<input id="fflnm30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td>5. Subscriber Mobile Number:</td> 
+    <td>6. Membership Number allotted by Aggregator (if any):</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em"><input id="mob1" class="sat" name="Text1" maxlength="1"><input id="mob2" class="sat" name="Text1" maxlength="1"><input id="mob3" class="sat" name="Text1" maxlength="1"><input id="mob4" class="sat" name="Text1" maxlength="1"><input id="mob5" class="sat" name="Text1" maxlength="1"><input id="mob6" class="sat" name="Text1" maxlength="1"><input id="mob7" class="sat" name="Text1" maxlength="1"><input id="mob8" class="sat" name="Text1" maxlength="1"><input id="mob9" class="sat" name="Text1" maxlength="1"><input id="mob10" class="sat" name="Text1" maxlength="1"></td> 
+    <td style="PADDING-LEFT: 5.5em"><input id="memno1" class="sat" name="Text1" maxlength="1"><input id="memno2" class="sat" name="Text1" maxlength="1"><input id="memno3" class="sat" name="Text1" maxlength="1"><input id="memno4" class="sat" name="Text1" maxlength="1"><input id="memno5" class="sat" name="Text1" maxlength="1"><input id="memno6" class="sat" name="Text1" maxlength="1"><input id="memno7" class="sat" name="Text1" maxlength="1"><input id="memno8" class="sat" name="Text1" maxlength="1"><input id="memno9" class="sat" name="Text1" maxlength="1"><input id="memno10" class="sat" name="Text1" maxlength="1"><input id="memno11" class="sat" name="Text1" maxlength="1"><input id="memno12" class="sat" name="Text1" maxlength="1"><input id="memno13" class="sat" name="Text1" maxlength="1"><input id="memno14" class="sat" name="Text1" maxlength="1"><input id="memno15" class="sat" name="Text1" maxlength="1"><input id="memno16" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td colspan="2">7. Subscriber’s Address (OPTIONAL. If provided details marked with * are mandatory):</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Flat/Unit No, Block no. *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input dir="ltr" id="dno1" class="sat" name="Text1" maxlength="1"><input id="dno2" class="sat" name="Text1" maxlength="1"><input id="dno3" class="sat" name="Text1" maxlength="1"><input id="dno4" class="sat" name="Text1" maxlength="1"><input id="dno5" class="sat" name="Text1" maxlength="1"><input id="dno6" class="sat" name="Text1" maxlength="1"><input id="dno7" class="sat" name="Text1" maxlength="1"><input id="dno8" class="sat" name="Text1" maxlength="1"><input id="dno9" class="sat" name="Text1" maxlength="1"><input id="dno10" class="sat" name="Text1" maxlength="1"><input id="dno11" class="sat" name="Text1" maxlength="1"><input id="dno12" class="sat" name="Text1" maxlength="1"><input id="dno13" class="sat" name="Text1" maxlength="1"><input id="dno14" class="sat" name="Text1" maxlength="1"><input id="dno15" class="sat" name="Text1" maxlength="1"><input id="dno16" class="sat" name="Text1" maxlength="1"><input id="dno17" class="sat" name="Text1" maxlength="1"><input id="dno18" class="sat" name="Text1" maxlength="1"><input id="dno19" class="sat" name="Text1" maxlength="1"><input id="dno20" class="sat" name="Text1" maxlength="1"><input id="dno21" class="sat" name="Text1" maxlength="1"><input id="dno22" class="sat" name="Text1" maxlength="1"><input id="dno23" class="sat" name="Text1" maxlength="1"><input id="dno24" class="sat" name="Text1" maxlength="1"><input id="dno25" class="sat" name="Text1" maxlength="1"><input id="dno26" class="sat" name="Text1" maxlength="1"><input id="dno27" class="sat" name="Text1" maxlength="1"><input id="dno28" class="sat" name="Text1" maxlength="1"><input id="dno29" class="sat" name="Text1" maxlength="1"><input id="dno30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Name of Premise/Building/Village</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input id="village1" class="sat" name="Text1" maxlength="1"><input id="village2" class="sat" name="Text1" maxlength="1"><input id="village3" class="sat" name="Text1" maxlength="1"><input id="village4" class="sat" name="Text1" maxlength="1"><input id="village5" class="sat" name="Text1" maxlength="1"><input id="village6" class="sat" name="Text1" maxlength="1"><input id="village7" class="sat" name="Text1" maxlength="1"><input id="village8" class="sat" name="Text1" maxlength="1"><input id="village9" class="sat" name="Text1" maxlength="1"><input id="village10" class="sat" name="Text1" maxlength="1"><input id="village11" class="sat" name="Text1" maxlength="1"><input id="village12" class="sat" name="Text1" maxlength="1"><input id="village13" class="sat" name="Text1" maxlength="1"><input id="village14" class="sat" name="Text1" maxlength="1"><input id="village15" class="sat" name="Text1" maxlength="1"><input id="village16" class="sat" name="Text1" maxlength="1"><input id="village17" class="sat" name="Text1" maxlength="1"><input id="village18" class="sat" name="Text1" maxlength="1"><input id="village19" class="sat" name="Text1" maxlength="1"><input id="village20" class="sat" name="Text1" maxlength="1"><input id="village21" class="sat" name="Text1" maxlength="1"><input id="village22" class="sat" name="Text1" maxlength="1"><input id="village23" class="sat" name="Text1" maxlength="1"><input id="village24" class="sat" name="Text1" maxlength="1"><input id="village25" class="sat" name="Text1" maxlength="1"><input id="village26" class="sat" name="Text1" maxlength="1"><input id="village27" class="sat" name="Text1" maxlength="1"><input id="village28" class="sat" name="Text1" maxlength="1">
+<input id="village29" class="sat" name="Text1" maxlength="1"><input id="village30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Area/Locality/Taluka</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input id="taluk1" class="sat" name="Text1" maxlength="1"><input id="taluk2" class="sat" name="Text1" maxlength="1"><input id="taluk3" class="sat" name="Text1" maxlength="1"><input id="taluk4" class="sat" name="Text1" maxlength="1"><input id="taluk5" class="sat" name="Text1" maxlength="1"><input id="taluk6" class="sat" name="Text1" maxlength="1"><input id="taluk7" class="sat" name="Text1" maxlength="1"><input id="taluk8" class="sat" name="Text1" maxlength="1"><input id="taluk9" class="sat" name="Text1" maxlength="1"><input id="taluk10" class="sat" name="Text1" maxlength="1"><input id="taluk11" class="sat" name="Text1" maxlength="1"><input id="taluk12" class="sat" name="Text1" maxlength="1"><input id="taluk13" class="sat" name="Text1" maxlength="1"><input id="taluk14" class="sat" name="Text1" maxlength="1"><input id="taluk15" class="sat" name="Text1" maxlength="1"><input id="taluk16" class="sat" name="Text1" maxlength="1"><input id="taluk17" class="sat" name="Text1" maxlength="1"><input id="taluk18" class="sat" name="Text1" maxlength="1"><input id="taluk19" class="sat" name="Text1" maxlength="1"><input id="taluk20" class="sat" name="Text1" maxlength="1"><input id="taluk21" class="sat" name="Text1" maxlength="1"><input id="taluk22" class="sat" name="Text1" maxlength="1"><input id="taluk23" class="sat" name="Text1" maxlength="1"><input id="taluk24" class="sat" name="Text1" maxlength="1"><input id="taluk25" class="sat" name="Text1" maxlength="1"><input id="taluk26" class="sat" name="Text1" maxlength="1"><input id="taluk27" class="sat" name="Text1" maxlength="1"><input id="taluk28" class="sat" name="Text1" maxlength="1"><input id="taluk29" class="sat" name="Text1" maxlength="1">
+<input id="taluk30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">District/Town/City *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input dir="ltr" id="district1" class="sat" name="Text1" maxlength="1"><input id="district2" class="sat" name="Text1" maxlength="1"><input id="district3" class="sat" name="Text1" maxlength="1"><input id="district4" class="sat" name="Text1" maxlength="1"><input id="district5" class="sat" name="Text1" maxlength="1"><input id="district6" class="sat" name="Text1" maxlength="1"><input id="district7" class="sat" name="Text1" maxlength="1"><input id="district8" class="sat" name="Text1" maxlength="1"><input id="district9" class="sat" name="Text1" maxlength="1"><input id="district10" class="sat" name="Text1" maxlength="1"><input id="district11" class="sat" name="Text1" maxlength="1"><input id="district12" class="sat" name="Text1" maxlength="1"><input id="district13" class="sat" name="Text1" maxlength="1"><input id="district14" class="sat" name="Text1" maxlength="1"><input id="district15" class="sat" name="Text1" maxlength="1"><input id="district16" class="sat" name="Text1" maxlength="1"><input id="district17" class="sat" name="Text1" maxlength="1"><input id="district18" class="sat" name="Text1" maxlength="1"><input id="district19" class="sat" name="Text1" maxlength="1"><input id="district20" class="sat" name="Text1" maxlength="1"><input id="district21" class="sat" name="Text1" maxlength="1"><input id="district22" class="sat" name="Text1" maxlength="1"><input id="district23" class="sat" name="Text1" maxlength="1"><input id="district24" class="sat" name="Text1" maxlength="1"><input id="district25" class="sat" name="Text1" maxlength="1"><input id="district26" class="sat" name="Text1" maxlength="1"><input id="district27" class="sat" name="Text1" maxlength="1"><input id="district28" class="sat" name="Text1" maxlength="1">
+<input id="district29" class="sat" name="Text1" maxlength="1"><input id="district30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">State / Union Territory*</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2"><input id="state1" class="sat" name="Text1" maxlength="1"><input id="state2" class="sat" name="Text1" maxlength="1"><input id="state3" class="sat" name="Text1" maxlength="1"><input id="state4" class="sat" name="Text1" maxlength="1"><input id="state5" class="sat" name="Text1" maxlength="1"><input id="state6" class="sat" name="Text1" maxlength="1"><input id="state7" class="sat" name="Text1" maxlength="1"><input id="state8" class="sat" name="Text1" maxlength="1"><input id="state9" class="sat" name="Text1" maxlength="1"><input id="state10" class="sat" name="Text1" maxlength="1"><input id="state11" class="sat" name="Text1" maxlength="1"><input id="state12" class="sat" name="Text1" maxlength="1"><input id="state13" class="sat" name="Text1" maxlength="1"><input id="state14" class="sat" name="Text1" maxlength="1"><input id="state15" class="sat" name="Text1" maxlength="1"><input id="state16" class="sat" name="Text1" maxlength="1"><input id="state17" class="sat" name="Text1" maxlength="1"><input id="state18" class="sat" name="Text1" maxlength="1"><input id="state19" class="sat" name="Text1" maxlength="1"><input id="state20" class="sat" name="Text1" maxlength="1"><input id="state21" class="sat" name="Text1" maxlength="1"><input id="state22" class="sat" name="Text1" maxlength="1"><input id="state23" class="sat" name="Text1" maxlength="1"><input id="state24" class="sat" name="Text1" maxlength="1"><input id="state25" class="sat" name="Text1" maxlength="1"><input id="state26" class="sat" name="Text1" maxlength="1"><input id="state27" class="sat" name="Text1" maxlength="1"><input id="state28" class="sat" name="Text1" maxlength="1"><input id="state29" class="sat" name="Text1" maxlength="1">
+<input id="state30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em">Country</td> 
+    <td style="PADDING-LEFT: 5em">*Pin Code *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em"><input id="country1" class="sat" name="Text1" maxlength="1" value="I"><input id="country2" class="sat" name="Text1" maxlength="1" value="N"><input id="country3" class="sat" name="Text1" maxlength="1" value="D"><input id="country4" class="sat" name="Text1" maxlength="1" value="I"><input id="country5" class="sat" name="Text1" maxlength="1" value="A"><input id="country6" class="sat" name="Text1" maxlength="1"><input id="country7" class="sat" name="Text1" maxlength="1"><input id="country8" class="sat" name="Text1" maxlength="1"><input id="country9" class="sat" name="Text1" maxlength="1"><input id="country10" class="sat" name="Text1" maxlength="1"><input id="country11" class="sat" name="Text1" maxlength="1"><input id="country12" class="sat" name="Text1" maxlength="1"><input id="country13" class="sat" name="Text1" maxlength="1"><input id="country14" class="sat" name="Text1" maxlength="1"><input id="country15" class="sat" name="Text1" maxlength="1"><input id="country16" class="sat" name="Text1" maxlength="1"><input id="country17" class="sat" name="Text1" maxlength="1"><input id="country18" class="sat" name="Text1" maxlength="1"><input id="country19" class="sat" name="Text1" maxlength="1"><input id="country20" class="sat" name="Text1" maxlength="1"><input id="country21" class="sat" name="Text1" maxlength="1"><input id="country22" class="sat" name="Text1" maxlength="1"><input id="country23" class="sat" name="Text1" maxlength="1"></td> 
+    <td style="PADDING-LEFT: 3em"><input id="pincode1" class="sat" name="Text1" maxlength="1"><input id="pincode2" class="sat" name="Text1" maxlength="1"><input id="pincode3" class="sat" name="Text1" maxlength="1"><input id="pincode4" class="sat" name="Text1" maxlength="1"><input id="pincode5" class="sat" name="Text1" maxlength="1"><input id="pincode6" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td colspan="2">8. Subscribers Bank Details: (OPTIONAL. If provided details marked with * are mandatory) Savings A/c <img id="ssa" src="images/uncheck.png"></img> Current A/c <img id="ssc" src="images/uncheck.png"></img></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Bank A/c Number *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2" align="left"><input dir="ltr" id="bacno" class="sat" name="Text1" maxlength="1"><input id="bacno2" class="sat" name="Text1" maxlength="1"><input id="bacno3" class="sat" name="Text1" maxlength="1"><input id="bacno4" class="sat" name="Text1" maxlength="1"><input id="bacno5" class="sat" name="Text1" maxlength="1"><input id="bacno6" class="sat" name="Text1" maxlength="1"><input id="bacno7" class="sat" name="Text1" maxlength="1"><input id="bacno8" class="sat" name="Text1" maxlength="1"><input id="bacno9" class="sat" name="Text1" maxlength="1"><input id="bacno10" class="sat" name="Text1" maxlength="1"><input id="bacno11" class="sat" name="Text1" maxlength="1"><input id="bacno12" class="sat" name="Text1" maxlength="1"><input id="bacno13" class="sat" name="Text1" maxlength="1"><input id="bacno14" class="sat" name="Text1" maxlength="1"><input id="bacno15" class="sat" name="Text1" maxlength="1"><input id="bacno16" class="sat" name="Text1" maxlength="1"><input id="bacno17" class="sat" name="Text1" maxlength="1"><input id="bacno18" class="sat" name="Text1" maxlength="1"><input id="bacno19" class="sat" name="Text1" maxlength="1"><input id="bacno20" class="sat" name="Text1" maxlength="1"><input id="bacno21" class="sat" name="Text1" maxlength="1"><input id="bacno22" class="sat" name="Text1" maxlength="1"><input id="bacno23" class="sat" name="Text1" maxlength="1"><input id="bacno24" class="sat" name="Text1" maxlength="1"><input id="bacno25" class="sat" name="Text1" maxlength="1"><input id="bacno26" class="sat" name="Text1" maxlength="1"><input id="bacno27" class="sat" name="Text1" maxlength="1"><input id="bacno28" class="sat" name="Text1" maxlength="1"><input id="bacno29" class="sat" name="Text1" maxlength="1">
+<input id="bacno30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Bank Name *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2" align="left"><input id="bankname1" class="sat" name="Text1" maxlength="1"><input id="bankname2" class="sat" name="Text1" maxlength="1"><input id="bankname3" class="sat" name="Text1" maxlength="1"><input id="bankname4" class="sat" name="Text1" maxlength="1"><input id="bankname5" class="sat" name="Text1" maxlength="1"><input id="bankname6" class="sat" name="Text1" maxlength="1"><input id="bankname7" class="sat" name="Text1" maxlength="1"><input id="bankname8" class="sat" name="Text1" maxlength="1"><input id="bankname9" class="sat" name="Text1" maxlength="1"><input id="bankname10" class="sat" name="Text1" maxlength="1"><input id="bankname11" class="sat" name="Text1" maxlength="1"><input id="bankname12" class="sat" name="Text1" maxlength="1"><input id="bankname13" class="sat" name="Text1" maxlength="1"><input id="bankname14" class="sat" name="Text1" maxlength="1"><input id="bankname15" class="sat" name="Text1" maxlength="1"><input id="bankname16" class="sat" name="Text1" maxlength="1"><input id="bankname17" class="sat" name="Text1" maxlength="1"><input id="bankname18" class="sat" name="Text1" maxlength="1"><input id="bankname19" class="sat" name="Text1" maxlength="1"><input id="bankname20" class="sat" name="Text1" maxlength="1"><input id="bankname21" class="sat" name="Text1" maxlength="1"><input id="bankname22" class="sat" name="Text1" maxlength="1"><input id="bankname23" class="sat" name="Text1" maxlength="1"><input id="bankname24" class="sat" name="Text1" maxlength="1"><input id="bankname25" class="sat" name="Text1" maxlength="1"><input id="bankname26" class="sat" name="Text1" maxlength="1"><input id="bankname27" class="sat" name="Text1" maxlength="1"><input id="bankname28" class="sat" name="Text1" maxlength="1">
+<input id="bankname29" class="sat" name="Text1" maxlength="1"><input id="bankname30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Bank Branch *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2" align="left"><input id="bankbranch1" class="sat" name="Text1" maxlength="1"><input id="bankbranch2" class="sat" name="Text1" maxlength="1"><input id="bankbranch3" class="sat" name="Text1" maxlength="1"><input id="bankbranch4" class="sat" name="Text1" maxlength="1"><input id="bankbranch5" class="sat" name="Text1" maxlength="1"><input id="bankbranch6" class="sat" name="Text1" maxlength="1"><input id="bankbranch7" class="sat" name="Text1" maxlength="1"><input id="bankbranch8" class="sat" name="Text1" maxlength="1"><input id="bankbranch9" class="sat" name="Text1" maxlength="1"><input id="bankbranch10" class="sat" name="Text1" maxlength="1"><input id="bankbranch11" class="sat" name="Text1" maxlength="1"><input id="bankbranch12" class="sat" name="Text1" maxlength="1"><input id="bankbranch13" class="sat" name="Text1" maxlength="1"><input id="bankbranch14" class="sat" name="Text1" maxlength="1"><input id="bankbranch15" class="sat" name="Text1" maxlength="1"><input id="bankbranch16" class="sat" name="Text1" maxlength="1"><input id="bankbranch17" class="sat" name="Text1" maxlength="1"><input id="bankbranch18" class="sat" name="Text1" maxlength="1"><input id="bankbranch19" class="sat" name="Text1" maxlength="1"><input id="bankbranch20" class="sat" name="Text1" maxlength="1"><input id="bankbranch21" class="sat" name="Text1" maxlength="1"><input id="bankbranch22" class="sat" name="Text1" maxlength="1"><input id="bankbranch23" class="sat" name="Text1" maxlength="1"><input id="bankbranch24" class="sat" name="Text1" maxlength="1"><input id="bankbranch25" class="sat" name="Text1" maxlength="1"><input id="bankbranch26" class="sat" name="Text1" maxlength="1"><input id="bankbranch27" class="sat" name="Text1" maxlength="1">
+<input id="bankbranch28" class="sat" name="Text1" maxlength="1"><input id="bankbranch29" class="sat" name="Text1" maxlength="1"><input id="bankbranch30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" colspan="2" align="left">Bank Address *</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2" align="left"><input dir="ltr" id="bankaddress1" class="sat" name="Text1" maxlength="1"><input id="bankaddress2" class="sat" name="Text1" maxlength="1"><input id="bankaddress3" class="sat" name="Text1" maxlength="1"><input id="bankaddress4" class="sat" name="Text1" maxlength="1"><input id="bankaddress5" class="sat" name="Text1" maxlength="1"><input id="bankaddress6" class="sat" name="Text1" maxlength="1"><input id="bankaddress7" class="sat" name="Text1" maxlength="1"><input id="bankaddress8" class="sat" name="Text1" maxlength="1"><input id="bankaddress9" class="sat" name="Text1" maxlength="1"><input id="bankaddress10" class="sat" name="Text1" maxlength="1"><input id="bankaddress11" class="sat" name="Text1" maxlength="1"><input id="bankaddress12" class="sat" name="Text1" maxlength="1"><input id="bankaddress13" class="sat" name="Text1" maxlength="1"><input id="bankaddress14" class="sat" name="Text1" maxlength="1"><input id="bankaddress15" class="sat" name="Text1" maxlength="1"><input id="bankaddress16" class="sat" name="Text1" maxlength="1"><input id="bankaddress17" class="sat" name="Text1" maxlength="1"><input id="bankaddress18" class="sat" name="Text1" maxlength="1"><input id="bankaddress19" class="sat" name="Text1" maxlength="1"><input id="bankaddress20" class="sat" name="Text1" maxlength="1"><input id="bankaddress21" class="sat" name="Text1" maxlength="1"><input id="bankaddress22" class="sat" name="Text1" maxlength="1"><input id="bankaddress23" class="sat" name="Text1" maxlength="1"><input id="bankaddress24" class="sat" name="Text1" maxlength="1"><input id="bankaddress25" class="sat" name="Text1" maxlength="1"><input id="bankaddress26" class="sat" name="Text1" maxlength="1">
+<input id="bankaddress27" class="sat" name="Text1" maxlength="1"><input id="bankaddress28" class="sat" name="Text1" maxlength="1"><input id="bankaddress29" class="sat" name="Text1" maxlength="1"><input id="bankaddress30" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" colspan="2" align="left"><input dir="ltr" id="bankaddress21" class="sat" name="Text1" maxlength="1"><input id="bankaddress22" class="sat" name="Text1" maxlength="1"><input id="bankaddress23" class="sat" name="Text1" maxlength="1"><input id="bankaddress24" class="sat" name="Text1" maxlength="1"><input id="bankaddress25" class="sat" name="Text1" maxlength="1"><input id="bankaddress26" class="sat" name="Text1" maxlength="1"><input id="bankaddress27" class="sat" name="Text1" maxlength="1"><input id="bankaddress28" class="sat" name="Text1" maxlength="1"><input id="bankaddress29" class="sat" name="Text1" maxlength="1"><input id="bankaddress210" class="sat" name="Text1" maxlength="1"><input id="bankaddress211" class="sat" name="Text1" maxlength="1"><input id="bankaddress212" class="sat" name="Text1" maxlength="1"><input id="bankaddress213" class="sat" name="Text1" maxlength="1"><input id="bankaddress214" class="sat" name="Text1" maxlength="1"><input id="bankaddress215" class="sat" name="Text1" maxlength="1"><input id="bankaddress216" class="sat" name="Text1" maxlength="1"><input id="bankaddress217" class="sat" name="Text1" maxlength="1"><input id="bankaddress218" class="sat" name="Text1" maxlength="1"><input id="bankaddress219" class="sat" name="Text1" maxlength="1"><input id="bankaddress220" class="sat" name="Text1" maxlength="1"><input id="bankaddress221" class="sat" name="Text1" maxlength="1"><input id="bankaddress222" class="sat" name="Text1" maxlength="1"><input id="bankaddress223" class="sat" name="Text1" maxlength="1"><input id="bankaddress224" class="sat" name="Text1" maxlength="1"><input id="bankaddress225" class="sat" name="Text1" maxlength="1"><input id="bankaddress226" class="sat" name="Text1" maxlength="1">
+<input id="bankaddress227" class="sat" name="Text1" maxlength="1"><input id="bankaddress228" class="sat" name="Text1" maxlength="1"><input id="bankaddress229" class="sat" name="Text1" maxlength="1"><input id="bankaddress230" class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+</table>
+<div style="PAGE-BREAK-BEFORE: always; DISPLAY: block">
+</div>
+<table style="FONT-SIZE: 14pt" border="0" cellspacing="1" cellpadding="1" width="100%">
+  <tr>
+    <td style="PADDING-LEFT: 5em" width="100%">Pin Code</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" width="100%"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" width="100%">Bank MICR Code</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" width="100%"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5em" width="100%">Bank Branch IFSC (Indian Financial Systems Code)</td>
+  </tr>
+ 
+  <tr>
+    <td style="PADDING-LEFT: 5.5em" width="100%"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"><input class="sat" name="Text1" maxlength="1"></td>
+  </tr>
+ 
+  <tr>
+    <td>9. Subscribers Nomination Details: (OPTIONAL – please refer to Sr. No. g of the instructions)<br>
+      1. Name of the Nominee:</td>
+  </tr>
+ 
+  <tr>
+    <td width="100%">
+      <table border="0" cellspacing="0" cellpadding="0" width="1300" align="center">
+        <tr>
+          <td align="center">1st Nominee</td> 
+          <td align="center">2nd Nominee</td> 
+          <td align="center">3rd Nominee</td>
+        </tr>
+      </table>
+ 
+      <table border="1" cellspacing="0" cellpadding="0" width="100%" align="center">
+        <tr>
+          <td>First Name<br>
+            <input id="nomineefn1" class="sat2" name="Text2"><input id="nomineefn2" class="sat2" name="Text2"><input id="nomineefn3" class="sat2" name="Text2"><input id="nomineefn4" class="sat2" name="Text2"><input id="nomineefn5" class="sat2" name="Text2"><input id="nomineefn6" class="sat2" name="Text2"><input id="nomineefn7" class="sat2" name="Text2"><input id="nomineefn8" class="sat2" name="Text2"><input id="nomineefn9" class="sat2" name="Text2"><input id="nomineefn10" class="sat2" name="Text2"><input id="nomineefn11" class="sat2" name="Text2"><input id="nomineefn12" class="sat2" name="Text2"><input id="nomineefn13" class="sat2" name="Text2"><br>
+            <input id="nomineefn14" class="sat2" name="Text2"><input id="nomineefn15" class="sat2" name="Text2"><input id="nomineefn16" class="sat2" name="Text2"><input id="nomineefn17" class="sat2" name="Text2"><input id="nomineefn18" class="sat2" name="Text2"><input id="nomineefn19" class="sat2" name="Text2"><input id="nomineefn20" class="sat2" name="Text2"><input id="nomineefn21" class="sat2" name="Text2"><input id="nomineefn22" class="sat2" name="Text2"><input id="nomineefn23" class="sat2" name="Text2"><input id="nomineefn24" class="sat2" name="Text2"><input id="nomineefn25" class="sat2" name="Text2"><input id="nomineefn26" class="sat2" name="Text2"><br>
+            Middle Name<br>
+            <input id="nomineemn1" class="sat2" name="Text2"><input id="nomineemn2" class="sat2" name="Text2"><input id="nomineemn3" class="sat2" name="Text2"><input id="nomineemn4" class="sat2" name="Text2"><input id="nomineemn5" class="sat2" name="Text2"><input id="nomineemn6" class="sat2" name="Text2"><input id="nomineemn7" class="sat2" name="Text2"><input id="nomineemn8" class="sat2" name="Text2"><input id="nomineemn9" class="sat2" name="Text2"><input id="nomineemn10" class="sat2" name="Text2"><input id="nomineemn11" class="sat2" name="Text2"><input id="nomineemn12" class="sat2" name="Text2"><input id="nomineemn13" class="sat2" name="Text2"><br>
+            <input id="nomineemn14" class="sat2" name="Text2"><input id="nomineemn15" class="sat2" name="Text2"><input id="nomineemn16" class="sat2" name="Text2"><input id="nomineemn17" class="sat2" name="Text2"><input id="nomineemn18" class="sat2" name="Text2"><input id="nomineemn19" class="sat2" name="Text2"><input id="nomineemn20" class="sat2" name="Text2"><input id="nomineemn21" class="sat2" name="Text2"><input id="nomineemn22" class="sat2" name="Text2"><input id="nomineemn23" class="sat2" name="Text2"><input id="nomineemn24" class="sat2" name="Text2"><input id="nomineemn25" class="sat2" name="Text2"><input id="nomineemn26" class="sat2" name="Text2"><br>
+            Last Name<br>
+            <input id="nomineeln1" class="sat2" name="Text2"><input id="nomineeln2" class="sat2" name="Text2"><input id="nomineeln3" class="sat2" name="Text2"><input id="nomineeln4" class="sat2" name="Text2"><input id="nomineeln5" class="sat2" name="Text2"><input id="nomineeln6" class="sat2" name="Text2"><input id="nomineeln7" class="sat2" name="Text2"><input id="nomineeln8" class="sat2" name="Text2"><input id="nomineeln9" class="sat2" name="Text2"><input id="nomineeln10" class="sat2" name="Text2"><input id="nomineeln11" class="sat2" name="Text2"><input id="nomineeln12" class="sat2" name="Text2"><input id="nomineeln13" class="sat2" name="Text2"><br>
+            <input id="nomineeln14" class="sat2" name="Text2"><input id="nomineeln15" class="sat2" name="Text2"><input id="nomineeln16" class="sat2" name="Text2"><input id="nomineeln17" class="sat2" name="Text2"><input id="nomineeln18" class="sat2" name="Text2"><input id="nomineeln19" class="sat2" name="Text2"><input id="nomineeln20" class="sat2" name="Text2"><input id="nomineeln21" class="sat2" name="Text2"><input id="nomineeln22" class="sat2" name="Text2"><input id="nomineeln23" class="sat2" name="Text2"><input id="nomineeln24" class="sat2" name="Text2"><input id="nomineeln25" class="sat2" name="Text2"><input id="nomineeln26" class="sat2" name="Text2"></td> 
+          <td>First Name<br>
+            <input id="nominee2fn1" class="sat2" name="Text2"><input id="nominee2fn2" class="sat2" name="Text2"><input id="nominee2fn3" class="sat2" name="Text2"><input id="nominee2fn4" class="sat2" name="Text2"><input id="nominee2fn5" class="sat2" name="Text2"><input id="nominee2fn6" class="sat2" name="Text2"><input id="nominee2fn7" class="sat2" name="Text2"><input id="nominee2fn8" class="sat2" name="Text2"><input id="nominee2fn9" class="sat2" name="Text2"><input id="nominee2fn10" class="sat2" name="Text2"><input id="nominee2fn11" class="sat2" name="Text2"><input id="nominee2fn12" class="sat2" name="Text2"><input id="nominee2fn13" class="sat2" name="Text2"><br>
+            <input id="nominee2fn14" class="sat2" name="Text2"><input id="nominee2fn15" class="sat2" name="Text2"><input id="nominee2fn16" class="sat2" name="Text2"><input id="nominee2fn17" class="sat2" name="Text2"><input id="nominee2fn18" class="sat2" name="Text2"><input id="nominee2fn19" class="sat2" name="Text2"><input id="nominee2fn20" class="sat2" name="Text2"><input id="nominee2fn21" class="sat2" name="Text2"><input id="nominee2fn22" class="sat2" name="Text2"><input id="nominee2fn23" class="sat2" name="Text2"><input id="nominee2fn24" class="sat2" name="Text2"><input id="nominee2fn25" class="sat2" name="Text2"><input id="nominee2fn26" class="sat2" name="Text2"><br>
+            Middle Name<br>
+            <input id="nominee2mn1" class="sat2" name="Text2"><input id="nominee2mn2" class="sat2" name="Text2"><input id="nominee2mn3" class="sat2" name="Text2"><input id="nominee2mn4" class="sat2" name="Text2"><input id="nominee2mn5" class="sat2" name="Text2"><input id="nominee2mn6" class="sat2" name="Text2"><input id="nominee2mn7" class="sat2" name="Text2"><input id="nominee2mn8" class="sat2" name="Text2"><input id="nominee2mn9" class="sat2" name="Text2"><input id="nominee2mn10" class="sat2" name="Text2"><input id="nominee2mn11" class="sat2" name="Text2"><input id="nominee2mn12" class="sat2" name="Text2"><input id="nominee2mn13" class="sat2" name="Text2"><br>
+            <input id="nominee2mn14" class="sat2" name="Text2"><input id="nominee2mn15" class="sat2" name="Text2"><input id="nominee2mn16" class="sat2" name="Text2"><input id="nominee2mn17" class="sat2" name="Text2"><input id="nominee2mn18" class="sat2" name="Text2"><input id="nominee2mn19" class="sat2" name="Text2"><input id="nominee2mn20" class="sat2" name="Text2"><input id="nominee2mn21" class="sat2" name="Text2"><input id="nominee2mn22" class="sat2" name="Text2"><input id="nominee2mn23" class="sat2" name="Text2"><input id="nominee2mn24" class="sat2" name="Text2"><input id="nominee2mn25" class="sat2" name="Text2"><input id="nominee2mn26" class="sat2" name="Text2"><br>
+            Last Name<br>
+            <input id="nominee2ln1" class="sat2" name="Text2"><input id="nominee2ln2" class="sat2" name="Text2"><input id="nominee2ln3" class="sat2" name="Text2"><input id="nominee2ln4" class="sat2" name="Text2"><input id="nominee2ln5" class="sat2" name="Text2"><input id="nominee2ln6" class="sat2" name="Text2"><input id="nominee2ln7" class="sat2" name="Text2"><input id="nominee2ln8" class="sat2" name="Text2"><input id="nominee2ln9" class="sat2" name="Text2"><input id="nominee2ln10" class="sat2" name="Text2"><input id="nominee2ln11" class="sat2" name="Text2"><input id="nominee2ln12" class="sat2" name="Text2"><input id="nominee2ln13" class="sat2" name="Text2"><br>
+            <input id="nominee2ln14" class="sat2" name="Text2"><input id="nominee2ln15" class="sat2" name="Text2"><input id="nominee2ln16" class="sat2" name="Text2"><input id="nominee2ln17" class="sat2" name="Text2"><input id="nominee2ln18" class="sat2" name="Text2"><input id="nominee2ln19" class="sat2" name="Text2"><input id="nominee2ln20" class="sat2" name="Text2"><input id="nominee2ln21" class="sat2" name="Text2"><input id="nominee2ln22" class="sat2" name="Text2"><input id="nominee2ln23" class="sat2" name="Text2"><input id="nominee2ln24" class="sat2" name="Text2"><input id="nominee2ln25" class="sat2" name="Text2"><input id="nominee2ln26" class="sat2" name="Text2"></td> 
+          <td>First Name<br>
+            <input id="nominee3fn1" class="sat2" name="Text2"><input id="nominee3fn2" class="sat2" name="Text2"><input id="nominee3fn3" class="sat2" name="Text2"><input id="nominee3fn4" class="sat2" name="Text2"><input id="nominee3fn5" class="sat2" name="Text2"><input id="nominee3fn6" class="sat2" name="Text2"><input id="nominee3fn7" class="sat2" name="Text2"><input id="nominee3fn8" class="sat2" name="Text2"><input id="nominee3fn9" class="sat2" name="Text2"><input id="nominee3fn10" class="sat2" name="Text2"><input id="nominee3fn11" class="sat2" name="Text2"><input id="nominee3fn12" class="sat2" name="Text2"><input id="nominee3fn13" class="sat2" name="Text2"><br>
+            <input id="nominee3fn14" class="sat2" name="Text2"><input id="nominee3fn15" class="sat2" name="Text2"><input id="nominee3fn16" class="sat2" name="Text2"><input id="nominee3fn17" class="sat2" name="Text2"><input id="nominee3fn18" class="sat2" name="Text2"><input id="nominee3fn19" class="sat2" name="Text2"><input id="nominee3fn20" class="sat2" name="Text2"><input id="nominee3fn21" class="sat2" name="Text2"><input id="nominee3fn22" class="sat2" name="Text2"><input id="nominee3fn23" class="sat2" name="Text2"><input id="nominee3fn24" class="sat2" name="Text2"><input id="nominee3fn25" class="sat2" name="Text2"><input id="nominee3fn26" class="sat2" name="Text2"><br>
+            Middle Name<br>
+            <input id="nominee3mn1" class="sat2" name="Text2"><input id="nominee3mn2" class="sat2" name="Text2"><input id="nominee3mn3" class="sat2" name="Text2"><input id="nominee3mn4" class="sat2" name="Text2"><input id="nominee3mn5" class="sat2" name="Text2"><input id="nominee3mn6" class="sat2" name="Text2"><input id="nominee3mn7" class="sat2" name="Text2"><input id="nominee3mn8" class="sat2" name="Text2"><input id="nominee3mn9" class="sat2" name="Text2"><input id="nominee3mn10" class="sat2" name="Text2"><input id="nominee3mn11" class="sat2" name="Text2"><input id="nominee3mn12" class="sat2" name="Text2"><input id="nominee3mn13" class="sat2" name="Text2"><br>
+            <input id="nominee3mn14" class="sat2" name="Text2"><input id="nominee3mn15" class="sat2" name="Text2"><input id="nominee3mn16" class="sat2" name="Text2"><input id="nominee3mn17" class="sat2" name="Text2"><input id="nominee3mn18" class="sat2" name="Text2"><input id="nominee3mn19" class="sat2" name="Text2"><input id="nominee3mn20" class="sat2" name="Text2"><input id="nominee3mn21" class="sat2" name="Text2"><input id="nominee3mn22" class="sat2" name="Text2"><input id="nominee3mn23" class="sat2" name="Text2"><input id="nominee3mn24" class="sat2" name="Text2"><input id="nominee3mn25" class="sat2" name="Text2"><input id="nominee3mn26" class="sat2" name="Text2"><br>
+            Last Name<br>
+            <input id="nominee3ln1" class="sat2" name="Text2"><input id="nominee3ln2" class="sat2" name="Text2"><input id="nominee3ln3" class="sat2" name="Text2"><input id="nominee3ln4" class="sat2" name="Text2"><input id="nominee3ln5" class="sat2" name="Text2"><input id="nominee3ln6" class="sat2" name="Text2"><input id="nominee3ln7" class="sat2" name="Text2"><input id="nominee3ln8" class="sat2" name="Text2"><input id="nominee3ln9" class="sat2" name="Text2"><input id="nominee3ln10" class="sat2" name="Text2"><input id="nominee3ln11" class="sat2" name="Text2"><input id="nominee3ln12" class="sat2" name="Text2"><input id="nominee3ln13" class="sat2" name="Text2"><br>
+            <input id="nominee3ln14" class="sat2" name="Text2"><input id="nominee3ln15" class="sat2" name="Text2"><input id="nominee3ln16" class="sat2" name="Text2"><input id="nominee3ln17" class="sat2" name="Text2"><input id="nominee3ln18" class="sat2" name="Text2"><input id="nominee3ln19" class="sat2" name="Text2"><input id="nominee3ln20" class="sat2" name="Text2"><input id="nominee3ln21" class="sat2" name="Text2"><input id="nominee3ln22" class="sat2" name="Text2"><input id="nominee3ln23" class="sat2" name="Text2"><input id="nominee3ln24" class="sat2" name="Text2"><input id="nominee3ln25" class="sat2" name="Text2"><input id="nominee3ln26" class="sat2" name="Text2"></td>
+        </tr>
+ 
+        <tr>
+          <td>2. Date of Birth (In case of a minor):<br>
+            1st Nominee <input id="nomineeln1" class="sat2" name="Text2"><input id="nomineeln2" class="sat2" name="Text2"><input id="nomineeln3" class="sat2" name="Text2"><input id="nomineeln4" class="sat2" name="Text2"><input id="nomineeln5" class="sat2" name="Text2"><input id="nomineeln6" class="sat2" name="Text2"><input id="nomineeln7" class="sat2" name="Text2"><input id="nomineeln8" class="sat2" name="Text2"></td> 
+          <td valign="bottom">&nbsp;2nd Nominee <input id="nomineeln1" class="sat2" name="Text2"><input id="nomineeln2" class="sat2" name="Text2"><input id="nomineeln3" class="sat2" name="Text2"><input id="nomineeln4" class="sat2" name="Text2"><input id="nomineeln5" class="sat2" name="Text2"><input id="nomineeln6" class="sat2" name="Text2"><input id="nomineeln7" class="sat2" name="Text2"><input id="nomineeln8" class="sat2" name="Text2"></td> 
+          <td valign="bottom">&nbsp;3rd Nominee <input id="nomineeln1" class="sat2" name="Text2"><input id="nomineeln2" class="sat2" name="Text2"><input id="nomineeln3" class="sat2" name="Text2"><input id="nomineeln4" class="sat2" name="Text2"><input id="nomineeln5" class="sat2" name="Text2"><input id="nomineeln6" class="sat2" name="Text2"><input id="nomineeln7" class="sat2" name="Text2"><input id="nomineeln8" class="sat2" name="Text2"></td>
+        </tr>
+ 
+        <tr>
+          <td valign="bottom">3. Relationship with the Nominee:<br>
+            1st Nominee <br>
+            <input id="nominee1rel1" class="sat2" name="Text2"><input id="nominee1rel2" class="sat2" name="Text2"><input id="nominee1rel3" class="sat2" name="Text2"><input id="nominee1rel4" class="sat2" name="Text2"><input id="nominee1rel5" class="sat2" name="Text2"><input id="nominee1rel6" class="sat2" name="Text2"><input id="nominee1rel7" class="sat2" name="Text2"><input id="nominee1rel8" class="sat2" name="Text2"><input id="nominee1rel9" class="sat2" name="Text2"><input id="nominee1rel10" class="sat2" name="Text2"><input id="nominee1rel11" class="sat2" name="Text2"><input id="nominee1rel12" class="sat2" name="Text2"><input id="nominee1rel13" class="sat2" name="Text2"><br>
+            <input id="nominee1rel14" class="sat2" name="Text2"><input id="nominee1rel15" class="sat2" name="Text2"><input id="nominee1rel16" class="sat2" name="Text2"><input id="nominee1rel17" class="sat2" name="Text2"><input id="nominee1rel18" class="sat2" name="Text2"><input id="nominee1rel19" class="sat2" name="Text2"><input id="nominee1rel20" class="sat2" name="Text2"><input id="nominee1rel21" class="sat2" name="Text2"><input id="nominee1rel22" class="sat2" name="Text2"><input id="nominee1rel23" class="sat2" name="Text2"><input id="nominee1rel24" class="sat2" name="Text2"><input id="nominee1rel25" class="sat2" name="Text2"><input id="nominee1rel26" class="sat2" name="Text2"></td> 
+          <td valign="bottom">&nbsp;2nd Nominee<br>
+            <input id="nominee2rel1" class="sat2" name="Text2"><input id="nominee2rel2" class="sat2" name="Text2"><input id="nominee2rel3" class="sat2" name="Text2"><input id="nominee2rel4" class="sat2" name="Text2"><input id="nominee2rel5" class="sat2" name="Text2"><input id="nominee2rel6" class="sat2" name="Text2"><input id="nominee2rel7" class="sat2" name="Text2"><input id="nominee2rel8" class="sat2" name="Text2"><input id="nominee2rel9" class="sat2" name="Text2"><input id="nominee2rel10" class="sat2" name="Text2"><input id="nominee2rel11" class="sat2" name="Text2"><input id="nominee2rel12" class="sat2" name="Text2"><input id="nominee2rel13" class="sat2" name="Text2"><br>
+            <input id="nominee2rel14" class="sat2" name="Text2"><input id="nominee2rel15" class="sat2" name="Text2"><input id="nominee2rel16" class="sat2" name="Text2"><input id="nominee2rel17" class="sat2" name="Text2"><input id="nominee2rel18" class="sat2" name="Text2"><input id="nominee2rel19" class="sat2" name="Text2"><input id="nominee2rel20" class="sat2" name="Text2"><input id="nominee2rel21" class="sat2" name="Text2"><input id="nominee2rel22" class="sat2" name="Text2"><input id="nominee2rel23" class="sat2" name="Text2"><input id="nominee2rel24" class="sat2" name="Text2"><input id="nominee2rel25" class="sat2" name="Text2"><input id="nominee2rel26" class="sat2" name="Text2"></td> 
+          <td valign="bottom">&nbsp;3rd Nominee<br>
+            <input id="nominee3rel1" class="sat2" name="Text2"><input id="nominee3rel2" class="sat2" name="Text2"><input id="nominee3rel3" class="sat2" name="Text2"><input id="nominee3rel4" class="sat2" name="Text2"><input id="nominee3rel5" class="sat2" name="Text2"><input id="nominee3rel6" class="sat2" name="Text2"><input id="nominee3rel7" class="sat2" name="Text2"><input id="nominee3rel8" class="sat2" name="Text2"><input id="nominee3rel9" class="sat2" name="Text2"><input id="nominee3rel10" class="sat2" name="Text2"><input id="nominee3rel11" class="sat2" name="Text2"><input id="nominee3rel12" class="sat2" name="Text2"><input id="nominee3rel13" class="sat2" name="Text2"><br>
+            <input id="nominee3rel14" class="sat2" name="Text2"><input id="nominee3rel15" class="sat2" name="Text2"><input id="nominee3rel16" class="sat2" name="Text2"><input id="nominee3rel17" class="sat2" name="Text2"><input id="nominee3rel18" class="sat2" name="Text2"><input id="nominee3rel19" class="sat2" name="Text2"><input id="nominee3rel20" class="sat2" name="Text2"><input id="nominee3rel21" class="sat2" name="Text2"><input id="nominee3rel22" class="sat2" name="Text2"><input id="nominee3rel23" class="sat2" name="Text2"><input id="nominee3rel24" class="sat2" name="Text2"><input id="nominee3rel25" class="sat2" name="Text2"><input id="nominee3rel26" class="sat2" name="Text2"></td>
+        </tr>
+ 
+        <tr>
+          <td valign="bottom">4. Percentage Share:<br>
+            <input style="WIDTH: 150px; HEIGHT: 22px" id="14" name="Text2" value="1st Nominee"><input id="15" class="sat2" name="Text2" value="1"><input id="16" class="sat2" name="Text2" value="0"><input id="17" class="sat2" name="Text2" value="0"><input id="18" class="sat2" name="Text2" value="%"></td> 
+          <td valign="bottom"><input style="WIDTH: 150px; HEIGHT: 22px" id="14" name="Text2"><input id="15" class="sat2" name="Text2"><input id="16" class="sat2" name="Text2"><input id="17" class="sat2" name="Text2"><input id="18" class="sat2" name="Text2"></td> 
+          <td valign="bottom"><input style="WIDTH: 150px; HEIGHT: 22px" id="14" name="Text2"><input id="15" class="sat2" name="Text2"><input id="16" class="sat2" name="Text2"><input id="17" class="sat2" name="Text2"><input id="18" class="sat2" name="Text2"></td>
+        </tr>
+ 
+        <tr>
+          <td>5. Nominee’s Guardian Details<br>
+            (in case of a minor):<br>
+            1st Nominee’s Guardian Details<br>
+            First Name<br>
+            <input id="nomineegfn1" class="sat2" name="Text2"><input id="nomineegfn2" class="sat2" name="Text2"><input id="nomineegfn3" class="sat2" name="Text2"><input id="nomineegfn4" class="sat2" name="Text2"><input id="nomineegfn5" class="sat2" name="Text2"><input id="nomineegfn6" class="sat2" name="Text2"><input id="nomineegfn7" class="sat2" name="Text2"><input id="nomineegfn8" class="sat2" name="Text2"><input id="nomineegfn9" class="sat2" name="Text2"><input id="nomineegfn10" class="sat2" name="Text2"><input id="nomineegfn11" class="sat2" name="Text2"><input id="nomineegfn12" class="sat2" name="Text2"><input id="nomineegfn13" class="sat2" name="Text2"><br>
+            <input id="nomineegfn14" class="sat2" name="Text2"><input id="nomineegfn15" class="sat2" name="Text2"><input id="nomineegfn16" class="sat2" name="Text2"><input id="nomineegfn17" class="sat2" name="Text2"><input id="nomineegfn18" class="sat2" name="Text2"><input id="nomineegfn19" class="sat2" name="Text2"><input id="nomineegfn20" class="sat2" name="Text2"><input id="nomineegfn21" class="sat2" name="Text2"><input id="nomineegfn22" class="sat2" name="Text2"><input id="nomineegfn23" class="sat2" name="Text2"><input id="nomineegfn24" class="sat2" name="Text2"><input id="nomineegfn25" class="sat2" name="Text2"><input id="nomineegfn26" class="sat2" name="Text2"><br>
+            Middle Name<br>
+            <input id="nomineegmn1" class="sat2" name="Text2"><input id="nomineegmn2" class="sat2" name="Text2"><input id="nomineegmn3" class="sat2" name="Text2"><input id="nomineegmn4" class="sat2" name="Text2"><input id="nomineegmn5" class="sat2" name="Text2"><input id="nomineegmn6" class="sat2" name="Text2"><input id="nomineegmn7" class="sat2" name="Text2"><input id="nomineegmn8" class="sat2" name="Text2"><input id="nomineegmn9" class="sat2" name="Text2"><input id="nomineegmn10" class="sat2" name="Text2"><input id="nomineegmn11" class="sat2" name="Text2"><input id="nomineegmn12" class="sat2" name="Text2"><input id="nomineegmn13" class="sat2" name="Text2"><br>
+            <input id="nomineegmn14" class="sat2" name="Text2"><input id="nomineegmn15" class="sat2" name="Text2"><input id="nomineegmn16" class="sat2" name="Text2"><input id="nomineegmn17" class="sat2" name="Text2"><input id="nomineegmn18" class="sat2" name="Text2"><input id="nomineegmn19" class="sat2" name="Text2"><input id="nomineegmn20" class="sat2" name="Text2"><input id="nomineegmn21" class="sat2" name="Text2"><input id="nomineegmn22" class="sat2" name="Text2"><input id="nomineegmn23" class="sat2" name="Text2"><input id="nomineegmn24" class="sat2" name="Text2"><input id="nomineegmn25" class="sat2" name="Text2"><input id="nomineegmn26" class="sat2" name="Text2"><br>
+            Last Name<br>
+            <input id="nomineegln1" class="sat2" name="Text2"><input id="nomineegln2" class="sat2" name="Text2"><input id="nomineegln3" class="sat2" name="Text2"><input id="nomineegln4" class="sat2" name="Text2"><input id="nomineegln5" class="sat2" name="Text2"><input id="nomineegln6" class="sat2" name="Text2"><input id="nomineegln7" class="sat2" name="Text2"><input id="nomineegln8" class="sat2" name="Text2"><input id="nomineegln9" class="sat2" name="Text2"><input id="nomineegln10" class="sat2" name="Text2"><input id="nomineegln11" class="sat2" name="Text2"><input id="nomineegln12" class="sat2" name="Text2"><input id="nomineegln13" class="sat2" name="Text2"><br>
+            <input id="nomineegln14" class="sat2" name="Text2"><input id="nomineegln15" class="sat2" name="Text2"><input id="nomineegln16" class="sat2" name="Text2"><input id="nomineegln17" class="sat2" name="Text2"><input id="nomineegln18" class="sat2" name="Text2"><input id="nomineegln19" class="sat2" name="Text2"><input id="nomineegln20" class="sat2" name="Text2"><input id="nomineegln21" class="sat2" name="Text2"><input id="nomineegln22" class="sat2" name="Text2"><input id="nomineegln23" class="sat2" name="Text2"><input id="nomineegln24" class="sat2" name="Text2"><input id="nomineegln25" class="sat2" name="Text2"><input id="nomineegln26" class="sat2" name="Text2"></td> 
+          <td valign="bottom">2nd nominee’s Guardian Details <br>
+            First Name<br>
+            <input id="nomineeg2fn1" class="sat2" name="Text2"><input id="nomineeg2fn2" class="sat2" name="Text2"><input id="nomineeg2fn3" class="sat2" name="Text2"><input id="nomineeg2fn4" class="sat2" name="Text2"><input id="nomineeg2fn5" class="sat2" name="Text2"><input id="nomineeg2fn6" class="sat2" name="Text2"><input id="nomineeg2fn7" class="sat2" name="Text2"><input id="nomineeg2fn8" class="sat2" name="Text2"><input id="nomineeg2fn9" class="sat2" name="Text2"><input id="nomineeg2fn10" class="sat2" name="Text2"><input id="nomineeg2fn11" class="sat2" name="Text2"><input id="nomineeg2fn12" class="sat2" name="Text2"><input id="nomineeg2fn13" class="sat2" name="Text2"><br>
+            <input id="nomineeg2fn14" class="sat2" name="Text2"><input id="nomineeg2fn15" class="sat2" name="Text2"><input id="nomineeg2fn16" class="sat2" name="Text2"><input id="nomineeg2fn17" class="sat2" name="Text2"><input id="nomineeg2fn18" class="sat2" name="Text2"><input id="nomineeg2fn19" class="sat2" name="Text2"><input id="nomineeg2fn20" class="sat2" name="Text2"><input id="nomineeg2fn21" class="sat2" name="Text2"><input id="nomineeg2fn22" class="sat2" name="Text2"><input id="nomineeg2fn23" class="sat2" name="Text2"><input id="nomineeg2fn24" class="sat2" name="Text2"><input id="nomineeg2fn25" class="sat2" name="Text2"><input id="nomineeg2fn26" class="sat2" name="Text2"><br>
+            Middle Name<br>
+            <input id="nomineeg2mn1" class="sat2" name="Text2"><input id="nomineeg2mn2" class="sat2" name="Text2"><input id="nomineeg2mn3" class="sat2" name="Text2"><input id="nomineeg2mn4" class="sat2" name="Text2"><input id="nomineeg2mn5" class="sat2" name="Text2"><input id="nomineeg2mn6" class="sat2" name="Text2"><input id="nomineeg2mn7" class="sat2" name="Text2"><input id="nomineeg2mn8" class="sat2" name="Text2"><input id="nomineeg2mn9" class="sat2" name="Text2"><input id="nomineeg2mn10" class="sat2" name="Text2"><input id="nomineeg2mn11" class="sat2" name="Text2"><input id="nomineeg2mn12" class="sat2" name="Text2"><input id="nomineeg2mn13" class="sat2" name="Text2"><br>
+            <input id="nomineeg2mn14" class="sat2" name="Text2"><input id="nomineeg2mn15" class="sat2" name="Text2"><input id="nomineeg2mn16" class="sat2" name="Text2"><input id="nomineeg2mn17" class="sat2" name="Text2"><input id="nomineeg2mn18" class="sat2" name="Text2"><input id="nomineeg2mn19" class="sat2" name="Text2"><input id="nomineeg2mn20" class="sat2" name="Text2"><input id="nomineeg2mn21" class="sat2" name="Text2"><input id="nomineeg2mn22" class="sat2" name="Text2"><input id="nomineeg2mn23" class="sat2" name="Text2"><input id="nomineeg2mn24" class="sat2" name="Text2"><input id="nomineeg2mn25" class="sat2" name="Text2"><input id="nomineeg2mn26" class="sat2" name="Text2"><br>
+            Last Name<br>
+            <input id="nomineeg2ln1" class="sat2" name="Text2"><input id="nomineeg2ln2" class="sat2" name="Text2"><input id="nomineeg2ln3" class="sat2" name="Text2"><input id="nomineeg2ln4" class="sat2" name="Text2"><input id="nomineeg2ln5" class="sat2" name="Text2"><input id="nomineeg2ln6" class="sat2" name="Text2"><input id="nomineeg2ln7" class="sat2" name="Text2"><input id="nomineeg2ln8" class="sat2" name="Text2"><input id="nomineeg2ln9" class="sat2" name="Text2"><input id="nomineeg2ln10" class="sat2" name="Text2"><input id="nomineeg2ln11" class="sat2" name="Text2"><input id="nomineeg2ln12" class="sat2" name="Text2"><input id="nomineeg2ln13" class="sat2" name="Text2"><br>
+            <input id="nomineeg2ln14" class="sat2" name="Text2"><input id="nomineeg2ln15" class="sat2" name="Text2"><input id="nomineeg2ln16" class="sat2" name="Text2"><input id="nomineeg2ln17" class="sat2" name="Text2"><input id="nomineeg2ln18" class="sat2" name="Text2"><input id="nomineeg2ln19" class="sat2" name="Text2"><input id="nomineeg2ln20" class="sat2" name="Text2"><input id="nomineeg2ln21" class="sat2" name="Text2"><input id="nomineeg2ln22" class="sat2" name="Text2"><input id="nomineeg2ln23" class="sat2" name="Text2"><input id="nomineeg2ln24" class="sat2" name="Text2"><input id="nomineeg2ln25" class="sat2" name="Text2"><input id="nomineeg2ln26" class="sat2" name="Text2"></td> 
+          <td valign="bottom">3rd nominee’s Guardian Details <br>
+            First Name<br>
+            <input id="nomineeg3fn1" class="sat2" name="Text2"><input id="nomineeg3fn2" class="sat2" name="Text2"><input id="nomineeg3fn3" class="sat2" name="Text2"><input id="nomineeg3fn4" class="sat2" name="Text2"><input id="nomineeg3fn5" class="sat2" name="Text2"><input id="nomineeg3fn6" class="sat2" name="Text2"><input id="nomineeg3fn7" class="sat2" name="Text2"><input id="nomineeg3fn8" class="sat2" name="Text2"><input id="nomineeg3fn9" class="sat2" name="Text2"><input id="nomineeg3fn10" class="sat2" name="Text2"><input id="nomineeg3fn11" class="sat2" name="Text2"><input id="nomineeg3fn12" class="sat2" name="Text2"><input id="nomineeg3fn13" class="sat2" name="Text2"><br>
+            <input id="nomineeg3fn14" class="sat2" name="Text2"><input id="nomineeg3fn15" class="sat2" name="Text2"><input id="nomineeg3fn16" class="sat2" name="Text2"><input id="nomineeg3fn17" class="sat2" name="Text2"><input id="nomineeg3fn18" class="sat2" name="Text2"><input id="nomineeg3fn19" class="sat2" name="Text2"><input id="nomineeg3fn20" class="sat2" name="Text2"><input id="nomineeg3fn21" class="sat2" name="Text2"><input id="nomineeg3fn22" class="sat2" name="Text2"><input id="nomineeg3fn23" class="sat2" name="Text2"><input id="nomineeg3fn24" class="sat2" name="Text2"><input id="nomineeg3fn25" class="sat2" name="Text2"><input id="nomineeg3fn26" class="sat2" name="Text2"><br>
+            Middle Name<br>
+            <input id="nomineeg3mn1" class="sat2" name="Text2"><input id="nomineeg3mn2" class="sat2" name="Text2"><input id="nomineeg3mn3" class="sat2" name="Text2"><input id="nomineeg3mn4" class="sat2" name="Text2"><input id="nomineeg3mn5" class="sat2" name="Text2"><input id="nomineeg3mn6" class="sat2" name="Text2"><input id="nomineeg3mn7" class="sat2" name="Text2"><input id="nomineeg3mn8" class="sat2" name="Text2"><input id="nomineeg3mn9" class="sat2" name="Text2"><input id="nomineeg3mn10" class="sat2" name="Text2"><input id="nomineeg3mn11" class="sat2" name="Text2"><input id="nomineeg3mn12" class="sat2" name="Text2"><input id="nomineeg3mn13" class="sat2" name="Text2"><br>
+            <input id="nomineeg3mn14" class="sat2" name="Text2"><input id="nomineeg3mn15" class="sat2" name="Text2"><input id="nomineeg3mn16" class="sat2" name="Text2"><input id="nomineeg3mn17" class="sat2" name="Text2"><input id="nomineeg3mn18" class="sat2" name="Text2"><input id="nomineeg3mn19" class="sat2" name="Text2"><input id="nomineeg3mn20" class="sat2" name="Text2"><input id="nomineeg3mn21" class="sat2" name="Text2"><input id="nomineeg3mn22" class="sat2" name="Text2"><input id="nomineeg3mn23" class="sat2" name="Text2"><input id="nomineeg3mn24" class="sat2" name="Text2"><input id="nomineeg3mn25" class="sat2" name="Text2"><input id="nomineeg3mn26" class="sat2" name="Text2"><br>
+            Last Name<br>
+            <input id="nomineeg3ln1" class="sat2" name="Text2"><input id="nomineeg3ln2" class="sat2" name="Text2"><input id="nomineeg3ln3" class="sat2" name="Text2"><input id="nomineeg3ln4" class="sat2" name="Text2"><input id="nomineeg3ln5" class="sat2" name="Text2"><input id="nomineeg3ln6" class="sat2" name="Text2"><input id="nomineeg3ln7" class="sat2" name="Text2"><input id="nomineeg3ln8" class="sat2" name="Text2"><input id="nomineeg3ln9" class="sat2" name="Text2"><input id="nomineeg3ln10" class="sat2" name="Text2"><input id="nomineeg3ln11" class="sat2" name="Text2"><input id="nomineeg3ln12" class="sat2" name="Text2"><input id="nomineeg3ln13" class="sat2" name="Text2"><br>
+            <input id="nomineeg3ln14" class="sat2" name="Text2"><input id="nomineeg3ln15" class="sat2" name="Text2"><input id="nomineeg3ln16" class="sat2" name="Text2"><input id="nomineeg3ln17" class="sat2" name="Text2"><input id="nomineeg3ln18" class="sat2" name="Text2"><input id="nomineeg3ln19" class="sat2" name="Text2"><input id="nomineeg3ln20" class="sat2" name="Text2"><input id="nomineeg3ln21" class="sat2" name="Text2"><input id="nomineeg3ln22" class="sat2" name="Text2"><input id="nomineeg3ln23" class="sat2" name="Text2"><input id="nomineeg3ln24" class="sat2" name="Text2"><input id="nomineeg3ln25" class="sat2" name="Text2"><input id="nomineeg3ln26" class="sat2" name="Text2"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+ 
+  <tr>
+    <td><strong>Declaration &amp; Authorization</strong><br>
+      I hereby declare and agree that (a) I have read and understood the Offer Document, terms &amp; conditions or the same was interpreted to me, and the answers entered in the application are mine. (b) I am a Citizen of India. (c) I have not been found or declared to be of an unsound mind under any law for the time being in force. (d) I am not an undischarged insolvent. (e) I do not hold any pre-existing account under NPS.<br>
+      <strong>Declaration under the Prevention of Money Laundering Act, 2002</strong><br>
+      I hereby declare that:<br>
+      <span style="PADDING-LEFT: 4em">&nbsp;</span>1. The contribution paid has been derived from legally declared and assessed sources of income.<br>
+      <span style="PADDING-LEFT: 4em">&nbsp;</span>2. I understand that the PFRDA/NPS Trust has the right to peruse my financial profile and also agree that the PFRDA/NPS Trust has the right to close the NPS account in case I am found guilty of violating the provisions of any Law,directly or indirectly, by any Competent Court of Law, having relation to the laws governing prevention of money laundering in the country.<br>
+      <span style="PADDING-LEFT: 4em">&nbsp;</span>3. I have read the Swavalamban guidelines and I meet the prescribed eligibility criteria for assistance under the scheme. I also undertake to adhere to the prescribed contribution limit of minimum Rs. 1000/- and maximum of Rs. 12000/-, failing which the Central Government contribution credited to my account may be forfeited along with such interest rates as may be prescribed.<br>
+      <table border="1" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td rowspan="2">I <u>{ReportLabel7}&nbsp;{ReportLabel8}<span style="PADDING-LEFT: 1em">&nbsp;</span></u>, the applicant, do hereby declare<br>
+            that the information provided above is true to the best of my knowledge &amp; belief.<br>
+            Date:<span style="PADDING-LEFT: 3em">&nbsp;</span><input id="disdate1" class="sat2" name="Text1" maxlength="1"><input id="disdate2" class="sat2" name="Text1" maxlength="1"><input id="disdate3" class="sat2" name="Text1" maxlength="1"><input id="disdate4" class="sat2" name="Text1" maxlength="1"><input id="disdate5" class="sat2" name="Text1" maxlength="1"><input id="disdate6" class="sat2" name="Text1" maxlength="1"><input id="disdate7" class="sat2" name="Text1" maxlength="1"><input id="disdate8" class="sat2" name="Text1" maxlength="1">(DD/MM/YYYY) </td> 
+          <td height="60">&nbsp;</td>
+        </tr>
+ 
+        <tr>
+          <td v align="center" align="center">Signature/Thumb<br>
+            Impression* of Subscriber</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div style="PAGE-BREAK-BEFORE: always; DISPLAY: block">
+</div>
+<table style="LINE-HEIGHT: 1.5em; FONT-SIZE: 14pt" border="1" cellspacing="4" cellpadding="4" width="1300" height="100%">
+  <tr>
+    <td>
+      <table style="FONT-SIZE: 14pt" border="0" cellspacing="2" cellpadding="2" height="100%">
+        <tr>
+          <td colspan="3"><strong><font size="2">Authorization by Aggregator Office (NL-AO) :</font> </strong></td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3">&nbsp;</td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3" nowrap>Certified that the subscriber is registered with the aggregator and he/she has opted to join NPS. I hereby declare that subscriber is eligible to join</td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3" nowrap>NPS and the above declaration has been signed / thumb impressed before me by <u>&nbsp;&nbsp;&nbsp;&nbsp;{ReportLabel10}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3" nowrap><u>&nbsp;&nbsp;&nbsp;&nbsp;{ReportLabel11}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>after (s)he has read the entries / entries have been read over to him / her by me.</td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3">&nbsp;</td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3"><pre>__________________________________________         (Rubber Stamp of the Aggregator)</pre></td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature of the Authorised Person</td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3">Name of the Aggregator:<u>IFMR Rural Finance Services Pvt. Ltd.</u>NPS Lite- Account office(NL-AO)RegistrationNumber<input id="14" class="sat2" name="Text2" value="8"><input id="15" class="sat2" name="Text2" value="0"><input id="16" class="sat2" name="Text2" value="0"><input id="17" class="sat2" name="Text2" value="2"><input id="18" class="sat2" name="Text2" value="5"><input id="18" class="sat2" name="Text2" value="6"><input id="18" class="sat2" name="Text2" value="2"></td>
+        </tr>
+ 
+        <tr>
+          <td>Date :</td> 
+          <td id="3pdt">{ReportLabel12}</td> 
+          <td>Place :{ReportLabel13} NPS Lite- Collection Centre (NL-CC ) Registration Number :<input id="nlcno1" class="sat2" name="Text1" maxlength="1"><input id="nlcno2" class="sat2" name="Text1" maxlength="1"><input id="nlcno3" class="sat2" name="Text1" maxlength="1"><input id="nlcno4" class="sat2" name="Text1" maxlength="1"><input id="nlcno5" class="sat2" name="Text1" maxlength="1"><input id="nlcno6" class="sat2" name="Text1" maxlength="1"><input id="nlcno7" class="sat2" name="Text1" maxlength="1"><input id="nlcno8" class="sat2" name="Text1" maxlength="1"><input id="nlcno9" class="sat2" name="Text1" maxlength="1"><input id="nlcno10" class="sat2" name="Text1" maxlength="1"></td>
+        </tr>
+      </table>
+ 
+      <tr>
+        <td colspan="2">
+          <h3>INSTRUCTIONS FOR FILLING THE FORM</h3>
+          a) Form to be filled legibly in BLOCK LETTERS (English only) and in BLACK INK only. Please fill the form in legible handwriting so as to avoid errors in your application processing. Please do not overwrite. Corrections should be made by canceling and re-writing and such corrections should be counter- signed by the applicant.<br>
+          b) Each box, wherever provided, should contain only one character (alphabet/number/punctuation mark) leaving a blank box after each word.<br>
+          c) The subscriber should affix a recent colour photograph (size 3.5 cm x 2.5 cm) in the space provided on the form. The photograph should not be stapled or clipped to the form. (The clarity of image on PRAN card will depend on the quality and clarity of photograph affixed on the form.)<br>
+          d) Signature /Thumb impression (LTI in case of males and RTI in case of females) should only be within the box provided in the form. The subscriber should not sign across the photograph. If there is any mark on the photograph which hinders the clear visibility of the face of the subscriber, the application shall not be accepted.<br>
+          e) The application is liable to be rejected if the mandatory fields are left blank or the application is incomplete.<br>
+          f) The subscriber’s thumb impression should be verified by the designated officer of the Aggregator accepting the form.<br>
+          g) Investments would be made as per the Investment norms prescribed for Central Government Employees, through the Pension Fund Manager selected by subscribers<br>
+          h) Subscriber also has option to select scheme applicable to Central Government Employees (mandatorily covered under NPS). The i nvestment is made across three PFMs (SBI, UTI, LIC) in the ratio decided by NPS Trust/PFRDA.<br>
+          i)<b>Subscriber’s Nomination Details</b><br>
+          Percentage Share: <br>
+          1) Subscriber can nominate a maximum of three nominees. <br>
+          2) Subscriber cannot fill the same nominee details more than once. <br>
+          3) Percentage share value for all the nominees must be integer. Decimals/Fractional values shall not be accepted in the nomination(s). <br>
+          4) Sum of percentage share across all the nominees must be equal to 100. If sum of percentage is not equal to 100, entire nomination will be rejected. Nominee’s Guardian Details:<br>
+          5) If a nominee is a minor, then nominee’s guardian details shall be mandatory. 
+          <h3>GENERAL INFORMATION FOR SUBSCRIBERS</h3>
+          <br>
+          a) The Subscriber can obtain the status of his/her application from the respective Aggregator. <br>
+          b) For more information - Visit us at http://www.npscra.nsdl.co.in or Call us at 022-24994200 or e-mail us at info.cra@nsdl.co.in or write to Central <br>
+          Recordkeeping Agency, National Securities Depository Limited, 4th Floor, ‘A’ Wing, Trade World, Kamala Mills Compound Senapati Bapat Marg, <br>
+          Lower Parel (W), Mumbai - 400 013. </td>
+      </tr>
+   
+</table>
+<div style="PAGE-BREAK-BEFORE: always; DISPLAY: block">
+</div>
+<table style="LINE-HEIGHT: 1.5em; FONT-SIZE: 14pt" border="1" cellspacing="0" cellpadding="0" width="1300" height="100%">
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td><font size="4">Details for printing PRAN card in Hindi (please provide the details in Devnagri script):</font> </td>
+        </tr>
+ 
+        <tr>
+          <td><font size="2">(* indicates Mandatory Field)</font></td>
+        </tr>
+ 
+        <tr>
+          <td>Please note that the manner in which the names are provided in this annexure will be displayed on the PRAN card. However, date of birth will be</td>
+        </tr>
+ 
+        <tr>
+          <td>printed in English only.</td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Subscriber’s Full Name:</strong></td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name * : ____________________________________</td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Middle Name * : ____________________________________</td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name * : ____________________________________</td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Father’s Full Name:</strong></td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name * : ____________________________________</td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Middle Name * : ____________________________________</td>
+        </tr>
+ 
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last Name * : ____________________________________</td>
+        </tr>
+ 
+        <tr>
+          <td align="right">
+            <table border="1" width="30%">
+              <tr>
+                <td height="80">&nbsp;</td>
+              </tr>
+ 
+              <tr>
+                <td height="20" align="center">Signature/Thumb<br>
+                  Impression of the subscriber</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+ 
+        <tr>
+          <td align="center">____________________________________________________________________</td>
+        </tr>
+ 
+        <tr>
+          <td align="center">Name of the Subscriber:<u>{ReportLabel19}&nbsp;{ReportLabel20}</u>__</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" style="LINE-HEIGHT: 1.5em; FONT-SIZE: 14pt">
+  <tr>
+    <td align="center"><font size="4">Subscriber registration and first contribution</font></td>
+  </tr>
+ 
+  <tr>
+    <td>
+      <table width="100%">
+        <tr>
+          <td>Aggregator</td> 
+          <td>&nbsp;&nbsp;: IFMR Rural Finance Services Pvt. Ltd.</td> 
+          <td>Date:</td> 
+          <td id="4pdt">{ReportLabel14}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+ 
+  <tr>
+    <td>Sub Aggregator :</td>
+  </tr>
+ 
+  <tr>
+    <td width="90%">
+      <table border="1" width="100%">
+        <tr>
+          <td><font size="4">CRN</font></td> 
+          <td>&nbsp;</td>
+        </tr>
+ 
+        <tr>
+          <td><font size="4">Name</font></td> 
+          <td><font size="4">{ReportLabel15}&nbsp;{ReportLabel16}</font></td>
+        </tr>
+ 
+        <tr>
+          <td><font size="4">Scheme</font></td> 
+          <td><font size="4">SWAVALAMBAN</font></td>
+        </tr>
+ 
+        <tr>
+          <td><font size="4">Amount in Rs.</font></td> 
+          <td><font size="4">1000.0000</font></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table style="VISIBILITY: hidden">
+  <tr class="Row">
+    <td style="TEXT-ALIGN: right">{sno} </td> 
+    <td>{branch} </td> 
+    <td>{application_no} </td> 
+    <td id="bfnm">{first_name}</td> 
+    <td id="bormnm">{ReportLabel17}</td> 
+    <td id="fatmnm">{ReportLabel18}</td> 
+    <td id="borlnm">{last_name}</td> 
+    <td id="ffnm">{father_namef}</td> 
+    <td id="fatflnm">{father_namel} </td> 
+    <td>{citizen_india} </td> 
+    <td id="gndr">{gender} </td> 
+    <td id="msts">{marital_status}</td>
+  </tr>
+ 
+  <tr>
+    <td id="dob">{dob}</td> 
+    <td>{religion}</td> 
+    <td>{caste}</td> 
+    <td>{emp_status} </td> 
+    <td id="dno">{dno} </td> 
+    <td id="taluk">{taluk} </td> 
+    <td id="village">{village} </td> 
+    <td id="state">{state} </td> 
+    <td id="district">{district} </td> 
+    <td style="TEXT-ALIGN: right" id="pincode">{pincode} </td>
+  </tr>
+ 
+  <tr>
+    <td id="mobno">{mob_no} </td>
+  </tr>
+ 
+  <tr>
+    <td id="nomineef">{ReportLabel1}</td> 
+    <td id="nomineem">{ReportLabel2}</td> 
+    <td id="nomineel">{ReportLabel3}</td> 
+    <td id="relation">{ReportLabel4}</td> 
+    <td id="place">{ReportLabel5}</td> 
+    <td id="disdate">{ReportLabel9}</td>
+  </tr>
+ 
+  <tr>
+    <td id="nlcno">{ReportLabel6}</td>
+  </tr>
+<!-- END Section Detail -->
+</table>
+<!-- END Report nps_master -->
+
+</body>
+</html>

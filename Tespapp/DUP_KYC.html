@@ -1,0 +1,454 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>KYC</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<style type="text/css">
+.normal-text { font-family: Courier New; font-size: 8.5pt; font-weight: bold; letter-spacing: 0px; background-color: #FFFFFF; border-color: #333333; border-style: solid; border-width: 1px; color: #000000; }
+input[type=radio] {width:10px;height:10px;margin:1px}
+.boldtable, .boldtable TD, .boldtable TH
+{
+font-family:Arial;
+font-size:9;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+<script language="JavaScript" type="text/javascript" src="docentryjs.js">
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-56D0AF56
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-2D519CD7
+</script>
+<script language="JavaScript" src="js/yui/build/yahoo-dom-event/yahoo-dom-event.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/build/calendar/calendar-min.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/yui/datepicker-commons.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/ccs-yui-calendar.css">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+function setimgrcode(obj)
+{
+parent.mfi_docs.mfi_doc_territory_code.value=document.getElementById("ybl_kycla_id").value;
+}
+//ybl_kycButton_Delete_OnClick @10-DDCCAFCA
+function ybl_kycButton_Delete_OnClick()
+{
+    var result = true;
+//End ybl_kycButton_Delete_OnClick
+
+//Confirmation Message @11-8243B274
+    return confirm('Delete record?');
+//End Confirmation Message
+
+//Close ybl_kycButton_Delete_OnClick @10-BC33A33A
+    return result;
+}
+//End Close ybl_kycButton_Delete_OnClick
+
+//ybl_kycla_id_OnChange @14-64983BC4
+function ybl_kycla_id_OnChange()
+{
+    var result = true;
+//End ybl_kycla_id_OnChange
+
+//Custom Code @66-2A29BDB7
+    // -------------------------
+    var la_id=document.getElementById("ybl_kycla_id").value;
+window.location.href="dup_kyc.php?la_id="+document.getElementById("ybl_kycla_id").value;
+document.getElementById("ybl_kycla_id").value=la_id;
+setimgrcode(document.getElementById("ybl_kycla_id"));
+    // -------------------------
+//End Custom Code
+
+//Close ybl_kycla_id_OnChange @14-BC33A33A
+    return result;
+}
+//End Close ybl_kycla_id_OnChange
+
+//ybl_kycmember_age_as_on_1_OnChange @20-01D74261
+function ybl_kycmember_age_as_on_1_OnChange()
+{
+    var result = true;
+//End ybl_kycmember_age_as_on_1_OnChange
+ var mem_age_on_id=parseInt(document.getElementById("ybl_kycmember_age_1").value);
+        
+    var cur_year=(new Date()).getFullYear();
+   
+    var age_as_on=(document.getElementById("ybl_kycmember_age_as_on_1").value);
+     
+    var year_on_id=parseInt(age_as_on.substring(6));
+    var birth_year=year_on_id-mem_age_on_id;
+    var cur_age=cur_year-birth_year;
+    if(cur_age>=18 && cur_age<=58)
+        {
+    document.getElementById("ybl_kyccurrent_age_1").value=cur_age;
+    var mem_dob="01-01-"+birth_year;
+        document.getElementById("ybl_kycdate_of_birth_1").value=mem_dob;
+        checkDateVal(document.getElementById("ybl_kycdate_of_birth_1"));
+        }
+        else
+        {
+         alert("Age is not in Limit of 18 to 58");
+     document.getElementById("ybl_kycmember_age_as_on_1").focus();
+    }
+    
+//Custom Code @30-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close ybl_kycmember_age_as_on_1_OnChange @20-BC33A33A
+    return result;
+}
+//End Close ybl_kycmember_age_as_on_1_OnChange
+
+//ybl_kycdate_of_birth_1_OnChange @21-BF689A23
+function ybl_kycdate_of_birth_1_OnChange()
+{
+    var result = true;
+//End ybl_kycdate_of_birth_1_OnChange
+checkDateVal(document.getElementById("ybl_kycdate_of_birth_1"));
+
+if(document.getElementById("ybl_kycdate_of_birth_1").value!="")
+{
+        var age_on_kyc=parseInt(document.getElementById("ybl_kycmember_age_1").value);
+
+    var cur_year1=(new Date()).getFullYear();
+    
+    var dob1=document.getElementById("ybl_kycdate_of_birth_1").value;
+    
+    var birth_year1=parseInt(dob1.substring(6));
+    
+    var cur_age1=cur_year1-birth_year1;
+        if(cur_age1>=18 && cur_age1<=58)              
+        document.getElementById("ybl_kyccurrent_age_1").value=cur_age1;
+        else
+        { 
+                alert("Age is not in Limit of 18 to 58");document.getElementById("ybl_kycdate_of_birth_1").focus();
+        }
+}
+else
+document.getElementById("ybl_kycdate_of_birth_1").focus();
+//Custom Code @31-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+
+//Close ybl_kycdate_of_birth_1_OnChange @21-BC33A33A
+    return result;
+}
+//End Close ybl_kycdate_of_birth_1_OnChange
+
+//ybl_kycgurantor_age_as_on_1_OnChange @49-EDCFE104
+function ybl_kycgurantor_age_as_on_1_OnChange()
+{
+    var result = true;
+//End ybl_kycgurantor_age_as_on_1_OnChange
+
+//Custom Code @62-2A29BDB7
+    // -------------------------
+    var gar_age_on_id=parseInt(document.getElementById("ybl_kycgurantor_age").value);
+        
+    var cur_year=(new Date()).getFullYear();
+   
+    var age_as_on=(document.getElementById("ybl_kycgurantor_age_as_on_1").value);
+     
+    var year_on_id=parseInt(age_as_on.substring(6));
+    var birth_year=year_on_id-gar_age_on_id;
+    var cur_age=cur_year-birth_year;
+    if(cur_age>=18 && cur_age<=58)
+    {
+        document.getElementById("ybl_kycgurantor_current_age").value=cur_age;
+        var gur_dob="01-01-"+birth_year;
+        document.getElementById("ybl_kycgurantor_dob").value=gur_dob;
+        checkDateVal(document.getElementById("ybl_kycgurantor_dob"));
+    }
+    else
+    {
+        alert("Age is not in Limit of 18 to 58");
+        document.getElementById("ybl_kycgurantor_age_as_on_1").focus();
+    }
+    // -------------------------
+//End Custom Code
+
+//Close ybl_kycgurantor_age_as_on_1_OnChange @49-BC33A33A
+    return result;
+}
+//End Close ybl_kycgurantor_age_as_on_1_OnChange
+
+//ybl_kycgurantor_dob_OnChange @53-10510A4A
+function ybl_kycgurantor_dob_OnChange()
+{
+    var result = true;
+//End ybl_kycgurantor_dob_OnChange
+
+//Custom Code @63-2A29BDB7
+    // -------------------------
+    checkDateVal(document.getElementById("ybl_kycgurantor_dob"));
+
+        if(document.getElementById("ybl_kycgurantor_dob").value!="")
+        {
+            var age_on_kyc=parseInt(document.getElementById("ybl_kycgurantor_dob").value);
+            var cur_year1=(new Date()).getFullYear();
+            var dob1=document.getElementById("ybl_kycgurantor_dob").value;
+            var birth_year1=parseInt(dob1.substring(6));
+            var cur_age1=cur_year1-birth_year1;
+            if(cur_age1>=18 && cur_age1<=58)              
+                document.getElementById("ybl_kycgurantor_current_age").value=cur_age1;
+            else
+            { 
+                alert("Age is not in Limit of 18 to 58");
+                document.getElementById("ybl_kycgurantor_dob").focus();
+            }
+        }
+        else
+                document.getElementById("ybl_kycdate_of_birth_1").focus();
+    // -------------------------
+//End Custom Code
+
+//Close ybl_kycgurantor_dob_OnChange @53-BC33A33A
+    return result;
+}
+//End Close ybl_kycgurantor_dob_OnChange
+
+//window.location.href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1=" href="KYC.php?hv_id_1="+document.getElementById("ybl_kychv_id_1").value;
+
+//setimgrcode(document.getElementById("ybl_kychv_id_1"));
+
+//ybl_kycButton_Cancel_OnClick @12-42A2504E
+function ybl_kycButton_Cancel_OnClick()
+{
+    disableValidation = true;
+    return true;
+}
+//End ybl_kycButton_Cancel_OnClick
+
+//Handle ybl_kycmember_age_as_on_1InlineDatePicker1 @58-5DBF56A1
+function ybl_kycmember_age_as_on_1InlineDatePicker1_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "dd-mm-yyyy","SilverBlue");
+}
+//End Handle ybl_kycmember_age_as_on_1InlineDatePicker1
+
+//Handle ybl_kycdate_of_birth_1InlineDatePicker2 @59-EAD8254C
+function ybl_kycdate_of_birth_1InlineDatePicker2_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "dd-mm-yyyy","SilverBlue");
+}
+//End Handle ybl_kycdate_of_birth_1InlineDatePicker2
+
+//Handle ybl_kycgurantor_age_as_on_1InlineDatePicker3 @60-EBD7B733
+function ybl_kycgurantor_age_as_on_1InlineDatePicker3_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle ybl_kycgurantor_age_as_on_1InlineDatePicker3
+
+//Handle ybl_kycgurantor_dobInlineDatePicker4 @61-CF678AD7
+function ybl_kycgurantor_dobInlineDatePicker4_start(sender) {
+    if (!sender) return;
+    generateDatePicker(sender.id, "yyyy-mm-dd","SilverBlue");
+}
+//End Handle ybl_kycgurantor_dobInlineDatePicker4
+
+//bind_events @1-BE683C10
+function bind_events() {
+    addEventHandler("ybl_kycmember_age_as_on_1", "load", ybl_kycmember_age_as_on_1InlineDatePicker1_start);
+    addEventHandler("ybl_kycmember_age_as_on_1", "change", ybl_kycmember_age_as_on_1_OnChange);
+    addEventHandler("ybl_kycdate_of_birth_1", "load", ybl_kycdate_of_birth_1InlineDatePicker2_start);
+    addEventHandler("ybl_kycdate_of_birth_1", "change", ybl_kycdate_of_birth_1_OnChange);
+    addEventHandler("ybl_kycgurantor_age_as_on_1", "load", ybl_kycgurantor_age_as_on_1InlineDatePicker3_start);
+    addEventHandler("ybl_kycgurantor_age_as_on_1", "change", ybl_kycgurantor_age_as_on_1_OnChange);
+    addEventHandler("ybl_kycgurantor_dob", "load", ybl_kycgurantor_dobInlineDatePicker4_start);
+    addEventHandler("ybl_kycgurantor_dob", "change", ybl_kycgurantor_dob_OnChange);
+    addEventHandler("ybl_kycButton_Delete", "click", ybl_kycButton_Delete_OnClick);
+    addEventHandler("ybl_kycla_id", "change", ybl_kycla_id_OnChange);
+    addEventHandler("ybl_kycButton_Cancel", "click", ybl_kycButton_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body style="FONT-SIZE: 8.5pt" leftmargin="0" topmargin="0" width="510px" valign="top" align="center">
+&nbsp; 
+<!-- BEGIN Record ybl_kyc -->
+<form id="ybl_kyc" method="post" name="{HTMLFormName}" action="{Action}">
+  <table border="0" cellspacing="0" cellpadding="0" width="510">
+    <tr>
+      <td valign="top">
+        <table class="Header" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+            <td class="th"><strong>KYC ENTRY FORM</strong></td> 
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0" width="100%">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycla_id">Hv Id</label></td> 
+            <td><input onblur="setimgrcode(this);" id="ybl_kycla_id" class="normal-text" value="{la_id}" maxlength="8" size="8" name="{la_id_Name}"></td> 
+            <td></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">Member Premiry Kyc </td> 
+            <td nowrap>Id Type 
+              <select id="ybl_kycListBox1" name="{ListBox1_Name}">
+                <option selected value="">{res:CCS_SelectValue}</option>
+                {ListBox1_Options}
+              </select>
+ </td> 
+            <td>Id No.<input id="ybl_kyckyc_id_1" class="normal-text" value="{kyc_id_1}" maxlength="30" name="{kyc_id_1_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">Member Secondary Kyc</td> 
+            <td>Id Type 
+              <select id="ybl_kycListBox4" name="{ListBox4_Name}">
+                <option selected value="">{res:CCS_SelectValue}</option>
+                {ListBox4_Options}
+              </select>
+ </td> 
+            <td>Id No. <input id="ybl_kycsecondary_kyc_id" class="normal-text" value="{secondary_kyc_id}" name="{secondary_kyc_id_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycmember_name_1">Member Name</label></td> 
+            <td><input id="ybl_kycmember_name_1" class="normal-text" onchange="validateNameField(this);" value="{member_name_1}" maxlength="30" name="{member_name_1_Name}"></td> 
+            <td></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycmember_relation_type">Relation Type</label></td> 
+            <td>
+              <select id="ybl_kycmember_relation_type" class="normal-text" name="{member_relation_type_Name}">
+                <option selected value="">Select Value</option>
+                {member_relation_type_Options}
+              </select>
+ </td> 
+            <td></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycrelation_name_1">Relation Name</label></td> 
+            <td><input id="ybl_kycrelation_name_1" class="normal-text" onchange="validateNameField(this);" value="{relation_name_1}" maxlength="30" name="{relation_name_1_Name}"></td> 
+            <td></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycmember_age_1">Member Age</label></td> 
+            <td><input id="ybl_kycmember_age_1" class="normal-text" value="{member_age_1}" maxlength="2" size="2" name="{member_age_1_Name}"></td> 
+            <td class="th"><label for="ybl_kycmember_age_as_on_1">Age As On<font style="BACKGROUND-COLOR: #f7f7f7">(DD-MM-YYYY)</font></label> 
+              <!-- BEGIN TextBox member_age_as_on_1 --><input id="ybl_kycmember_age_as_on_1" class="normal-text" value="{member_age_as_on_1}" maxlength="10" size="10" name="{member_age_as_on_1_Name}"><!-- END TextBox member_age_as_on_1 --></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycdate_of_birth_1">Date Of Birth</label></td> 
+            <td>
+              <!-- BEGIN TextBox date_of_birth_1 --><input id="ybl_kycdate_of_birth_1" class="normal-text" value="{date_of_birth_1}" maxlength="10" size="10" name="{date_of_birth_1_Name}"><!-- END TextBox date_of_birth_1 -->(DD-MM-YYYY)</td> 
+            <td class="th"><label for="ybl_kyccurrent_age_1">Current Age</label> <input id="ybl_kyccurrent_age_1" class="normal-text" value="{current_age_1}" maxlength="2" size="2" name="{current_age_1_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycmember_address_1">Member Address</label></td> 
+            <td><textarea id="ybl_kycmember_address_1" class="normal-text" rows="3" name="{member_address_1_Name}">{member_address_1}</textarea></td> 
+            <td></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycdistrict_1">District</label></td> 
+            <td><input id="ybl_kycdistrict_1" class="normal-text" value="{district_1}" maxlength="15" name="{district_1_Name}"></td> 
+            <td></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycpincode_1">Pincode</label></td> 
+            <td><input id="ybl_kycpincode_1" class="normal-text" value="{pincode_1}" maxlength="6" size="6" name="{pincode_1_Name}"></td> 
+            <td></td>
+          </tr>
+		 <tr class="Controls">
+		  <td class="th"><label for="ybl_kycmember_relation_type1">Gurantor Type</label></td> 
+		  <td>
+		    <select id="ybl_kycmember_relation_type1" class="normal-text" name="{member_relation_type1_Name}">
+		      <option selected value="">Select Value</option>
+		 {member_relation_type1_Options} 
+		    </select>
+		 </td> 
+		  <td></td> 
+		</tr>
+		 
+		<tr class="Controls">
+		  <td class="th"><label for="ybl_kycrelation_name_2">Gurantor Name</label></td> 
+		  <td><input id="ybl_kycrelation_name_2" class="normal-text" onchange="validateNameField(this);" value="{relation_name_2}" maxlength="30" name="{relation_name_2_Name}"></td> 
+		  <td></td> 
+		</tr>
+
+          <tr class="Controls">
+            <td class="th">Gurantor kyc </td> 
+            <td>id type 
+              <select id="ybl_kycListBox2" name="{ListBox2_Name}">
+                <option selected value="">{res:CCS_SelectValue}</option>
+                {ListBox2_Options}
+              </select>
+ </td> 
+            <td>Id No.<input id="ybl_kycgurantor_kyc_primary_id" class="normal-text" value="{gurantor_kyc_primary_id}" name="{gurantor_kyc_primary_id_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycadded_by_1">Gurantor Secondary Kyc </label></td> 
+            <td>Id Type 
+              <select id="ybl_kycListBox3" name="{ListBox3_Name}">
+                <option selected value="">{res:CCS_SelectValue}</option>
+                {ListBox3_Options}
+              </select>
+ </td> 
+            <td>Id No. <input id="ybl_kycgurantor_kyc_secondry_id" class="normal-text" value="{gurantor_kyc_secondry_id}" name="{gurantor_kyc_secondry_id_Name}"></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th">Gurantor Age</td> 
+            <td><input id="ybl_kycgurantor_age" class="normal-text" value="{gurantor_age}" maxlength="2" size="2" name="{gurantor_age_Name}"></td> 
+            <td class="th">Age As On<font style="BACKGROUND-COLOR: #f7f7f7">(DD-MM-YYYY)</font> 
+              <!-- BEGIN TextBox gurantor_age_as_on_1 --><input id="ybl_kycgurantor_age_as_on_1" class="normal-text" value="{gurantor_age_as_on_1}" maxlength="10" size="10" name="{gurantor_age_as_on_1_Name}"><!-- END TextBox gurantor_age_as_on_1 --></td>
+          </tr>
+ 
+          <tr class="Controls">
+            <td class="th"><label for="ybl_kycgurantor_dob">Date Of Birth</label></td> 
+            <td>
+              <!-- BEGIN TextBox gurantor_dob --><input id="ybl_kycgurantor_dob" class="normal-text" value="{gurantor_dob}" maxlength="10" size="10" name="{gurantor_dob_Name}"><!-- END TextBox gurantor_dob -->(DD-MM-YYYY)</td> 
+            <td class="th">Current Age <input id="ybl_kycgurantor_current_age" class="normal-text" value="{gurantor_current_age}" maxlength="2" size="2" name="{gurantor_current_age_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td colspan="2" align="left">&nbsp;
+              <!-- BEGIN Button Button_Update --><input type="submit" id="ybl_kycButton_Update" class="Button" value="Submit" alt="Submit" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input type="submit" id="ybl_kycButton_Delete" class="Button" value="Delete" alt="Delete" name="{Button_Name}"><!-- END Button Button_Delete -->
+              <!-- BEGIN Button Button_Cancel --><input type="submit" id="ybl_kycButton_Cancel" class="Button" value="Cancel" alt="Cancel" name="{Button_Name}"><!-- END Button Button_Cancel --></td> 
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="hidden" style="WIDTH: 10px" id="ybl_kycadded_at_1" value="{added_at_1}" name="{added_at_1_Name}"><input type="hidden" style="WIDTH: 10px" id="ybl_kycadded_by_1" value="{added_by_1}" name="{added_by_1_Name}">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record ybl_kyc --><br>
+</body>
+</html>

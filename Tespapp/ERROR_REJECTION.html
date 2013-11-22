@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>ERROR_REJECTION</title>
+<meta name="GENERATOR" content="CodeCharge Studio 5.0.0.15750">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+function calexel()
+{
+alert("reached");
+window.location.href="givexls.php?cols=batch_code,mfi_doc_region,mfi_doc_territory_code,mfi_doc_type,mfi_doc_entered_at,mfi_doc_entered_by,doc_rejection_reason&tblname=mfi_docs&whr=doc_rejection_reason is not null";
+    
+}
+
+//bind_events @1-D32E857E
+function bind_events() {
+    try { incHeader_bind_events(); } catch(e) {}
+    try { incMenu_bind_events(); } catch(e) {}
+    try { incFooter_bind_events(); } catch(e) {}
+  
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/Basic/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+{incHeader} 
+<table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; HEIGHT: 100px; PADDING-TOP: 5px" border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-RIGHT: 5px; PADDING-TOP: 5px; align: center; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+          <td align="center">{incMenu}</td> 
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Report mfi_docs -->
+            <table class="MainTable" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top">
+                  <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="HeaderLeft"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+                      <td class="th"><strong>ERROR REJECTION RECORDS</strong></td> 
+                      <td class="HeaderRight"><img alt="" src="Styles/Basic/Images/Spacer.gif"></td> 
+                    </tr>
+ 
+                  </table>
+ 
+                  <table class="Grid" cellspacing="0" cellpadding="0">
+                    <!-- BEGIN Section Report_Header -->
+                    <caption class="Row">Total Records&nbsp;{Report_TotalRecords}&nbsp;
+                    <!-- BEGIN Button Button1 --><input name="{Button_Name}" onclick="calexel();" type="submit" value="ExportToExcel" alt="Button1" id="mfi_docsReport_HeaderButton1_{mfi_docs:rowNumber}" class="Button"><!-- END Button Button1 --></caption>
+ <!-- END Section Report_Header -->
+                    <!-- BEGIN Section Page_Header -->
+                    <tr class="Caption">
+                      <th scope="col">BATCH CODE</th>
+ 
+                      <th scope="col">DOC TYPE</th>
+ 
+                      <th scope="col">DOC REGION</th>
+ 
+                      <th scope="col">LA NO</th>
+ 
+                      <th scope="col">ENTERED BY</th>
+ 
+                      <th scope="col">ENTERED AT</th>
+ 
+                    </tr>
+ <!-- END Section Page_Header -->
+                    <!-- BEGIN Section Page_Footer -->
+                    <tr class="Footer">
+                      <td colspan="8">
+                        <!-- BEGIN Navigator Navigator --><span class="Navigator">
+                        <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+                        <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                        <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+                        <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                        <!-- BEGIN Pages -->
+                        <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                        <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                        <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+                        <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                        <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+                        <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --></span><!-- END Navigator Navigator --></td> 
+                    </tr>
+ <!-- END Section Page_Footer -->
+                    <!-- BEGIN Section Detail -->
+                    <tr class="Row">
+                      <td>{batch_code} </td> 
+                      <td style="TEXT-ALIGN: right">{mfi_doc_type} </td> 
+                      <td>{mfi_doc_region} </td> 
+                      <td><a href="{mfi_doc_territory_code_Src}" id="mfi_docsDetailmfi_doc_territory_code_{mfi_docs:rowNumber}">{mfi_doc_territory_code}</a> </td> 
+                      <td>{mfi_doc_entered_by} </td> 
+                      <td>{doc_rejection_reason} </td> 
+                    </tr>
+ <!-- END Section Detail -->
+                    <!-- BEGIN Section Report_Footer -->
+                    <!-- BEGIN Panel NoRecords -->
+                    <tr class="NoRecords">
+                      <td colspan="8">{res:CCS_NoRecords}</td> 
+                    </tr>
+ <!-- END Panel NoRecords --><!-- END Section Report_Footer -->
+                  </table>
+ </td> 
+              </tr>
+ 
+            </table>
+ <!-- END Report mfi_docs --></td> 
+        </tr>
+ 
+      </table>
+ {incFooter1} 
+    </tr>
+ 
+  </table>
+ 
+  </body>
+ 
+  </html>

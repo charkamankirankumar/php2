@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>CBO_SUMMARY</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body>
+<script>
+                !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+$(document).ready(function() {
+                                           $("a#mfi_doc_entered_at").fancybox({
+                                'width'                         : 510,
+                                'height'                        : 860,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe'
+                        });
+                       
+                                
+                });
+//End CCS script
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-59F21405
+function bind_events() {
+    if (functionExists("incHeader_bind_events")) incHeader_bind_events();
+    if (functionExists("incMenu_bind_events")) incMenu_bind_events();
+    if (functionExists("incFooter_bind_events")) incFooter_bind_events();
+    addEventHandler("Button1", "click", Button1_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+{incHeader} 
+<table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-RIGHT: 5px; PADDING-TOP: 5px; box-pack: center; box-align: center" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 3px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 3px; WIDTH: 100%; PADDING-RIGHT: 3px; VERTICAL-ALIGN: middle; PADDING-TOP: 3px; align: center; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td colspan="2" align="center">{incMenu}</td>
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Record mfi_docsSearch -->
+            <form id="mfi_docsSearch" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_SearchFormPrefix} {res:mfi_docs} {res:CCS_SearchFormSuffix}</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2">{Error}</td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="mfi_docsSearchs_mfi_docs_mfi_doc_region">{res:mfi_docs_mfi_doc_region}</label></td> 
+                        <td><input id="mfi_docsSearchs_mfi_docs_mfi_doc_region" name="{s_mfi_docs_mfi_doc_region_Name}" maxlength="36" value="{s_mfi_docs_mfi_doc_region}" size="36"></td>
+                      </tr>
+ 
+                      <tr class="Controls">
+                        <td class="th"><label for="mfi_docsSearchs_mfi_docs_batch_code">{res:mfi_docs_batch_code}</label></td> 
+                        <td><input id="mfi_docsSearchs_mfi_docs_batch_code" name="{s_mfi_docs_batch_code_Name}" maxlength="20" value="{s_mfi_docs_batch_code}" size="20"></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="2" align="right">
+                          <!-- BEGIN Button Button_DoSearch --><input id="mfi_docsSearchButton_DoSearch" class="Button" name="{Button_Name}" alt="{res:CCS_Search}" value="{res:CCS_Search}" type="submit"><!-- END Button Button_DoSearch --></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record mfi_docsSearch --></td>
+        </tr>
+ 
+        <tr>
+          <td>
+            <!-- BEGIN Report mfi_docs -->
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top">
+                  <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      <td class="th"><strong>{res:CCS_ReportFormPrefix} {res:mfi_docs} {res:CCS_ReportFormSuffix}</strong></td> 
+                      <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                    </tr>
+                  </table>
+ 
+                  <table class="Grid" cellspacing="0" cellpadding="0">
+                    <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+                    <!-- BEGIN Section Page_Header --><!-- END Section Page_Header -->
+                    <!-- BEGIN Section Page_Footer -->
+                    <tr class="Footer">
+                      <td>{Report_CurrentDate}</td> 
+                      <td style="TEXT-ALIGN: right" colspan="3">{res:CCS_ReportPageNumber1} {Report_CurrentPage} {res:CCS_ReportPageNumber2} {Report_TotalPages} 
+                        <!-- BEGIN Navigator Navigator -->
+                        <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a><font color="#000000"></font><!-- END First_On -->
+                        <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                        <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a><font color="#000000"></font><!-- END Prev_On -->
+                        <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->
+                        <!-- BEGIN Pages -->
+                        <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a><!-- END Page_On -->
+                        <!-- BEGIN Page_Off -->{Page_Number}<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of}{Total_Pages} 
+                        <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a><font color="#000000"></font><!-- END Next_On -->
+                        <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                        <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a><font color="#000000"></font><!-- END Last_On -->
+                        <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator --></td>
+                    </tr>
+ <!-- END Section Page_Footer -->
+                    <!-- BEGIN Section mfi_docs_mfi_doc_region_Header -->
+                    <tr class="GroupCaption">
+                      <th style="BACKGROUND-COLOR: #fcdeff; FONT-SIZE: 11pt" scope="col">{mfi_docs_mfi_doc_region} </th>
+                    </tr>
+ <!-- END Section mfi_docs_mfi_doc_region_Header -->
+                    <!-- BEGIN Section mfi_docs_batch_code_Header -->
+                    <tr style="FONT-SIZE: 9pt">
+                      <td>{mfi_docs_batch_code} </td> <!-- END Section mfi_docs_batch_code_Header -->
+                      <!-- BEGIN Section Detail -->
+                      <td align="center">{mfi_doc_type} <br>
+                        {PAGE_COUNT} </td> <!-- END Section Detail -->
+                      <!-- BEGIN Section mfi_docs_batch_code_Footer -->
+                      <td style="TEXT-ALIGN: right; COLOR: blue" valign="baseline" nowrap><b>TOTAL PAGES<br>
+                        {Sum_PAGE_COUNT1}</b> </td>
+                    </tr>
+ <!-- END Section mfi_docs_batch_code_Footer -->
+                    <!-- BEGIN Section mfi_docs_mfi_doc_region_Footer -->
+                    <tr class="SubTotal">
+                      <td style="TEXT-ALIGN: right; FONT-SIZE: 10pt" colspan="2" nowrap>{mfi_docs_mfi_doc_region1} Total Pending &nbsp; </td> 
+                      <td style="TEXT-ALIGN: right; FONT-SIZE: 10pt" valign="baseline" colspan="2" nowrap>{Sum_PAGE_COUNT} </td>
+                    </tr>
+ <!-- END Section mfi_docs_mfi_doc_region_Footer -->
+                    <!-- BEGIN Section Report_Footer -->
+                    <!-- BEGIN Panel NoRecords -->
+                    <tr class="NoRecords">
+                      <td colspan="4">{res:CCS_NoRecords}</td>
+                    </tr>
+ <!-- END Panel NoRecords -->
+                    <tr class="Total">
+                      <td style="COLOR: red; FONT-SIZE: 11pt" valign="baseline">ALL Regions Total Pending </td> 
+                      <td>&nbsp; </td> 
+                      <td>&nbsp; </td> 
+                      <td style="TEXT-ALIGN: right; COLOR: red; FONT-SIZE: 11pt" valign="baseline">{TotalSum_PAGE_COUNT} </td>
+                    </tr>
+ <!-- END Section Report_Footer -->
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!-- END Report mfi_docs --></td> 
+          <td valign="top" align="left">
+            <!-- BEGIN Record batch_detailsSearch -->
+            <form id="batch_detailsSearch" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td valign="top">
+                    <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_SearchFormPrefix} {res:batch_details} {res:CCS_SearchFormSuffix}</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="2">{Error}</td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td class="th"><label for="batch_detailsSearchs_mfi_doc_region">{res:mfi_doc_region}</label></td> 
+                        <td><input id="batch_detailsSearchs_mfi_doc_region" name="{s_mfi_doc_region_Name}" maxlength="30" value="{s_mfi_doc_region}" size="30"></td>
+                      </tr>
+ 
+                      <tr class="Bottom">
+                        <td colspan="2" align="right">
+                          <!-- BEGIN Button Button_DoSearch --><input id="batch_detailsSearchButton_DoSearch" class="Button" name="{Button_Name}" alt="{res:CCS_Search}" value="{res:CCS_Search}" type="submit"><!-- END Button Button_DoSearch --></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record batch_detailsSearch --><br>
+            <!-- BEGIN Report batch_details -->
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td valign="top">
+                  <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                      <td class="th"><strong>{res:CCS_ReportFormPrefix} {res:batch_details} {res:CCS_ReportFormSuffix}</strong></td> 
+                      <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                    </tr>
+                  </table>
+ 
+                  <table class="Grid" cellspacing="0" cellpadding="0">
+                    <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+                    <!-- BEGIN Section Page_Header --><!-- END Section Page_Header -->
+                    <!-- BEGIN Section Page_Footer -->
+                    <tr class="Footer">
+                      <td>{Report_CurrentDate}</td> 
+                      <td style="TEXT-ALIGN: right" colspan="3">{res:CCS_ReportPageNumber1} {Report_CurrentPage} {res:CCS_ReportPageNumber2} {Report_TotalPages} 
+                        <!-- BEGIN Navigator Navigator -->
+                        <!-- BEGIN First_On --><a href="{First_URL}">{res:CCS_First}</a> <!-- END First_On -->
+                        <!-- BEGIN First_Off -->{res:CCS_First} <!-- END First_Off -->
+                        <!-- BEGIN Prev_On --><a href="{Prev_URL}">{res:CCS_Previous}</a> <!-- END Prev_On -->
+                        <!-- BEGIN Prev_Off -->{res:CCS_Previous} <!-- END Prev_Off -->&nbsp; 
+                        <!-- BEGIN Pages -->
+                        <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+                        <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->{res:CCS_Of} &nbsp;{Total_Pages}&nbsp; 
+                        <!-- BEGIN Next_On --><a href="{Next_URL}">{res:CCS_Next}</a> <!-- END Next_On -->
+                        <!-- BEGIN Next_Off -->{res:CCS_Next} <!-- END Next_Off -->
+                        <!-- BEGIN Last_On --><a href="{Last_URL}">{res:CCS_Last}</a> <!-- END Last_On -->
+                        <!-- BEGIN Last_Off -->{res:CCS_Last} <!-- END Last_Off --><!-- END Navigator Navigator --></td>
+                    </tr>
+ <!-- END Section Page_Footer -->
+                    <!-- BEGIN Section mfi_doc_region_Header -->
+                    <tr class="GroupCaption">
+                      <th scope="col">{mfi_doc_region} </th>
+                    </tr>
+ <!-- END Section mfi_doc_region_Header -->
+                    <!-- BEGIN Section batch_code_Header -->
+                    <tr class="GroupCaption">
+                      <th scope="col">Batch Code </th>
+ 
+                      <th scope="col">CA alloted </th>
+ 
+                      <th scope="col">Status </th>
+                    </tr>
+ <!-- END Section batch_code_Header -->
+                    <!-- BEGIN Section Detail -->
+                    <tr class="Row">
+                      <td>{batch_code} </th>
+ 
+                        <td>{ca_alloted} </td> 
+                        <td>{status} </td>
+                      </tr>
+ <!-- END Section Detail -->
+                      <!-- BEGIN Section batch_code_Footer --><!-- END Section batch_code_Footer -->
+                      <!-- BEGIN Section mfi_doc_region_Footer --><!-- END Section mfi_doc_region_Footer -->
+                      <!-- BEGIN Section Report_Footer -->
+                      <!-- BEGIN Panel NoRecords -->
+                      <tr class="NoRecords">
+                        <td colspan="4">{res:CCS_NoRecords}</td>
+                      </tr>
+ <!-- END Panel NoRecords --><!-- END Section Report_Footer -->
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!-- END Report batch_details --><br>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td>
+</tr>
+</table>
+{incFooter} 
+</body>
+</html>

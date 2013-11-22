@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>CAMS::Credit Appraisal Management System</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.3.00.7676">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script>
+                !window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen">
+<link rel="stylesheet" href="style.css">
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+
+//End Include Common JSFunctions
+
+//mfi_docs_OnLoad @29-DF3CCF76
+function mfi_docs_OnLoad(form)
+{
+    var result = true;
+//End mfi_docs_OnLoad
+
+//Custom Code @50-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+document.getElementById("sat").src=document.getElementById("mfi_docsmfi_doc_path").value+"/"+document.getElementById("mfi_docsmfi_doc_filename").value;
+document.getElementById("mfi_docsmfi_doc_status").value="DATA ENTERED";
+setformType();
+updateToTagging();
+cache_image();
+//Close mfi_docs_OnLoad @29-BC33A33A
+    return result;
+}
+//End Close mfi_docs_OnLoad
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @5-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+    // -------------------------
+//End Custom Code
+ var myCookie = getCookie("docregion");
+    if (myCookie == null)
+         document.getElementById("mfi_docsImageLink1").click();
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//bind_events @1-820E54A2
+function bind_events() {
+    addEventHandler("mfi_docs", "load", mfi_docs_OnLoad);
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<script language="JavaScript" type="text/javascript">
+function updateToTagging(){
+  var fd = new FormData();
+ fd.append("mfi_doc_id",document.getElementById("mfi_docsmfi_doc_id").value)
+ fd.append("added_by",document.getElementById("mfi_docsmfi_doc_entered_by").value);
+  updatedocs(fd);
+}
+  function updatedocs(fd){
+                var xhr = new XMLHttpRequest();
+        xhr.upload.addEventListener("progress", uploadProgress, false);
+        xhr.addEventListener("load", uploadComplete, false);
+        xhr.open("POST", "services/docEntryUpdateDocEntryStatus.php");
+        xhr.send(fd);
+      }
+
+      function uploadProgress(evt) {
+        if (evt.lengthComputable) {
+       //   alert("UPLOAD in Progess Please Wait");
+          }
+        else {
+          document.getElementById('progressNumber').innerHTML = 'unable to compute';
+        }
+      }
+
+      function uploadComplete(evt) {
+        /* This event is raised when the server send back a response */
+       //         alert("Uploaded Successfully");
+        }
+//cacheing next image
+function cache_image()
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+        Image1= new Image(150,20)
+		Image1.src = document.getElementById("mfi_docsmfi_doc_path").value+"/"+xmlhttp.responseText;
+		
+   }
+  }
+   
+xmlhttp.open("POST","satnextimagecache.php",true);
+xmlhttp.send();
+}
+
+
+//check region cookie exists or not
+function getCookie(name) {
+     var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+} 
+
+function doSomething() 
+{
+    var myCookie = getCookie("docregion");
+
+    if (myCookie == null) 
+	{
+        // do cookie doesn't exist stuff;
+    }
+    else 
+	{
+        // do cookie exists stuff
+    }
+}
+function setformType()
+{
+if(document.getElementById("ListBox3").value!="")
+document.getElementById("mfi_docsmfi_doc_type").value=document.getElementById("ListBox3").value;
+switch(document.getElementById("mfi_docsmfi_doc_type").value)
+{
+ case "CP":
+ document.getElementById("setform").src="CPform.php";
+ break;
+ case "KYC":
+ document.getElementById("setform").src="kyc.php";
+ break;
+ case "LA1":
+ document.getElementById("setform").src="LAForm1.php";
+ break;
+ case "LA2":
+ document.getElementById("setform").src="LAForm2.php";
+ break;
+ case "INVALID IMAGE":
+ var s=window.confirm("Cancel This Image");
+         if(s)
+         {
+            document.getElementById("mfi_docsmfi_doc_status").value="INVALID IMAGE";
+            document.getElementById("mfi_docsButton_Update").click();
+        }
+
+        break;
+ 
+}
+
+}
+function setroutecode(obj)
+{
+ht=document.getElementById("mfi_docsmfi_doc_type").value;
+rc="13-"+obj.value+"-"+document.getElementById("ListBox1").value.substr(3);
+var ifr = document.getElementById("setform");
+var ifrDoc = ifr.contentDocument || ifr.contentWindow.document;
+var theForm = ifrDoc.getElementById("PagePanelEntryHV1Panelmfi_hvf1");
+        switch(ht)
+        {
+         case "CP":
+                ifrDoc.getElementById("PanelCPmfi_cpcp_route").value=rc;
+                                ifrDoc.getElementById("PanelCPmfi_cpcp_id").value=rc.substr(8,2);
+         break;
+         case "LA1":
+                 ifrDoc.getElementById("PagePanelEntryHV1Panelmfi_hvf1hv_route").value=rc;
+        		ifrDoc.getElementById("PagePanelEntryHV1Panelmfi_hvf1la_id").value=rc.substr(8,2);
+        		var filename=document.getElementById("mfi_docsmfi_doc_filename").value;
+        		var gp_no=filename.substr(1,7);
+        		ifrDoc.getElementById("mfi_hvf1gp_no").value=gp_no;
+         break;
+                 case "LA2":
+             ifrDoc.getElementById("mfi_la2la2_route").value=rc;
+                         
+         break;
+    }
+}
+function changeRegion()
+{
+window.open("ChangeRegionBatch.php","_blank","toolbar=no, location=yes, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=200, height=200");
+var rgnname=prompt("Enter Region Name For Dataentry","");
+                 if (rgnname!=null && rgnname!="")
+                 {
+                           switch(rgnname)
+                           {
+                                case "COIMBATORE":
+                                rgncode="RO-TN04-COIMB";
+                                break;
+                                case "HAVERI":
+                                rgncode="RO-KA03-HAVRI";
+                                break;
+                                case "TANJAVUR":
+                                rgncode="RO-TN04-TNJVR";
+                                break;
+                                case "GADAG":
+                                rgncode="RO-KA03-GADAG";
+                                break;
+                                case "NAGAPATTINAM":
+                                rgncode="RO-TN04-NGPTM";
+                                break;
+                                case "DAVANGERE":
+                                rgncode="RO-KA03-DVGRE";
+                                break;
+                                default:
+                                _OnLoad();
+                                break;
+
+                           }
+                        var date = new Date();
+                date.setTime(date.getTime()+(180*60*1000));
+                document.cookie = "docregion="+rgncode+"; expires="+date.toGMTString()+"; path=/";
+                        window.location.reload();
+         }
+}
+$(document).ready(function() {
+                                
+                            $("a#mfi_docsImageLink1").fancybox({
+                                'width'                         : 400,
+                                'height'                        : 150,
+                                'autoScale'                     : false,
+                                'transitionIn'          : 'elastic',
+                                'transitionOut'         : 'elastic',
+                                'type'                          : 'iframe',
+                                                                'onCleanup' : function() {
+                                                                         window.location.reload(true);}
+                        });
+});
+
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/SilverBlue/Style_doctype.css">
+</head>
+<body style="BACKGROUND-COLOR: #1c415e" leftmargin="0" topmargin="0" valign="top" align="center">
+<table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #1c415e; PADDING-LEFT: 5px; PADDING-TOP: 5px; box-pack: center; box-align: center" border="1" cellspacing="0" cellpadding="0" width="100%" align="center">
+  <tr>
+    <td align="right"><a href="{ImageLink1}" id="ImageLink1"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 44px; HEIGHT: 36px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{ImageLink1}" src="images/home.jpg" width="47" height="45"></a></td>
+  </tr>
+ 
+  <tr>
+    <td>
+      <table style="PADDING-BOTTOM: 5px; BACKGROUND-COLOR: #ffffff; PADDING-LEFT: 5px; WIDTH: 100%; VERTICAL-ALIGN: middle; PADDING-TOP: 5px; align: center; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; border-size: 2px" border="0" cellspacing="0" cellpadding="0" align="left">
+        <tr>
+          <td colspan="2">
+            <!-- BEGIN Record mfi_docs -->
+            <form style="WIDTH: 100%" id="mfi_docs" method="post" name="{HTMLFormName}" action="{Action}">
+              <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                  <td valign="top">
+                    <table style="DISPLAY: none" class="Header" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td class="HeaderLeft"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td> 
+                        <td class="th"><strong>{res:CCS_RecordFormPrefix} {res:mfi_docs} {res:CCS_RecordFormSuffix}</strong></td> 
+                        <td class="HeaderRight"><img border="0" alt="" src="Styles/SilverBlue/Images/Spacer.gif"></td>
+                      </tr>
+                    </table>
+ 
+                    <table class="Record" cellspacing="0" cellpadding="0">
+                      <!-- BEGIN Error -->
+                      <tr class="Error">
+                        <td colspan="10">{Error}</td>
+                      </tr>
+                      <!-- END Error -->
+                      <tr class="Controls">
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_id" name="{mfi_doc_id_Name}" value="{mfi_doc_id}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_filename" name="{mfi_doc_filename_Name}" value="{mfi_doc_filename}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_path" name="{mfi_doc_path_Name}" value="{mfi_doc_path}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_type" name="{mfi_doc_type_Name}" value="{mfi_doc_type}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_region" name="{mfi_doc_region_Name}" value="{mfi_doc_region}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_territory_code" name="{mfi_doc_territory_code_Name}" value="{mfi_doc_territory_code}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_entered_by" name="{mfi_doc_entered_by_Name}" value="{mfi_doc_entered_by}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_status" name="{mfi_doc_status_Name}" value="{mfi_doc_status}" type="hidden"></td> 
+                        <td style="DISPLAY: none"><input id="mfi_docsmfi_doc_updatedon" name="{mfi_doc_updatedon_Name}" value="{mfi_doc_updatedon}" type="hidden"></td> 
+                        <td><label for="mfi_docsdoc_rejection_reason" style="display: none;">doc_rejection_reason</label>
+<select name="{doc_rejection_reason_Name}" id="mfi_docsdoc_rejection_reason">
+  <option value="">{res:CCS_SelectValue}</option>
+  {doc_rejection_reason_Options}
+</select>
+</td> 
+                        <td align="right">
+                          <!-- BEGIN Button Button_Update --><input id="mfi_docsButton_Update" class="Button" name="{Button_Name}" alt="{res:CCS_Update}" value="{res:CCS_Update}" type="submit"><!-- END Button Button_Update --></td>
+                      </tr>
+                    </table>
+                  </td> 
+                  <td>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td nowrap align="left"><font size="3"><b>Region:</b><font color="blue" size="4">{Label2}</font></font></td> 
+                        <td nowrap align="left"><font size="3"><b>Pending Cases:</b> <strong><font color="red" size="4">{Label1}</font></strong></font><font color="red"></font></td> 
+                        <td colspan="2">&nbsp;</td> 
+                        <td width="100%" colspan="2" align="right"><a href="{ImageLink1}" id="mfi_docsImageLink1"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" id="ImageLink1" alt="{ImageLink1}" src="images/ChangeRegion.png" width="150" height="20"></a></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <!-- END Record mfi_docs --></td>
+        </tr>
+ 
+        <tr>
+          <td colspan="3" align="left"><font size="2">Select Form Type</font> 
+            <select id="ListBox3" onchange="setformType();" name="{ListBox3_Name}">
+              <option selected value="">{res:CCS_SelectValue}</option>
+              {ListBox3_Options}
+            </select>
+ BRANCH 
+            <select id="ListBox1" name="{ListBox1_Name}">
+              <option selected value="">{res:CCS_SelectValue}</option>
+              {ListBox1_Options}
+            </select>
+ RouteCode 
+            <select id="ListBox2" onchange="setroutecode(this);" name="{ListBox2_Name}">
+              <option selected value="">{res:CCS_SelectValue}</option>
+              {ListBox2_Options}
+            </select>
+ </td>
+        </tr>
+ 
+        <tr>
+          <td height="950" valign="top" width="600"><br>
+            <div style="WIDTH: 100%; HEIGHT: 100%; OVERFLOW: hidden">
+              <img style="MARGIN: -1% -3% -1% -5%; WIDTH: 108%; HEIGHT: 100%" id="sat" src="images/0007_001.jpg">
+            </div>
+          </td> 
+          <td height="100%" width="50%"><iframe id="setform" height="105%" src="" frameborder="0" width="720" name="setform" marginwidth="0" scrolling="no" align="center"></iframe></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
